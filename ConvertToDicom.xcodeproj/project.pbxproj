@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D3A18E078EE007EAF0A /* Cocoa.framework */; };
+		22F99D4518E078EE007EAF0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D4318E078EE007EAF0A /* InfoPlist.strings */; };
+		22F99D4718E078EE007EAF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F99D4618E078EE007EAF0A /* main.m */; };
+		22F99D4B18E078EE007EAF0A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D4918E078EE007EAF0A /* Credits.rtf */; };
+		22F99D4E18E078EE007EAF0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F99D4D18E078EE007EAF0A /* AppDelegate.m */; };
+		22F99D5118E078EE007EAF0A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D4F18E078EE007EAF0A /* MainMenu.xib */; };
+		22F99D5318E078EE007EAF0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D5218E078EE007EAF0A /* Images.xcassets */; };
+		22F99D5A18E078EE007EAF0A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D5918E078EE007EAF0A /* XCTest.framework */; };
+		22F99D5B18E078EE007EAF0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D3A18E078EE007EAF0A /* Cocoa.framework */; };
+		22F99D6318E078EE007EAF0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D6118E078EE007EAF0A /* InfoPlist.strings */; };
+		22F99D6518E078EE007EAF0A /* ConvertToDicomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F99D6418E078EE007EAF0A /* ConvertToDicomTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22F99D5C18E078EE007EAF0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22F99D2F18E078EE007EAF0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22F99D3618E078EE007EAF0A;
+			remoteInfo = ConvertToDicom;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22F99D3718E078EE007EAF0A /* ConvertToDicom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToDicom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F99D3A18E078EE007EAF0A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		22F99D3D18E078EE007EAF0A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		22F99D3E18E078EE007EAF0A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		22F99D3F18E078EE007EAF0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22F99D4218E078EE007EAF0A /* ConvertToDicom-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConvertToDicom-Info.plist"; sourceTree = "<group>"; };
+		22F99D4418E078EE007EAF0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22F99D4618E078EE007EAF0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22F99D4818E078EE007EAF0A /* ConvertToDicom-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConvertToDicom-Prefix.pch"; sourceTree = "<group>"; };
+		22F99D4A18E078EE007EAF0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		22F99D4C18E078EE007EAF0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		22F99D4D18E078EE007EAF0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		22F99D5018E078EE007EAF0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		22F99D5218E078EE007EAF0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		22F99D5818E078EE007EAF0A /* ConvertToDicomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvertToDicomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F99D5918E078EE007EAF0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		22F99D6018E078EE007EAF0A /* ConvertToDicomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConvertToDicomTests-Info.plist"; sourceTree = "<group>"; };
+		22F99D6218E078EE007EAF0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22F99D6418E078EE007EAF0A /* ConvertToDicomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConvertToDicomTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22F99D3418E078EE007EAF0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F99D5518E078EE007EAF0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D5B18E078EE007EAF0A /* Cocoa.framework in Frameworks */,
+				22F99D5A18E078EE007EAF0A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22F99D2E18E078EE007EAF0A = {
+			isa = PBXGroup;
+			children = (
+				22F99D4018E078EE007EAF0A /* ConvertToDicom */,
+				22F99D5E18E078EE007EAF0A /* ConvertToDicomTests */,
+				22F99D3918E078EE007EAF0A /* Frameworks */,
+				22F99D3818E078EE007EAF0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22F99D3818E078EE007EAF0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D3718E078EE007EAF0A /* ConvertToDicom.app */,
+				22F99D5818E078EE007EAF0A /* ConvertToDicomTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22F99D3918E078EE007EAF0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D3A18E078EE007EAF0A /* Cocoa.framework */,
+				22F99D5918E078EE007EAF0A /* XCTest.framework */,
+				22F99D3C18E078EE007EAF0A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22F99D3C18E078EE007EAF0A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D3D18E078EE007EAF0A /* AppKit.framework */,
+				22F99D3E18E078EE007EAF0A /* CoreData.framework */,
+				22F99D3F18E078EE007EAF0A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		22F99D4018E078EE007EAF0A /* ConvertToDicom */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D4C18E078EE007EAF0A /* AppDelegate.h */,
+				22F99D4D18E078EE007EAF0A /* AppDelegate.m */,
+				22F99D4F18E078EE007EAF0A /* MainMenu.xib */,
+				22F99D5218E078EE007EAF0A /* Images.xcassets */,
+				22F99D4118E078EE007EAF0A /* Supporting Files */,
+			);
+			path = ConvertToDicom;
+			sourceTree = "<group>";
+		};
+		22F99D4118E078EE007EAF0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D4218E078EE007EAF0A /* ConvertToDicom-Info.plist */,
+				22F99D4318E078EE007EAF0A /* InfoPlist.strings */,
+				22F99D4618E078EE007EAF0A /* main.m */,
+				22F99D4818E078EE007EAF0A /* ConvertToDicom-Prefix.pch */,
+				22F99D4918E078EE007EAF0A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22F99D5E18E078EE007EAF0A /* ConvertToDicomTests */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D6418E078EE007EAF0A /* ConvertToDicomTests.m */,
+				22F99D5F18E078EE007EAF0A /* Supporting Files */,
+			);
+			path = ConvertToDicomTests;
+			sourceTree = "<group>";
+		};
+		22F99D5F18E078EE007EAF0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22F99D6018E078EE007EAF0A /* ConvertToDicomTests-Info.plist */,
+				22F99D6118E078EE007EAF0A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22F99D3618E078EE007EAF0A /* ConvertToDicom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F99D6818E078EE007EAF0A /* Build configuration list for PBXNativeTarget "ConvertToDicom" */;
+			buildPhases = (
+				22F99D3318E078EE007EAF0A /* Sources */,
+				22F99D3418E078EE007EAF0A /* Frameworks */,
+				22F99D3518E078EE007EAF0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConvertToDicom;
+			productName = ConvertToDicom;
+			productReference = 22F99D3718E078EE007EAF0A /* ConvertToDicom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22F99D5718E078EE007EAF0A /* ConvertToDicomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F99D6B18E078EE007EAF0A /* Build configuration list for PBXNativeTarget "ConvertToDicomTests" */;
+			buildPhases = (
+				22F99D5418E078EE007EAF0A /* Sources */,
+				22F99D5518E078EE007EAF0A /* Frameworks */,
+				22F99D5618E078EE007EAF0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22F99D5D18E078EE007EAF0A /* PBXTargetDependency */,
+			);
+			name = ConvertToDicomTests;
+			productName = ConvertToDicomTests;
+			productReference = 22F99D5818E078EE007EAF0A /* ConvertToDicomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22F99D2F18E078EE007EAF0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tim Allman";
+				TargetAttributes = {
+					22F99D5718E078EE007EAF0A = {
+						TestTargetID = 22F99D3618E078EE007EAF0A;
+					};
+				};
+			};
+			buildConfigurationList = 22F99D3218E078EE007EAF0A /* Build configuration list for PBXProject "ConvertToDicom" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22F99D2E18E078EE007EAF0A;
+			productRefGroup = 22F99D3818E078EE007EAF0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22F99D3618E078EE007EAF0A /* ConvertToDicom */,
+				22F99D5718E078EE007EAF0A /* ConvertToDicomTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22F99D3518E078EE007EAF0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D4518E078EE007EAF0A /* InfoPlist.strings in Resources */,
+				22F99D5318E078EE007EAF0A /* Images.xcassets in Resources */,
+				22F99D4B18E078EE007EAF0A /* Credits.rtf in Resources */,
+				22F99D5118E078EE007EAF0A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F99D5618E078EE007EAF0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D6318E078EE007EAF0A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22F99D3318E078EE007EAF0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D4E18E078EE007EAF0A /* AppDelegate.m in Sources */,
+				22F99D4718E078EE007EAF0A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F99D5418E078EE007EAF0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F99D6518E078EE007EAF0A /* ConvertToDicomTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22F99D5D18E078EE007EAF0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22F99D3618E078EE007EAF0A /* ConvertToDicom */;
+			targetProxy = 22F99D5C18E078EE007EAF0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22F99D4318E078EE007EAF0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F99D4418E078EE007EAF0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		22F99D4918E078EE007EAF0A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F99D4A18E078EE007EAF0A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		22F99D4F18E078EE007EAF0A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F99D5018E078EE007EAF0A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		22F99D6118E078EE007EAF0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F99D6218E078EE007EAF0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22F99D6618E078EE007EAF0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		22F99D6718E078EE007EAF0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		22F99D6918E078EE007EAF0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConvertToDicom/ConvertToDicom-Prefix.pch";
+				INFOPLIST_FILE = "ConvertToDicom/ConvertToDicom-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		22F99D6A18E078EE007EAF0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConvertToDicom/ConvertToDicom-Prefix.pch";
+				INFOPLIST_FILE = "ConvertToDicom/ConvertToDicom-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		22F99D6C18E078EE007EAF0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ConvertToDicom.app/Contents/MacOS/ConvertToDicom";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConvertToDicom/ConvertToDicom-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ConvertToDicomTests/ConvertToDicomTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		22F99D6D18E078EE007EAF0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ConvertToDicom.app/Contents/MacOS/ConvertToDicom";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConvertToDicom/ConvertToDicom-Prefix.pch";
+				INFOPLIST_FILE = "ConvertToDicomTests/ConvertToDicomTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22F99D3218E078EE007EAF0A /* Build configuration list for PBXProject "ConvertToDicom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F99D6618E078EE007EAF0A /* Debug */,
+				22F99D6718E078EE007EAF0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F99D6818E078EE007EAF0A /* Build configuration list for PBXNativeTarget "ConvertToDicom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F99D6918E078EE007EAF0A /* Debug */,
+				22F99D6A18E078EE007EAF0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22F99D6B18E078EE007EAF0A /* Build configuration list for PBXNativeTarget "ConvertToDicomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F99D6C18E078EE007EAF0A /* Debug */,
+				22F99D6D18E078EE007EAF0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22F99D2F18E078EE007EAF0A /* Project object */;
+}
