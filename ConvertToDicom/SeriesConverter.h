@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class DicomInfo;
+
 @interface SeriesConverter : NSObject
 {
     NSURL* inputDir;
@@ -17,6 +19,7 @@
 
 - (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir;
 - (NSUInteger)loadFileNames;
+- (void)extractDicomAttributes:(DicomInfo*)dicomInfo;
 - (void)readFiles;
 - (void)writeFiles;
 

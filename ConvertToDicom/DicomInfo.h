@@ -19,33 +19,26 @@ extern NSString* ImageSliceThicknessKey;
  */
 @interface DicomInfo : NSObject
 {
-    NSString* patientsSex;
-    NSDate* studyDateTime;
+//    NSString* patientsSex;
+//    NSDate* studyDateTime;
 }
 
 @property (strong) IBOutlet NSString* patientsName;
 @property (strong) IBOutlet NSString* patientsID;
 @property (strong) IBOutlet NSDate* patientsDOB;
-//@property (strong) IBOutlet NSString* patientsSex;
+@property (strong) IBOutlet NSString* patientsSex;
 @property (strong) IBOutlet NSString* studyDescription;
 @property (strong) IBOutlet NSString* studyID;
 @property (strong) IBOutlet NSString* studyModality;
-//@property (strong) IBOutlet NSDate* studyDateTime;
+@property (strong) IBOutlet NSDate* studyDateTime;
 @property (strong) IBOutlet NSString* studySeriesUID;
-//@property (strong) IBOutlet NSNumber* imageSliceThickness;
+@property (strong) IBOutlet NSNumber* imageSliceThickness;
 @property (strong) IBOutlet NSNumber* imagePatientPositionX;
 @property (strong) IBOutlet NSNumber* imagePatientPositionY;
 @property (strong) IBOutlet NSNumber* imagePatientPositionZ;
-
 @property (strong) IBOutlet NSString* imagePatientOrientation;
 
 + (void)initialize;
 - (id)init;
-
-+ (NSString*)patientsSex;
-+ (void)setPatientsSex:(NSString*)sex;
-+ (NSDate*)studyDateTime;
-+ (void)setStudyDateTime:(NSDate*)dateTime;
-+ (NSNumber*)imageSliceThickness;
 
 @end

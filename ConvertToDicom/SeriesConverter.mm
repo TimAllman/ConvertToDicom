@@ -6,17 +6,18 @@
 //  Copyright (c) 2014 Tim Allman. All rights reserved.
 //
 
+#import "Typedefs.h"
 #import "SeriesConverter.h"
-#import "ProjectDefs.h"
+#import "DicomInfo.h"
 
-#include "FileReader.h"
+#include "ImageReader.h"
 #include "DicomSeriesWriter.h"
 
 #include <vector>
 
 @interface SeriesConverter()
 {
-    std::vector<Image2DType::Pointer> images;
+    std::vector<Image2DType::Pointer> imageStack;
 }
 
 @end
@@ -33,6 +34,26 @@
         fileNames = [NSMutableArray array];
     }
     return self;
+}
+
+- (void)extractDicomAttributes:(DicomInfo *)dicomInfo
+{
+    // Take the information we need from the first image
+    ImageReader reader;
+    ImageReader::ImageVector images = reader.ReadImage([[[fileNames objectAtIndex:0] path] UTF8String]);
+    Image2DType::Pointer firstImage = images[0];
+
+    // use for creating strings below.
+    std::ostringstream value;
+
+    // Set the Image Orientation Patient attribute from the image direction info.
+    Image2DType::DirectionType dir = firstImage->GetDirection();
+    value << dir[0][0] << "\\" << dir[0][1] << "\\" << dir[0][2] << "\\"
+    << dir[1][0] << "\\" << dir[1][1] << "\\" << dir[1][2];
+    std::string imageOrientationPatient = value.str();
+    dicomInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
+
+    
 }
 
 - (NSUInteger)loadFileNames
@@ -86,18 +107,19 @@
     }
 
     // Read in all of the slices
-    FileReader reader;
+    ImageReader reader;
     for (std::vector<std::string>::iterator iter = paths.begin(); iter != paths.end(); ++iter)
     {
-        Image2DType::Pointer image = reader.ReadImage(*iter);
-        images.push_back(image);
+        ImageReader::ImageVector imageVec = reader.ReadImage(*iter);
+        for (ImageReader::ImageVector::const_iterator iter = imageVec.begin(); iter != imageVec.end(); ++iter)
+            imageStack.push_back(*iter);
     }
 }
 
 - (void)writeFiles
 {
     // Now write them out
-    DicomSeriesWriter writer(images, [[outputDir path] UTF8String], 314159u);
+    DicomSeriesWriter writer(imageStack, [[outputDir path] UTF8String], 314159u);
     writer.WriteFileSeries();
 }
 

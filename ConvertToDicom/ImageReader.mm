@@ -1,12 +1,15 @@
 //
-//  FileReader.cpp
+//  ImageReader.cpp
 //  ConvertToDicom
 //
 //  Created by Tim Allman on 2014-03-27.
 //  Copyright (c) 2014 Tim Allman. All rights reserved.
 //
 
-#include "FileReader.h"
+#include "Typedefs.h"
+#include "ImageReader.h"
+
+#include <itkImage.h>
 
 #include <itkImageFileReader.h>
 #include <itkNrrdImageIOFactory.h>
@@ -32,8 +35,10 @@
 #include <itkTIFFImageIOFactory.h>
 #include <itkVTKImageIOFactory.h>
 
+#include <itkExtractImageFilter.h>
 
-FileReader::FileReader()
+
+ImageReader::ImageReader()
 {
     itk::BioRadImageIOFactory::RegisterOneFactory();
     itk::BMPImageIOFactory::RegisterOneFactory();
@@ -56,21 +61,22 @@ FileReader::FileReader()
     itk::VTKImageIOFactory::RegisterOneFactory();
 }
 
-FileReader::~FileReader()
+ImageReader::~ImageReader()
 {
     //itk::ObjectFactoryBase::UnRegisterAllFactories();
 }
 
-Image2DType::Pointer FileReader::ReadImage(const std::string& name)
+ImageReader::ImageVector ImageReader::ReadImage(const std::string& name)
 {
-    typedef itk::ImageFileReader<Image2DType> ReaderType;
-    ReaderType::Pointer reader = ReaderType::New();
+    typedef itk::ImageIOBase::IOComponentType ScalarPixelType;
 
-    reader->SetFileName(name);
-    reader->Update();
-    Image2DType::Pointer image = reader->GetOutput();
+    itk::ImageIOBase::Pointer imageIO =
+        itk::ImageIOFactory::CreateImageIO(name.c_str(), itk::ImageIOFactory::ReadMode);
 
-    itk::ImageIOBase::Pointer imageIO = reader->GetImageIO();
+    imageIO->SetFileName(name);
+    imageIO->ReadImageInformation();
+
+//    itk::ImageIOBase::Pointer imageIO = reader->GetImageIO();
 
     typedef itk::ImageIOBase::IOComponentType ScalarPixelType;
     const ScalarPixelType pixelType = imageIO->GetComponentType();
@@ -83,6 +89,47 @@ Image2DType::Pointer FileReader::ReadImage(const std::string& name)
     std::cout << "pixel type (string): " << imageIO->GetPixelTypeAsString(imageIO->GetPixelType()) << std::endl;
     std::cout << "pixel type: " << imageIO->GetPixelType() << std::endl; // '5'
 
-    return image;
+    std::cout << "dimensions: ";
+    for (unsigned idx = 0; idx < numDimensions; ++idx)
+        std::cout << imageIO->GetDimensions(idx);
+    std::cout << "\n";
+
+    ImageVector images;
+
+    if (numDimensions == 2)
+    {
+        typedef itk::ImageFileReader<Image2DType> ReaderType;
+        ReaderType::Pointer reader = ReaderType::New();
+
+        reader->SetFileName(name);
+        reader->Update();
+        Image2DType::Pointer image = reader->GetOutput();
+
+        images.push_back(image);
+    }
+    else
+    {
+        typedef itk::ImageFileReader<Image3DType> ReaderType;
+        ReaderType::Pointer reader = ReaderType::New();
+
+        reader->SetFileName(name);
+        reader->Update();
+        Image3DType::Pointer image = reader->GetOutput();
+
+        Image3DType::RegionType region = image->GetLargestPossibleRegion();
+        Image3DType::SizeType size = region.GetSize();
+        unsigned numSlices = static_cast<unsigned>(size[2]);
+
+        for (unsigned sliceIdx = 0; sliceIdx < numSlices; ++sliceIdx)
+        {
+            typedef itk::ExtractImageFilter<Image3DType, Image2DType> ExtractFiltertype;
+            ExtractFiltertype::Pointer filter = ExtractFiltertype::New();
+            filter->SetInput(image);
+            region
+            images.push_back(image);
+        }
+    }
+
+    return images;
 }
 

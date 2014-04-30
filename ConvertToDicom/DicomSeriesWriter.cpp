@@ -14,7 +14,11 @@
 #include <itkNumericSeriesFileNames.h>
 #include <itkGDCMImageIO.h>
 #include <itkMetaDataDictionary.h>
+#include <itkMetaDataObject.h>
 #include <itkCastImageFilter.h>
+
+#include <itksys/SystemTools.hxx>
+
 #include <gdcmUIDGenerator.h>
 
 #include "DumpMetaDataDictionary.h"
@@ -98,12 +102,12 @@ void DicomSeriesWriter::WriteFileSeries()
         itk::EncapsulateMetaData<std::string>(dict, "0020|0037", imageOrientationPatient);
 
         // Date of creation of these images
-        itk::EncapsulateMetaData<std::string> (dict, "0008|0023", contentDate);
-        itk::EncapsulateMetaData<std::string> (dict, "0008|0033", contentTime);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0023", contentDate);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0033", contentTime);
 
         // These are processed images
-        itk::EncapsulateMetaData<std::string> (dict, "0008|0008", imageType);
-        itk::EncapsulateMetaData<std::string> (dict, "0008|0064", conversion);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0008", imageType);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0064", conversion);
 
         // Set the UID's for the series, SOP  and frame of reference
         itk::EncapsulateMetaData<std::string>(dict, "0020|000e", seriesUID);

@@ -93,11 +93,24 @@
         NSLog(@"dicomPanelController.window == nil");
         return;
     }
+    
+    SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:inputDir outputDir:outputDir];
+    if ([sc loadFileNames] == 0)
+    {
+        NSAlert* alert = [[NSAlert alloc] init];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert setMessageText:[@"Image file not found in directory " stringByAppendingString:[inputDir path]]];
+        [alert setInformativeText:@"Set the input directory to one containing image files."];
+        [alert beginSheetModalForWindow:dicomPanelController.window completionHandler:^(NSModalResponse result) { result = NSModalResponseContinue; }];
 
+        return;
+    };
+
+    [sc extractDicomAttributes:dicomPanelController.dicomInfo];
+    
     [NSApp beginSheet:dicomPanelController.window modalForWindow:self.window modalDelegate:self
        didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 
-    //[dicomPanelController showWindow:self];
 }
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

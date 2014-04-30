@@ -27,6 +27,8 @@ NSString* ImageSliceThicknessKey = @"ImageSliceThickness";
     [[NSUserDefaults standardUserDefaults]registerDefaults:defaults];
 }
 
+
+
 - (id)init
 {
     self = [super init];
