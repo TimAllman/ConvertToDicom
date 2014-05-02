@@ -19,7 +19,7 @@
 
 - (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir;
 - (NSUInteger)loadFileNames;
-- (void)extractDicomAttributes:(DicomInfo*)dicomInfo;
+- (void)extractSeriesDicomAttributes:(DicomInfo*)dicomInfo;
 - (void)readFiles;
 - (void)writeFiles;
 

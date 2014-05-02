@@ -13,6 +13,10 @@
 #include "ImageReader.h"
 #include "DicomSeriesWriter.h"
 
+#include <itkImage.h>
+#include <itkImageIOBase.h>
+#include <itkImageIOFactory.h>
+
 #include <vector>
 
 @interface SeriesConverter()
@@ -36,24 +40,40 @@
     return self;
 }
 
-- (void)extractDicomAttributes:(DicomInfo *)dicomInfo
+- (void)extractSeriesDicomAttributes:(DicomInfo *)dicomInfo
 {
     // Take the information we need from the first image
-    ImageReader reader;
-    ImageReader::ImageVector images = reader.ReadImage([[[fileNames objectAtIndex:0] path] UTF8String]);
-    Image2DType::Pointer firstImage = images[0];
+    std::string firstFileName([[[fileNames objectAtIndex:0] path] UTF8String]);
+    itk::ImageIOBase::Pointer imageIO =
+        itk::ImageIOFactory::CreateImageIO(firstFileName.c_str(), itk::ImageIOFactory::ReadMode);
 
+    // If there is a problem, catch it
+    if (imageIO.IsNull())
+    {
+        std::cout << "Could not get metadata from file: " << firstFileName << "\n";
+        return;
+    };
+
+    // Get the number of dimensions.
+    unsigned numDims = imageIO->GetNumberOfDimensions();
+    //
     // use for creating strings below.
     std::ostringstream value;
 
     // Set the Image Orientation Patient attribute from the image direction info.
-    Image2DType::DirectionType dir = firstImage->GetDirection();
-    value << dir[0][0] << "\\" << dir[0][1] << "\\" << dir[0][2] << "\\"
-    << dir[1][0] << "\\" << dir[1][1] << "\\" << dir[1][2];
+    std::vector<double> dir = imageIO->GetDirection(0);
+    value << dir[0] << "\\" << dir[1] << "\\" << dir[2] << "\\";
+    dir = imageIO->GetDirection(1);
+    value << dir[0] << "\\" << dir[1] << "\\" << dir[2];
     std::string imageOrientationPatient = value.str();
     dicomInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
 
-    
+    // Image Position Patient
+    dicomInfo.imagePatientPositionX = [NSNumber numberWithDouble:imageIO->GetOrigin(0)];
+    dicomInfo.imagePatientPositionY = [NSNumber numberWithDouble:imageIO->GetOrigin(1)];
+    if (numDims == 3)
+        dicomInfo.imagePatientPositionZ = [NSNumber numberWithDouble:imageIO->GetOrigin(2)];
+
 }
 
 - (NSUInteger)loadFileNames
@@ -112,7 +132,11 @@
     {
         ImageReader::ImageVector imageVec = reader.ReadImage(*iter);
         for (ImageReader::ImageVector::const_iterator iter = imageVec.begin(); iter != imageVec.end(); ++iter)
+        {
+            Image2DType::Pointer image = *iter;
+
             imageStack.push_back(*iter);
+        }
     }
 }
 

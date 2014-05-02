@@ -11,25 +11,8 @@
 
 #include "Typedefs.h"
 
-//#include <iostream>
-//
-//#include <itkVersion.h>
-//#include <itkImage.h>
-//#include <itkImageSeriesWriter.h>
-//#include <itkNumericSeriesFileNames.h>
-//#include <itkGDCMImageIO.h>
-//#include <itkMetaDataDictionary.h>
-//#include <itkCastImageFilter.h>
-//#include <gdcmUIDGenerator.h>
-//
-//#include "BsdRegistrationDefs.h"
 #include "DumpMetaDataDictionary.h"
-//#include "CopyMetaDataDictionary.h"
-//
-//#include <iostream>
-//#include <sstream>
-//
-//template <class TPixel>
+
 class DicomSeriesWriter
 {
 public:

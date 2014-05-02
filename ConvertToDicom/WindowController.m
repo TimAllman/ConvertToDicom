@@ -101,23 +101,30 @@
         [alert setAlertStyle:NSCriticalAlertStyle];
         [alert setMessageText:[@"Image file not found in directory " stringByAppendingString:[inputDir path]]];
         [alert setInformativeText:@"Set the input directory to one containing image files."];
-        [alert beginSheetModalForWindow:dicomPanelController.window completionHandler:^(NSModalResponse result) { result = NSModalResponseContinue; }];
-
+        [alert beginSheetModalForWindow:dicomPanelController.window
+                          modalDelegate:self
+                         didEndSelector:@selector(didEndAlertSheet:returnCode:contextInfo:)
+                            contextInfo:nil];
         return;
     };
 
-    [sc extractDicomAttributes:dicomPanelController.dicomInfo];
+    [sc extractSeriesDicomAttributes:dicomPanelController.dicomInfo];
     
     [NSApp beginSheet:dicomPanelController.window modalForWindow:self.window modalDelegate:self
-       didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+       didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
 
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)didEndDicomAttributesSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     NSLog(@"didEndSheet:returnCode:contextInfo:");
 
     [dicomPanelController.window orderOut:self];
+}
+
+- (void)didEndAlertSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    NSLog(@"didEndAlertSheet:returnCode:contextInfo:");
 }
 
 - (void)convertFiles

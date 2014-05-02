@@ -10,6 +10,7 @@
 #include "ImageReader.h"
 
 #include <itkImage.h>
+#include <itkImageIOBase.h>
 
 #include <itkImageFileReader.h>
 #include <itkNrrdImageIOFactory.h>
@@ -66,17 +67,23 @@ ImageReader::~ImageReader()
     //itk::ObjectFactoryBase::UnRegisterAllFactories();
 }
 
-ImageReader::ImageVector ImageReader::ReadImage(const std::string& name)
+ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
 {
-    typedef itk::ImageIOBase::IOComponentType ScalarPixelType;
-
     itk::ImageIOBase::Pointer imageIO =
-        itk::ImageIOFactory::CreateImageIO(name.c_str(), itk::ImageIOFactory::ReadMode);
+        itk::ImageIOFactory::CreateImageIO(fileName.c_str(), itk::ImageIOFactory::ReadMode);
 
-    imageIO->SetFileName(name);
+    // If
+    if (imageIO.IsNull())
+    {
+        std::cout << "Image not created from file: " << fileName << "\n";
+        return ImageVector();
+    };
+
+
+    imageIO->SetFileName(fileName);
     imageIO->ReadImageInformation();
 
-//    itk::ImageIOBase::Pointer imageIO = reader->GetImageIO();
+    std::cout << "Image file type: " << imageIO->GetFileTypeAsString(imageIO->GetFileType());
 
     typedef itk::ImageIOBase::IOComponentType ScalarPixelType;
     const ScalarPixelType pixelType = imageIO->GetComponentType();
@@ -91,8 +98,10 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& name)
 
     std::cout << "dimensions: ";
     for (unsigned idx = 0; idx < numDimensions; ++idx)
-        std::cout << imageIO->GetDimensions(idx);
+        std::cout << imageIO->GetDimensions(idx) << ", ";
     std::cout << "\n";
+
+
 
     ImageVector images;
 
@@ -101,7 +110,7 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& name)
         typedef itk::ImageFileReader<Image2DType> ReaderType;
         ReaderType::Pointer reader = ReaderType::New();
 
-        reader->SetFileName(name);
+        reader->SetFileName(fileName);
         reader->Update();
         Image2DType::Pointer image = reader->GetOutput();
 
@@ -112,21 +121,36 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& name)
         typedef itk::ImageFileReader<Image3DType> ReaderType;
         ReaderType::Pointer reader = ReaderType::New();
 
-        reader->SetFileName(name);
+        reader->SetFileName(fileName);
         reader->Update();
         Image3DType::Pointer image = reader->GetOutput();
 
-        Image3DType::RegionType region = image->GetLargestPossibleRegion();
-        Image3DType::SizeType size = region.GetSize();
+        Image3DType::RegionType inputRegion = image->GetLargestPossibleRegion();
+        Image3DType::SizeType size = inputRegion.GetSize();
         unsigned numSlices = static_cast<unsigned>(size[2]);
 
         for (unsigned sliceIdx = 0; sliceIdx < numSlices; ++sliceIdx)
         {
+            // Generate the regiion that we want
+            Image3DType::SizeType sliceSize = size;
+            sliceSize[2] = 0;
+            Image3DType::IndexType sliceStart = inputRegion.GetIndex();
+            sliceStart[2] = sliceIdx;
+            Image3DType::RegionType sliceRegion;
+            sliceRegion.SetIndex(sliceStart);
+            sliceRegion.SetSize(sliceSize);
+
+            // Create and set up the filter to extract a slice
             typedef itk::ExtractImageFilter<Image3DType, Image2DType> ExtractFiltertype;
             ExtractFiltertype::Pointer filter = ExtractFiltertype::New();
             filter->SetInput(image);
-            region
-            images.push_back(image);
+            filter->SetExtractionRegion(sliceRegion);
+            filter->SetDirectionCollapseToIdentity();
+
+            // Get the result
+            Image2DType::Pointer slice = filter->GetOutput();
+            filter->Update();
+            images.push_back(slice);
         }
     }
 
