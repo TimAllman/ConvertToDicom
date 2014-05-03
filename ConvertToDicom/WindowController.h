@@ -8,23 +8,54 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class DicomPanelController;
+@class DicomInfo;
 
 @interface WindowController : NSWindowController
 {
+    enum ModalitiesEnum {CR, CT, DX, ES, MG, MR, NM, OT, PT, RF, SC, US, XA};
+
     NSURL* inputDir;
     NSURL* outputDir;
-    DicomPanelController* dicomPanelController;
+    NSArray* modalities;
+
 }
 
+@property (weak) IBOutlet DicomInfo *dicomInfo;
+@property (unsafe_unretained) IBOutlet NSPanel *dicomPanel;
+
+// Main panel controls
 @property (weak) IBOutlet NSTextField *inputDirTextField;
 @property (weak) IBOutlet NSTextField *outputDirTextField;
 @property (weak) IBOutlet NSTextField *slicesPerImageTextField;
 @property (weak) IBOutlet NSTextField *timeIncrementTextField;
+
+// Dicom panel controls
+@property (weak) IBOutlet NSTextField *patientsNameTextField;
+@property (weak) IBOutlet NSTextField *patientsIDTextField;
+@property (weak) IBOutlet NSDatePicker *patientsDOBDatePicker;
+@property (weak) IBOutlet NSComboBox *patientsSexComboBox;
+@property (weak) IBOutlet NSTextField *studyDescriptionTextField;
+@property (weak) IBOutlet NSTextField *studyIDTextField;
+@property (weak) IBOutlet NSComboBox *studyModalityComboBox;
+@property (weak) IBOutlet NSDatePicker *studyDateTimeDatePicker;
+@property (weak) IBOutlet NSTextField *studySeriesUIDTextField;
+@property (weak) IBOutlet NSTextField *imageSliceThicknessTextField;
+@property (weak) IBOutlet NSTextField *imagePatientPositionXTextField;
+@property (weak) IBOutlet NSTextField *imagePatientPositionYTextField;
+@property (weak) IBOutlet NSTextField *imagePatientPositionZTextField;
+@property (weak) IBOutlet NSTextField *imagePatientOrientationTextField;
+
 - (IBAction)inputDirButtonPressed:(NSButton *)sender;
 - (IBAction)outputDirButtonPressed:(NSButton *)sender;
 - (IBAction)convertButtonPressed:(NSButton *)sender;
 - (IBAction)closeButtonPressed:(NSButton *)sender;
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender;
+
+- (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender;
+- (IBAction)imageSetIopSaggitalButtonPressed:(NSButton*)sender;
+- (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender;
+- (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton *)sender;
+- (IBAction)studyDateNowButtonPressed:(NSButton *)sender;
+- (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
 
 @end

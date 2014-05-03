@@ -19,8 +19,11 @@
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
+    if (self)
+    {
+        modalities = [NSArray arrayWithObjects:
+                      @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
+                      @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
     }
     return self;
 }
@@ -133,6 +136,42 @@
     [sc loadFileNames];
     [sc readFiles];
     [sc writeFiles];
+}
+
+#pragma mark - DicomPanel
+
+- (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender
+{
+    NSLog(@"imageSetIopAxialButtonPressed");
+}
+
+- (IBAction)imageSetIopSaggitalButtonPressed:(NSButton *)sender
+{
+    NSLog(@"imageSetIopSaggitalButtonPressed");
+}
+
+- (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender
+{
+    NSLog(@"imageSetIopCoronalButtonPressed");
+}
+
+- (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton*)sender
+{
+    NSLog(@"studySeriesUIDGenerateButtonPressed");
+}
+
+- (IBAction)studyDateNowButtonPressed:(NSButton *)sender {
+}
+
+- (IBAction)dicomCloseButtonPressed:(NSButton *)sender
+{
+    NSLog(@"closeButtonPressed");
+
+    [NSApp endSheet:self.window];
+    //[self.window orderOut:self];
+    //openSheet_ = nil;
+
+    //[self close];
 }
 
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		22BC1BA918E8818A00FFDEFC /* DicomPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC1BA718E8818A00FFDEFC /* DicomPanelController.m */; };
-		22BC1BAA18E8818A00FFDEFC /* DicomPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BC1BA818E8818A00FFDEFC /* DicomPanel.xib */; };
 		22BC1BED18EB060000FFDEFC /* DicomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC1BEC18EB060000FFDEFC /* DicomInfo.m */; };
 		22C1C95018E45A0B006A801D /* ImageReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22C1C94F18E45A0B006A801D /* ImageReader.mm */; };
 		22C1C99D18E467C3006A801D /* libitkvnl_algo-4.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C1C95118E467C3006A801D /* libitkvnl_algo-4.5.a */; };
@@ -105,7 +104,6 @@
 		2245823418E1CC08002D03A4 /* Typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Typedefs.h; sourceTree = "<group>"; };
 		22BC1BA618E8818A00FFDEFC /* DicomPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomPanelController.h; sourceTree = "<group>"; };
 		22BC1BA718E8818A00FFDEFC /* DicomPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DicomPanelController.m; sourceTree = "<group>"; };
-		22BC1BA818E8818A00FFDEFC /* DicomPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DicomPanel.xib; sourceTree = "<group>"; };
 		22BC1BEB18EB060000FFDEFC /* DicomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomInfo.h; sourceTree = "<group>"; };
 		22BC1BEC18EB060000FFDEFC /* DicomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DicomInfo.m; sourceTree = "<group>"; };
 		22C1C94F18E45A0B006A801D /* ImageReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageReader.mm; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				22F99D4F18E078EE007EAF0A /* MainWindow.xib */,
-				22BC1BA818E8818A00FFDEFC /* DicomPanel.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 			files = (
 				22F99D4518E078EE007EAF0A /* InfoPlist.strings in Resources */,
 				22F99D5318E078EE007EAF0A /* Images.xcassets in Resources */,
-				22BC1BAA18E8818A00FFDEFC /* DicomPanel.xib in Resources */,
 				22F99D4B18E078EE007EAF0A /* Credits.rtf in Resources */,
 				22F99D5118E078EE007EAF0A /* MainWindow.xib in Resources */,
 			);
