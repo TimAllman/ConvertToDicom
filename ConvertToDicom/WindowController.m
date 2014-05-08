@@ -8,28 +8,8 @@
 
 #import "WindowController.h"
 #import "SeriesConverter.h"
-#import "DicomPanelController.h"
-
-// Keys for preferences.
-NSString* InputDirKey = @"InputDir";
-NSString* OutputDirKey = @"OutputDir";
-NSString* SlicesPerImageKey = @"SlicesPerImage";
-NSString* TimeIncrementKey = @"TimeIncrement";
-
-NSString* PatientsNameKey = @"PatientsName";
-NSString* PatientsIDKey = @"PatientsID";
-NSString* PatientsDOBKey = @"PatientsDOB";
-NSString* PatientsSexKey = @"PatientsSex";
-NSString* StudyDescriptionKey = @"studyDescription";
-NSString* StudyIDKey = @"studyID";
-NSString* StudyModalityKey = @"studyModality";
-NSString* StudyDateTimeKey = @"StudyDateTime";
-NSString* StudySeriesUIDKey = @"studySeriesUID";
-NSString* ImageSliceThicknessKey = @"ImageSliceThickness";
-NSString* ImagePatientPositionXKey = @"ImagePatientPositionX";
-NSString* ImagePatientPositionYKey = @"ImagePatientPositionY";
-NSString* ImagePatientPositionZKey = @"ImagePatientPositionZ";
-NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
+#import "DicomInfo.h"
+#import "AppDelegate.h"
 
 @interface WindowController ()
 
@@ -45,6 +25,8 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
         modalities = [NSArray arrayWithObjects:
                       @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
+        sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified",
+                 nil];
     }
     return self;
 }
@@ -54,7 +36,20 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
     [super windowDidLoad];
     
     // Load preferences and do other initialisation
-
+    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+    self.dicomInfo.patientsName = [defs stringForKey:PatientsNameKey];
+    self.dicomInfo.patientsID = [defs stringForKey:PatientsIDKey];
+    self.dicomInfo.patientsDOB = [defs objectForKey:PatientsDOBKey];
+    self.dicomInfo.patientsSex = [defs stringForKey:PatientsSexKey];
+    self.dicomInfo.studyDescription = [defs stringForKey:StudyDescriptionKey];
+    self.dicomInfo.studyID = [defs stringForKey:StudyIDKey];
+    self.dicomInfo.studyDateTime = [defs objectForKey:StudyDateTimeKey];
+    self.dicomInfo.studySeriesUID = [defs stringForKey:StudySeriesUIDKey];
+    self.dicomInfo.imageSliceThickness = [defs objectForKey:ImageSliceThicknessKey];
+    self.dicomInfo.imagePatientPositionX = [defs objectForKey:ImagePatientPositionXKey];
+    self.dicomInfo.imagePatientPositionY = [defs objectForKey:ImagePatientPositionYKey];
+    self.dicomInfo.imagePatientPositionZ = [defs objectForKey:ImagePatientPositionZKey];
+    self.dicomInfo.imagePatientOrientation = [defs stringForKey:ImagePatientOrientationKey];
 }
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender

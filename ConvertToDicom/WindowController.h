@@ -8,32 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-// Keys for preferences.
-extern NSString* InputDirKey;
-extern NSString* OutputDirKey;
-extern NSString* SlicesPerImageKey;
-extern NSString* TimeIncrementKey;
-
-extern NSString* PatientsNameKey;
-extern NSString* PatientsIDKey;
-extern NSString* PatientsDOBKey;
-extern NSString* PatientsSexKey;
-extern NSString* StudyDescriptionKey;
-extern NSString* StudyIDKey;
-extern NSString* StudyModalityKey;
-extern NSString* StudyDateTimeKey;
-extern NSString* StudySeriesUIDKey;
-extern NSString* ImageSliceThicknessKey;
-extern NSString* ImagePatientPositionXKey;
-extern NSString* ImagePatientPositionYKey;
-extern NSString* ImagePatientPositionZKey;
-extern NSString* ImagePatientOrientationKey;
-
 @class DicomInfo;
 
 @interface WindowController : NSWindowController <NSComboBoxDataSource, NSComboBoxDelegate>
 {
     NSArray* modalities;
+    NSArray* sexes;
 }
 
 - (id)initWithWindow:(NSWindow *)window;
