@@ -8,26 +8,51 @@
 
 #import <Cocoa/Cocoa.h>
 
+// Keys for preferences.
+extern NSString* InputDirKey;
+extern NSString* OutputDirKey;
+extern NSString* SlicesPerImageKey;
+extern NSString* TimeIncrementKey;
+
+extern NSString* PatientsNameKey;
+extern NSString* PatientsIDKey;
+extern NSString* PatientsDOBKey;
+extern NSString* PatientsSexKey;
+extern NSString* StudyDescriptionKey;
+extern NSString* StudyIDKey;
+extern NSString* StudyModalityKey;
+extern NSString* StudyDateTimeKey;
+extern NSString* StudySeriesUIDKey;
+extern NSString* ImageSliceThicknessKey;
+extern NSString* ImagePatientPositionXKey;
+extern NSString* ImagePatientPositionYKey;
+extern NSString* ImagePatientPositionZKey;
+extern NSString* ImagePatientOrientationKey;
+
 @class DicomInfo;
 
-@interface WindowController : NSWindowController
+@interface WindowController : NSWindowController <NSComboBoxDataSource, NSComboBoxDelegate>
 {
-    enum ModalitiesEnum {CR, CT, DX, ES, MG, MR, NM, OT, PT, RF, SC, US, XA};
-
-    NSURL* inputDir;
-    NSURL* outputDir;
     NSArray* modalities;
-
 }
 
+- (id)initWithWindow:(NSWindow *)window;
+
+@property (strong) NSString* inputDir;
+@property (strong) NSString* outputDir;
+@property (assign) unsigned slicesPerImage;
+@property (assign) float timeIncrement;
+
 @property (weak) IBOutlet DicomInfo *dicomInfo;
-@property (unsafe_unretained) IBOutlet NSPanel *dicomPanel;
 
 // Main panel controls
 @property (weak) IBOutlet NSTextField *inputDirTextField;
 @property (weak) IBOutlet NSTextField *outputDirTextField;
 @property (weak) IBOutlet NSTextField *slicesPerImageTextField;
 @property (weak) IBOutlet NSTextField *timeIncrementTextField;
+
+// Dicom panel
+@property (strong) IBOutlet NSPanel *dicomInfoPanel;
 
 // Dicom panel controls
 @property (weak) IBOutlet NSTextField *patientsNameTextField;

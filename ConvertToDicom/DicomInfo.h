@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-// Keys for preferences.
-extern NSString* PatientsSexKey;
-extern NSString* StudyDateTimeKey;
-extern NSString* ImageSliceThicknessKey;
-
-
-
 /*
  * Some parameters are set as preferences and some are ordinary properties.
  * This class sets a common interface to the parameters, regardless of origin.

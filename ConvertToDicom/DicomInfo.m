@@ -8,25 +8,7 @@
 
 #import "DicomInfo.h"
 
-// Keys for preferences.
-NSString* PatientsSexKey = @"PatientsSex";
-NSString* StudyDateTimeKey  = @"StudyDateTime";
-NSString* ImageSliceThicknessKey = @"ImageSliceThickness";
-
 @implementation DicomInfo
-
-+ (void)initialize
-{
-    // Create the factory defaults for the preferences
-    NSMutableDictionary* defaults = [NSMutableDictionary dictionary];
-
-    [defaults setObject:@"Other" forKey:PatientsSexKey];
-    [defaults setObject:[NSDate date] forKey:StudyDateTimeKey];
-    [defaults setObject:@1.0 forKey:ImageSliceThicknessKey];
-
-    [[NSUserDefaults standardUserDefaults]registerDefaults:defaults];
-}
-
 
 
 - (id)init

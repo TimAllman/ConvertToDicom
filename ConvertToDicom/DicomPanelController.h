@@ -12,7 +12,7 @@
 
 @interface DicomPanelController : NSWindowController <NSComboBoxDataSource>
 {
-    enum ModalitiesEnum {CR, CT, DX, ES, MG, MR, NM, OT, PT, RF, SC, US, XA};
+    //enum ModalitiesEnum {CR, CT, DX, ES, MG, MR, NM, OT, PT, RF, SC, US, XA};
 
     NSArray* modalities;
 }

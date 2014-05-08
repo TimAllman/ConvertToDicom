@@ -10,6 +10,27 @@
 #import "SeriesConverter.h"
 #import "DicomPanelController.h"
 
+// Keys for preferences.
+NSString* InputDirKey = @"InputDir";
+NSString* OutputDirKey = @"OutputDir";
+NSString* SlicesPerImageKey = @"SlicesPerImage";
+NSString* TimeIncrementKey = @"TimeIncrement";
+
+NSString* PatientsNameKey = @"PatientsName";
+NSString* PatientsIDKey = @"PatientsID";
+NSString* PatientsDOBKey = @"PatientsDOB";
+NSString* PatientsSexKey = @"PatientsSex";
+NSString* StudyDescriptionKey = @"studyDescription";
+NSString* StudyIDKey = @"studyID";
+NSString* StudyModalityKey = @"studyModality";
+NSString* StudyDateTimeKey = @"StudyDateTime";
+NSString* StudySeriesUIDKey = @"studySeriesUID";
+NSString* ImageSliceThicknessKey = @"ImageSliceThickness";
+NSString* ImagePatientPositionXKey = @"ImagePatientPositionX";
+NSString* ImagePatientPositionYKey = @"ImagePatientPositionY";
+NSString* ImagePatientPositionZKey = @"ImagePatientPositionZ";
+NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
+
 @interface WindowController ()
 
 @end
@@ -32,7 +53,8 @@
 {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    // Load preferences and do other initialisation
+
 }
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender
@@ -44,13 +66,14 @@
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
     panel.allowsMultipleSelection = NO;
+    [panel setDirectoryURL:[NSURL URLWithString:self.inputDir]];
 
     [panel beginWithCompletionHandler:^(NSInteger result)
     {
         if (result == NSFileHandlingPanelOKButton)
         {
-            inputDir = [[panel URLs] objectAtIndex:0];
-            [self.inputDirTextField setStringValue:[inputDir path]];
+            NSURL* inputDir = [[panel URLs] objectAtIndex:0];
+            self.inputDir = [inputDir path];
             NSLog(@"URL chosen: %@", inputDir);
         }
     }];
@@ -69,8 +92,8 @@
      {
          if (result == NSFileHandlingPanelOKButton)
          {
-             outputDir = [[panel URLs] objectAtIndex:0];
-             [self.outputDirTextField setStringValue:[outputDir path]];
+             NSURL* outputDir = [[panel URLs] objectAtIndex:0];
+             self.outputDir = [outputDir path];
              NSLog(@"URL chosen: %@", outputDir);
          }
      }];
@@ -88,33 +111,9 @@
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
-    if (dicomPanelController == nil)
-        dicomPanelController = [[DicomPanelController alloc]init];
-
-    if (dicomPanelController.window == nil)
-    {
-        NSLog(@"dicomPanelController.window == nil");
-        return;
-    }
-    
-    SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:inputDir outputDir:outputDir];
-    if ([sc loadFileNames] == 0)
-    {
-        NSAlert* alert = [[NSAlert alloc] init];
-        [alert setAlertStyle:NSCriticalAlertStyle];
-        [alert setMessageText:[@"Image file not found in directory " stringByAppendingString:[inputDir path]]];
-        [alert setInformativeText:@"Set the input directory to one containing image files."];
-        [alert beginSheetModalForWindow:dicomPanelController.window
-                          modalDelegate:self
-                         didEndSelector:@selector(didEndAlertSheet:returnCode:contextInfo:)
-                            contextInfo:nil];
-        return;
-    };
-
-    [sc extractSeriesDicomAttributes:dicomPanelController.dicomInfo];
-    
-    [NSApp beginSheet:dicomPanelController.window modalForWindow:self.window modalDelegate:self
+    [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
        didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
+
 
 }
 
@@ -122,7 +121,28 @@
 {
     NSLog(@"didEndSheet:returnCode:contextInfo:");
 
-    [dicomPanelController.window orderOut:self];
+    if (returnCode == NSOKButton)
+    {
+        SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:[NSURL URLWithString:self.inputDir]
+                                                             outputDir:[NSURL URLWithString:self.outputDir]];
+        if ([sc loadFileNames] == 0)
+        {
+            NSAlert* alert = [[NSAlert alloc] init];
+            [alert setAlertStyle:NSCriticalAlertStyle];
+            [alert setMessageText:[@"Image file not found in directory "
+                                   stringByAppendingString:self.inputDir]];
+            [alert setInformativeText:@"Set the input directory to one containing image files."];
+            [alert beginSheetModalForWindow:self.window
+                              modalDelegate:self
+                             didEndSelector:@selector(didEndAlertSheet:returnCode:contextInfo:)
+                                contextInfo:nil];
+            return;
+        };
+
+        [sc extractSeriesDicomAttributes:self.dicomInfo];
+
+        //[self.dicomInfoPanel orderOut:self];
+    }
 }
 
 - (void)didEndAlertSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
@@ -132,7 +152,8 @@
 
 - (void)convertFiles
 {
-    SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:inputDir outputDir:outputDir];
+    SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:[NSURL URLWithString:self.inputDir]
+                                                         outputDir:[NSURL URLWithString:self.outputDir]];
     [sc loadFileNames];
     [sc readFiles];
     [sc writeFiles];
