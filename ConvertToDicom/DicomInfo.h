@@ -14,9 +14,12 @@
  */
 @interface DicomInfo : NSObject
 {
-//    NSString* patientsSex;
-//    NSDate* studyDateTime;
 }
+
+@property (strong) IBOutlet NSString* inputDir;
+@property (strong) IBOutlet NSString* outputDir;
+@property (assign) IBOutlet NSNumber* slicesPerImage;
+@property (assign) IBOutlet NSNumber* timeIncrement;
 
 @property (strong) IBOutlet NSString* patientsName;
 @property (strong) IBOutlet NSString* patientsID;
@@ -33,7 +36,6 @@
 @property (strong) IBOutlet NSNumber* imagePatientPositionZ;
 @property (strong) IBOutlet NSString* imagePatientOrientation;
 
-+ (void)initialize;
 - (id)init;
 
 @end

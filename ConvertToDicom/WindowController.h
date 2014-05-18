@@ -10,18 +10,11 @@
 
 @class DicomInfo;
 
-@interface WindowController : NSWindowController <NSComboBoxDataSource, NSComboBoxDelegate>
+@interface WindowController : NSWindowController <NSComboBoxDataSource>
 {
     NSArray* modalities;
     NSArray* sexes;
 }
-
-- (id)initWithWindow:(NSWindow *)window;
-
-@property (strong) NSString* inputDir;
-@property (strong) NSString* outputDir;
-@property (assign) unsigned slicesPerImage;
-@property (assign) float timeIncrement;
 
 @property (weak) IBOutlet DicomInfo *dicomInfo;
 
@@ -62,5 +55,7 @@
 - (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton *)sender;
 - (IBAction)studyDateNowButtonPressed:(NSButton *)sender;
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
+
+- (id)init;
 
 @end

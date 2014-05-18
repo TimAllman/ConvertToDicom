@@ -10,46 +10,23 @@
 #import "SeriesConverter.h"
 #import "DicomInfo.h"
 #import "AppDelegate.h"
+#import "UserDefaults.h"
 
-@interface WindowController ()
-
-@end
+#include <gdcmUIDGenerator.h>
 
 @implementation WindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
+    self = [super initWithWindowNibName:@"MainWindow"];
     if (self)
     {
         modalities = [NSArray arrayWithObjects:
                       @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
-        sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified",
-                 nil];
+        sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
     }
     return self;
-}
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Load preferences and do other initialisation
-    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
-    self.dicomInfo.patientsName = [defs stringForKey:PatientsNameKey];
-    self.dicomInfo.patientsID = [defs stringForKey:PatientsIDKey];
-    self.dicomInfo.patientsDOB = [defs objectForKey:PatientsDOBKey];
-    self.dicomInfo.patientsSex = [defs stringForKey:PatientsSexKey];
-    self.dicomInfo.studyDescription = [defs stringForKey:StudyDescriptionKey];
-    self.dicomInfo.studyID = [defs stringForKey:StudyIDKey];
-    self.dicomInfo.studyDateTime = [defs objectForKey:StudyDateTimeKey];
-    self.dicomInfo.studySeriesUID = [defs stringForKey:StudySeriesUIDKey];
-    self.dicomInfo.imageSliceThickness = [defs objectForKey:ImageSliceThicknessKey];
-    self.dicomInfo.imagePatientPositionX = [defs objectForKey:ImagePatientPositionXKey];
-    self.dicomInfo.imagePatientPositionY = [defs objectForKey:ImagePatientPositionYKey];
-    self.dicomInfo.imagePatientPositionZ = [defs objectForKey:ImagePatientPositionZKey];
-    self.dicomInfo.imagePatientOrientation = [defs stringForKey:ImagePatientOrientationKey];
 }
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender
@@ -61,14 +38,14 @@
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
     panel.allowsMultipleSelection = NO;
-    [panel setDirectoryURL:[NSURL URLWithString:self.inputDir]];
+    [panel setDirectoryURL:[NSURL URLWithString:self.dicomInfo.inputDir]];
 
     [panel beginWithCompletionHandler:^(NSInteger result)
     {
         if (result == NSFileHandlingPanelOKButton)
         {
             NSURL* inputDir = [[panel URLs] objectAtIndex:0];
-            self.inputDir = [inputDir path];
+            self.dicomInfo.inputDir = [inputDir path];
             NSLog(@"URL chosen: %@", inputDir);
         }
     }];
@@ -88,7 +65,7 @@
          if (result == NSFileHandlingPanelOKButton)
          {
              NSURL* outputDir = [[panel URLs] objectAtIndex:0];
-             self.outputDir = [outputDir path];
+             self.dicomInfo.outputDir = [outputDir path];
              NSLog(@"URL chosen: %@", outputDir);
          }
      }];
@@ -101,31 +78,32 @@
 
 - (IBAction)closeButtonPressed:(NSButton *)sender
 {
+    [UserDefaults saveDefaults:self.dicomInfo];
     [self close];
+    [NSApp terminate:nil];
 }
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
     [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
        didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
-
-
 }
 
 - (void)didEndDicomAttributesSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-    NSLog(@"didEndSheet:returnCode:contextInfo:");
+    NSLog(@"didEndDicomAttributesSheet:returnCode:contextInfo:");
 
     if (returnCode == NSOKButton)
     {
-        SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:[NSURL URLWithString:self.inputDir]
-                                                             outputDir:[NSURL URLWithString:self.outputDir]];
+        SeriesConverter* sc = [[SeriesConverter alloc]
+                               initWithInputDir:[NSURL URLWithString:self.dicomInfo.inputDir]
+                               outputDir:[NSURL URLWithString:self.dicomInfo.outputDir]];
         if ([sc loadFileNames] == 0)
         {
             NSAlert* alert = [[NSAlert alloc] init];
             [alert setAlertStyle:NSCriticalAlertStyle];
             [alert setMessageText:[@"Image file not found in directory "
-                                   stringByAppendingString:self.inputDir]];
+                                   stringByAppendingString:self.dicomInfo.inputDir]];
             [alert setInformativeText:@"Set the input directory to one containing image files."];
             [alert beginSheetModalForWindow:self.window
                               modalDelegate:self
@@ -147,8 +125,9 @@
 
 - (void)convertFiles
 {
-    SeriesConverter* sc = [[SeriesConverter alloc]initWithInputDir:[NSURL URLWithString:self.inputDir]
-                                                         outputDir:[NSURL URLWithString:self.outputDir]];
+    SeriesConverter* sc = [[SeriesConverter alloc]
+                           initWithInputDir:[NSURL URLWithString:self.dicomInfo.inputDir]
+                           outputDir:[NSURL URLWithString:self.dicomInfo.outputDir]];
     [sc loadFileNames];
     [sc readFiles];
     [sc writeFiles];
@@ -159,35 +138,88 @@
 - (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopAxialButtonPressed");
+    self.dicomInfo.imagePatientOrientation = @"1\\0\\0\\0\\1\\0";
 }
 
 - (IBAction)imageSetIopSaggitalButtonPressed:(NSButton *)sender
 {
     NSLog(@"imageSetIopSaggitalButtonPressed");
+    self.dicomInfo.imagePatientOrientation = @"0\\1\\0\\0\\0\\1";
 }
 
 - (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopCoronalButtonPressed");
+    self.dicomInfo.imagePatientOrientation = @"1\\0\\0\\0\\0\\1";
 }
 
 - (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton*)sender
 {
-    NSLog(@"studySeriesUIDGenerateButtonPressed");
+    gdcm::UIDGenerator suid;
+    std::string seriesUID = suid.Generate();
+    self.dicomInfo.studySeriesUID = [NSString stringWithUTF8String:seriesUID.c_str()];
+
+    NSLog(@"studySeriesUIDGenerateButtonPressed: %@", self.dicomInfo.studySeriesUID);
 }
 
-- (IBAction)studyDateNowButtonPressed:(NSButton *)sender {
+- (IBAction)studyDateNowButtonPressed:(NSButton *)sender
+{
+    self.dicomInfo.studyDateTime = [NSDate date];
 }
 
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender
 {
     NSLog(@"closeButtonPressed");
 
-    [NSApp endSheet:self.window];
-    //[self.window orderOut:self];
-    //openSheet_ = nil;
-
-    //[self close];
+    [UserDefaults saveDefaults:self.dicomInfo];
+    [NSApp endSheet:self.dicomInfoPanel];
+    [self.dicomInfoPanel orderOut:self];
 }
 
+#pragma mark - NSComboBoxDatasource
+
+- (id)comboBox:(NSComboBox*)comboBox objectValueForItemAtIndex:(NSInteger)index
+{
+    NSString* ident = comboBox.identifier;
+
+    if ([ident isEqualToString:@"PatientsSexComboBox"])
+    {
+        return [sexes objectAtIndex:index];
+    }
+    else if ([ident isEqualToString:@"StudyModalityComboBox"])
+    {
+        return [modalities objectAtIndex:index];
+    }
+    else
+    {
+        NSException* ex =
+           [NSException exceptionWithName:@"InvalidIdentifier"
+                                   reason:[NSString stringWithFormat:@"Combobox identifier %@ is invalid.", ident]
+                                 userInfo:nil];
+        @throw ex;
+    }
+}
+
+- (NSInteger)numberOfItemsInComboBox:(NSComboBox*)comboBox
+{
+    NSString* ident = comboBox.identifier;
+
+    if ([ident isEqualToString:@"PatientsSexComboBox"])
+    {
+        return [sexes count];
+    }
+    else if ([ident isEqualToString:@"StudyModalityComboBox"])
+    {
+        return [modalities count];
+    }
+    else
+    {
+        NSException* ex =
+        [NSException exceptionWithName:@"InvalidIdentifier"
+                                reason:[NSString stringWithFormat:@"Combobox identifier %@ is invalid.", ident]
+                              userInfo:nil];
+        @throw ex;
+    }
+
+}
 @end
