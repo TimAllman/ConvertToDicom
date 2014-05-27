@@ -600,7 +600,7 @@ DQ
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="hyz-DH-rQs" name="value" keyPath="self.dicomInfo.inputDir" id="yjP-Bo-vDC"/>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.inputDir" id="eVC-vQ-8Ia"/>
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DeU-vq-0cz">
@@ -621,7 +621,7 @@ DQ
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="hyz-DH-rQs" name="value" keyPath="self.dicomInfo.outputDir" id="HL0-QE-QG0"/>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.outputDir" id="637-Ym-vUb"/>
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" id="RrQ-yJ-JbC">

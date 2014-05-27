@@ -11,55 +11,12 @@
 
 #include <itkImage.h>
 #include <itkImageIOBase.h>
-
 #include <itkImageFileReader.h>
-#include <itkNrrdImageIOFactory.h>
-#include <itkJPEGImageIOFactory.h>
-#include <itkBioRadImageIOFactory.h>
-#include <itkBMPImageIOFactory.h>
-#include <itkGDCMImageIOFactory.h>
-#include <itkGE4ImageIOFactory.h>
-#include <itkGE5ImageIOFactory.h>
-#include <itkGEAdwImageIOFactory.h>
-#include <itkGiplImageIOFactory.h>
-#include <itkHDF5ImageIOFactory.h>
-#include <itkImageIOFactory.h>
-#include <itkJPEGImageIOFactory.h>
-#include <itkLSMImageIOFactory.h>
-#include <itkMetaImageIOFactory.h>
-#include <itkMRCImageIOFactory.h>
-#include <itkNiftiImageIOFactory.h>
-#include <itkNrrdImageIOFactory.h>
-#include <itkPNGImageIOFactory.h>
-#include <itkSiemensVisionImageIOFactory.h>
-#include <itkStimulateImageIOFactory.h>
-#include <itkTIFFImageIOFactory.h>
-#include <itkVTKImageIOFactory.h>
-
 #include <itkExtractImageFilter.h>
 
 
 ImageReader::ImageReader()
 {
-    itk::BioRadImageIOFactory::RegisterOneFactory();
-    itk::BMPImageIOFactory::RegisterOneFactory();
-    itk::GDCMImageIOFactory::RegisterOneFactory();
-    itk::GE4ImageIOFactory::RegisterOneFactory();
-    itk::GE5ImageIOFactory::RegisterOneFactory();
-    itk::GEAdwImageIOFactory::RegisterOneFactory();
-    itk::GiplImageIOFactory::RegisterOneFactory();
-    itk::HDF5ImageIOFactory::RegisterOneFactory();
-    itk::JPEGImageIOFactory::RegisterOneFactory();
-    itk::LSMImageIOFactory::RegisterOneFactory();
-    itk::MetaImageIOFactory::RegisterOneFactory();
-    itk::MRCImageIOFactory::RegisterOneFactory();
-    itk::NiftiImageIOFactory::RegisterOneFactory();
-    itk::NrrdImageIOFactory::RegisterOneFactory();
-    itk::PNGImageIOFactory::RegisterOneFactory();
-    itk::SiemensVisionImageIOFactory::RegisterOneFactory();
-    itk::StimulateImageIOFactory::RegisterOneFactory();
-    itk::TIFFImageIOFactory::RegisterOneFactory();
-    itk::VTKImageIOFactory::RegisterOneFactory();
 }
 
 ImageReader::~ImageReader()

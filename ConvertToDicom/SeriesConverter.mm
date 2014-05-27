@@ -10,8 +10,10 @@
 #import "SeriesConverter.h"
 #import "SeriesInfo.h"
 
+
 #include "ImageReader.h"
 #include "DicomSeriesWriter.h"
+#include "DicomInfo.h"
 
 #include <itkImage.h>
 #include <itkImageIOBase.h>
@@ -44,6 +46,13 @@
 - (void)extractSeriesDicomAttributes
 {
     // Take the information we need from the first image
+    [self loadFileNames];
+    if ([fileNames count] == 0)
+    {
+        std::cout << "Could not find files in " << [seriesInfo.outputDir UTF8String] << "\n";
+        return;
+    }
+    
     std::string firstFileName([[[fileNames objectAtIndex:0] path] UTF8String]);
     itk::ImageIOBase::Pointer imageIO =
         itk::ImageIOFactory::CreateImageIO(firstFileName.c_str(), itk::ImageIOFactory::ReadMode);
@@ -80,6 +89,10 @@
 
 - (NSUInteger)loadFileNames
 {
+    // If the array is not empty, empty it
+    if ([fileNames count] != 0)
+        [fileNames removeAllObjects];
+    
     NSArray* keys = [NSArray arrayWithObjects:NSURLIsDirectoryKey, NSURLLocalizedNameKey, nil];
 
     NSFileManager* fileManager = [NSFileManager defaultManager];
@@ -136,7 +149,6 @@
         for (ImageReader::ImageVector::const_iterator iter = imageVec.begin(); iter != imageVec.end(); ++iter)
         {
             Image2DType::Pointer image = *iter;
-
             imageStack.push_back(*iter);
         }
     }
@@ -144,8 +156,11 @@
 
 - (void)writeFiles
 {
+    // Convert the needed Dicom values to C++
+    DicomInfo dicomInfo(seriesInfo);
+    
     // Now write them out
-    DicomSeriesWriter writer( imageStack, [[outputDir path] UTF8String], 314159u);
+    DicomSeriesWriter writer(dicomInfo, imageStack, [[outputDir path] UTF8String], 314159u);
     writer.WriteFileSeries();
 }
 

@@ -12,9 +12,55 @@
 #import "AppDelegate.h"
 #import "UserDefaults.h"
 
+#include <itkNrrdImageIOFactory.h>
+#include <itkJPEGImageIOFactory.h>
+#include <itkBioRadImageIOFactory.h>
+#include <itkBMPImageIOFactory.h>
+#include <itkGDCMImageIOFactory.h>
+#include <itkGE4ImageIOFactory.h>
+#include <itkGE5ImageIOFactory.h>
+#include <itkGEAdwImageIOFactory.h>
+#include <itkGiplImageIOFactory.h>
+#include <itkHDF5ImageIOFactory.h>
+#include <itkImageIOFactory.h>
+#include <itkJPEGImageIOFactory.h>
+#include <itkLSMImageIOFactory.h>
+#include <itkMetaImageIOFactory.h>
+#include <itkMRCImageIOFactory.h>
+#include <itkNiftiImageIOFactory.h>
+#include <itkNrrdImageIOFactory.h>
+#include <itkPNGImageIOFactory.h>
+#include <itkSiemensVisionImageIOFactory.h>
+#include <itkStimulateImageIOFactory.h>
+#include <itkTIFFImageIOFactory.h>
+#include <itkVTKImageIOFactory.h>
+
 #include <gdcmUIDGenerator.h>
 
 @implementation WindowController
+
++(void)initialize
+{
+    itk::BioRadImageIOFactory::RegisterOneFactory();
+    itk::BMPImageIOFactory::RegisterOneFactory();
+    itk::GDCMImageIOFactory::RegisterOneFactory();
+    itk::GE4ImageIOFactory::RegisterOneFactory();
+    itk::GE5ImageIOFactory::RegisterOneFactory();
+    itk::GEAdwImageIOFactory::RegisterOneFactory();
+    itk::GiplImageIOFactory::RegisterOneFactory();
+    itk::HDF5ImageIOFactory::RegisterOneFactory();
+    itk::JPEGImageIOFactory::RegisterOneFactory();
+    itk::LSMImageIOFactory::RegisterOneFactory();
+    itk::MetaImageIOFactory::RegisterOneFactory();
+    itk::MRCImageIOFactory::RegisterOneFactory();
+    itk::NiftiImageIOFactory::RegisterOneFactory();
+    itk::NrrdImageIOFactory::RegisterOneFactory();
+    itk::PNGImageIOFactory::RegisterOneFactory();
+    itk::SiemensVisionImageIOFactory::RegisterOneFactory();
+    itk::StimulateImageIOFactory::RegisterOneFactory();
+    itk::TIFFImageIOFactory::RegisterOneFactory();
+    itk::VTKImageIOFactory::RegisterOneFactory();
+}
 
 - (id)init
 {
@@ -85,6 +131,12 @@
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
+    seriesConverter = [[SeriesConverter alloc]
+                       initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
+                       outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]
+                       seriesInfo:self.seriesInfo];
+    [seriesConverter extractSeriesDicomAttributes];
+
     [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
        didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -95,10 +147,7 @@
 
     if (returnCode == NSOKButton)
     {
-        SeriesConverter* sc = [[SeriesConverter alloc]
-                               initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
-                               outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]];
-        if ([sc loadFileNames] == 0)
+        if ([seriesConverter loadFileNames] == 0)
         {
             NSAlert* alert = [[NSAlert alloc] init];
             [alert setAlertStyle:NSCriticalAlertStyle];
@@ -112,7 +161,6 @@
             return;
         };
 
-        [sc extractSeriesDicomAttributes:self.seriesInfo];
     }
 }
 
@@ -123,12 +171,9 @@
 
 - (void)convertFiles
 {
-    SeriesConverter* sc = [[SeriesConverter alloc]
-                           initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
-                           outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]];
-    [sc loadFileNames];
-    [sc readFiles];
-    [sc writeFiles];
+    [seriesConverter loadFileNames];
+    [seriesConverter readFiles];
+    [seriesConverter writeFiles];
 }
 
 #pragma mark - DicomPanel

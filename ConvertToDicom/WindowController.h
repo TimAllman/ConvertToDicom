@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 @class SeriesInfo;
+@class SeriesConverter;
 
 @interface WindowController : NSWindowController <NSComboBoxDataSource>
 {
     NSArray* modalities;
     NSArray* sexes;
+    SeriesConverter* seriesConverter;
 }
 
 @property (weak) IBOutlet SeriesInfo *seriesInfo;
