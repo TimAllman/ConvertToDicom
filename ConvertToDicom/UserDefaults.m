@@ -7,7 +7,7 @@
 //
 
 #import "UserDefaults.h"
-#import "DicomInfo.h"
+#import "SeriesInfo.h"
 
 // Keys for preferences.
 NSString* InputDirKey = @"InputDir";
@@ -23,7 +23,7 @@ NSString* StudyDescriptionKey = @"StudyDescription";
 NSString* StudyIDKey = @"StudyID";
 NSString* StudyModalityKey = @"StudyModality";
 NSString* StudyDateTimeKey = @"StudyDateTime";
-NSString* StudySeriesUIDKey = @"StudySeriesUID";
+NSString* StudyStudyUIDKey = @"StudyStudyUID";
 NSString* ImageSliceThicknessKey = @"ImageSliceThickness";
 NSString* ImagePatientPositionXKey = @"ImagePatientPositionX";
 NSString* ImagePatientPositionYKey = @"ImagePatientPositionY";
@@ -48,7 +48,7 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
      @"", StudyIDKey,
      @"Unknown", StudyModalityKey,
      [NSDate date], StudyDateTimeKey,
-     @"", StudySeriesUIDKey,
+     @"", StudyStudyUIDKey,
      @1.0, ImageSliceThicknessKey,
      @0.0, ImagePatientPositionXKey,
      @0.0, ImagePatientPositionYKey,
@@ -60,7 +60,7 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
     [defaults registerDefaults:dict];
 }
 
-+ (void)loadDefaults:(DicomInfo*)info
++ (void)loadDefaults:(SeriesInfo*)info
 {
     // Load preferences and do other initialisation
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
@@ -80,7 +80,7 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
     info.studyID = [defs stringForKey:StudyIDKey];
     info.studyModality = [defs stringForKey:StudyModalityKey];
     info.studyDateTime = [defs objectForKey:StudyDateTimeKey];
-    info.studySeriesUID = [defs stringForKey:StudySeriesUIDKey];
+    info.studyStudyUID = [defs stringForKey:StudyStudyUIDKey];
     info.imageSliceThickness = [defs objectForKey:ImageSliceThicknessKey];
     info.imagePatientPositionX = [defs objectForKey:ImagePatientPositionXKey];
     info.imagePatientPositionY = [defs objectForKey:ImagePatientPositionYKey];
@@ -88,7 +88,7 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
     info.imagePatientOrientation = [defs stringForKey:ImagePatientOrientationKey];
 }
 
-+ (void)saveDefaults:(DicomInfo *)info
++ (void)saveDefaults:(SeriesInfo *)info
 {
     // Load preferences and do other initialisation
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
@@ -108,7 +108,7 @@ NSString* ImagePatientOrientationKey = @"ImagePatientOrientation";
     [defs setObject:info.studyID forKey:StudyIDKey];
     [defs setObject:info.studyModality forKey:StudyModalityKey];
     [defs setObject:info.studyDateTime forKey:StudyDateTimeKey];
-    [defs setObject:info.studySeriesUID forKey:StudySeriesUIDKey];
+    [defs setObject:info.studyStudyUID forKey:StudyStudyUIDKey];
     [defs setObject:info.imageSliceThickness forKey:ImageSliceThicknessKey];
     [defs setObject:info.imagePatientPositionX forKey:ImagePatientPositionXKey];
     [defs setObject:info.imagePatientPositionY forKey:ImagePatientPositionYKey];

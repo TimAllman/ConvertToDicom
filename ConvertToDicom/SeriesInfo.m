@@ -1,14 +1,14 @@
 //
-//  DicomInfo.m
+//  SeriesInfo.m
 //  ConvertToDicom
 //
 //  Created by Tim Allman on 2014-04-01.
 //  Copyright (c) 2014 Tim Allman. All rights reserved.
 //
 
-#import "DicomInfo.h"
+#import "SeriesInfo.h"
 
-@implementation DicomInfo
+@implementation SeriesInfo
 
 
 - (id)init

@@ -11,19 +11,20 @@
 
 #include "Typedefs.h"
 
-#include "DumpMetaDataDictionary.h"
+class DicomInfo;
 
 class DicomSeriesWriter
 {
 public:
     typedef unsigned short DicomPixelType;
 
-    DicomSeriesWriter(std::vector<Image2DType::Pointer>& images,
+    DicomSeriesWriter(const DicomInfo& dicomInfo, std::vector<Image2DType::Pointer>& images,
                         std::string outputDirectoryName, unsigned seriesNumber);
 
     void WriteFileSeries();
 
 private:
+    const DicomInfo& dicomInfo;
     std::vector<Image2DType::Pointer>& images;
     std::string outputDirectory;
     unsigned seriesNumber;

@@ -8,7 +8,7 @@
 
 #import "WindowController.h"
 #import "SeriesConverter.h"
-#import "DicomInfo.h"
+#import "SeriesInfo.h"
 #import "AppDelegate.h"
 #import "UserDefaults.h"
 
@@ -38,14 +38,14 @@
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
     panel.allowsMultipleSelection = NO;
-    [panel setDirectoryURL:[NSURL URLWithString:self.dicomInfo.inputDir]];
+    [panel setDirectoryURL:[NSURL URLWithString:self.seriesInfo.inputDir]];
 
     [panel beginWithCompletionHandler:^(NSInteger result)
     {
         if (result == NSFileHandlingPanelOKButton)
         {
             NSURL* inputDir = [[panel URLs] objectAtIndex:0];
-            self.dicomInfo.inputDir = [inputDir path];
+            self.seriesInfo.inputDir = [inputDir path];
             NSLog(@"URL chosen: %@", inputDir);
         }
     }];
@@ -65,7 +65,7 @@
          if (result == NSFileHandlingPanelOKButton)
          {
              NSURL* outputDir = [[panel URLs] objectAtIndex:0];
-             self.dicomInfo.outputDir = [outputDir path];
+             self.seriesInfo.outputDir = [outputDir path];
              NSLog(@"URL chosen: %@", outputDir);
          }
      }];
@@ -78,7 +78,7 @@
 
 - (IBAction)closeButtonPressed:(NSButton *)sender
 {
-    [UserDefaults saveDefaults:self.dicomInfo];
+    [UserDefaults saveDefaults:self.seriesInfo];
     [self close];
     [NSApp terminate:nil];
 }
@@ -96,14 +96,14 @@
     if (returnCode == NSOKButton)
     {
         SeriesConverter* sc = [[SeriesConverter alloc]
-                               initWithInputDir:[NSURL URLWithString:self.dicomInfo.inputDir]
-                               outputDir:[NSURL URLWithString:self.dicomInfo.outputDir]];
+                               initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
+                               outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]];
         if ([sc loadFileNames] == 0)
         {
             NSAlert* alert = [[NSAlert alloc] init];
             [alert setAlertStyle:NSCriticalAlertStyle];
             [alert setMessageText:[@"Image file not found in directory "
-                                   stringByAppendingString:self.dicomInfo.inputDir]];
+                                   stringByAppendingString:self.seriesInfo.inputDir]];
             [alert setInformativeText:@"Set the input directory to one containing image files."];
             [alert beginSheetModalForWindow:self.window
                               modalDelegate:self
@@ -112,9 +112,7 @@
             return;
         };
 
-        [sc extractSeriesDicomAttributes:self.dicomInfo];
-
-        //[self.dicomInfoPanel orderOut:self];
+        [sc extractSeriesDicomAttributes:self.seriesInfo];
     }
 }
 
@@ -126,8 +124,8 @@
 - (void)convertFiles
 {
     SeriesConverter* sc = [[SeriesConverter alloc]
-                           initWithInputDir:[NSURL URLWithString:self.dicomInfo.inputDir]
-                           outputDir:[NSURL URLWithString:self.dicomInfo.outputDir]];
+                           initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
+                           outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]];
     [sc loadFileNames];
     [sc readFiles];
     [sc writeFiles];
@@ -138,40 +136,40 @@
 - (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopAxialButtonPressed");
-    self.dicomInfo.imagePatientOrientation = @"1\\0\\0\\0\\1\\0";
+    self.seriesInfo.imagePatientOrientation = @"1\\0\\0\\0\\1\\0";
 }
 
 - (IBAction)imageSetIopSaggitalButtonPressed:(NSButton *)sender
 {
     NSLog(@"imageSetIopSaggitalButtonPressed");
-    self.dicomInfo.imagePatientOrientation = @"0\\1\\0\\0\\0\\1";
+    self.seriesInfo.imagePatientOrientation = @"0\\1\\0\\0\\0\\1";
 }
 
 - (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopCoronalButtonPressed");
-    self.dicomInfo.imagePatientOrientation = @"1\\0\\0\\0\\0\\1";
+    self.seriesInfo.imagePatientOrientation = @"1\\0\\0\\0\\0\\1";
 }
 
-- (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton*)sender
+- (IBAction)studyStudyUIDGenerateButtonPushed:(NSButton*)sender
 {
     gdcm::UIDGenerator suid;
-    std::string seriesUID = suid.Generate();
-    self.dicomInfo.studySeriesUID = [NSString stringWithUTF8String:seriesUID.c_str()];
+    std::string studyUID = suid.Generate();
+    self.seriesInfo.studyStudyUID = [NSString stringWithUTF8String:studyUID.c_str()];
 
-    NSLog(@"studySeriesUIDGenerateButtonPressed: %@", self.dicomInfo.studySeriesUID);
+    NSLog(@"studyStudyUIDGenerateButtonPressed: %@", self.seriesInfo.studyStudyUID);
 }
 
 - (IBAction)studyDateNowButtonPressed:(NSButton *)sender
 {
-    self.dicomInfo.studyDateTime = [NSDate date];
+    self.seriesInfo.studyDateTime = [NSDate date];
 }
 
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender
 {
     NSLog(@"closeButtonPressed");
 
-    [UserDefaults saveDefaults:self.dicomInfo];
+    [UserDefaults saveDefaults:self.seriesInfo];
     [NSApp endSheet:self.dicomInfoPanel];
     [self.dicomInfoPanel orderOut:self];
 }

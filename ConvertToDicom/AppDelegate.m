@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WindowController.h"
-#import "DicomInfo.h"
+#import "SeriesInfo.h"
 #import "UserDefaults.h"
 
 @implementation AppDelegate
@@ -16,7 +16,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [UserDefaults registerDefaults];
-    [UserDefaults loadDefaults:self.dicomInfo];
+    [UserDefaults loadDefaults:self.seriesInfo];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender

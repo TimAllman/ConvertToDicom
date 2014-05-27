@@ -9,11 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import "WindowController.h"
 
+@class SeriesInfo;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) IBOutlet WindowController *windowController;
-@property (weak) IBOutlet DicomInfo *dicomInfo;
+@property (weak) IBOutlet SeriesInfo *seriesInfo;
 
 @end

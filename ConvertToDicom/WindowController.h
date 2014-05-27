@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class DicomInfo;
+@class SeriesInfo;
 
 @interface WindowController : NSWindowController <NSComboBoxDataSource>
 {
@@ -16,13 +16,11 @@
     NSArray* sexes;
 }
 
-@property (weak) IBOutlet DicomInfo *dicomInfo;
+@property (weak) IBOutlet SeriesInfo *seriesInfo;
 
 // Main panel controls
 @property (weak) IBOutlet NSTextField *inputDirTextField;
 @property (weak) IBOutlet NSTextField *outputDirTextField;
-@property (weak) IBOutlet NSTextField *slicesPerImageTextField;
-@property (weak) IBOutlet NSTextField *timeIncrementTextField;
 
 // Dicom panel
 @property (strong) IBOutlet NSPanel *dicomInfoPanel;
@@ -36,7 +34,9 @@
 @property (weak) IBOutlet NSTextField *studyIDTextField;
 @property (weak) IBOutlet NSComboBox *studyModalityComboBox;
 @property (weak) IBOutlet NSDatePicker *studyDateTimeDatePicker;
-@property (weak) IBOutlet NSTextField *studySeriesUIDTextField;
+@property (weak) IBOutlet NSTextField *studyStudyUIDTextField;
+@property (weak) IBOutlet NSTextField *slicesPerImageTextField;
+@property (weak) IBOutlet NSTextField *timeIncrementTextField;
 @property (weak) IBOutlet NSTextField *imageSliceThicknessTextField;
 @property (weak) IBOutlet NSTextField *imagePatientPositionXTextField;
 @property (weak) IBOutlet NSTextField *imagePatientPositionYTextField;
@@ -52,7 +52,7 @@
 - (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender;
 - (IBAction)imageSetIopSaggitalButtonPressed:(NSButton*)sender;
 - (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender;
-- (IBAction)studySeriesUIDGenerateButtonPushed:(NSButton *)sender;
+- (IBAction)studyStudyUIDGenerateButtonPushed:(NSButton *)sender;
 - (IBAction)studyDateNowButtonPressed:(NSButton *)sender;
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
 

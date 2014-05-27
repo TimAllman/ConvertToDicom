@@ -22,21 +22,21 @@ extern NSString* StudyDescriptionKey;
 extern NSString* StudyIDKey;
 extern NSString* StudyModalityKey;
 extern NSString* StudyDateTimeKey;
-extern NSString* StudySeriesUIDKey;
+extern NSString* StudyStudyUIDKey;
 extern NSString* ImageSliceThicknessKey;
 extern NSString* ImagePatientPositionXKey;
 extern NSString* ImagePatientPositionYKey;
 extern NSString* ImagePatientPositionZKey;
 extern NSString* ImagePatientOrientationKey;
 
-@class DicomInfo;
+@class SeriesInfo;
 
 @interface UserDefaults : NSObject
 
 + (void)registerDefaults;
 
-+ (void)loadDefaults:(DicomInfo*)info;
++ (void)loadDefaults:(SeriesInfo*)info;
 
-+ (void)saveDefaults:(DicomInfo*)info;
++ (void)saveDefaults:(SeriesInfo*)info;
 
 @end

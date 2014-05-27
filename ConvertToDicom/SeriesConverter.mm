@@ -8,7 +8,7 @@
 
 #import "Typedefs.h"
 #import "SeriesConverter.h"
-#import "DicomInfo.h"
+#import "SeriesInfo.h"
 
 #include "ImageReader.h"
 #include "DicomSeriesWriter.h"
@@ -28,7 +28,7 @@
 
 @implementation SeriesConverter
 
-- (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir
+- (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir seriesInfo:(SeriesInfo *)info
 {
     self = [super init];
     if (self)
@@ -36,11 +36,12 @@
         inputDir = inpDir;
         outputDir = outpDir;
         fileNames = [NSMutableArray array];
+        seriesInfo = info;
     }
     return self;
 }
 
-- (void)extractSeriesDicomAttributes:(DicomInfo *)dicomInfo
+- (void)extractSeriesDicomAttributes
 {
     // Take the information we need from the first image
     std::string firstFileName([[[fileNames objectAtIndex:0] path] UTF8String]);
@@ -56,7 +57,7 @@
 
     // Get the number of dimensions.
     unsigned numDims = imageIO->GetNumberOfDimensions();
-    //
+
     // use for creating strings below.
     std::ostringstream value;
 
@@ -66,14 +67,15 @@
     dir = imageIO->GetDirection(1);
     value << dir[0] << "\\" << dir[1] << "\\" << dir[2];
     std::string imageOrientationPatient = value.str();
-    dicomInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
+    seriesInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
 
     // Image Position Patient
-    dicomInfo.imagePatientPositionX = [NSNumber numberWithDouble:imageIO->GetOrigin(0)];
-    dicomInfo.imagePatientPositionY = [NSNumber numberWithDouble:imageIO->GetOrigin(1)];
+    seriesInfo.imagePatientPositionX = [NSNumber numberWithDouble:imageIO->GetOrigin(0)];
+    seriesInfo.imagePatientPositionY = [NSNumber numberWithDouble:imageIO->GetOrigin(1)];
     if (numDims == 3)
-        dicomInfo.imagePatientPositionZ = [NSNumber numberWithDouble:imageIO->GetOrigin(2)];
-
+        seriesInfo.imagePatientPositionZ = [NSNumber numberWithDouble:imageIO->GetOrigin(2)];
+    else
+        seriesInfo.imagePatientPositionZ = [NSNumber numberWithDouble:0.0];
 }
 
 - (NSUInteger)loadFileNames
@@ -143,7 +145,7 @@
 - (void)writeFiles
 {
     // Now write them out
-    DicomSeriesWriter writer(imageStack, [[outputDir path] UTF8String], 314159u);
+    DicomSeriesWriter writer( imageStack, [[outputDir path] UTF8String], 314159u);
     writer.WriteFileSeries();
 }
 

@@ -26,10 +26,11 @@
 #include <iostream>
 #include <sstream>
 
+void CopyDictionary (itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
 
-DicomSeriesWriter::DicomSeriesWriter(std::vector<Image2DType::Pointer>& images,
+DicomSeriesWriter::DicomSeriesWriter(const DicomInfo& dicomParams, std::vector<Image2DType::Pointer>& images,
                                      std::string outputDirectoryName, unsigned seriesNumber)
-: images(images), outputDirectory(outputDirectoryName), seriesNumber(seriesNumber)
+: dicomInfo(dicomParams), images(images), outputDirectory(outputDirectoryName), seriesNumber(seriesNumber)
 {
 }
 
@@ -93,6 +94,7 @@ void DicomSeriesWriter::WriteFileSeries()
 
         // Get a pointer to this dictionary.
         MetaDataDictionaryType dict = curSlice->GetMetaDataDictionary();
+        std::cout << DumpMetaDataDictionary(dict);
 
         // Modality
         // TODO: This should be obtained from the incoming image or the command line.
@@ -159,6 +161,7 @@ void DicomSeriesWriter::WriteFileSeries()
         // create a Dicom series writer
         itk::GDCMImageIO::Pointer dicomIo = itk::GDCMImageIO::New();
         dicomIo->SetPixelType(itk::ImageIOBase::SCALAR);
+        dicomIo->SetMetaDataDictionary(dict);
 
         itk::ImageFileWriter<Image2DType>::Pointer writer = itk::ImageFileWriter<Image2DType>::New();
         writer->SetImageIO(dicomIo);
@@ -178,4 +181,29 @@ void DicomSeriesWriter::WriteFileSeries()
         }
     }
 }
+
+void CopyDictionary (itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict)
+{
+    typedef itk::MetaDataDictionary DictionaryType;
+
+    DictionaryType::ConstIterator itr = fromDict.Begin();
+    DictionaryType::ConstIterator end = fromDict.End();
+    typedef itk::MetaDataObject< std::string > MetaDataStringType;
+
+    while (itr != end)
+    {
+        itk::MetaDataObjectBase::Pointer  entry = itr->second;
+
+        MetaDataStringType::Pointer entryvalue = dynamic_cast<MetaDataStringType *>(entry.GetPointer()) ;
+        if (entryvalue)
+        {
+            std::string tagkey = itr->first;
+            std::string tagvalue = entryvalue->GetMetaDataObjectValue();
+            itk::EncapsulateMetaData<std::string>(toDict, tagkey, tagvalue);
+        }
+        ++itr;
+    }
+}
+
+
 

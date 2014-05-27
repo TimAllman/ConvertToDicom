@@ -22,14 +22,14 @@
         <window title="DICOM Information" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="de6-tp-fjS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="473" height="700"/>
+            <rect key="contentRect" x="196" y="240" width="438" height="713"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="lm9-f6-xbz">
-                <rect key="frame" x="0.0" y="0.0" width="473" height="700"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="713"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" title="Patient" borderType="line" id="DUF-PO-YDg">
-                        <rect key="frame" x="17" y="530" width="404" height="150"/>
+                        <rect key="frame" x="17" y="543" width="404" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="402" height="134"/>
@@ -151,7 +151,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" title="Study" borderType="line" id="W0B-tn-rmI">
-                        <rect key="frame" x="17" y="316" width="404" height="210"/>
+                        <rect key="frame" x="17" y="329" width="404" height="210"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="402" height="194"/>
@@ -197,9 +197,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Kn2-w0-HUc">
-                                    <rect key="frame" x="16" y="17" width="68" height="17"/>
+                                    <rect key="frame" x="16" y="17" width="66" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Series UID" id="svI-ag-20W">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Study UID" id="svI-ag-20W">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -208,13 +208,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <textField verticalHuggingPriority="750" id="fKR-hW-cCp">
                                     <rect key="frame" x="98" y="14" width="193" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Series UID" drawsBackground="YES" id="aRu-8h-9cR">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Study UID" drawsBackground="YES" id="aRu-8h-9cR">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studySeriesUID" id="O0n-e4-KsU"/>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyStudyUID" id="xW1-f7-EU8"/>
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="791-Zg-FMO">
@@ -297,7 +297,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="studySeriesUIDGenerateButtonPushed:" target="hyz-DH-rQs" id="A5a-80-ebs"/>
+                                        <action selector="studyStudyUIDGenerateButtonPushed:" target="hyz-DH-rQs" id="bje-6x-C4g"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="dG7-pV-iFX">
@@ -317,14 +317,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" title="Image" borderType="line" id="nwn-KT-amg">
-                        <rect key="frame" x="17" y="67" width="404" height="245"/>
+                        <rect key="frame" x="17" y="67" width="404" height="258"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="402" height="229"/>
+                            <rect key="frame" x="1" y="1" width="402" height="242"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wOK-lt-cnW">
-                                    <rect key="frame" x="16" y="200" width="95" height="17"/>
+                                    <rect key="frame" x="16" y="183" width="95" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slice thickness" id="rai-r8-GKB">
                                         <font key="font" metaFont="system"/>
@@ -333,7 +333,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="lz8-t4-gac">
-                                    <rect key="frame" x="147" y="197" width="99" height="22"/>
+                                    <rect key="frame" x="147" y="180" width="99" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Slice thickness" drawsBackground="YES" id="KtT-60-3Xa">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="gCp-U7-Vvu"/>
@@ -346,7 +346,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     </connections>
                                 </textField>
                                 <box autoresizesSubviews="NO" title="Patient position" borderType="line" id="ynb-Mb-CKv">
-                                    <rect key="frame" x="15" y="130" width="316" height="62"/>
+                                    <rect key="frame" x="15" y="110" width="316" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView">
                                         <rect key="frame" x="1" y="1" width="314" height="46"/>
@@ -356,7 +356,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <rect key="frame" x="139" y="14" width="54" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="2Ay-Xa-GDL">
-                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="VZy-6B-OVD">
+                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="VZy-6B-OVD">
                                                         <real key="minimum" value="0.0"/>
                                                     </numberFormatter>
                                                     <font key="font" metaFont="system"/>
@@ -371,7 +371,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <rect key="frame" x="242" y="14" width="54" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="YdR-bi-3Xa">
-                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="tQD-s2-Z5N">
+                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="tQD-s2-Z5N">
                                                         <real key="minimum" value="0.0"/>
                                                     </numberFormatter>
                                                     <font key="font" metaFont="system"/>
@@ -404,7 +404,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <rect key="frame" x="35" y="14" width="54" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="j50-1t-RAz">
-                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="xu2-fs-2sP">
+                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.00" negativeFormat="#.00" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="xu2-fs-2sP">
                                                         <real key="minimum" value="0.0"/>
                                                     </numberFormatter>
                                                     <font key="font" metaFont="system"/>
@@ -430,7 +430,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </box>
                                 <box autoresizesSubviews="NO" title="Patient orientation " borderType="line" id="zCZ-LI-1WL">
-                                    <rect key="frame" x="15" y="30" width="316" height="96"/>
+                                    <rect key="frame" x="15" y="10" width="316" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <view key="contentView">
                                         <rect key="frame" x="1" y="1" width="314" height="80"/>
@@ -486,6 +486,52 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </box>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="R2K-o7-roh">
+                                    <rect key="frame" x="194" y="212" width="121" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Time increment (s)" id="0jU-Bk-OKf">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JOw-nN-3la">
+                                    <rect key="frame" x="16" y="213" width="106" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slices per image" id="afl-d8-ZHK">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="8qj-G1-u3i">
+                                    <rect key="frame" x="321" y="210" width="60" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ufd-ip-ChD">
+                                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="*0.000" alwaysShowsDecimalSeparator="YES" usesGroupingSeparator="NO" formatWidth="4" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="3" maximumFractionDigits="3" id="pAo-Iq-5NJ">
+                                            <real key="minimum" value="0.0"/>
+                                        </numberFormatter>
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="W0B-wd-FY2"/>
+                                    </connections>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="odA-Sy-0yH">
+                                    <rect key="frame" x="128" y="210" width="49" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gue-hq-tko">
+                                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="Gpx-aS-s61"/>
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.slicesPerImage" id="SMN-5b-Wjs"/>
+                                    </connections>
+                                </textField>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -523,21 +569,21 @@ DQ
         <window title="ConvertToDicom" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="494" height="277"/>
+            <rect key="contentRect" x="335" y="390" width="494" height="194"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="494" height="277"/>
+                <rect key="frame" x="0.0" y="0.0" width="494" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" title="DirectoryBox" borderType="line" titlePosition="noTitle" id="3nP-rE-Vv9">
-                        <rect key="frame" x="17" y="163" width="458" height="96"/>
+                        <rect key="frame" x="17" y="67" width="458" height="109"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="456" height="94"/>
+                            <rect key="frame" x="1" y="1" width="456" height="107"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9GD-Ee-Dho">
-                                    <rect key="frame" x="16" y="67" width="104" height="17"/>
+                                    <rect key="frame" x="16" y="80" width="104" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input directory" id="po9-pQ-2Wa">
                                         <font key="font" metaFont="system"/>
@@ -546,7 +592,7 @@ DQ
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
-                                    <rect key="frame" x="139" y="62" width="209" height="22"/>
+                                    <rect key="frame" x="139" y="75" width="209" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="46N-MB-mad">
                                         <font key="font" metaFont="system"/>
@@ -558,7 +604,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DeU-vq-0cz">
-                                    <rect key="frame" x="16" y="35" width="109" height="17"/>
+                                    <rect key="frame" x="16" y="48" width="109" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output directory" id="XGJ-rd-qAQ">
                                         <font key="font" metaFont="system"/>
@@ -567,7 +613,7 @@ DQ
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="L91-bg-t9y">
-                                    <rect key="frame" x="139" y="30" width="209" height="22"/>
+                                    <rect key="frame" x="139" y="43" width="209" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jpd-wE-WBy">
                                         <font key="font" metaFont="system"/>
@@ -579,7 +625,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" id="RrQ-yJ-JbC">
-                                    <rect key="frame" x="357" y="56" width="87" height="32"/>
+                                    <rect key="frame" x="357" y="69" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CYY-vL-L7l">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -590,7 +636,7 @@ DQ
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="6TU-RY-VsK">
-                                    <rect key="frame" x="357" y="24" width="87" height="32"/>
+                                    <rect key="frame" x="357" y="37" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LOk-bI-Fvb">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -600,66 +646,17 @@ DQ
                                         <action selector="outputDirButtonPressed:" target="hyz-DH-rQs" id="AK1-1q-oN8"/>
                                     </connections>
                                 </button>
-                            </subviews>
-                        </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </box>
-                    <box autoresizesSubviews="NO" title="ImageInfoBox" borderType="line" titlePosition="noTitle" id="QF3-pK-zFE">
-                        <rect key="frame" x="17" y="67" width="460" height="94"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="458" height="92"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="R2K-o7-roh">
-                                    <rect key="frame" x="194" y="62" width="121" height="17"/>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PHJ-Sd-Q2a">
+                                    <rect key="frame" x="16" y="16" width="109" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Time increment (s)" id="0jU-Bk-OKf">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dicom attributes" id="Gs0-3X-1js">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
-                                </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JOw-nN-3la">
-                                    <rect key="frame" x="16" y="63" width="106" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slices per image" id="afl-d8-ZHK">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField verticalHuggingPriority="750" id="8qj-G1-u3i">
-                                    <rect key="frame" x="321" y="60" width="60" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ufd-ip-ChD">
-                                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="*0.000" alwaysShowsDecimalSeparator="YES" usesGroupingSeparator="NO" formatWidth="4" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="3" maximumFractionDigits="3" id="pAo-Iq-5NJ">
-                                            <real key="minimum" value="0.0"/>
-                                        </numberFormatter>
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="W0B-wd-FY2"/>
-                                    </connections>
-                                </textField>
-                                <textField verticalHuggingPriority="750" id="odA-Sy-0yH">
-                                    <rect key="frame" x="128" y="60" width="49" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gue-hq-tko">
-                                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="Gpx-aS-s61"/>
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.slicesPerImage" id="SMN-5b-Wjs"/>
-                                    </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" id="nz9-h0-FJj">
-                                    <rect key="frame" x="101" y="17" width="82" height="32"/>
+                                    <rect key="frame" x="133" y="7" width="82" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hF4-vp-H6h">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -669,15 +666,6 @@ DQ
                                         <action selector="setDicomTagsButtonPushed:" target="hyz-DH-rQs" id="Gv6-ae-fUO"/>
                                     </connections>
                                 </button>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PHJ-Sd-Q2a">
-                                    <rect key="frame" x="16" y="26" width="75" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dicom tags" id="Gs0-3X-1js">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -720,10 +708,9 @@ DQ
                 </subviews>
             </view>
         </window>
-        <customObject id="xNx-Wx-cOr" customClass="DicomInfo"/>
+        <customObject id="xNx-Wx-cOr" customClass="SeriesInfo"/>
         <customObject id="hyz-DH-rQs" customClass="WindowController">
             <connections>
-                <outlet property="dicomInfo" destination="xNx-Wx-cOr" id="kQa-NC-0nJ"/>
                 <outlet property="dicomInfoPanel" destination="de6-tp-fjS" id="Hin-Qt-RUR"/>
                 <outlet property="imagePatientOrientationTextField" destination="rJu-UE-9Wu" id="Yf2-C6-p7q"/>
                 <outlet property="imagePatientPositionXTextField" destination="EiP-1l-G1N" id="AWM-9S-16Q"/>
@@ -736,12 +723,13 @@ DQ
                 <outlet property="patientsIDTextField" destination="fId-KA-HG5" id="5z4-pd-mmQ"/>
                 <outlet property="patientsNameTextField" destination="SFJ-uP-Heo" id="iOO-6d-W1e"/>
                 <outlet property="patientsSexComboBox" destination="0hW-8t-U8g" id="kqx-iw-evq"/>
+                <outlet property="seriesInfo" destination="xNx-Wx-cOr" id="2z2-R4-rCg"/>
                 <outlet property="slicesPerImageTextField" destination="odA-Sy-0yH" id="tDX-yl-O3p"/>
                 <outlet property="studyDateTimeDatePicker" destination="dMV-OM-kaB" id="lhp-1b-nn6"/>
                 <outlet property="studyDescriptionTextField" destination="XBE-zx-Oeu" id="Zls-2c-6Fb"/>
                 <outlet property="studyIDTextField" destination="byA-JC-UwI" id="Oeh-Wm-jGK"/>
                 <outlet property="studyModalityComboBox" destination="3vW-GR-MQ7" id="0zl-iw-agD"/>
-                <outlet property="studySeriesUIDTextField" destination="fKR-hW-cCp" id="08Z-Fb-C5R"/>
+                <outlet property="studyStudyUIDTextField" destination="fKR-hW-cCp" id="kXT-YF-6wP"/>
                 <outlet property="timeIncrementTextField" destination="8qj-G1-u3i" id="HbD-pq-J24"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="EBU-uO-UTi"/>
             </connections>

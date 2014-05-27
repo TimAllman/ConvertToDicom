@@ -83,23 +83,23 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
     imageIO->SetFileName(fileName);
     imageIO->ReadImageInformation();
 
-    std::cout << "Image file type: " << imageIO->GetFileTypeAsString(imageIO->GetFileType());
+    std::cout << "Image file type: " << imageIO->GetFileTypeAsString(imageIO->GetFileType()) << "\n";
 
     typedef itk::ImageIOBase::IOComponentType ScalarPixelType;
     const ScalarPixelType pixelType = imageIO->GetComponentType();
-    std::cout << "Pixel Type is " << imageIO->GetComponentTypeAsString(pixelType) << std::endl;
+    std::cout << "Pixel Type is " << imageIO->GetComponentTypeAsString(pixelType) << "\n";
 
     const size_t numDimensions =  imageIO->GetNumberOfDimensions();
-    std::cout << "numDimensions: " << numDimensions << std::endl; // '2'
+    std::cout << "numDimensions: " << numDimensions << "\n"; // '2'
 
-    std::cout << "component size: " << imageIO->GetComponentSize() << std::endl; // '8'
-    std::cout << "pixel type (string): " << imageIO->GetPixelTypeAsString(imageIO->GetPixelType()) << std::endl;
-    std::cout << "pixel type: " << imageIO->GetPixelType() << std::endl; // '5'
+    std::cout << "component size: " << imageIO->GetComponentSize() << "\n"; // '8'
+    std::cout << "pixel type (string): " << imageIO->GetPixelTypeAsString(imageIO->GetPixelType()) << "\n";
+    std::cout << "pixel type: " << imageIO->GetPixelType() << "\n"; // '5'
 
     std::cout << "dimensions: ";
     for (unsigned idx = 0; idx < numDimensions; ++idx)
         std::cout << imageIO->GetDimensions(idx) << ", ";
-    std::cout << "\n";
+    std::cout << std::endl;
 
 
 
