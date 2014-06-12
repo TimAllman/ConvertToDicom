@@ -25,7 +25,7 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
         acqTimes_.push_back([timeStr UTF8String]);
 
     patientsName_ = [info.patientsName UTF8String];
-    patientsID_ = [info.patientsID UTF8String];
+    patientsID_ = [[info.patientsID stringValue] UTF8String];
 
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyyMMdd"];
@@ -33,7 +33,7 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
     patientsDOB_ = [dob UTF8String];
     patientsSex_ = [info.patientsSex UTF8String];
     studyDescription_ = [info.studyDescription UTF8String];
-    studyID_ = [info.studyID UTF8String];
+    studyID_ = [[info.studyID stringValue] UTF8String];
     studyModality_ = [info.studyModality UTF8String];
     studyDate_ = [[dateFormatter stringFromDate:info.studyDateTime] UTF8String];
     [dateFormatter setDateFormat:@"HHmmss"];
@@ -41,7 +41,7 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
     studyStudyUID_ = [info.studyStudyUID UTF8String];
 
     seriesDescription_ = [info.seriesDescription UTF8String];
-    seriesNumber_ = [info.seriesNumber UTF8String];
+    seriesNumber_ = [[info.seriesNumber stringValue] UTF8String];
 
     imageSliceSpacing_ = [info.imageSliceSpacing floatValue];
     imagePatientPositionX_ = [info.imagePatientPositionX floatValue];

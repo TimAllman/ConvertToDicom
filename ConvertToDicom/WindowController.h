@@ -16,7 +16,6 @@
     NSArray* modalities;
     NSArray* sexes;
     SeriesConverter* seriesConverter;
-    BOOL dicomInfoSet;
 }
 
 @property (weak) IBOutlet SeriesInfo *seriesInfo;
@@ -48,6 +47,7 @@
 
 @property (weak) IBOutlet NSButton *convertButton;
 @property (weak) IBOutlet NSButton *closeButton;
+@property (weak) IBOutlet NSButton *dicomPanelCloseButton;
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender;
 - (IBAction)outputDirButtonPressed:(NSButton *)sender;

@@ -109,6 +109,9 @@ void DicomSeriesWriter::CopyDictionary(itk::MetaDataDictionary& fromDict, itk::M
 
 void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
 {
+    // It may have been used in a previous run.
+    dictArray.clear();
+
     itk::MetaDataDictionary seriesDict = seriesInfo.dictionary();
     std::cout << DumpDicomMetaDataDictionary(seriesDict);
 

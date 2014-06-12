@@ -20,24 +20,24 @@
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <window title="ConvertToDicom" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="494" height="194"/>
+            <rect key="contentRect" x="873" y="731" width="521" height="194"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="494" height="194"/>
+                <rect key="frame" x="0.0" y="0.0" width="521" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" title="DirectoryBox" borderType="line" titlePosition="noTitle" id="3nP-rE-Vv9">
-                        <rect key="frame" x="17" y="67" width="458" height="109"/>
+                        <rect key="frame" x="17" y="67" width="485" height="109"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="456" height="107"/>
+                            <rect key="frame" x="1" y="1" width="483" height="107"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9GD-Ee-Dho">
                                     <rect key="frame" x="16" y="80" width="104" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input directory" id="po9-pQ-2Wa">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -45,7 +45,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
-                                    <rect key="frame" x="139" y="75" width="209" height="22"/>
+                                    <rect key="frame" x="139" y="75" width="236" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="46N-MB-mad">
                                         <font key="font" metaFont="system"/>
@@ -66,7 +66,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="L91-bg-t9y">
-                                    <rect key="frame" x="139" y="43" width="209" height="22"/>
+                                    <rect key="frame" x="139" y="43" width="236" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jpd-wE-WBy">
                                         <font key="font" metaFont="system"/>
@@ -78,7 +78,7 @@
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" id="RrQ-yJ-JbC">
-                                    <rect key="frame" x="357" y="69" width="87" height="32"/>
+                                    <rect key="frame" x="384" y="70" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CYY-vL-L7l">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -89,7 +89,7 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="6TU-RY-VsK">
-                                    <rect key="frame" x="357" y="37" width="87" height="32"/>
+                                    <rect key="frame" x="384" y="37" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LOk-bI-Fvb">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -110,7 +110,7 @@
                                 </textField>
                                 <button verticalHuggingPriority="750" id="nz9-h0-FJj">
                                     <rect key="frame" x="133" y="7" width="82" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                     <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hF4-vp-H6h">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -125,14 +125,14 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" title="ButtonBox" borderType="line" titlePosition="noTitle" id="CHT-bQ-iUr">
-                        <rect key="frame" x="17" y="16" width="460" height="49"/>
+                        <rect key="frame" x="17" y="16" width="485" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="458" height="47"/>
+                            <rect key="frame" x="1" y="1" width="483" height="47"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" id="BNI-VC-fDF">
-                                    <rect key="frame" x="282" y="7" width="90" height="32"/>
+                                    <rect key="frame" x="307" y="7" width="90" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Convert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qAF-cP-2lo">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -143,7 +143,7 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="FDN-am-ZKJ">
-                                    <rect key="frame" x="372" y="7" width="74" height="32"/>
+                                    <rect key="frame" x="397" y="7" width="74" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ee9-J9-sDe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -168,7 +168,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="lm9-f6-xbz">
                 <rect key="frame" x="0.0" y="0.0" width="462" height="384"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <box autoresizesSubviews="NO" title="Box" borderType="line" titlePosition="noTitle" id="QZY-0X-gYk">
                         <rect key="frame" x="17" y="16" width="428" height="49"/>
@@ -752,7 +752,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="R2K-o7-roh">
-                                                        <rect key="frame" x="194" y="228" width="121" height="17"/>
+                                                        <rect key="frame" x="187" y="228" width="121" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Time increment (s)" id="0jU-Bk-OKf">
                                                             <font key="font" metaFont="system"/>
@@ -770,7 +770,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" id="8qj-G1-u3i">
-                                                        <rect key="frame" x="321" y="226" width="60" height="22"/>
+                                                        <rect key="frame" x="313" y="226" width="71" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ufd-ip-ChD">
                                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="*0.000" alwaysShowsDecimalSeparator="YES" usesGroupingSeparator="NO" formatWidth="4" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="309" minimumFractionDigits="6" maximumFractionDigits="6" id="pAo-Iq-5NJ">
@@ -781,7 +781,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="W0B-wd-FY2"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="YWU-wx-MbZ">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" id="odA-Sy-0yH">
@@ -816,6 +820,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <outlet property="closeButton" destination="FDN-am-ZKJ" id="DYw-gn-LeK"/>
                 <outlet property="convertButton" destination="BNI-VC-fDF" id="nv2-Au-a62"/>
                 <outlet property="dicomInfoPanel" destination="de6-tp-fjS" id="Hin-Qt-RUR"/>
+                <outlet property="dicomPanelCloseButton" destination="Gyx-Nr-27h" id="Xvk-rK-ul6"/>
                 <outlet property="imagePatientOrientationTextField" destination="rJu-UE-9Wu" id="Yf2-C6-p7q"/>
                 <outlet property="imagePatientPositionXTextField" destination="EiP-1l-G1N" id="AWM-9S-16Q"/>
                 <outlet property="imagePatientPositionYTextField" destination="EaJ-aq-lX5" id="d45-jq-U3g"/>

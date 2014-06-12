@@ -36,13 +36,13 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
      NSHomeDirectory(), OutputDirKey,
      @1.0, TimeIncrementKey,
      @"", PatientsNameKey,
-     @"", PatientsIDKey,
+     @0, PatientsIDKey,
      [NSDate dateWithString:@"1918-10-19 10:45:32 +0500"], PatientsDOBKey,
      @"Unspecified", PatientsSexKey,
      @"", StudyDescriptionKey,
      @"", SeriesDescriptionKey,
-     @"", SeriesNumberKey,
-     @"", StudyIDKey,
+     @0, SeriesNumberKey,
+     @0, StudyIDKey,
      @"Unknown", StudyModalityKey,
      [NSDate date], StudyDateTimeKey,
      @"", StudyStudyUIDKey,
@@ -64,13 +64,13 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
 
     // Dicom info window params
     info.patientsName = [defs stringForKey:PatientsNameKey];
-    info.patientsID = [defs stringForKey:PatientsIDKey];
+    info.patientsID = [defs objectForKey:PatientsIDKey];
     info.patientsDOB = [defs objectForKey:PatientsDOBKey];
     info.patientsSex = [defs stringForKey:PatientsSexKey];
     info.studyDescription = [defs stringForKey:StudyDescriptionKey];
-    info.studyID = [defs stringForKey:StudyIDKey];
+    info.studyID = [defs objectForKey:StudyIDKey];
     info.seriesDescription = [defs stringForKey:SeriesDescriptionKey];
-    info.seriesNumber = [defs stringForKey:SeriesNumberKey];
+    info.seriesNumber = [defs objectForKey:SeriesNumberKey];
     info.studyModality = [defs stringForKey:StudyModalityKey];
     info.studyDateTime = [defs objectForKey:StudyDateTimeKey];
     info.studyStudyUID = [defs stringForKey:StudyStudyUIDKey];

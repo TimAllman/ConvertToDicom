@@ -193,12 +193,13 @@
     for (NSURL* url in fileNames)
     {
         NSString* filePath = [url path];
-        NSLog(@"%@", filePath);
+        //NSLog(@"%@", filePath);
 
         paths.push_back([filePath UTF8String]);
     }
 
     // Read in all of the slices
+    imageStack.clear();
     ImageReader reader;
     for (std::vector<std::string>::iterator iter = paths.begin(); iter != paths.end(); ++iter)
     {

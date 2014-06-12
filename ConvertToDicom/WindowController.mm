@@ -73,15 +73,12 @@
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
         sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
         seriesConverter = [[SeriesConverter alloc] init];
-        dicomInfoSet = NO;
-        [self.convertButton setEnabled:NO];
     }
     return self;
 }
 
 - (void)awakeFromNib
 {
-    dicomInfoSet = NO;
     [self.convertButton setEnabled:NO];
 }
 
@@ -94,7 +91,7 @@
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
     panel.allowsMultipleSelection = NO;
-    [panel setDirectoryURL:[NSURL URLWithString:self.seriesInfo.inputDir]];
+    [panel setDirectoryURL:[NSURL fileURLWithPath:self.seriesInfo.inputDir]];
 
     [panel beginWithCompletionHandler:^(NSInteger result)
     {
@@ -102,7 +99,7 @@
         {
             NSURL* inputDir = [[panel URLs] objectAtIndex:0];
             self.seriesInfo.inputDir = [inputDir path];
-            NSLog(@"URL chosen: %@", inputDir);
+            NSLog(@"Input dir URL chosen: %@", inputDir);
         }
     }];
 }
@@ -115,6 +112,7 @@
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = YES;
     panel.allowsMultipleSelection = NO;
+    [panel setDirectoryURL:[NSURL fileURLWithPath:self.seriesInfo.outputDir]];
 
     [panel beginWithCompletionHandler:^(NSInteger result)
      {
@@ -122,14 +120,13 @@
          {
              NSURL* outputDir = [[panel URLs] objectAtIndex:0];
              self.seriesInfo.outputDir = [outputDir path];
-             NSLog(@"URL chosen: %@", outputDir);
+             NSLog(@"Output dir URL chosen: %@", outputDir);
          }
      }];
 }
 
 - (IBAction)convertButtonPressed:(NSButton *)sender
 {
-    dicomInfoSet = NO;
     [self.convertButton setEnabled:NO];
     
     [self convertFiles];
@@ -144,7 +141,8 @@
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
-    seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
+    //seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
+    seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
     seriesConverter.parentWindow = self.window;
 
@@ -207,7 +205,6 @@
         }
         else
         {
-            dicomInfoSet = YES;
             [self.convertButton setEnabled:YES];
         }
     }
@@ -220,8 +217,8 @@
 
 - (void)convertFiles
 {
-    seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
-    seriesConverter.outputDir = [NSURL URLWithString:self.seriesInfo.outputDir];
+    seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
+    seriesConverter.outputDir = [NSURL fileURLWithPath:self.seriesInfo.outputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
     seriesConverter.parentWindow = self.window;
 
@@ -268,10 +265,25 @@
 {
     NSLog(@"dicomCloseButtonPressed");
 
+    if (![self.seriesInfo isComplete])
+    {
+        NSAlert* alert = [[NSAlert alloc] init];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert setMessageText:@"Information is incomplete."];
+        [alert setInformativeText:@"All DICOM information fields must be filled in."];
+        [alert beginSheetModalForWindow:self.window
+                          modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        return;
+    }
+
+    if (![self.seriesInfo isConsistent])
+    {
+        return;
+    }
+
     if ([self makeOutputDirectory:self.seriesInfo.outputDir] == YES)
     {
-        dicomInfoSet = YES;
-        [self.closeButton setEnabled:YES];
+        [self.convertButton setEnabled:YES];
         
         [UserDefaults saveDefaults:self.seriesInfo];
         [NSApp endSheet:self.dicomInfoPanel];
@@ -342,8 +354,7 @@
 {
     NSError* error = nil;
 
-    if (self.seriesInfo.outputPath == nil)
-        [self makeOutputDirectoryName:self.seriesInfo.outputDir];
+    [self makeOutputDirectoryName:self.seriesInfo.outputDir];
 
     NSFileManager* fm = [NSFileManager defaultManager];
 
@@ -371,7 +382,7 @@
                                              defaultButton:@"Close" alternateButton:nil
                                                otherButton:nil
                                  informativeTextWithFormat:@"%@", self.seriesInfo.outputPath];
-            [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+            [alert beginSheetModalForWindow:self.dicomInfoPanel completionHandler:^(NSModalResponse returnCode) {
             }];
 
             retVal = NO;

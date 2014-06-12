@@ -25,15 +25,15 @@
 @property (strong) IBOutlet NSMutableArray* acqTimes;
 
 @property (strong) IBOutlet NSString* patientsName;
-@property (strong) IBOutlet NSString* patientsID;
+@property (strong) IBOutlet NSNumber* patientsID;
 @property (strong) IBOutlet NSDate* patientsDOB;
 @property (strong) IBOutlet NSString* patientsSex;
 @property (strong) IBOutlet NSString* studyDescription;
-@property (strong) IBOutlet NSString* studyID;
+@property (strong) IBOutlet NSNumber* studyID;
 @property (strong) IBOutlet NSString* studyModality;
 @property (strong) IBOutlet NSDate* studyDateTime;
 @property (strong) IBOutlet NSString* studyStudyUID;
-@property (strong) IBOutlet NSString* seriesNumber;
+@property (strong) IBOutlet NSNumber* seriesNumber;
 @property (strong) IBOutlet NSString* seriesDescription;
 @property (strong) IBOutlet NSNumber* imageSliceSpacing;
 @property (strong) IBOutlet NSNumber* imagePatientPositionX;
@@ -42,5 +42,7 @@
 @property (strong) IBOutlet NSString* imagePatientOrientation;
 
 - (id)init;
+- (BOOL)isComplete;
+- (BOOL)isConsistent;
 
 @end
