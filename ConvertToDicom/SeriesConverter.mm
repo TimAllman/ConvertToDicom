@@ -13,7 +13,7 @@
 
 #include "ImageReader.h"
 #include "DicomSeriesWriter.h"
-#include "DicomInfo.h"
+#include "SeriesInfoITK.h"
 
 #include <itkImage.h>
 #include <itkImageIOBase.h>
@@ -30,27 +30,59 @@
 
 @implementation SeriesConverter
 
-- (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir seriesInfo:(SeriesInfo *)info
+- (id)init
 {
     self = [super init];
     if (self)
     {
-        inputDir = inpDir;
-        outputDir = outpDir;
         fileNames = [NSMutableArray array];
-        seriesInfo = info;
     }
     return self;
 }
 
-- (void)extractSeriesDicomAttributes
+- (void)createTimesArray
+{
+    // Here we create an array of DICOM acquisition times as time strings
+    if (self.seriesInfo.acqTimes == nil)
+        self.seriesInfo.acqTimes = [[NSMutableArray alloc] init];
+    else if ([self.seriesInfo.acqTimes count] != 0)
+        [self.seriesInfo.acqTimes removeAllObjects];
+    
+    if ([fileNames count] == 0)
+        [self loadFileNames];
+
+    // Get the starting time (NSTimeinterval is a typedef for double)
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"HHmmss.SSS"];
+
+    NSDate* acqTime = self.seriesInfo.studyDateTime;
+    double timeIncr = [self.seriesInfo.timeIncrement doubleValue];
+
+    unsigned numFiles = (unsigned)[fileNames count];
+    unsigned slicesPerFile = [self.seriesInfo.slicesPerImage unsignedIntValue];
+    unsigned numSlices = numFiles * slicesPerFile;
+    for (unsigned sliceIdx = 0; sliceIdx < numSlices; ++sliceIdx)
+    {
+        NSString* timeStr = [df stringFromDate:acqTime];
+        [self.seriesInfo.acqTimes addObject:timeStr];
+
+        // if the next slice needs to be incremented do it here
+        if (sliceIdx % slicesPerFile == slicesPerFile - 1)
+        {
+            acqTime = [acqTime dateByAddingTimeInterval:timeIncr];
+        }
+    }
+}
+
+
+- (BOOL)extractSeriesDicomAttributes
 {
     // Take the information we need from the first image
     [self loadFileNames];
     if ([fileNames count] == 0)
     {
-        std::cout << "Could not find files in " << [seriesInfo.outputDir UTF8String] << "\n";
-        return;
+        std::cout << "Could not find files in " << [self.seriesInfo.inputDir UTF8String] << "\n";
+        return NO;
     }
     
     std::string firstFileName([[[fileNames objectAtIndex:0] path] UTF8String]);
@@ -61,11 +93,32 @@
     if (imageIO.IsNull())
     {
         std::cout << "Could not get metadata from file: " << firstFileName << "\n";
-        return;
+        return NO;
     };
+
+    imageIO->SetFileName(firstFileName);
+    imageIO->ReadImageInformation();
 
     // Get the number of dimensions.
     unsigned numDims = imageIO->GetNumberOfDimensions();
+
+    // Slice thickness
+    if (numDims == 3)
+    {
+        self.seriesInfo.slicesPerImage = [NSNumber numberWithUnsignedLong:imageIO->GetDimensions(2)];
+        self.seriesInfo.imageSliceSpacing = [NSNumber numberWithFloat:imageIO->GetSpacing(2)];
+    }
+    else
+    {
+        self.seriesInfo.slicesPerImage = [NSNumber numberWithUnsignedInt:1u];
+        // If we have a value use it, otherwise set to 1.0 mm
+        if (self.seriesInfo.imageSliceSpacing == nil)
+            self.seriesInfo.imageSliceSpacing = [NSNumber numberWithFloat:1.0];
+    }
+
+    unsigned numFiles = (unsigned)[fileNames count];
+    unsigned slicesPerImage = [self.seriesInfo.slicesPerImage unsignedIntValue];
+    self.seriesInfo.numberOfImages = [NSNumber numberWithUnsignedInt:numFiles / slicesPerImage];
 
     // use for creating strings below.
     std::ostringstream value;
@@ -76,15 +129,19 @@
     dir = imageIO->GetDirection(1);
     value << dir[0] << "\\" << dir[1] << "\\" << dir[2];
     std::string imageOrientationPatient = value.str();
-    seriesInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
+    self.seriesInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
 
     // Image Position Patient
-    seriesInfo.imagePatientPositionX = [NSNumber numberWithDouble:imageIO->GetOrigin(0)];
-    seriesInfo.imagePatientPositionY = [NSNumber numberWithDouble:imageIO->GetOrigin(1)];
+    self.seriesInfo.imagePatientPositionX = [NSNumber numberWithFloat:imageIO->GetOrigin(0)];
+    self.seriesInfo.imagePatientPositionY = [NSNumber numberWithFloat:imageIO->GetOrigin(1)];
     if (numDims == 3)
-        seriesInfo.imagePatientPositionZ = [NSNumber numberWithDouble:imageIO->GetOrigin(2)];
+        self.seriesInfo.imagePatientPositionZ = [NSNumber numberWithFloat:imageIO->GetOrigin(2)];
     else
-        seriesInfo.imagePatientPositionZ = [NSNumber numberWithDouble:0.0];
+        self.seriesInfo.imagePatientPositionZ = [NSNumber numberWithFloat:0.0];
+
+    [self createTimesArray];
+
+    return YES;
 }
 
 - (NSUInteger)loadFileNames
@@ -97,7 +154,7 @@
 
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSDirectoryEnumerator *enumerator =
-        [fileManager enumeratorAtURL:inputDir includingPropertiesForKeys:keys
+        [fileManager enumeratorAtURL:self.inputDir includingPropertiesForKeys:keys
                              options:(NSDirectoryEnumerationSkipsPackageDescendants |
                                       NSDirectoryEnumerationSkipsHiddenFiles)
                         errorHandler:^(NSURL *url, NSError *error) {
@@ -157,10 +214,10 @@
 - (void)writeFiles
 {
     // Convert the needed Dicom values to C++
-    DicomInfo dicomInfo(seriesInfo);
+    SeriesInfoITK info(self.seriesInfo);
     
     // Now write them out
-    DicomSeriesWriter writer(dicomInfo, imageStack, [[outputDir path] UTF8String], 314159u);
+    DicomSeriesWriter writer(info, imageStack, [self.seriesInfo.outputPath UTF8String]);
     writer.WriteFileSeries();
 }
 

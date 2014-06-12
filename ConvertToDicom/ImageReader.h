@@ -18,10 +18,6 @@ class ImageReader
 public:
     typedef std::vector<Image2DType::Pointer> ImageVector;
     
-    ImageReader();
-
-    ~ImageReader();
-
     ImageVector ReadImage(const std::string& name);
 
 private:

@@ -18,8 +18,11 @@
 
 @property (strong) IBOutlet NSString* inputDir;
 @property (strong) IBOutlet NSString* outputDir;
-@property (assign) IBOutlet NSNumber* slicesPerImage;
-@property (assign) IBOutlet NSNumber* timeIncrement;
+@property (strong) IBOutlet NSString* outputPath;
+@property (strong) IBOutlet NSNumber* numberOfImages;
+@property (strong) IBOutlet NSNumber* slicesPerImage;
+@property (strong) IBOutlet NSNumber* timeIncrement;
+@property (strong) IBOutlet NSMutableArray* acqTimes;
 
 @property (strong) IBOutlet NSString* patientsName;
 @property (strong) IBOutlet NSString* patientsID;
@@ -30,7 +33,9 @@
 @property (strong) IBOutlet NSString* studyModality;
 @property (strong) IBOutlet NSDate* studyDateTime;
 @property (strong) IBOutlet NSString* studyStudyUID;
-@property (strong) IBOutlet NSNumber* imageSliceThickness;
+@property (strong) IBOutlet NSString* seriesNumber;
+@property (strong) IBOutlet NSString* seriesDescription;
+@property (strong) IBOutlet NSNumber* imageSliceSpacing;
 @property (strong) IBOutlet NSNumber* imagePatientPositionX;
 @property (strong) IBOutlet NSNumber* imagePatientPositionY;
 @property (strong) IBOutlet NSNumber* imagePatientPositionZ;

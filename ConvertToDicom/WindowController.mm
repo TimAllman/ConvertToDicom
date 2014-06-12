@@ -60,6 +60,7 @@
     itk::StimulateImageIOFactory::RegisterOneFactory();
     itk::TIFFImageIOFactory::RegisterOneFactory();
     itk::VTKImageIOFactory::RegisterOneFactory();
+    itk::GDCMImageIOFactory::RegisterOneFactory();
 }
 
 - (id)init
@@ -71,8 +72,17 @@
                       @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
         sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
+        seriesConverter = [[SeriesConverter alloc] init];
+        dicomInfoSet = NO;
+        [self.convertButton setEnabled:NO];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    dicomInfoSet = NO;
+    [self.convertButton setEnabled:NO];
 }
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender
@@ -119,6 +129,9 @@
 
 - (IBAction)convertButtonPressed:(NSButton *)sender
 {
+    dicomInfoSet = NO;
+    [self.convertButton setEnabled:NO];
+    
     [self convertFiles];
 }
 
@@ -131,14 +144,45 @@
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
-    seriesConverter = [[SeriesConverter alloc]
-                       initWithInputDir:[NSURL URLWithString:self.seriesInfo.inputDir]
-                       outputDir:[NSURL URLWithString:self.seriesInfo.outputDir]
-                       seriesInfo:self.seriesInfo];
-    [seriesConverter extractSeriesDicomAttributes];
+    seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
+    seriesConverter.seriesInfo = self.seriesInfo;
+    seriesConverter.parentWindow = self.window;
 
-    [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
-       didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
+    if ([seriesConverter extractSeriesDicomAttributes] == NO)
+    {
+        NSAlert* alert = [NSAlert alertWithMessageText:@"Could not read image file in input directory."
+                                         defaultButton:@"Close" alternateButton:nil otherButton:nil
+                             informativeTextWithFormat:@"%@ does not contain readable image files.", self.seriesInfo.inputDir];
+
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+        }];
+
+    }
+    else if ([self checkOutputDirExistence] == NO)
+    {
+        return; // makeOutputDirectory contains alerts, no need here.
+    }
+    else
+    {
+        [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
+           didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
+    }
+}
+
+- (BOOL)checkOutputDirExistence
+{
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSError* err;
+    if ([fm createDirectoryAtPath:self.seriesInfo.outputDir withIntermediateDirectories:YES
+                   attributes:nil error:&err] == NO)
+    {
+        NSAlert* alert = [NSAlert alertWithError:err];
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+        }];
+        return NO;
+    }
+    else
+        return YES;
 }
 
 - (void)didEndDicomAttributesSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
@@ -158,9 +202,14 @@
                               modalDelegate:self
                              didEndSelector:@selector(didEndAlertSheet:returnCode:contextInfo:)
                                 contextInfo:nil];
-            return;
-        };
 
+            return;
+        }
+        else
+        {
+            dicomInfoSet = YES;
+            [self.convertButton setEnabled:YES];
+        }
     }
 }
 
@@ -171,6 +220,11 @@
 
 - (void)convertFiles
 {
+    seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
+    seriesConverter.outputDir = [NSURL URLWithString:self.seriesInfo.outputDir];
+    seriesConverter.seriesInfo = self.seriesInfo;
+    seriesConverter.parentWindow = self.window;
+
     [seriesConverter loadFileNames];
     [seriesConverter readFiles];
     [seriesConverter writeFiles];
@@ -212,11 +266,17 @@
 
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender
 {
-    NSLog(@"closeButtonPressed");
+    NSLog(@"dicomCloseButtonPressed");
 
-    [UserDefaults saveDefaults:self.seriesInfo];
-    [NSApp endSheet:self.dicomInfoPanel];
-    [self.dicomInfoPanel orderOut:self];
+    if ([self makeOutputDirectory:self.seriesInfo.outputDir] == YES)
+    {
+        dicomInfoSet = YES;
+        [self.closeButton setEnabled:YES];
+        
+        [UserDefaults saveDefaults:self.seriesInfo];
+        [NSApp endSheet:self.dicomInfoPanel];
+        [self.dicomInfoPanel orderOut:self];
+    }
 }
 
 #pragma mark - NSComboBoxDatasource
@@ -265,4 +325,60 @@
     }
 
 }
+
+#pragma mark - Utilities
+
+- (void)makeOutputDirectoryName:(NSString*)dirName
+{
+    NSString* fullName = [NSMutableString stringWithFormat:@"%@/%@/%@ - %@/%@ - %@/",
+                          dirName, self.seriesInfo.patientsName,
+                          self.seriesInfo.studyDescription, self.seriesInfo.studyID,
+                          self.seriesInfo.seriesDescription, self.seriesInfo.seriesNumber];
+
+    self.seriesInfo.outputPath = fullName;
+}
+
+- (BOOL)makeOutputDirectory:(NSString*)dirName
+{
+    NSError* error = nil;
+
+    if (self.seriesInfo.outputPath == nil)
+        [self makeOutputDirectoryName:self.seriesInfo.outputDir];
+
+    NSFileManager* fm = [NSFileManager defaultManager];
+
+    BOOL retVal = [fm createDirectoryAtPath:self.seriesInfo.outputPath withIntermediateDirectories:YES
+                                attributes:nil error:&error];
+
+    if (retVal == NO)
+    {
+        if (error != nil)
+        {
+            NSAlert* alert = [NSAlert alertWithError:error];
+            [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+            }];
+        }
+
+        return retVal;
+    }
+    else
+    {
+        // We want an empty directory
+        NSArray* contents = [fm contentsOfDirectoryAtPath:self.seriesInfo.outputPath error:&error];
+        if ([contents count] != 0)
+        {
+            NSAlert* alert = [NSAlert alertWithMessageText:@"Output directory is not empty."
+                                             defaultButton:@"Close" alternateButton:nil
+                                               otherButton:nil
+                                 informativeTextWithFormat:@"%@", self.seriesInfo.outputPath];
+            [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+            }];
+
+            retVal = NO;
+        }
+    }
+
+    return retVal;
+}
+
 @end

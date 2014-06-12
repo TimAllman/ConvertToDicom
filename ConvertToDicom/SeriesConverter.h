@@ -12,15 +12,17 @@
 
 @interface SeriesConverter : NSObject
 {
-    NSURL* inputDir;
-    NSURL* outputDir;
     NSMutableArray* fileNames;
-    SeriesInfo* seriesInfo;
 }
 
-- (id)initWithInputDir:(NSURL *)inpDir outputDir:(NSURL *)outpDir seriesInfo:(SeriesInfo*)info;
+@property (retain) NSURL* inputDir;
+@property (retain) NSURL* outputDir;
+@property (retain) NSWindow* parentWindow;
+@property (retain) SeriesInfo* seriesInfo;
+
+- (id)init;
 - (NSUInteger)loadFileNames;
-- (void)extractSeriesDicomAttributes;
+- (BOOL)extractSeriesDicomAttributes;
 - (void)readFiles;
 - (void)writeFiles;
 

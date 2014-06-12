@@ -12,9 +12,8 @@
 
 #include <itkGDCMImageIO.h>
 #include <itkMetaDataObject.h>
-//#include <itkImageSeriesReader.h>
 
-std::string DumpDicomMetaDataDictionary(const MetaDataDictionaryType& dict)
+std::string DumpDicomMetaDataDictionary(const itk::MetaDataDictionary& dict)
 {
     typedef itk::MetaDataObject<std::string> MetaDataStringType;
 
@@ -23,7 +22,7 @@ std::string DumpDicomMetaDataDictionary(const MetaDataDictionaryType& dict)
     stream << "DumpDicomMetaDataDictionary" << std::endl
     <<"***************************" << std::endl;
 
-    for (MetaDataDictionaryType::ConstIterator iter = dict.Begin(); iter != dict.End(); ++iter)
+    for (itk::MetaDataDictionary::ConstIterator iter = dict.Begin(); iter != dict.End(); ++iter)
     {
         itk::MetaDataObjectBase::Pointer entry = iter->second;
         MetaDataStringType::Pointer entryValue = dynamic_cast<MetaDataStringType*>(entry.GetPointer());
@@ -52,7 +51,7 @@ std::string DumpDicomMetaDataDictionary(const MetaDataDictionaryType& dict)
     return stream.str();
 }
 
-std::string DumpMetaDataDictionary(const MetaDataDictionaryType& dict)
+std::string DumpMetaDataDictionary(const itk::MetaDataDictionary& dict)
 {
     typedef itk::MetaDataObject<std::string> MetaDataStringType;
 
@@ -69,7 +68,7 @@ std::string DumpMetaDataDictionary(const MetaDataDictionaryType& dict)
         stream << "  " << *iter << "\n";
     }
     
-    for (MetaDataDictionaryType::ConstIterator iter = dict.Begin(); iter != dict.End(); ++iter)
+    for (itk::MetaDataDictionary::ConstIterator iter = dict.Begin(); iter != dict.End(); ++iter)
     {
         itk::MetaDataObjectBase::Pointer entry = iter->second;
         MetaDataStringType::Pointer entryValue = dynamic_cast<MetaDataStringType*>(entry.GetPointer());
@@ -94,7 +93,7 @@ std::string DumpMetaDataDictionary(const MetaDataDictionaryType& dict)
 }
 
 /*
- std::string DumpDicomMetaDataDictionaryArray(const MetaDataDictionaryType::MetaDataDictionaryMapType& dict)
+ std::string DumpDicomMetaDataDictionaryArray(const itk::MetaDataDictionary::MetaDataDictionaryMapType& dict)
 {
     std::string retVal;
 

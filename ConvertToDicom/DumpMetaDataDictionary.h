@@ -10,11 +10,9 @@
 
 #include <itkMetaDataDictionary.h>
 
-typedef itk::MetaDataDictionary MetaDataDictionaryType;
+std::string DumpDicomMetaDataDictionary(const itk::MetaDataDictionary& dict);
 
-std::string DumpDicomMetaDataDictionary(const MetaDataDictionaryType& dict);
-
-std::string DumpMetaDataDictionary(const MetaDataDictionaryType& dict);
+std::string DumpMetaDataDictionary(const itk::MetaDataDictionary& dict);
 
 #endif	/* DUMPMETADATADICTIONARY_H */
 

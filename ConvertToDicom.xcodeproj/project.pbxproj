@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		220128741933A80B005F1A3A /* DicomInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 220128721933A80B005F1A3A /* DicomInfo.mm */; };
+		220128741933A80B005F1A3A /* SeriesInfoITK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 220128721933A80B005F1A3A /* SeriesInfoITK.mm */; };
 		223765B61923DCA400580892 /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 223765B51923DCA400580892 /* UserDefaults.m */; };
 		22BC1BED18EB060000FFDEFC /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC1BEC18EB060000FFDEFC /* SeriesInfo.m */; };
 		22C1C95018E45A0B006A801D /* ImageReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22C1C94F18E45A0B006A801D /* ImageReader.mm */; };
@@ -87,7 +87,7 @@
 		22C1C9E618E467C4006A801D /* libITKEXPAT-4.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C1C99A18E467C3006A801D /* libITKEXPAT-4.5.a */; };
 		22C1C9E718E467C4006A801D /* libITKBiasCorrection-4.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C1C99B18E467C3006A801D /* libITKBiasCorrection-4.5.a */; };
 		22C1C9E818E467C4006A801D /* libITKBioCell-4.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C1C99C18E467C3006A801D /* libITKBioCell-4.5.a */; };
-		22D7FE5F18E5C85C00D5E451 /* DicomSeriesWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.cpp */; };
+		22D7FE5F18E5C85C00D5E451 /* DicomSeriesWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.mm */; };
 		22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D3A18E078EE007EAF0A /* Cocoa.framework */; };
 		22F99D4518E078EE007EAF0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D4318E078EE007EAF0A /* InfoPlist.strings */; };
 		22F99D4718E078EE007EAF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F99D4618E078EE007EAF0A /* main.m */; };
@@ -101,8 +101,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		220128721933A80B005F1A3A /* DicomInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DicomInfo.mm; sourceTree = "<group>"; };
-		220128731933A80B005F1A3A /* DicomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomInfo.h; sourceTree = "<group>"; };
+		220128721933A80B005F1A3A /* SeriesInfoITK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SeriesInfoITK.mm; sourceTree = "<group>"; };
+		220128731933A80B005F1A3A /* SeriesInfoITK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfoITK.h; sourceTree = "<group>"; };
 		223765B41923DCA400580892 /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		223765B51923DCA400580892 /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
 		2245823218E1BDDD002D03A4 /* ImageReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageReader.h; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		22C1C99A18E467C3006A801D /* libITKEXPAT-4.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libITKEXPAT-4.5.a"; sourceTree = "<group>"; };
 		22C1C99B18E467C3006A801D /* libITKBiasCorrection-4.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libITKBiasCorrection-4.5.a"; sourceTree = "<group>"; };
 		22C1C99C18E467C3006A801D /* libITKBioCell-4.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libITKBioCell-4.5.a"; sourceTree = "<group>"; };
-		22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DicomSeriesWriter.cpp; sourceTree = "<group>"; };
+		22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DicomSeriesWriter.mm; sourceTree = "<group>"; };
 		22D7FE5E18E5C85C00D5E451 /* DicomSeriesWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomSeriesWriter.h; sourceTree = "<group>"; };
 		22F99D3718E078EE007EAF0A /* ConvertToDicom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToDicom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F99D3A18E078EE007EAF0A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -207,7 +207,6 @@
 		22F99D6F18E07941007EAF0A /* SeriesConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SeriesConverter.mm; sourceTree = "<group>"; };
 		22F99EA918E080FA007EAF0A /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		22F99EAA18E080FA007EAF0A /* WindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WindowController.mm; sourceTree = "<group>"; };
-		22F99EAC18E0BB70007EAF0A /* DicomSeriesWriter3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomSeriesWriter3D.h; sourceTree = "<group>"; };
 		22F99EAD18E0BB70007EAF0A /* DumpMetaDataDictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DumpMetaDataDictionary.cpp; sourceTree = "<group>"; };
 		22F99EAE18E0BB70007EAF0A /* DumpMetaDataDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DumpMetaDataDictionary.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,11 +351,8 @@
 			children = (
 				22F99D4C18E078EE007EAF0A /* AppDelegate.h */,
 				22F99D4D18E078EE007EAF0A /* AppDelegate.m */,
-				220128731933A80B005F1A3A /* DicomInfo.h */,
-				220128721933A80B005F1A3A /* DicomInfo.mm */,
-				22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.cpp */,
 				22D7FE5E18E5C85C00D5E451 /* DicomSeriesWriter.h */,
-				22F99EAC18E0BB70007EAF0A /* DicomSeriesWriter3D.h */,
+				22D7FE5D18E5C85C00D5E451 /* DicomSeriesWriter.mm */,
 				22F99EAE18E0BB70007EAF0A /* DumpMetaDataDictionary.h */,
 				22F99EAD18E0BB70007EAF0A /* DumpMetaDataDictionary.cpp */,
 				2245823218E1BDDD002D03A4 /* ImageReader.h */,
@@ -365,6 +361,8 @@
 				22F99D6F18E07941007EAF0A /* SeriesConverter.mm */,
 				22BC1BEB18EB060000FFDEFC /* SeriesInfo.h */,
 				22BC1BEC18EB060000FFDEFC /* SeriesInfo.m */,
+				220128731933A80B005F1A3A /* SeriesInfoITK.h */,
+				220128721933A80B005F1A3A /* SeriesInfoITK.mm */,
 				2245823418E1CC08002D03A4 /* Typedefs.h */,
 				223765B41923DCA400580892 /* UserDefaults.h */,
 				223765B51923DCA400580892 /* UserDefaults.m */,
@@ -547,7 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D7FE5F18E5C85C00D5E451 /* DicomSeriesWriter.cpp in Sources */,
+				22D7FE5F18E5C85C00D5E451 /* DicomSeriesWriter.mm in Sources */,
 				22C1C95018E45A0B006A801D /* ImageReader.mm in Sources */,
 				22F99D4E18E078EE007EAF0A /* AppDelegate.m in Sources */,
 				22F99EAB18E080FA007EAF0A /* WindowController.mm in Sources */,
@@ -555,7 +553,7 @@
 				223765B61923DCA400580892 /* UserDefaults.m in Sources */,
 				22BC1BED18EB060000FFDEFC /* SeriesInfo.m in Sources */,
 				22F99EB018E0BB70007EAF0A /* DumpMetaDataDictionary.cpp in Sources */,
-				220128741933A80B005F1A3A /* DicomInfo.mm in Sources */,
+				220128741933A80B005F1A3A /* SeriesInfoITK.mm in Sources */,
 				22F99D7018E07941007EAF0A /* SeriesConverter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,6 +679,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5",
+					/opt/local/include,
 				);
 				INFOPLIST_FILE = "ConvertToDicom/ConvertToDicom-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -707,6 +706,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5",
+					/opt/local/include,
 				);
 				INFOPLIST_FILE = "ConvertToDicom/ConvertToDicom-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

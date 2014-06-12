@@ -11,7 +11,6 @@
 // Keys for preferences.
 extern NSString* InputDirKey;
 extern NSString* OutputDirKey;
-extern NSString* SlicesPerImageKey;
 extern NSString* TimeIncrementKey;
 
 extern NSString* PatientsNameKey;
@@ -20,14 +19,11 @@ extern NSString* PatientsDOBKey;
 extern NSString* PatientsSexKey;
 extern NSString* StudyDescriptionKey;
 extern NSString* StudyIDKey;
+extern NSString* SeriesDescriptionKey;
+extern NSString* SeriesNumberKey;
 extern NSString* StudyModalityKey;
 extern NSString* StudyDateTimeKey;
 extern NSString* StudyStudyUIDKey;
-extern NSString* ImageSliceThicknessKey;
-extern NSString* ImagePatientPositionXKey;
-extern NSString* ImagePatientPositionYKey;
-extern NSString* ImagePatientPositionZKey;
-extern NSString* ImagePatientOrientationKey;
 
 @class SeriesInfo;
 

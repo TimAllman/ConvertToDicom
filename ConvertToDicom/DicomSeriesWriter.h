@@ -11,25 +11,32 @@
 
 #include "Typedefs.h"
 
-class DicomInfo;
+class SeriesInfoITK;
 
 class DicomSeriesWriter
 {
 public:
     typedef unsigned short DicomPixelType;
 
-    DicomSeriesWriter(const DicomInfo& dicomInfo, std::vector<Image2DType::Pointer>& images,
-                        std::string outputDirectoryName, unsigned seriesNumber);
+    DicomSeriesWriter(const SeriesInfoITK& seriesInfoITK, std::vector<Image2DType::Pointer>& images,
+                      std::string outputDirectoryName);
 
     void WriteFileSeries();
 
 private:
-    const DicomInfo& dicomInfo;
+    void CopyDictionary(itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
+    void PrepareMetaDataDictionaryArray();
+    std::string IncrementImagePositionPatient();
+    Image3DType::Pointer MergeSlices();
+    bool CheckOutputDirectoryExistence();
+    bool MakeOutputDirectory();
+
+    const SeriesInfoITK& seriesInfo;
     std::vector<Image2DType::Pointer>& images;
     std::string outputDirectory;
-    unsigned seriesNumber;
-    
+
     std::vector<std::string> fileNames;
+    std::vector<itk::MetaDataDictionary*> dictArray;
 };
 
 #endif /* defined(__ConvertToDicom__DicomFileWriter__) */

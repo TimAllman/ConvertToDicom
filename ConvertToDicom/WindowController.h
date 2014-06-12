@@ -16,6 +16,7 @@
     NSArray* modalities;
     NSArray* sexes;
     SeriesConverter* seriesConverter;
+    BOOL dicomInfoSet;
 }
 
 @property (weak) IBOutlet SeriesInfo *seriesInfo;
@@ -45,6 +46,9 @@
 @property (weak) IBOutlet NSTextField *imagePatientPositionZTextField;
 @property (weak) IBOutlet NSTextField *imagePatientOrientationTextField;
 
+@property (weak) IBOutlet NSButton *convertButton;
+@property (weak) IBOutlet NSButton *closeButton;
+
 - (IBAction)inputDirButtonPressed:(NSButton *)sender;
 - (IBAction)outputDirButtonPressed:(NSButton *)sender;
 - (IBAction)convertButtonPressed:(NSButton *)sender;
@@ -59,5 +63,7 @@
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
 
 - (id)init;
+- (void)makeOutputDirectoryName:(NSString*)dirName;
+- (BOOL)makeOutputDirectory:(NSString*)dirName;
 
 @end
