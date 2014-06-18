@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "UserDefaults.h"
 
+
 #include <itkNrrdImageIOFactory.h>
 #include <itkJPEGImageIOFactory.h>
 #include <itkBioRadImageIOFactory.h>
@@ -34,8 +35,12 @@
 #include <itkStimulateImageIOFactory.h>
 #include <itkTIFFImageIOFactory.h>
 #include <itkVTKImageIOFactory.h>
-
 #include <gdcmUIDGenerator.h>
+
+#include "LoggerName.h"
+#include "LoggerUtils.h"
+
+#include <Log4m/Log4m.h>
 
 @implementation WindowController
 
@@ -61,6 +66,8 @@
     itk::TIFFImageIOFactory::RegisterOneFactory();
     itk::VTKImageIOFactory::RegisterOneFactory();
     itk::GDCMImageIOFactory::RegisterOneFactory();
+
+    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_ALL);
 }
 
 - (id)init
@@ -73,6 +80,11 @@
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
         sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
         seriesConverter = [[SeriesConverter alloc] init];
+
+        NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                                stringByAppendingString:@".WindowController"];
+        logger_ = [Logger newInstance:loggerName];
+        LOG4M_TRACE(logger_, @"Enter");
     }
     return self;
 }
@@ -84,7 +96,6 @@
 
 - (IBAction)inputDirButtonPressed:(NSButton *)sender
 {
-
     NSOpenPanel* panel = [NSOpenPanel openPanel];
 
     panel.canChooseFiles = NO;
@@ -99,7 +110,7 @@
         {
             NSURL* inputDir = [[panel URLs] objectAtIndex:0];
             self.seriesInfo.inputDir = [inputDir path];
-            NSLog(@"Input dir URL chosen: %@", inputDir);
+            LOG4M_DEBUG(logger_, @"Input dir URL chosen: %@", inputDir);
         }
     }];
 }
@@ -120,7 +131,7 @@
          {
              NSURL* outputDir = [[panel URLs] objectAtIndex:0];
              self.seriesInfo.outputDir = [outputDir path];
-             NSLog(@"Output dir URL chosen: %@", outputDir);
+             LOG4M_DEBUG(logger_, @"Output dir URL chosen: %@", outputDir);
          }
      }];
 }
@@ -128,7 +139,6 @@
 - (IBAction)convertButtonPressed:(NSButton *)sender
 {
     [self.convertButton setEnabled:NO];
-    
     [self convertFiles];
 }
 
@@ -136,38 +146,46 @@
 {
     [UserDefaults saveDefaults:self.seriesInfo];
     [self close];
+
+    LOG4M_DEBUG(logger_, @"Terminating.");
+
     [NSApp terminate:nil];
 }
 
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
-    //seriesConverter.inputDir = [NSURL URLWithString:self.seriesInfo.inputDir];
     seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
-    seriesConverter.parentWindow = self.window;
+    seriesConverter.windowController = self;
 
-    if ([seriesConverter extractSeriesDicomAttributes] == NO)
+    if ([seriesConverter extractSeriesDicomAttributes] != SUCCESS)
     {
         NSAlert* alert = [NSAlert alertWithMessageText:@"Could not read image file in input directory."
                                          defaultButton:@"Close" alternateButton:nil otherButton:nil
-                             informativeTextWithFormat:@"%@ does not contain readable image files.", self.seriesInfo.inputDir];
+                             informativeTextWithFormat:@"%@ does not contain readable image files.",
+                                                         self.seriesInfo.inputDir];
 
-        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
-        }];
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
+         {
+         }];
 
+        LOG4M_ERROR(logger_, @"Could not read image file in input directory. "
+                    "%@ does not contain readable image files.", self.seriesInfo.inputDir);
     }
-    else if ([self checkOutputDirExistence] == NO)
+    else if ([self checkOutputDirCreatability] != SUCCESS)
     {
-        return; // makeOutputDirectory contains alerts, no need here.
+        return; // checkOutputDirCreatability contains alerts, no need here.
     }
     else
     {
+        // All seems well so we can put up the DICOM sheet.
         [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
-           didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:) contextInfo:nil];
+           didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:)
+              contextInfo:nil];
     }
 }
 
-- (BOOL)checkOutputDirExistence
+- (ErrorCode)checkOutputDirCreatability
 {
     NSFileManager* fm = [NSFileManager defaultManager];
     NSError* err;
@@ -175,17 +193,21 @@
                    attributes:nil error:&err] == NO)
     {
         NSAlert* alert = [NSAlert alertWithError:err];
-        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+        [alert beginSheetModalForWindow:self.window
+                      completionHandler:^(NSModalResponse returnCode) {
         }];
-        return NO;
+        return ERROR_CREATING_DIRECTORY;
     }
     else
-        return YES;
+    {
+        [fm removeItemAtPath:self.seriesInfo.outputDir error:nil];
+        return SUCCESS;
+    }
 }
 
 - (void)didEndDicomAttributesSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-    NSLog(@"didEndDicomAttributesSheet:returnCode:contextInfo:");
+    LOG4M_TRACE(logger_, @"didEndDicomAttributesSheet:returnCode:contextInfo:");
 
     if (returnCode == NSOKButton)
     {
@@ -193,14 +215,15 @@
         {
             NSAlert* alert = [[NSAlert alloc] init];
             [alert setAlertStyle:NSCriticalAlertStyle];
-            [alert setMessageText:[@"Image file not found in directory "
+            [alert setMessageText:[@"No image files found in directory "
                                    stringByAppendingString:self.seriesInfo.inputDir]];
             [alert setInformativeText:@"Set the input directory to one containing image files."];
             [alert beginSheetModalForWindow:self.window
                               modalDelegate:self
-                             didEndSelector:@selector(didEndAlertSheet:returnCode:contextInfo:)
+                             didEndSelector:nil
                                 contextInfo:nil];
 
+            LOG4M_ERROR(logger_, @"No image files found in directory %@", self.seriesInfo.inputDir);
             return;
         }
         else
@@ -210,21 +233,24 @@
     }
 }
 
-- (void)didEndAlertSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    NSLog(@"didEndAlertSheet:returnCode:contextInfo:");
-}
-
-- (void)convertFiles
+- (ErrorCode)convertFiles
 {
     seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     seriesConverter.outputDir = [NSURL fileURLWithPath:self.seriesInfo.outputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
-    seriesConverter.parentWindow = self.window;
+    seriesConverter.windowController = self;
 
-    [seriesConverter loadFileNames];
-    [seriesConverter readFiles];
-    [seriesConverter writeFiles];
+    [seriesConverter loadFileNames]; // errors alread checked
+
+    ErrorCode err = [seriesConverter readFiles];
+    if (err != SUCCESS)
+        return err;
+
+    err = [seriesConverter writeFiles];
+    if (err != SUCCESS)
+        return err;
+
+    return SUCCESS;
 }
 
 #pragma mark - DicomPanel
@@ -263,7 +289,7 @@
 
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender
 {
-    NSLog(@"dicomCloseButtonPressed");
+    LOG4M_TRACE(logger_, @"dicomCloseButtonPressed");
 
     if (![self.seriesInfo isComplete])
     {
@@ -273,6 +299,7 @@
         [alert setInformativeText:@"All DICOM information fields must be filled in."];
         [alert beginSheetModalForWindow:self.window
                           modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        LOG4M_ERROR(logger_, @"Information is incomplete. All DICOM information fields must be filled in.");
         return;
     }
 
@@ -281,14 +308,14 @@
         return;
     }
 
-    if ([self makeOutputDirectory:self.seriesInfo.outputDir] == YES)
+    if ([self makeOutputDirectory:self.seriesInfo.outputDir] == SUCCESS)
     {
         [self.convertButton setEnabled:YES];
-        
-        [UserDefaults saveDefaults:self.seriesInfo];
-        [NSApp endSheet:self.dicomInfoPanel];
-        [self.dicomInfoPanel orderOut:self];
     }
+
+    [UserDefaults saveDefaults:self.seriesInfo];
+    [NSApp endSheet:self.dicomInfoPanel];
+    [self.dicomInfoPanel orderOut:self];
 }
 
 #pragma mark - NSComboBoxDatasource
@@ -335,14 +362,13 @@
                               userInfo:nil];
         @throw ex;
     }
-
 }
 
 #pragma mark - Utilities
 
 - (void)makeOutputDirectoryName:(NSString*)dirName
 {
-    NSString* fullName = [NSMutableString stringWithFormat:@"%@/%@/%@ - %@/%@ - %@/",
+    NSString* fullName = [NSString stringWithFormat:@"%@/%@/%@ - %@/%@ - %@/",
                           dirName, self.seriesInfo.patientsName,
                           self.seriesInfo.studyDescription, self.seriesInfo.studyID,
                           self.seriesInfo.seriesDescription, self.seriesInfo.seriesNumber];
@@ -350,7 +376,7 @@
     self.seriesInfo.outputPath = fullName;
 }
 
-- (BOOL)makeOutputDirectory:(NSString*)dirName
+- (ErrorCode)makeOutputDirectory:(NSString*)dirName
 {
     NSError* error = nil;
 
@@ -358,10 +384,9 @@
 
     NSFileManager* fm = [NSFileManager defaultManager];
 
-    BOOL retVal = [fm createDirectoryAtPath:self.seriesInfo.outputPath withIntermediateDirectories:YES
+    BOOL b = [fm createDirectoryAtPath:self.seriesInfo.outputPath withIntermediateDirectories:YES
                                 attributes:nil error:&error];
-
-    if (retVal == NO)
+    if (b == NO)
     {
         if (error != nil)
         {
@@ -370,7 +395,7 @@
             }];
         }
 
-        return retVal;
+        return ERROR_CREATING_DIRECTORY;
     }
     else
     {
@@ -385,11 +410,11 @@
             [alert beginSheetModalForWindow:self.dicomInfoPanel completionHandler:^(NSModalResponse returnCode) {
             }];
 
-            retVal = NO;
+            return ERROR_DIRECTORY_NOT_EMPTY;
         }
+        else
+            return SUCCESS;
     }
-
-    return retVal;
 }
 
 @end

@@ -10,6 +10,9 @@
 #define __ConvertToDicom__DicomFileWriter__
 
 #include "Typedefs.h"
+#include "ErrorCodes.h"
+
+#include <log4cplus/logger.h>
 
 class SeriesInfoITK;
 
@@ -21,15 +24,13 @@ public:
     DicomSeriesWriter(const SeriesInfoITK& seriesInfoITK, std::vector<Image2DType::Pointer>& images,
                       std::string outputDirectoryName);
 
-    void WriteFileSeries();
+    ErrorCode WriteFileSeries();
 
 private:
     void CopyDictionary(itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
     void PrepareMetaDataDictionaryArray();
     std::string IncrementImagePositionPatient();
     Image3DType::Pointer MergeSlices();
-    bool CheckOutputDirectoryExistence();
-    bool MakeOutputDirectory();
 
     const SeriesInfoITK& seriesInfo;
     std::vector<Image2DType::Pointer>& images;
@@ -37,6 +38,8 @@ private:
 
     std::vector<std::string> fileNames;
     std::vector<itk::MetaDataDictionary*> dictArray;
+
+    log4cplus::Logger logger_;
 };
 
 #endif /* defined(__ConvertToDicom__DicomFileWriter__) */

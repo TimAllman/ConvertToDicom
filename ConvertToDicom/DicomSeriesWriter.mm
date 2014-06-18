@@ -28,6 +28,9 @@
 #include "DumpMetaDataDictionary.h"
 #include "SeriesInfoITK.h"
 
+#include "LoggerName.h"
+#include <log4cplus/loggingmacros.h>
+
 #include <iostream>
 #include <sstream>
 
@@ -36,10 +39,14 @@ DicomSeriesWriter::DicomSeriesWriter(const SeriesInfoITK& dicomParams,
                                      std::string outputDirectoryName)
 : seriesInfo(dicomParams), images(images), outputDirectory(outputDirectoryName)
 {
+    std::string name = std::string(LOGGER_NAME) + ".DicomSeriesWriter";
+    logger_ = log4cplus::Logger::getInstance(name);
+    LOG4CPLUS_TRACE(logger_, "Enter");
 }
 
-void DicomSeriesWriter::WriteFileSeries()
+ErrorCode DicomSeriesWriter::WriteFileSeries()
 {
+    LOG4CPLUS_TRACE(logger_, "Enter");
     // Set up the new metadata dictionary array
     // This is based upon the example on the ITK examples wiki
     // http://www.itk.org/Wiki/ITK/Examples/DICOM/ResampleDICOM
@@ -79,13 +86,17 @@ void DicomSeriesWriter::WriteFileSeries()
     }
     catch (itk::ExceptionObject& ex)
     {
-        std::cerr << "ExceptionObject caught !" << std::endl;
-        std::cerr << ex << std::endl;
+        LOG4CPLUS_ERROR(logger_, "ExceptionObject caught. " << ex.what());
+        return ERROR_WRITING_FILE;
     }
+
+    return SUCCESS;
 }
 
 void DicomSeriesWriter::CopyDictionary(itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict)
 {
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
     typedef itk::MetaDataDictionary DictionaryType;
 
     DictionaryType::ConstIterator itr = fromDict.Begin();
@@ -109,6 +120,8 @@ void DicomSeriesWriter::CopyDictionary(itk::MetaDataDictionary& fromDict, itk::M
 
 void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
 {
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
     // It may have been used in a previous run.
     dictArray.clear();
 
@@ -190,13 +203,16 @@ void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
             //itk::EncapsulateMetaData<std::string>(seriesDict, "0002|0003", sopInstanceUID);
         }
 
-        std::cout << DumpDicomMetaDataDictionary(*sliceDict);
+        LOG4CPLUS_DEBUG(logger_, DumpDicomMetaDataDictionary(*sliceDict));
+
         dictArray.push_back(sliceDict);
     }
 }
 
 std::string DicomSeriesWriter::IncrementImagePositionPatient()
 {
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
     vnl_matrix_fixed<float, 3, 3> rot;   // the rotation matrix
     vnl_vector_fixed<float, 3> ipp;      // the IPP (column) vector
 
@@ -221,9 +237,11 @@ std::string DicomSeriesWriter::IncrementImagePositionPatient()
     char ippStr[32];
     sprintf(ippStr, "%.2f\\%.2f\\%.2f", ipp(0), ipp(1), ipp(2));
 
+    LOG4CPLUS_DEBUG(logger_, "Incremented IPP = " << ippStr);
+
     return ippStr;
 
-    /*
+    /* extracted from osirix, reflected in above code
     float vec[3];
     vec[0] = iop[1]*iop[5] - iop[2]*iop[4];
     vec[1] = iop[2]*iop[3] - iop[0]*iop[5];
@@ -233,6 +251,8 @@ std::string DicomSeriesWriter::IncrementImagePositionPatient()
 
 Image3DType::Pointer DicomSeriesWriter::MergeSlices()
 {
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
     // Concatenate the whole bunch of slices into one image.
     typedef itk::TileImageFilter<Image2DType, Image3DType> TileFilterType;
     TileFilterType::Pointer tileFilter = TileFilterType::New();
@@ -241,6 +261,8 @@ Image3DType::Pointer DicomSeriesWriter::MergeSlices()
     layout[0] = 1;
     layout[1] = 1;
     layout[2] = 0;
+
+    LOG4CPLUS_DEBUG(logger_, "Layout = " << layout);
 
     tileFilter->SetLayout(layout);
     tileFilter->SetDefaultPixelValue(0);
@@ -254,23 +276,4 @@ Image3DType::Pointer DicomSeriesWriter::MergeSlices()
 
     Image3DType::Pointer image3d = tileFilter->GetOutput();
     return image3d;
-}
-
-bool DicomSeriesWriter::CheckOutputDirectoryExistence()
-{
-    // Check to see if the output directory exists
-    return itksys::SystemTools::MakeDirectory(outputDirectory.c_str());
-
-}
-
-bool DicomSeriesWriter::MakeOutputDirectory()
-{
-    // Make the output directory
-    std::stringstream str;
-    str << outputDirectory
-    << "/" << seriesInfo.patientsName()
-    << "/" << seriesInfo.studyDescription() << " - " << seriesInfo.studyID()
-    << "/" << seriesInfo.seriesDescription() << " = " << seriesInfo.seriesNumber();
-
-    return itksys::SystemTools::MakeDirectory(str.str().c_str());
 }

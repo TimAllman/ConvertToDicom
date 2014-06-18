@@ -33,12 +33,26 @@
 
     if (([self.slicesPerImage unsignedIntValue] > 1) && (self.imageSliceSpacing == nil))
         return NO;
-    
+
+    // check for needed strings
+    if (([self.inputDir length] == 0) || ([self.outputDir length] == 0) ||
+        ([self.patientsName length] == 0) || ([self.studyDescription length] == 0) ||
+        ([self.seriesDescription length] == 0))
+        return NO;
+
     return YES;
 }
 
 - (BOOL)isConsistent
 {
+    if (![self isComplete])
+        return NO;
+
+    unsigned numImages = [self.numberOfImages unsignedIntValue];
+    unsigned slicesPerImage = [self.slicesPerImage unsignedIntValue];
+    if ((numImages % slicesPerImage) != 0)
+        return NO;
+
     return YES;
 }
 

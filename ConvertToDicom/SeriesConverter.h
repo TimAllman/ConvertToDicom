@@ -8,22 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ErrorCodes.h"
+#import "WindowController.h"
 @class SeriesInfo;
+@class Logger;
 
 @interface SeriesConverter : NSObject
 {
+    Logger* logger_;
     NSMutableArray* fileNames;
 }
 
 @property (retain) NSURL* inputDir;
 @property (retain) NSURL* outputDir;
-@property (retain) NSWindow* parentWindow;
+@property (retain) WindowController* windowController;
 @property (retain) SeriesInfo* seriesInfo;
 
 - (id)init;
-- (NSUInteger)loadFileNames;
-- (BOOL)extractSeriesDicomAttributes;
-- (void)readFiles;
-- (void)writeFiles;
+- (ErrorCode)loadFileNames;
+- (ErrorCode)extractSeriesDicomAttributes;
+- (ErrorCode)readFiles;
+- (ErrorCode)writeFiles;
 
 @end

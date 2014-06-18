@@ -9,7 +9,7 @@
 #import "Typedefs.h"
 #import "SeriesConverter.h"
 #import "SeriesInfo.h"
-
+#import "LoggerName.h"
 
 #include "ImageReader.h"
 #include "DicomSeriesWriter.h"
@@ -18,6 +18,8 @@
 #include <itkImage.h>
 #include <itkImageIOBase.h>
 #include <itkImageIOFactory.h>
+
+#import <Log4m/Log4m.h>
 
 #include <vector>
 
@@ -35,6 +37,11 @@
     self = [super init];
     if (self)
     {
+        NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                                stringByAppendingString:@".SeriesConverter"];
+        logger_ = [Logger newInstance:loggerName];
+        LOG4M_TRACE(logger_, @"Enter");
+
         fileNames = [NSMutableArray array];
     }
     return self;
@@ -42,6 +49,8 @@
 
 - (void)createTimesArray
 {
+    LOG4M_TRACE(logger_, @"Enter");
+
     // Here we create an array of DICOM acquisition times as time strings
     if (self.seriesInfo.acqTimes == nil)
         self.seriesInfo.acqTimes = [[NSMutableArray alloc] init];
@@ -72,17 +81,19 @@
             acqTime = [acqTime dateByAddingTimeInterval:timeIncr];
         }
     }
+
+    LOG4M_DEBUG(logger_, @"acqTimes = %@", self.seriesInfo.acqTimes);
 }
 
-
-- (BOOL)extractSeriesDicomAttributes
+- (ErrorCode)extractSeriesDicomAttributes
 {
+    LOG4M_TRACE(logger_, @"Enter");
+
     // Take the information we need from the first image
-    [self loadFileNames];
-    if ([fileNames count] == 0)
+    if ([self loadFileNames] == ERROR_FILE_NOT_FOUND)
     {
-        std::cout << "Could not find files in " << [self.seriesInfo.inputDir UTF8String] << "\n";
-        return NO;
+        LOG4M_ERROR(logger_, @"Could not find files in %@", self.seriesInfo.inputDir);
+        return ERROR_FILE_NOT_FOUND;
     }
     
     std::string firstFileName([[[fileNames objectAtIndex:0] path] UTF8String]);
@@ -92,8 +103,9 @@
     // If there is a problem, catch it
     if (imageIO.IsNull())
     {
-        std::cout << "Could not get metadata from file: " << firstFileName << "\n";
-        return NO;
+        LOG4M_ERROR(logger_, @"Could not get metadata from file: %@",
+                    [NSString stringWithUTF8String:firstFileName.c_str()]);
+        return ERROR_READING_FILE;
     };
 
     imageIO->SetFileName(firstFileName);
@@ -101,6 +113,7 @@
 
     // Get the number of dimensions.
     unsigned numDims = imageIO->GetNumberOfDimensions();
+    LOG4M_DEBUG(logger_, @"dimensions = %@", [NSNumber numberWithUnsignedInt:numDims]);
 
     // Slice thickness
     if (numDims == 3)
@@ -116,6 +129,8 @@
             self.seriesInfo.imageSliceSpacing = [NSNumber numberWithFloat:1.0];
     }
 
+    LOG4M_DEBUG(logger_, @"slicesPerImage = %@", self.seriesInfo.slicesPerImage);
+    LOG4M_DEBUG(logger_, @"imageSliceSpacing = %@", self.seriesInfo.imageSliceSpacing);
     unsigned numFiles = (unsigned)[fileNames count];
     unsigned slicesPerImage = [self.seriesInfo.slicesPerImage unsignedIntValue];
     self.seriesInfo.numberOfImages = [NSNumber numberWithUnsignedInt:numFiles / slicesPerImage];
@@ -131,6 +146,8 @@
     std::string imageOrientationPatient = value.str();
     self.seriesInfo.imagePatientOrientation = [NSString stringWithUTF8String:imageOrientationPatient.c_str()];
 
+    LOG4M_DEBUG(logger_, @"imagePatientOrientation = %@", self.seriesInfo.imagePatientOrientation);
+
     // Image Position Patient
     self.seriesInfo.imagePatientPositionX = [NSNumber numberWithFloat:imageIO->GetOrigin(0)];
     self.seriesInfo.imagePatientPositionY = [NSNumber numberWithFloat:imageIO->GetOrigin(1)];
@@ -139,13 +156,19 @@
     else
         self.seriesInfo.imagePatientPositionZ = [NSNumber numberWithFloat:0.0];
 
+    LOG4M_DEBUG(logger_, @"imagePatientPosition(X, Y, Z) = %@, %@, %@",
+                self.seriesInfo.imagePatientPositionX, self.seriesInfo.imagePatientPositionY,
+                self.seriesInfo.imagePatientPositionZ);
+
     [self createTimesArray];
 
-    return YES;
+    return SUCCESS;
 }
 
-- (NSUInteger)loadFileNames
+- (ErrorCode)loadFileNames
 {
+    LOG4M_TRACE(logger_, @"Enter");
+
     // If the array is not empty, empty it
     if ([fileNames count] != 0)
         [fileNames removeAllObjects];
@@ -155,13 +178,16 @@
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSDirectoryEnumerator *enumerator =
         [fileManager enumeratorAtURL:self.inputDir includingPropertiesForKeys:keys
-                             options:(NSDirectoryEnumerationSkipsPackageDescendants |
+                             options:(NSDirectoryEnumerationSkipsSubdirectoryDescendants |
+                                      NSDirectoryEnumerationSkipsPackageDescendants |
                                       NSDirectoryEnumerationSkipsHiddenFiles)
-                        errorHandler:^(NSURL *url, NSError *error) {
-                                             // Handle the error.
-                                             // Return YES if the enumeration should continue after the error.
-                                             return YES;
-                                         }];
+                        errorHandler:^(NSURL *url, NSError *error)
+    {
+        LOG4M_ERROR(logger_, @"emumeratorAtURL failed. %@", url);
+        
+        // Return YES if the enumeration should continue after the error.
+        return NO;
+    }];
 
     for (NSURL* url in enumerator)
     {
@@ -174,27 +200,29 @@
         if (![isDirectory boolValue])
         {
             [fileNames addObject:url];
-            NSLog(@"Added url %@", localizedName);
+            LOG4M_DEBUG(logger_, @"Added url %@", localizedName);
         }
         else
         {
-            NSLog(@"Rejected url %@", localizedName);
+            LOG4M_DEBUG(logger_, @"Rejected url %@", localizedName);
         }
     }
 
-    return fileNames.count;
+    if (fileNames.count == 0)
+        return ERROR_FILE_NOT_FOUND;
+    else
+        return SUCCESS;
 }
 
-
-- (void) readFiles
+- (ErrorCode) readFiles
 {
+    LOG4M_TRACE(logger_, @"Enter");
+
     std::vector<std::string> paths;
 
     for (NSURL* url in fileNames)
     {
         NSString* filePath = [url path];
-        //NSLog(@"%@", filePath);
-
         paths.push_back([filePath UTF8String]);
     }
 
@@ -210,16 +238,28 @@
             imageStack.push_back(*iter);
         }
     }
+
+    LOG4M_DEBUG(logger_, @"Read %@ slices into image stack.",
+                [NSNumber numberWithUnsignedLong:imageStack.size()]);
+    if (imageStack.size() != (std::vector<std::string>::size_type)[fileNames count])
+        return ERROR_READING_FILE;
+    else
+        return SUCCESS;
 }
 
-- (void)writeFiles
+- (ErrorCode)writeFiles
 {
+    LOG4M_TRACE(logger_, @"Enter");
+
     // Convert the needed Dicom values to C++
     SeriesInfoITK info(self.seriesInfo);
+
+    // Create the directory
+    [self.windowController makeOutputDirectory:self.seriesInfo.outputDir];
     
     // Now write them out
     DicomSeriesWriter writer(info, imageStack, [self.seriesInfo.outputPath UTF8String]);
-    writer.WriteFileSeries();
+    return writer.WriteFileSeries();
 }
 
 @end

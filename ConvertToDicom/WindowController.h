@@ -8,14 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "ErrorCodes.h"
+
+#import <Log4m/Logger.h>
+
 @class SeriesInfo;
 @class SeriesConverter;
 
-@interface WindowController : NSWindowController <NSComboBoxDataSource>
+@interface WindowController : NSWindowController <NSComboBoxDataSource, NSFileManagerDelegate>
 {
     NSArray* modalities;
     NSArray* sexes;
     SeriesConverter* seriesConverter;
+    Logger* logger_;
 }
 
 @property (weak) IBOutlet SeriesInfo *seriesInfo;
@@ -64,6 +69,6 @@
 
 - (id)init;
 - (void)makeOutputDirectoryName:(NSString*)dirName;
-- (BOOL)makeOutputDirectory:(NSString*)dirName;
+- (ErrorCode)makeOutputDirectory:(NSString*)dirName;
 
 @end

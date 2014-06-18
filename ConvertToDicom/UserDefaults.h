@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // Keys for preferences.
+extern NSString* LoggingLevelKey;
 extern NSString* InputDirKey;
 extern NSString* OutputDirKey;
 extern NSString* TimeIncrementKey;

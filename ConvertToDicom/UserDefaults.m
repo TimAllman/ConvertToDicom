@@ -8,8 +8,12 @@
 
 #import "UserDefaults.h"
 #import "SeriesInfo.h"
+#import "LoggerName.h"
+
+#import <Log4m/Log4m.h>
 
 // Keys for preferences.
+NSString* LoggingLevelKey = @"LoggingLevel";
 NSString* InputDirKey = @"InputDir";
 NSString* OutputDirKey = @"OutputDir";
 NSString* TimeIncrementKey = @"TimeIncrement";
@@ -28,10 +32,24 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
 
 @implementation UserDefaults
 
++ (void)initialize
+{
+    NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                            stringByAppendingString:@".UserDefaults"];
+    Logger* logger_ = [Logger newInstance:loggerName];
+    LOG4M_TRACE(logger_, @"Enter");
+}
+
 + (void)registerDefaults
 {
+    NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                            stringByAppendingString:@".UserDefaults"];
+    Logger* logger_ = [Logger newInstance:loggerName];
+    LOG4M_TRACE(logger_, @"Enter");
+
     NSDictionary* dict =
     [NSDictionary dictionaryWithObjectsAndKeys:
+     
      NSHomeDirectory(), InputDirKey,
      NSHomeDirectory(), OutputDirKey,
      @1.0, TimeIncrementKey,
@@ -48,12 +66,19 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
      @"", StudyStudyUIDKey,
      nil];
 
+    LOG4M_DEBUG(logger_, @"Registered defaults:\n%@", dict);
+
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:dict];
 }
 
 + (void)loadDefaults:(SeriesInfo*)info
 {
+    NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                            stringByAppendingString:@".UserDefaults"];
+    Logger* logger_ = [Logger newInstance:loggerName];
+    LOG4M_TRACE(logger_, @"Enter");
+
     // Load preferences and do other initialisation
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
 
@@ -74,6 +99,8 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
     info.studyModality = [defs stringForKey:StudyModalityKey];
     info.studyDateTime = [defs objectForKey:StudyDateTimeKey];
     info.studyStudyUID = [defs stringForKey:StudyStudyUIDKey];
+
+    LOG4M_DEBUG(logger_, @"Loaded defaults:\n%@", defs);
 }
 
 + (void)saveDefaults:(SeriesInfo *)info

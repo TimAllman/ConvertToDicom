@@ -7,15 +7,23 @@
 //
 
 #include "SeriesInfoITK.h"
+#include "LoggerName.h"
+#include "DumpMetaDataDictionary.h"
 
 #import "SeriesInfo.h"
 
 #include <itkMetaDataObject.h>
 
+#include <log4cplus/loggingmacros.h>
+
 #include <iomanip>
 
 SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
 {
+    std::string name = std::string(LOGGER_NAME) + ".DicomSeriesWriter";
+    logger_ = log4cplus::Logger::getInstance(name);
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
     inputDir_ = [info.inputDir UTF8String];
     outputDir_ = [info.outputDir UTF8String];
     numberOfImages_ = [info.numberOfImages unsignedIntValue];
@@ -57,8 +65,9 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
 
 itk::MetaDataDictionary SeriesInfoITK::dictionary() const
 {
-    // fill the dictionary from our Dicom info.
+    LOG4CPLUS_TRACE(logger_, "Enter");
 
+    // fill the dictionary from our Dicom info.
     if (dict.GetKeys().size() == 0)
     {
         itk::EncapsulateMetaData<std::string>(dict, "0010|0010", patientsName_);
@@ -87,6 +96,8 @@ itk::MetaDataDictionary SeriesInfoITK::dictionary() const
         itk::EncapsulateMetaData<std::string>(dict, "0018|0050", spacing);
         itk::EncapsulateMetaData<std::string>(dict, "0020|0037", imagePatientOrientation_);
     }
+
+    LOG4CPLUS_DEBUG(logger_, "Initial MetaDataDictionary:\n" << DumpDicomMetaDataDictionary(dict));
 
     return dict;
 }

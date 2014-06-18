@@ -13,6 +13,8 @@
 
 #include <itkMetaDataDictionary.h>
 
+#include <log4cplus/logger.h>
+
 @class SeriesInfo;
 
 class SeriesInfoITK
@@ -76,6 +78,8 @@ private:
     std::vector<std::string> acqTimes_;
 
     mutable itk::MetaDataDictionary dict;
+
+    log4cplus::Logger logger_;
 };
 
 #endif /* defined(__ConvertToDicom__SeriesInfoITK__) */

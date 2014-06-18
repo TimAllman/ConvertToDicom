@@ -11,6 +11,8 @@
 
 #include "Typedefs.h"
 
+#include <log4cplus/logger.h>
+
 #include <vector>
 
 class ImageReader
@@ -21,7 +23,7 @@ public:
     ImageVector ReadImage(const std::string& name);
 
 private:
-
+    log4cplus::Logger logger_;
 };
 
 #endif /* defined(__ConvertToDicom__FileReader__) */
