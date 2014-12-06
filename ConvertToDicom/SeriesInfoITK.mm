@@ -97,7 +97,7 @@ itk::MetaDataDictionary SeriesInfoITK::dictionary() const
         itk::EncapsulateMetaData<std::string>(dict, "0020|0037", imagePatientOrientation_);
     }
 
-    LOG4CPLUS_DEBUG(logger_, "Initial MetaDataDictionary:\n" << DumpDicomMetaDataDictionary(dict));
+    LOG4CPLUS_TRACE(logger_, "Initial MetaDataDictionary:\n" << DumpDicomMetaDataDictionary(dict));
 
     return dict;
 }

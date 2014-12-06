@@ -53,7 +53,11 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.inputDir" id="eVC-vQ-8Ia"/>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.inputDir" id="Wkv-CW-RuG">
+                                            <dictionary key="options">
+                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DeU-vq-0cz">
@@ -74,7 +78,11 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.outputDir" id="637-Ym-vUb"/>
+                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.outputDir" id="vWW-I7-JF0">
+                                            <dictionary key="options">
+                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </textField>
                                 <button verticalHuggingPriority="750" id="RrQ-yJ-JbC">
@@ -240,7 +248,11 @@ DQ
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsName" id="fwW-ce-b4P"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsName" id="Sbv-zC-5Q5">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="75n-My-OfY">
@@ -264,7 +276,11 @@ DQ
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsID" id="0OY-Wc-JmM"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsID" id="J5E-Bh-sLn">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Pmx-6P-veI">
@@ -321,7 +337,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </comboBoxCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsSex" id="Eki-Ej-caU"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsSex" id="LeV-Fq-Gaq">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                             <outlet property="dataSource" destination="hyz-DH-rQs" id="JBf-01-q3P"/>
                                                             <outlet property="delegate" destination="hyz-DH-rQs" id="QlI-OI-Nyt"/>
                                                         </connections>
@@ -385,7 +405,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyID" id="6xU-JM-y3p"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyID" id="vOB-kv-TYn">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Kn2-w0-HUc">
@@ -406,7 +430,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyStudyUID" id="xW1-f7-EU8"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyStudyUID" id="VuB-Hz-3pZ">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="791-Zg-FMO">
@@ -464,7 +492,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </comboBoxCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyModality" id="U60-ZM-U6Y"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyModality" id="YOI-cD-Hjj">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                             <outlet property="dataSource" destination="hyz-DH-rQs" id="MO8-c9-tJS"/>
                                                             <outlet property="delegate" destination="hyz-DH-rQs" id="Xr3-0E-sDw"/>
                                                         </connections>
@@ -478,7 +510,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyDescription" id="bHf-hg-xYc"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyDescription" id="sFL-Uc-o4m">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <button verticalHuggingPriority="750" id="5a7-Qj-cdg">
@@ -550,7 +586,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.seriesDescription" id="fTB-0H-1zu"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.seriesDescription" id="dxI-hd-gId">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" id="Q09-Y1-fmz">
@@ -565,7 +605,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.seriesNumber" id="VXN-GN-Ad4"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.seriesNumber" id="yfX-b4-ij3">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -607,7 +651,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imageSliceSpacing" id="0Aj-TT-vQ2"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imageSliceSpacing" id="jM9-zc-BPS">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                     <box autoresizesSubviews="NO" title="Patient position (mm)" borderType="line" id="ynb-Mb-CKv">
@@ -629,7 +677,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionY" id="diC-nL-jWk"/>
+                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionY" id="jKi-KY-6p3">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                            </dictionary>
+                                                                        </binding>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" id="rcX-eP-wlO">
@@ -644,7 +696,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionZ" id="tGG-J8-wg4"/>
+                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionZ" id="Rpr-Me-Saf">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                            </dictionary>
+                                                                        </binding>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dIu-uv-DpO">
@@ -677,7 +733,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionX" id="Cxh-6o-HNz"/>
+                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientPositionX" id="WHG-he-AQZ">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                            </dictionary>
+                                                                        </binding>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mom-QG-M36">
@@ -710,7 +770,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientOrientation" id="Kbo-XC-dwO"/>
+                                                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.imagePatientOrientation" id="hZM-H8-NuW">
+                                                                            <dictionary key="options">
+                                                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                            </dictionary>
+                                                                        </binding>
                                                                     </connections>
                                                                 </textField>
                                                                 <button verticalHuggingPriority="750" id="Ffq-f5-0Ao">
@@ -781,9 +845,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="YWU-wx-MbZ">
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.timeIncrement" id="63g-za-WtT">
                                                                 <dictionary key="options">
                                                                     <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                 </dictionary>
                                                             </binding>
                                                         </connections>
@@ -798,7 +863,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.slicesPerImage" id="SMN-5b-Wjs"/>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.slicesPerImage" id="XcO-7P-dDF">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                 </subviews>

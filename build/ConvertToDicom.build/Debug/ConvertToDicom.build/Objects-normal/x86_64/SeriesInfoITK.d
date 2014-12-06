@@ -1,20 +1,20 @@
 dependencies: \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/SeriesInfoITK.mm \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/SeriesInfoITK.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkMetaDataDictionary.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkMetaDataObjectBase.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkLightObject.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkMacro.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkWin32Header.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkConfigure.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/ITKCommonExport.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkExceptionObject.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkSmartPointer.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkTimeStamp.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkIntTypes.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkIndent.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkSimpleFastMutexLock.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkThreadSupport.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMetaDataDictionary.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMetaDataObjectBase.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkLightObject.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMacro.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkWin32Header.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkConfigure.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/ITKCommonExport.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkExceptionObject.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkSmartPointer.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkTimeStamp.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkIntTypes.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkIndent.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkSimpleFastMutexLock.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkThreadSupport.h \
   /Users/tim/usr/local/include/log4cplus/logger.h \
   /Users/tim/usr/local/include/log4cplus/config.hxx \
   /Users/tim/usr/local/include/log4cplus/config/defines.hxx \
@@ -34,15 +34,84 @@ dependencies: \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/LoggerName.h \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/DumpMetaDataDictionary.h \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/SeriesInfo.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkMetaDataObject.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkCommand.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkObject.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkEventObject.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkObjectFactory.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkObjectFactoryBase.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkCreateObjectFunction.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkFastMutexLock.h \
-  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.5/itkMetaDataObject.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMetaDataObject.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkArray.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vxl_version.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_vector.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_iosfwd.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_compiler.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_config_manual.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_config_compiler.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_config_headers.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_iosfwd.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_iosfwd.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_tag.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_c_vector.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_numeric_traits.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vxl_config.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_complex.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_complex.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_complex.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_complex.txx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_complex.txx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_cstddef.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_cstddef.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_cstddef.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_cmath.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/gcc/vcl_cmath.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/gcc/../iso/vcl_cmath.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_cmath.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_config.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_error.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_cassert.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_cassert.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_cassert.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkArray.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraitsArrayPixel.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraits.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_limits.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_limits.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_limits.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkFixedArray.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkFixedArray.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraitsFixedArrayPixel.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMatrix.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkPoint.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkVector.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_vector_ref.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkVector.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_math.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/dll.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkObject.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkEventObject.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraitsVectorPixel.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkPoint.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraitsPointPixel.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkCovariantVector.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkNumericTraitsCovariantVectorPixel.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkCovariantVector.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_matrix_fixed.txx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_matrix_fixed.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_cstring.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_cstring.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_cstring.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_matrix.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_matrix_ref.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_vector_fixed.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_iostream.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_iostream.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_iostream.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vcl_cstdlib.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/vcl_cstdlib.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/iso/../generic/vcl_cstdlib.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_transpose.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_fastops.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/algo/vnl_matrix_inverse.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/algo/vnl_svd.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/vnl_diag_matrix.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/vnl/algo/vnl_determinant.h \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMatrix.hxx \
+  /Users/tim/usr/local/ITK/x86_64/Debug/include/ITK-4.7/itkMetaDataObject.hxx \
   /Users/tim/usr/local/include/log4cplus/loggingmacros.h \
   /Users/tim/usr/local/include/log4cplus/helpers/snprintf.h \
   /Users/tim/usr/local/include/log4cplus/tracelogger.h

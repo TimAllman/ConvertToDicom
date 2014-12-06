@@ -189,6 +189,8 @@
         return NO;
     }];
 
+    LOG4M_INFO(logger_, @"Loading files from directory: %@", self.inputDir);
+
     for (NSURL* url in enumerator)
     {
         NSString *localizedName = nil;

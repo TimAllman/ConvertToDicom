@@ -67,7 +67,7 @@
     itk::VTKImageIOFactory::RegisterOneFactory();
     itk::GDCMImageIOFactory::RegisterOneFactory();
 
-    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_ALL);
+    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_DEBUG);
 }
 
 - (id)init
@@ -171,18 +171,18 @@
 
         LOG4M_ERROR(logger_, @"Could not read image file in input directory. "
                     "%@ does not contain readable image files.", self.seriesInfo.inputDir);
+        return;
     }
-    else if ([self checkOutputDirCreatability] != SUCCESS)
+
+    if ([self checkOutputDirCreatability] != SUCCESS)
     {
         return; // checkOutputDirCreatability contains alerts, no need here.
     }
-    else
-    {
-        // All seems well so we can put up the DICOM sheet.
-        [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
-           didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:)
-              contextInfo:nil];
-    }
+
+    // All seems well so we can put up the DICOM sheet.
+    [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
+       didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:)
+          contextInfo:nil];
 }
 
 - (ErrorCode)checkOutputDirCreatability
@@ -200,7 +200,7 @@
     }
     else
     {
-        [fm removeItemAtPath:self.seriesInfo.outputDir error:nil];
+        //[fm removeItemAtPath:self.seriesInfo.outputDir error:nil];
         return SUCCESS;
     }
 }
@@ -374,6 +374,8 @@
                           self.seriesInfo.seriesDescription, self.seriesInfo.seriesNumber];
 
     self.seriesInfo.outputPath = fullName;
+
+    LOG4M_INFO(logger_, @"Output path set to: %@", self.seriesInfo.outputPath);
 }
 
 - (ErrorCode)makeOutputDirectory:(NSString*)dirName

@@ -126,7 +126,7 @@ void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
     dictArray.clear();
 
     itk::MetaDataDictionary seriesDict = seriesInfo.dictionary();
-    std::cout << DumpDicomMetaDataDictionary(seriesDict);
+    LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(seriesDict));
 
     //
     // To keep the new series in the same study as the original we need
@@ -203,7 +203,7 @@ void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
             //itk::EncapsulateMetaData<std::string>(seriesDict, "0002|0003", sopInstanceUID);
         }
 
-        LOG4CPLUS_DEBUG(logger_, DumpDicomMetaDataDictionary(*sliceDict));
+        LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(*sliceDict));
 
         dictArray.push_back(sliceDict);
     }
