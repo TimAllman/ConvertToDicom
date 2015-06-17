@@ -16,18 +16,32 @@
 
 class SeriesInfoITK;
 
+/**
+ * Class to write a DICOM series using itk::ImageSeriesWriter.
+ */
 class DicomSeriesWriter
 {
 public:
-    typedef unsigned short DicomPixelType;
+    typedef unsigned short DicomPixelType; ///< Always write with this pixel type.
 
-    DicomSeriesWriter(const SeriesInfoITK& seriesInfoITK, std::vector<Image2DType::Pointer>& images,
+/**
+ * Class constructor.
+ * @param seriesInfoITK Instance of SeriesInfoITK containing all of the information needed.
+ * @param images The DICOM images to write.
+ * @param outputDirectoryName The output directory. This the deepest directory 
+ * in the tree and is the place into which will be written the files
+ */
+    explicit DicomSeriesWriter(const SeriesInfoITK& seriesInfoITK, std::vector<Image2DType::Pointer>& images,
                       std::string outputDirectoryName);
 
+    /**
+     * Do the file writing.
+     * @return Suitable value in ErorCode enum.
+     */
     ErrorCode WriteFileSeries();
 
 private:
-    void CopyDictionary(itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
+    void CopyDictionary(const itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
     void PrepareMetaDataDictionaryArray();
     std::string IncrementImagePositionPatient();
     Image3DType::Pointer MergeSlices();

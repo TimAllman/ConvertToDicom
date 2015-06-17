@@ -7,6 +7,9 @@
 //
 
 #import "SeriesInfo.h"
+#import "LoggerName.h"
+
+#import <Log4m/Log4m.h>
 
 @implementation SeriesInfo
 
@@ -15,43 +18,26 @@
     self = [super init];
     if (self)
     {
+        NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
+                                stringByAppendingString:@".SeriesInfo"];
+        logger_ = [Logger newInstance:loggerName];
+        LOG4M_TRACE(logger_, @"Enter");
     }
     return self;
 }
 
-- (BOOL)isComplete
-{
-    if ((self.inputDir == nil) || (self.outputDir == nil) || (self.numberOfImages == nil) ||
-        (self.slicesPerImage == nil) || (self.timeIncrement == nil) || (self.patientsName == nil) ||
-        (self.patientsID == nil) || (self.patientsDOB == nil) || (self.patientsSex == nil) ||
-        (self.studyDescription == nil) || (self.studyID == nil) || (self.studyModality == nil) ||
-        (self.studyDateTime == nil) || (self.studyID == nil) || (self.seriesNumber == nil) ||
-        (self.seriesDescription == nil) || (self.imagePatientPositionX == nil) ||
-        (self.imagePatientPositionY == nil) || (self.imagePatientPositionZ == nil) ||
-        (self.imagePatientOrientation == nil))
-        return NO;
-
-    if (([self.slicesPerImage unsignedIntValue] > 1) && (self.imageSliceSpacing == nil))
-        return NO;
-
-    // check for needed strings
-    if (([self.inputDir length] == 0) || ([self.outputDir length] == 0) ||
-        ([self.patientsName length] == 0) || ([self.studyDescription length] == 0) ||
-        ([self.seriesDescription length] == 0))
-        return NO;
-
-    return YES;
-}
-
 - (BOOL)isConsistent
 {
-    if (![self isComplete])
-        return NO;
-
+    // check input data
     unsigned numImages = [self.numberOfImages unsignedIntValue];
-    unsigned slicesPerImage = [self.slicesPerImage unsignedIntValue];
-    if ((numImages % slicesPerImage) != 0)
+    unsigned numSlices = [self.numberOfSlices unsignedIntValue];
+
+    if ((numSlices % numImages) != 0)
+    {
+        LOG4M_ERROR(logger_, @"Inconsistent number of images (%u) and number of slices (%u)",
+                    numImages, numSlices);
         return NO;
+    }
 
     return YES;
 }

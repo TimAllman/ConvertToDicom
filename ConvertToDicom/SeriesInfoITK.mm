@@ -20,12 +20,13 @@
 
 SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
 {
-    std::string name = std::string(LOGGER_NAME) + ".DicomSeriesWriter";
+    std::string name = std::string(LOGGER_NAME) + ".SeriesInfoITK";
     logger_ = log4cplus::Logger::getInstance(name);
     LOG4CPLUS_TRACE(logger_, "Enter");
 
     inputDir_ = [info.inputDir UTF8String];
     outputDir_ = [info.outputDir UTF8String];
+
     numberOfImages_ = [info.numberOfImages unsignedIntValue];
     slicesPerImage_ = [info.slicesPerImage unsignedIntValue];
     timeIncrement_ = [info.timeIncrement floatValue];
@@ -60,10 +61,10 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
     imagePatientPosition_ = [ipp UTF8String];
     imagePatientOrientation_ = [info.imagePatientOrientation UTF8String];
 
-    dict = dictionary();
+    dict = makeDictionary();
 }
 
-itk::MetaDataDictionary SeriesInfoITK::dictionary() const
+itk::MetaDataDictionary SeriesInfoITK::makeDictionary() const
 {
     LOG4CPLUS_TRACE(logger_, "Enter");
 
@@ -99,6 +100,11 @@ itk::MetaDataDictionary SeriesInfoITK::dictionary() const
 
     LOG4CPLUS_TRACE(logger_, "Initial MetaDataDictionary:\n" << DumpDicomMetaDataDictionary(dict));
 
+    return dict;
+}
+
+itk::MetaDataDictionary SeriesInfoITK::dictionary() const
+{
     return dict;
 }
 

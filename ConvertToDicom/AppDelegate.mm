@@ -21,7 +21,7 @@
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
-    return  NSTerminateNow;
+    return NSTerminateNow;
 }
 
 @end

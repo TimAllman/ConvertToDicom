@@ -10,10 +10,10 @@
 
 #include <itkImage.h>
 
-typedef unsigned short PixelType;
+typedef unsigned short InternalPixelType;
 
-typedef itk::Image<PixelType, 2u> Image2DType;
-typedef itk::Image<PixelType, 3u> Image3DType;
+typedef itk::Image<InternalPixelType, 2u> Image2DType;
+typedef itk::Image<InternalPixelType, 3u> Image3DType;
 
 #endif	/* TYPEDEFS_H */
 

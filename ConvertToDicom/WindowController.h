@@ -8,19 +8,24 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "ErrorCodes.h"
+#include "ErrorCodes.h"
 
 #import <Log4m/Logger.h>
 
 @class SeriesInfo;
 @class SeriesConverter;
 
-@interface WindowController : NSWindowController <NSComboBoxDataSource, NSFileManagerDelegate>
+/**
+ * The main class for the program. Handles all GUI events and calling the image conversion functions.
+ */
+@interface WindowController : NSWindowController <NSComboBoxDataSource, NSFileManagerDelegate,
+                                                  NSTextFieldDelegate>
 {
-    NSArray* modalities;
-    NSArray* sexes;
-    SeriesConverter* seriesConverter;
-    Logger* logger_;
+    NSArray* modalities;              ///< List of DICOM abbreviations of possible modalities.
+    NSArray* sexes;                   ///< List of sexes.
+    NSMutableArray* sliceCounts;      ///< List of possible numbers of slices per image
+    SeriesConverter* seriesConverter; ///< Object which handles conversion.
+    Logger* logger_;                  ///< The class Log4m logger.
 }
 
 @property (weak) IBOutlet SeriesInfo *seriesInfo;
@@ -42,7 +47,7 @@
 @property (weak) IBOutlet NSComboBox *studyModalityComboBox;
 @property (weak) IBOutlet NSDatePicker *studyDateTimeDatePicker;
 @property (weak) IBOutlet NSTextField *studyStudyUIDTextField;
-@property (weak) IBOutlet NSTextField *slicesPerImageTextField;
+@property (weak) IBOutlet NSComboBox *slicesPerImageComboBox;
 @property (weak) IBOutlet NSTextField *timeIncrementTextField;
 @property (weak) IBOutlet NSTextField *imageSliceThicknessTextField;
 @property (weak) IBOutlet NSTextField *imagePatientPositionXTextField;
@@ -68,7 +73,7 @@
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
 
 - (id)init;
-- (void)makeOutputDirectoryName:(NSString*)dirName;
-- (ErrorCode)makeOutputDirectory:(NSString*)dirName;
+//- (void)makeOutputDirectoryName:(NSString*)dirName;
+- (ErrorCode)makeOutputDirectory:(NSString*)dirName Error:(NSError**)errp;
 
 @end

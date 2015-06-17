@@ -44,6 +44,9 @@
 
 @implementation WindowController
 
+/**
+ * Called before anything else and registers all of the ITK ImageIO factories.
+ */
 +(void)initialize
 {
     itk::BioRadImageIOFactory::RegisterOneFactory();
@@ -67,9 +70,12 @@
     itk::VTKImageIOFactory::RegisterOneFactory();
     itk::GDCMImageIOFactory::RegisterOneFactory();
 
-    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_DEBUG);
+    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_NOT_SET);
 }
 
+/**
+ * Init method. Calls [super initWithWindowNibName:@"MainWindow"].
+ */
 - (id)init
 {
     self = [super initWithWindowNibName:@"MainWindow"];
@@ -79,7 +85,8 @@
                       @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
         sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
-        seriesConverter = [[SeriesConverter alloc] init];
+        //        sliceCounts = [NSMutableArray array];
+        sliceCounts = [NSMutableArray arrayWithObjects:@0, @1, @2, nil];
 
         NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
                                 stringByAppendingString:@".WindowController"];
@@ -91,9 +98,16 @@
 
 - (void)awakeFromNib
 {
-    [self.convertButton setEnabled:NO];
+    seriesConverter = [[SeriesConverter alloc] initWithController:self andInfo:_seriesInfo];
+
+    // Turn this off until the user sets things up.
+    //[self.convertButton setEnabled:NO];
 }
 
+/**
+ * Button to set input directory was pressed.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)inputDirButtonPressed:(NSButton *)sender
 {
     NSOpenPanel* panel = [NSOpenPanel openPanel];
@@ -115,6 +129,10 @@
     }];
 }
 
+/**
+ * Button to set output directory was pressed.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)outputDirButtonPressed:(NSButton *)sender
 {
     NSOpenPanel* panel = [NSOpenPanel openPanel];
@@ -136,12 +154,94 @@
      }];
 }
 
+/**
+ * Button to convert data was pressed.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)convertButtonPressed:(NSButton *)sender
 {
-    [self.convertButton setEnabled:NO];
-    [self convertFiles];
+    //[self.convertButton setEnabled:NO];
+
+    NSError* error = nil;
+    ErrorCode errCode = [self makeOutputDirectory:self.seriesInfo.outputDir Error:&error];
+
+    // Cannot create the directory. Use the returned error to fill the alert.
+    if (errCode == ERROR_CREATING_DIRECTORY)
+    {
+        NSAlert* alert = [NSAlert alertWithError:error];
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode){}];
+        return;
+    }
+
+    // Do this so that the user will be aware that he is about to overwrite a data set
+    if ((errCode == ERROR_DIRECTORY_NOT_EMPTY) && (self.seriesInfo.overwriteFiles == NO))
+    {
+        NSAlert* alert = [[NSAlert alloc] init];
+        alert.alertStyle = NSWarningAlertStyle;
+        alert.messageText = @"Output directory is not empty.";
+        alert.informativeText = @"Check the \'Overwrite files\' box to overwrite the"
+                                 " contents of the output directory.";
+        [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        LOG4M_WARN(logger_, @"Output directory not empty. Check the \'Overwrite files\' box if you"
+                             " wish to overwrite the contents of the output directory.");
+        return;
+    }
+
+    errCode = [self convertFiles];
+    
+    if (errCode == SUCCESS)
+    {
+        NSAlert* alert = [NSAlert alertWithMessageText:@"Converted files successfully."
+                                         defaultButton:@"Close" alternateButton:nil otherButton:nil
+                             informativeTextWithFormat:@""];
+        [alert setAlertStyle:NSInformationalAlertStyle];
+
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
+         {
+         }];
+
+        LOG4M_INFO(logger_, @"Converted files successfully.");
+        return;
+    }
+    else if (errCode == ERROR_FILE_NOT_FOUND)
+    {
+        NSAlert* alert = [NSAlert alertWithMessageText:@"Could not read files."
+                                         defaultButton:@"Close" alternateButton:nil otherButton:nil
+                             informativeTextWithFormat:@"Directory: %@", seriesConverter.inputDir];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
+         {
+         }];
+
+        LOG4M_ERROR(logger_, @"Could not read files from %@:", seriesConverter.inputDir);
+        return;
+    }
+    else if (errCode == ERROR_WRITING_FILE)
+    {
+        NSAlert* alert = [NSAlert alertWithMessageText:@"Could not write files."
+                                         defaultButton:@"Close" alternateButton:nil otherButton:nil
+                             informativeTextWithFormat:@"Directory: %@", seriesConverter.outputDir];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
+         {
+         }];
+
+        LOG4M_ERROR(logger_, @"Could not write files to %@:", seriesConverter.outputDir);
+        return;
+    }
+    else
+    {
+        
+    }
+
 }
 
+/**
+ * Button to close program.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)closeButtonPressed:(NSButton *)sender
 {
     [UserDefaults saveDefaults:self.seriesInfo];
@@ -152,13 +252,18 @@
     [NSApp terminate:nil];
 }
 
+/**
+ * Button to read input files and set up DICOM attributes was pressed.
+ * Allows the user to set information that is probably not in the input files.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)setDicomTagsButtonPushed:(NSButton *)sender
 {
     seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
-    seriesConverter.windowController = self;
+    //[self.slicesPerImageTextField setEnabled:YES];
 
-    if ([seriesConverter extractSeriesDicomAttributes] != SUCCESS)
+    if ([seriesConverter extractSeriesAttributes] != SUCCESS)
     {
         NSAlert* alert = [NSAlert alertWithMessageText:@"Could not read image file in input directory."
                                          defaultButton:@"Close" alternateButton:nil otherButton:nil
@@ -174,17 +279,29 @@
         return;
     }
 
-    if ([self checkOutputDirCreatability] != SUCCESS)
+    [sliceCounts removeAllObjects];
+    NSUInteger sliceCount = [self.seriesInfo.numberOfSlices unsignedIntValue];
+    for (NSUInteger idx = 1; idx <= sliceCount; ++idx)
     {
-        return; // checkOutputDirCreatability contains alerts, no need here.
+        if ((sliceCount % idx) == 0)
+            [sliceCounts addObject:[NSNumber numberWithUnsignedInteger:idx]];
     }
+    
+    NSInteger idx = [sliceCounts indexOfObject:self.seriesInfo.slicesPerImage];
+    [self.slicesPerImageComboBox selectItemAtIndex:idx];
+    [self.slicesPerImageComboBox setObjectValue:[self comboBox:self.slicesPerImageComboBox
+                                     objectValueForItemAtIndex:[self.slicesPerImageComboBox indexOfSelectedItem]]];
 
-    // All seems well so we can put up the DICOM sheet.
+    // All seems well so we can put up the DICOM Attributes sheet.
     [NSApp beginSheet:self.dicomInfoPanel modalForWindow:self.window modalDelegate:self
        didEndSelector:@selector(didEndDicomAttributesSheet:returnCode:contextInfo:)
           contextInfo:nil];
 }
 
+/**
+ * See if the output directory can be created by trying to do so.
+ * @return ErrorCode SUCCESS if successful, ERROR_CREATING_DIRECTORY if not.
+ */
 - (ErrorCode)checkOutputDirCreatability
 {
     NSFileManager* fm = [NSFileManager defaultManager];
@@ -205,6 +322,12 @@
     }
 }
 
+/**
+ * Called when Dicom attributes sheet is closed, checking for errors
+ * @param sheet The sheet that closed
+ * @param returnCode The sheet return code.
+ * @param contextInfo Not used.
+ */
 - (void)didEndDicomAttributesSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     LOG4M_TRACE(logger_, @"didEndDicomAttributesSheet:returnCode:contextInfo:");
@@ -228,51 +351,58 @@
         }
         else
         {
-            [self.convertButton setEnabled:YES];
+            //[self.convertButton setEnabled:YES];
         }
     }
 }
 
+/**
+ * Do the file reading, conversion and writing.
+ * @return ErrorCode SUCCESS if successful.
+ */
 - (ErrorCode)convertFiles
 {
-    seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
-    seriesConverter.outputDir = [NSURL fileURLWithPath:self.seriesInfo.outputDir isDirectory:YES];
-    seriesConverter.seriesInfo = self.seriesInfo;
-    seriesConverter.windowController = self;
+    ErrorCode err = [seriesConverter convertFiles];
 
-    [seriesConverter loadFileNames]; // errors alread checked
-
-    ErrorCode err = [seriesConverter readFiles];
-    if (err != SUCCESS)
-        return err;
-
-    err = [seriesConverter writeFiles];
-    if (err != SUCCESS)
-        return err;
-
-    return SUCCESS;
+    return err;
 }
 
 #pragma mark - DicomPanel
 
+/**
+ * Set Image Orientation Patient to axial.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)imageSetIopAxialButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopAxialButtonPressed");
     self.seriesInfo.imagePatientOrientation = @"1\\0\\0\\0\\1\\0";
 }
 
+/**
+ * Set Image Orientation Patient to saggital.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)imageSetIopSaggitalButtonPressed:(NSButton *)sender
 {
     NSLog(@"imageSetIopSaggitalButtonPressed");
     self.seriesInfo.imagePatientOrientation = @"0\\1\\0\\0\\0\\1";
 }
 
+/**
+ * Set Image Orientation Patient to coronal.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)imageSetIopCoronalButtonPressed:(NSButton*)sender
 {
     NSLog(@"imageSetIopCoronalButtonPressed");
     self.seriesInfo.imagePatientOrientation = @"1\\0\\0\\0\\0\\1";
 }
 
+/**
+ * Generate a study UID.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)studyStudyUIDGenerateButtonPushed:(NSButton*)sender
 {
     gdcm::UIDGenerator suid;
@@ -282,40 +412,45 @@
     NSLog(@"studyStudyUIDGenerateButtonPressed: %@", self.seriesInfo.studyStudyUID);
 }
 
+/**
+ * Set the date to now.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)studyDateNowButtonPressed:(NSButton *)sender
 {
     self.seriesInfo.studyDateTime = [NSDate date];
 }
 
+/**
+ * Dicom attributes sheet button was pressed.
+ * Checks for completeness and consistency and saves defaults.
+ * @param sender The button that was pressed.
+ */
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender
 {
     LOG4M_TRACE(logger_, @"dicomCloseButtonPressed");
 
-    if (![self.seriesInfo isComplete])
-    {
-        NSAlert* alert = [[NSAlert alloc] init];
-        [alert setAlertStyle:NSCriticalAlertStyle];
-        [alert setMessageText:@"Information is incomplete."];
-        [alert setInformativeText:@"All DICOM information fields must be filled in."];
-        [alert beginSheetModalForWindow:self.window
-                          modalDelegate:nil didEndSelector:nil contextInfo:nil];
-        LOG4M_ERROR(logger_, @"Information is incomplete. All DICOM information fields must be filled in.");
-        return;
-    }
+    [NSApp endSheet:self.dicomInfoPanel];
+    [self.dicomInfoPanel orderOut:self];
 
     if (![self.seriesInfo isConsistent])
     {
+        // check input data
+        unsigned numImages = [self.seriesInfo.numberOfImages unsignedIntValue];
+        unsigned numSlices = [self.seriesInfo.numberOfSlices unsignedIntValue];
+
+        NSAlert* alert = [[NSAlert alloc] init];
+        alert.alertStyle = NSCriticalAlertStyle;
+        alert.messageText = @"Images are inconsistent.";
+        NSString* infoText = [NSString stringWithFormat:@"The number of slices (%u) must divide exactly"
+                              " by the number of images (%u) in the input series.", numSlices, numImages];
+        alert.informativeText = infoText;
+        [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        LOG4M_WARN(logger_, infoText);
         return;
     }
 
-    if ([self makeOutputDirectory:self.seriesInfo.outputDir] == SUCCESS)
-    {
-        [self.convertButton setEnabled:YES];
-    }
-
     [UserDefaults saveDefaults:self.seriesInfo];
-    [NSApp endSheet:self.dicomInfoPanel];
-    [self.dicomInfoPanel orderOut:self];
 }
 
 #pragma mark - NSComboBoxDatasource
@@ -332,11 +467,15 @@
     {
         return [modalities objectAtIndex:index];
     }
+    else if ([ident isEqualToString:@"SlicesPerImageComboBox"])
+    {
+        return [sliceCounts objectAtIndex:index];
+    }
     else
     {
         NSException* ex =
            [NSException exceptionWithName:@"InvalidIdentifier"
-                                   reason:[NSString stringWithFormat:@"Combobox identifier %@ is invalid.", ident]
+                            reason:[NSString stringWithFormat:@"Combobox identifier %@ is invalid.", ident]
                                  userInfo:nil];
         @throw ex;
     }
@@ -354,6 +493,10 @@
     {
         return [modalities count];
     }
+    else if ([ident isEqualToString:@"SlicesPerImageComboBox"])
+    {
+        return [sliceCounts count];
+    }
     else
     {
         NSException* ex =
@@ -365,7 +508,11 @@
 }
 
 #pragma mark - Utilities
-
+/**
+ * Make the full output directory name.
+ * The files exist at the bottom of a tree that looks like this:
+ * dirName/PatientName/StudyDescription - StudyID/SeriesDescription - SeriesNumber/
+ */
 - (void)makeOutputDirectoryName:(NSString*)dirName
 {
     NSString* fullName = [NSString stringWithFormat:@"%@/%@/%@ - %@/%@ - %@/",
@@ -378,9 +525,14 @@
     LOG4M_INFO(logger_, @"Output path set to: %@", self.seriesInfo.outputPath);
 }
 
-- (ErrorCode)makeOutputDirectory:(NSString*)dirName
+/**
+ * Make the full output directory.
+ * @param dirName The root directory name that will be expanded by makeOutputDirectoryName:
+ * @return ErrorCode SUCCESS if successful, ERROR_CREATING_DIRECTORY or ERROR_DIRECTORY_NOT_EMPTY if not.
+ */
+- (ErrorCode)makeOutputDirectory:(NSString*)dirName Error:(NSError**)errp
 {
-    NSError* error = nil;
+    NSError* error = *errp;
 
     [self makeOutputDirectoryName:self.seriesInfo.outputDir];
 
@@ -390,30 +542,14 @@
                                 attributes:nil error:&error];
     if (b == NO)
     {
-        if (error != nil)
-        {
-            NSAlert* alert = [NSAlert alertWithError:error];
-            [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
-            }];
-        }
-
         return ERROR_CREATING_DIRECTORY;
     }
     else
     {
-        // We want an empty directory
+        // We want an empty directory, maybe
         NSArray* contents = [fm contentsOfDirectoryAtPath:self.seriesInfo.outputPath error:&error];
         if ([contents count] != 0)
-        {
-            NSAlert* alert = [NSAlert alertWithMessageText:@"Output directory is not empty."
-                                             defaultButton:@"Close" alternateButton:nil
-                                               otherButton:nil
-                                 informativeTextWithFormat:@"%@", self.seriesInfo.outputPath];
-            [alert beginSheetModalForWindow:self.dicomInfoPanel completionHandler:^(NSModalResponse returnCode) {
-            }];
-
             return ERROR_DIRECTORY_NOT_EMPTY;
-        }
         else
             return SUCCESS;
     }

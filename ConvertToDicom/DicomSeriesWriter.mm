@@ -37,10 +37,10 @@
 DicomSeriesWriter::DicomSeriesWriter(const SeriesInfoITK& dicomParams,
                                      std::vector<Image2DType::Pointer>& images,
                                      std::string outputDirectoryName)
-: seriesInfo(dicomParams), images(images), outputDirectory(outputDirectoryName)
+: seriesInfo(dicomParams), images(images), outputDirectory(outputDirectoryName),
+  logger_(log4cplus::Logger::getInstance(std::string(LOGGER_NAME) + ".DicomSeriesWriter"))
 {
     std::string name = std::string(LOGGER_NAME) + ".DicomSeriesWriter";
-    logger_ = log4cplus::Logger::getInstance(name);
     LOG4CPLUS_TRACE(logger_, "Enter");
 }
 
@@ -72,6 +72,10 @@ ErrorCode DicomSeriesWriter::WriteFileSeries()
     nameGenerator->SetEndIndex(images.size());
     fileNames = nameGenerator->GetFileNames();
 
+    // We want to empty the output directory so we remove it and recreate it.
+    itksys::SystemTools::RemoveADirectory(outputDirectory);
+    itksys::SystemTools::MakeDirectory(outputDirectory);
+
     typedef itk::ImageSeriesWriter<Image3DType, Image2DType> WriterType;
     WriterType::Pointer writer = WriterType::New();
     writer->SetImageIO(dicomIo);
@@ -93,7 +97,8 @@ ErrorCode DicomSeriesWriter::WriteFileSeries()
     return SUCCESS;
 }
 
-void DicomSeriesWriter::CopyDictionary(itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict)
+void DicomSeriesWriter::CopyDictionary(const itk::MetaDataDictionary& fromDict,
+                                       itk::MetaDataDictionary& toDict)
 {
     LOG4CPLUS_TRACE(logger_, "Enter");
 

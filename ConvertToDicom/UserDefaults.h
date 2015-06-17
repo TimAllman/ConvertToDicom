@@ -10,6 +10,7 @@
 
 // Keys for preferences.
 extern NSString* LoggingLevelKey;
+extern NSString* OverwriteFilesKey;
 extern NSString* InputDirKey;
 extern NSString* OutputDirKey;
 extern NSString* TimeIncrementKey;
@@ -28,12 +29,26 @@ extern NSString* StudyStudyUIDKey;
 
 @class SeriesInfo;
 
+/**
+ * Class to handle user defaults (preferences).
+ */
 @interface UserDefaults : NSObject
 
+/**
+ * Set up the factory defaults.
+ */
 + (void)registerDefaults;
 
+/**
+ * Load defaults set on disk.
+ * @param info SeriesInfo instance to receive the stored defaults.
+ */
 + (void)loadDefaults:(SeriesInfo*)info;
 
+/**
+ * Store defaults to disk.
+ * @param info SeriesInfo instance containing default values to store.
+ */
 + (void)saveDefaults:(SeriesInfo*)info;
 
 @end

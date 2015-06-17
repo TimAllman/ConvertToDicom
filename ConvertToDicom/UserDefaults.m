@@ -14,6 +14,7 @@
 
 // Keys for preferences.
 NSString* LoggingLevelKey = @"LoggingLevel";
+NSString* OverwriteFilesKey = @"OverwriteFiles";
 NSString* InputDirKey = @"InputDir";
 NSString* OutputDirKey = @"OutputDir";
 NSString* TimeIncrementKey = @"TimeIncrement";
@@ -47,24 +48,24 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
     Logger* logger_ = [Logger newInstance:loggerName];
     LOG4M_TRACE(logger_, @"Enter");
 
-    NSDictionary* dict =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     
-     NSHomeDirectory(), InputDirKey,
-     NSHomeDirectory(), OutputDirKey,
-     @1.0, TimeIncrementKey,
-     @"", PatientsNameKey,
-     @0, PatientsIDKey,
-     [NSDate dateWithString:@"1918-10-19 10:45:32 +0500"], PatientsDOBKey,
-     @"Unspecified", PatientsSexKey,
-     @"", StudyDescriptionKey,
-     @"", SeriesDescriptionKey,
-     @0, SeriesNumberKey,
-     @0, StudyIDKey,
-     @"Unknown", StudyModalityKey,
-     [NSDate date], StudyDateTimeKey,
-     @"", StudyStudyUIDKey,
-     nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [NSNumber numberWithInt:LOG4M_LEVEL_INFO], LoggingLevelKey,
+                          @NO, OverwriteFilesKey,
+                          NSHomeDirectory(), InputDirKey,
+                          NSHomeDirectory(), OutputDirKey,
+                          @1.0, TimeIncrementKey,
+                          @"", PatientsNameKey,
+                          @0, PatientsIDKey,
+                          [NSDate dateWithString:@"1918-10-19 10:45:32 +0500"], PatientsDOBKey,
+                          @"Unspecified", PatientsSexKey,
+                          @"", StudyDescriptionKey,
+                          @"", SeriesDescriptionKey,
+                          @0, SeriesNumberKey,
+                          @0, StudyIDKey,
+                          @"Unknown", StudyModalityKey,
+                          [NSDate date], StudyDateTimeKey,
+                          @"", StudyStudyUIDKey,
+                          nil];
 
     LOG4M_DEBUG(logger_, @"Registered defaults:\n%@", dict);
 
@@ -83,6 +84,7 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
 
     // Main window params
+    info.overwriteFiles = [defs boolForKey:OverwriteFilesKey];
     info.inputDir = [defs stringForKey:InputDirKey];
     info.outputDir = [defs stringForKey:OutputDirKey];
     info.timeIncrement = [defs objectForKey:TimeIncrementKey];

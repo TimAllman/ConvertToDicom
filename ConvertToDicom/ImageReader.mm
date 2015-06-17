@@ -17,10 +17,13 @@
 
 #include <log4cplus/loggingmacros.h>
 
+ImageReader::ImageReader()
+    :logger_(log4cplus::Logger::getInstance(std::string(LOGGER_NAME) + ".ReadImage"))
+{
+}
+
 ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
 {
-    std::string name = std::string(LOGGER_NAME) + ".ReadImage";
-    logger_ = log4cplus::Logger::getInstance(name);
     LOG4CPLUS_TRACE(logger_, "Enter");
 
     itk::ImageIOBase::Pointer imageIO =
@@ -44,12 +47,12 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
     LOG4CPLUS_DEBUG(logger_, "Pixel Type is " << imageIO->GetComponentTypeAsString(pixelType));
 
     const size_t numDimensions =  imageIO->GetNumberOfDimensions();
-    LOG4CPLUS_DEBUG(logger_, "numDimensions: " << numDimensions); // '2'
+    LOG4CPLUS_DEBUG(logger_, "numDimensions: " << numDimensions);
 
-    LOG4CPLUS_DEBUG(logger_, "component size: " << imageIO->GetComponentSize()); // '8'
+    LOG4CPLUS_DEBUG(logger_, "component size: " << imageIO->GetComponentSize());
     LOG4CPLUS_DEBUG(logger_, "pixel type (string): "
                     << imageIO->GetPixelTypeAsString(imageIO->GetPixelType()));
-    LOG4CPLUS_DEBUG(logger_, "pixel type: " << imageIO->GetPixelType()); // '5'
+    LOG4CPLUS_DEBUG(logger_, "pixel type: " << imageIO->GetPixelType());
 
     std::stringstream str;
 

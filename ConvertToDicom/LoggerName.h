@@ -9,7 +9,6 @@
 #ifndef ConvertToDicom_LoggerName_h
 #define ConvertToDicom_LoggerName_h
 
-// The name of the logger used through this plugin.
-#define LOGGER_NAME "ca.brasscats.ConvertToDicom"
+#define LOGGER_NAME "ca.brasscats.ConvertToDicom" ///< The base name of the logger used throughout.
 
 #endif

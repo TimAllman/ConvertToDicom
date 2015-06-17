@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/tim/devel/ConvertToDicom/ConvertToDicom/LoggerUtils.cpp \
+  /Users/tim/devel/ConvertToDicom/ConvertToDicom/LoggerUtils.mm \
   /Users/tim/devel/ConvertToDicom/ConvertToDicom/LoggerUtils.h \
   /Users/tim/usr/local/include/log4cplus/loglevel.h \
   /Users/tim/usr/local/include/log4cplus/config.hxx \
@@ -23,4 +23,5 @@ dependencies: \
   /Users/tim/usr/local/include/log4cplus/helpers/timehelper.h \
   /Users/tim/usr/local/include/log4cplus/loggingmacros.h \
   /Users/tim/usr/local/include/log4cplus/helpers/snprintf.h \
-  /Users/tim/usr/local/include/log4cplus/tracelogger.h
+  /Users/tim/usr/local/include/log4cplus/tracelogger.h \
+  /Users/tim/devel/ConvertToDicom/ConvertToDicom/UserDefaults.h

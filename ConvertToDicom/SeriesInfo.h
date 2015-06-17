@@ -8,41 +8,55 @@
 
 #import <Foundation/Foundation.h>
 
-/*
+@class Logger;
+
+/**
+ * A container for all of the information we need to know about a series.
  * Some parameters are set as preferences and some are ordinary properties.
  * This class sets a common interface to the parameters, regardless of origin.
  */
 @interface SeriesInfo : NSObject
 {
+    Logger* logger_;
 }
 
-@property (strong) IBOutlet NSString* inputDir;
-@property (strong) IBOutlet NSString* outputDir;
-@property (strong) IBOutlet NSString* outputPath;
-@property (strong) IBOutlet NSNumber* numberOfImages;
-@property (strong) IBOutlet NSNumber* slicesPerImage;
-@property (strong) IBOutlet NSNumber* timeIncrement;
-@property (strong) IBOutlet NSMutableArray* acqTimes;
+@property BOOL overwriteFiles;
+@property (strong) NSString* inputDir;
+@property (strong) NSString* outputDir;
+@property (strong) NSString* outputPath;
+@property (strong) NSNumber* numberOfImages;
+@property (strong) NSNumber* slicesPerImage;
+@property (strong) NSNumber* numberOfSlices;
+@property (strong) NSNumber* timeIncrement;
+@property (strong) NSMutableArray* acqTimes;
+@property (strong) NSString* patientsName;
+@property (strong) NSNumber* patientsID;
+@property (strong) NSDate* patientsDOB;
+@property (strong) NSString* patientsSex;
+@property (strong) NSString* studyDescription;
+@property (strong) NSNumber* studyID;
+@property (strong) NSString* studyModality;
+@property (strong) NSDate* studyDateTime;
+@property (strong) NSString* studyStudyUID;
+@property (strong) NSNumber* seriesNumber;
+@property (strong) NSString* seriesDescription;
+@property (strong) NSNumber* imageSliceSpacing;
+@property (strong) NSNumber* imagePatientPositionX;
+@property (strong) NSNumber* imagePatientPositionY;
+@property (strong) NSNumber* imagePatientPositionZ;
+@property (strong) NSString* imagePatientOrientation;
 
-@property (strong) IBOutlet NSString* patientsName;
-@property (strong) IBOutlet NSNumber* patientsID;
-@property (strong) IBOutlet NSDate* patientsDOB;
-@property (strong) IBOutlet NSString* patientsSex;
-@property (strong) IBOutlet NSString* studyDescription;
-@property (strong) IBOutlet NSNumber* studyID;
-@property (strong) IBOutlet NSString* studyModality;
-@property (strong) IBOutlet NSDate* studyDateTime;
-@property (strong) IBOutlet NSString* studyStudyUID;
-@property (strong) IBOutlet NSNumber* seriesNumber;
-@property (strong) IBOutlet NSString* seriesDescription;
-@property (strong) IBOutlet NSNumber* imageSliceSpacing;
-@property (strong) IBOutlet NSNumber* imagePatientPositionX;
-@property (strong) IBOutlet NSNumber* imagePatientPositionY;
-@property (strong) IBOutlet NSNumber* imagePatientPositionZ;
-@property (strong) IBOutlet NSString* imagePatientOrientation;
-
+/**
+ * Standard init
+ * @return self
+ */
 - (id)init;
-- (BOOL)isComplete;
+
+/**
+ * Check for internal completeness and consistency.
+ * Used for debugging.
+ * return YES if consistent, NO otherwise.
+ */
 - (BOOL)isConsistent;
 
 @end

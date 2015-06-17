@@ -17,12 +17,19 @@
 
 @class SeriesInfo;
 
+/**
+ * C++ class that contains the same information as SeriesInfo.
+ * Provides a convenient transition from ObjC to C++.
+ * Most of the members are not documented as their names are self explanatory.
+ */
 class SeriesInfoITK
 {
 public:
-    SeriesInfoITK(const SeriesInfo* info);
-
-    itk::MetaDataDictionary dictionary() const;
+    /**
+     * Constructor
+     * @param info The Objective-C instance we wish to copy.
+     */
+    explicit SeriesInfoITK(const SeriesInfo* info);
 
     std::string patientsName() const;
     std::string patientsID() const;
@@ -45,12 +52,35 @@ public:
 
     std::string inputDir() const;
     std::string outputDir() const;
-    unsigned numberOfImages() const;
+    unsigned inputNumberOfImages() const;
     unsigned slicesPerImage() const;
+    unsigned numberOfImages() const;
+
+    /**
+     * Get the increment in time between images in time series.
+     * @return The increment in time between images in time series.
+     */
     float timeIncrement() const;
+
+    /**
+     * Get the list of acquisition times for the images in time series.
+     * @return The list of acquisition times for the images in time series.
+     */
     const std::vector<std::string>& acqTimes() const;
 
+    /**
+     * Get the parameters as a DICOM dictionary.
+     * @return The dictionary.
+     */
+    itk::MetaDataDictionary dictionary() const;
+
 private:
+    /**
+     * Load the parameters copied from the SeriesInfo instance into a DICOM dictionary.
+     * @return The loaded dictionary.
+     */
+    itk::MetaDataDictionary makeDictionary() const;
+
     std::string patientsName_;
     std::string patientsID_;
     std::string patientsDOB_;
