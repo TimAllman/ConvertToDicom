@@ -29,17 +29,22 @@
 @property (strong) NSNumber* numberOfSlices;
 @property (strong) NSNumber* timeIncrement;
 @property (strong) NSMutableArray* acqTimes;
+
 @property (strong) NSString* patientsName;
 @property (strong) NSNumber* patientsID;
 @property (strong) NSDate* patientsDOB;
 @property (strong) NSString* patientsSex;
+
 @property (strong) NSString* studyDescription;
 @property (strong) NSNumber* studyID;
 @property (strong) NSString* studyModality;
 @property (strong) NSDate* studyDateTime;
 @property (strong) NSString* studyStudyUID;
+
 @property (strong) NSNumber* seriesNumber;
 @property (strong) NSString* seriesDescription;
+@property (strong) NSString* seriesPatientPosition;
+
 @property (strong) NSNumber* imageSliceSpacing;
 @property (strong) NSNumber* imagePatientPositionX;
 @property (strong) NSNumber* imagePatientPositionY;

@@ -23,13 +23,17 @@ NSString* PatientsNameKey = @"PatientsName";
 NSString* PatientsIDKey = @"PatientsID";
 NSString* PatientsDOBKey = @"PatientsDOB";
 NSString* PatientsSexKey = @"PatientsSex";
+
 NSString* StudyDescriptionKey = @"StudyDescription";
-NSString* SeriesDescriptionKey = @"SeriesDescription";
-NSString* SeriesNumberKey = @"SeriesNumber";
 NSString* StudyIDKey = @"StudyID";
 NSString* StudyModalityKey = @"StudyModality";
 NSString* StudyDateTimeKey = @"StudyDateTime";
 NSString* StudyStudyUIDKey = @"StudyStudyUID";
+
+NSString* SeriesDescriptionKey = @"SeriesDescription";
+NSString* SeriesNumberKey = @"SeriesNumber";
+NSString* SeriesPatientPositionKey = @"SeriesPatientPosition";
+
 
 @implementation UserDefaults
 
@@ -61,6 +65,7 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
                           @"", StudyDescriptionKey,
                           @"", SeriesDescriptionKey,
                           @0, SeriesNumberKey,
+                          @"FFS", SeriesPatientPositionKey,
                           @0, StudyIDKey,
                           @"Unknown", StudyModalityKey,
                           [NSDate date], StudyDateTimeKey,
@@ -98,6 +103,7 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
     info.studyID = [defs objectForKey:StudyIDKey];
     info.seriesDescription = [defs stringForKey:SeriesDescriptionKey];
     info.seriesNumber = [defs objectForKey:SeriesNumberKey];
+    info.seriesPatientPosition = [defs objectForKey:SeriesPatientPositionKey];
     info.studyModality = [defs stringForKey:StudyModalityKey];
     info.studyDateTime = [defs objectForKey:StudyDateTimeKey];
     info.studyStudyUID = [defs stringForKey:StudyStudyUIDKey];
@@ -124,6 +130,7 @@ NSString* StudyStudyUIDKey = @"StudyStudyUID";
     [defs setObject:info.studyID forKey:StudyIDKey];
     [defs setObject:info.seriesDescription forKey:SeriesDescriptionKey];
     [defs setObject:info.seriesNumber forKey:SeriesNumberKey];
+    [defs setObject:info.seriesPatientPosition forKey:SeriesPatientPositionKey];
     [defs setObject:info.studyModality forKey:StudyModalityKey];
     [defs setObject:info.studyDateTime forKey:StudyDateTimeKey];
     [defs setObject:info.studyStudyUID forKey:StudyStudyUIDKey];

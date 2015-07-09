@@ -18,11 +18,12 @@
 /**
  * The main class for the program. Handles all GUI events and calling the image conversion functions.
  */
-@interface WindowController : NSWindowController <NSComboBoxDataSource, NSFileManagerDelegate,
-                                                  NSTextFieldDelegate>
+@interface WindowController : NSWindowController <NSComboBoxDataSource, NSComboBoxDelegate,
+                                                  NSFileManagerDelegate, NSTextFieldDelegate>
 {
     NSArray* modalities;              ///< List of DICOM abbreviations of possible modalities.
     NSArray* sexes;                   ///< List of sexes.
+    NSArray* patientPositions;        ///< List of patient positions.
     NSMutableArray* sliceCounts;      ///< List of possible numbers of slices per image
     SeriesConverter* seriesConverter; ///< Object which handles conversion.
     Logger* logger_;                  ///< The class Log4m logger.
@@ -54,6 +55,7 @@
 @property (weak) IBOutlet NSTextField *imagePatientPositionYTextField;
 @property (weak) IBOutlet NSTextField *imagePatientPositionZTextField;
 @property (weak) IBOutlet NSTextField *imagePatientOrientationTextField;
+@property (weak) IBOutlet NSComboBox *seriesPatientPositionComboBox;
 
 @property (weak) IBOutlet NSButton *convertButton;
 @property (weak) IBOutlet NSButton *closeButton;

@@ -44,7 +44,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
+                                <textField identifier="Directory containing images to convert." horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
                                     <rect key="frame" x="139" y="75" width="236" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="46N-MB-mad">
@@ -69,7 +69,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" id="L91-bg-t9y">
+                                <textField toolTip="Directory to receive DICOM images." verticalHuggingPriority="750" id="L91-bg-t9y">
                                     <rect key="frame" x="139" y="43" width="236" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jpd-wE-WBy">
@@ -85,7 +85,7 @@
                                         </binding>
                                     </connections>
                                 </textField>
-                                <button verticalHuggingPriority="750" id="RrQ-yJ-JbC">
+                                <button toolTip="Select input directory." verticalHuggingPriority="750" id="RrQ-yJ-JbC">
                                     <rect key="frame" x="384" y="70" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CYY-vL-L7l">
@@ -96,7 +96,7 @@
                                         <action selector="inputDirButtonPressed:" target="hyz-DH-rQs" id="Z12-bu-ETi"/>
                                     </connections>
                                 </button>
-                                <button verticalHuggingPriority="750" id="6TU-RY-VsK">
+                                <button toolTip="Select output directory." verticalHuggingPriority="750" id="6TU-RY-VsK">
                                     <rect key="frame" x="384" y="37" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LOk-bI-Fvb">
@@ -116,7 +116,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button verticalHuggingPriority="750" id="nz9-h0-FJj">
+                                <button toolTip="Open DICOM attributes editor." verticalHuggingPriority="750" id="nz9-h0-FJj">
                                     <rect key="frame" x="133" y="7" width="82" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                     <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hF4-vp-H6h">
@@ -127,7 +127,7 @@
                                         <action selector="setDicomTagsButtonPushed:" target="hyz-DH-rQs" id="Gv6-ae-fUO"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Check to overwrite existing files in the output directory." id="iem-5U-Lmo">
+                                <button toolTip="Check to overwrite existing files." id="iem-5U-Lmo">
                                     <rect key="frame" x="284" y="12" width="83" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Overwrite" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GJI-Q8-pKZ">
@@ -202,7 +202,7 @@ Gw
                             <rect key="frame" x="1" y="1" width="426" height="47"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" id="Gyx-Nr-27h">
+                                <button toolTip="Close DICOM information editor." verticalHuggingPriority="750" id="Gyx-Nr-27h">
                                     <rect key="frame" x="332" y="7" width="82" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bbS-ad-k9N">
@@ -256,7 +256,7 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="SFJ-uP-Heo">
+                                                    <textField toolTip="PatientsName (0010,0010)" verticalHuggingPriority="750" id="SFJ-uP-Heo">
                                                         <rect key="frame" x="63" y="118" width="193" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Patient's name" drawsBackground="YES" id="8lI-Yo-ZJP">
@@ -281,7 +281,7 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="fId-KA-HG5">
+                                                    <textField toolTip="PatientID (0010,0020)" verticalHuggingPriority="750" id="fId-KA-HG5">
                                                         <rect key="frame" x="63" y="88" width="193" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Patient's ID" drawsBackground="YES" id="wJb-xV-dZF">
@@ -309,7 +309,7 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <datePicker verticalHuggingPriority="750" id="XfN-mn-bcq">
+                                                    <datePicker toolTip="PatientsBirthDate (0010,0030)" verticalHuggingPriority="750" id="XfN-mn-bcq">
                                                         <rect key="frame" x="63" y="58" width="139" height="27"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="IId-d4-EpJ">
@@ -325,7 +325,7 @@ DQ
                                                             <binding destination="xNx-Wx-cOr" name="value" keyPath="self.patientsDOB" id="pR3-xT-Mah"/>
                                                         </connections>
                                                     </datePicker>
-                                                    <comboBox identifier="PatientsSexComboBox" verticalHuggingPriority="750" id="0hW-8t-U8g">
+                                                    <comboBox identifier="PatientsSexComboBox" toolTip="PatientsSex (0010,0040)" verticalHuggingPriority="750" id="0hW-8t-U8g">
                                                         <rect key="frame" x="63" y="26" width="122" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Patient's sex" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="3" id="8nw-bp-Kp5">
@@ -390,7 +390,7 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="byA-JC-UwI">
+                                                    <textField toolTip="StudyID (0020,0010)" verticalHuggingPriority="750" id="byA-JC-UwI">
                                                         <rect key="frame" x="98" y="118" width="193" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Study ID" drawsBackground="YES" id="PqD-ZW-RY9">
@@ -410,18 +410,18 @@ DQ
                                                         </connections>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Kn2-w0-HUc">
-                                                        <rect key="frame" x="16" y="33" width="66" height="17"/>
+                                                        <rect key="frame" x="16" y="33" width="83" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Study UID" id="svI-ag-20W">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Instance UID" id="svI-ag-20W">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="fKR-hW-cCp">
-                                                        <rect key="frame" x="98" y="30" width="193" height="22"/>
+                                                    <textField toolTip="StudyInstanceUID (0020,000d)." verticalHuggingPriority="750" id="fKR-hW-cCp">
+                                                        <rect key="frame" x="105" y="30" width="186" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Study UID" drawsBackground="YES" id="aRu-8h-9cR">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="StudyInstanceUID" drawsBackground="YES" id="aRu-8h-9cR">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -446,6 +446,7 @@ DQ
                                                     <datePicker verticalHuggingPriority="750" id="dMV-OM-kaB">
                                                         <rect key="frame" x="98" y="60" width="196" height="27"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <string key="toolTip">StudyDate (0008,0020) and StudyTime (0008,0030). Also used as SeriesDate (0008,0021) and SeriesTime (0008,0031) and is used to calculate AcquisitionTime(0008,0032).</string>
                                                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="8SG-mz-d7K">
                                                             <font key="font" metaFont="system"/>
                                                             <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
@@ -460,7 +461,45 @@ DQ
                                                             <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyDateTime" id="y5d-93-qXJ"/>
                                                         </connections>
                                                     </datePicker>
-                                                    <comboBox identifier="StudyModalityComboBox" verticalHuggingPriority="750" id="3vW-GR-MQ7">
+                                                    <textField toolTip="StudyDescription (0020,1030)" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="XBE-zx-Oeu">
+                                                        <rect key="frame" x="98" y="148" width="286" height="52"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Study description" drawsBackground="YES" id="0mB-Cj-5Ke">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyDescription" id="sFL-Uc-o4m">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </textField>
+                                                    <button toolTip="Generate a suitable identifier." verticalHuggingPriority="750" id="5a7-Qj-cdg">
+                                                        <rect key="frame" x="293" y="24" width="97" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wF2-FE-JaF">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="studyStudyUIDGenerateButtonPushed:" target="hyz-DH-rQs" id="bje-6x-C4g"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button toolTip="Set to current date and time." verticalHuggingPriority="750" id="dG7-pV-iFX">
+                                                        <rect key="frame" x="293" y="54" width="97" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99I-kc-kHZ">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="studyDateNowButtonPressed:" target="hyz-DH-rQs" id="bKi-up-FK3"/>
+                                                        </connections>
+                                                    </button>
+                                                    <comboBox identifier="StudyModalityComboBox" toolTip="Modality (0008,0060)" verticalHuggingPriority="750" id="3vW-GR-MQ7">
                                                         <rect key="frame" x="98" y="86" width="134" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Study modality" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="3" id="rhr-eB-ueZ">
@@ -478,44 +517,6 @@ DQ
                                                             <outlet property="delegate" destination="hyz-DH-rQs" id="Xr3-0E-sDw"/>
                                                         </connections>
                                                     </comboBox>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="XBE-zx-Oeu">
-                                                        <rect key="frame" x="98" y="148" width="286" height="52"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Study description" drawsBackground="YES" id="0mB-Cj-5Ke">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.studyDescription" id="sFL-Uc-o4m">
-                                                                <dictionary key="options">
-                                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
-                                                    <button verticalHuggingPriority="750" id="5a7-Qj-cdg">
-                                                        <rect key="frame" x="293" y="24" width="97" height="32"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wF2-FE-JaF">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="studyStudyUIDGenerateButtonPushed:" target="hyz-DH-rQs" id="bje-6x-C4g"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button verticalHuggingPriority="750" id="dG7-pV-iFX">
-                                                        <rect key="frame" x="293" y="54" width="97" height="32"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="push" title="Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="99I-kc-kHZ">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="studyDateNowButtonPressed:" target="hyz-DH-rQs" id="bKi-up-FK3"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -530,14 +531,14 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box autoresizesSubviews="NO" title="Series" borderType="line" titlePosition="noTitle" id="r3Q-oj-qB5">
-                                            <rect key="frame" x="6" y="127" width="404" height="138"/>
+                                            <rect key="frame" x="6" y="99" width="404" height="166"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="402" height="136"/>
+                                                <rect key="frame" x="1" y="1" width="402" height="164"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nTK-L7-GpV">
-                                                        <rect key="frame" x="16" y="109" width="76" height="17"/>
+                                                        <rect key="frame" x="16" y="137" width="76" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Description" id="XlS-W2-NzG">
                                                             <font key="font" metaFont="system"/>
@@ -554,8 +555,8 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="SbY-eu-Mdf">
-                                                        <rect key="frame" x="98" y="74" width="286" height="52"/>
+                                                    <textField toolTip="SeriesDescription (0020,103e)" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="SbY-eu-Mdf">
+                                                        <rect key="frame" x="98" y="102" width="286" height="52"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Series description" drawsBackground="YES" id="Qce-To-qmu">
                                                             <font key="font" metaFont="system"/>
@@ -570,7 +571,7 @@ DQ
                                                             </binding>
                                                         </connections>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="2DU-6G-LhJ">
+                                                    <textField toolTip="Used to calculate AcquisitionTime (0008,0032) in time series." verticalHuggingPriority="750" id="2DU-6G-LhJ">
                                                         <rect key="frame" x="146" y="16" width="107" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Incr. in seconds" drawsBackground="YES" id="qqk-p8-G0S">
@@ -590,7 +591,7 @@ DQ
                                                             </binding>
                                                         </connections>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="Q09-Y1-fmz">
+                                                    <textField toolTip="SeriesNumber (0020,0011)" verticalHuggingPriority="750" id="Q09-Y1-fmz">
                                                         <rect key="frame" x="146" y="44" width="107" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Series number" drawsBackground="YES" id="7sO-N8-UWP">
@@ -618,6 +619,29 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WrR-ve-YaU">
+                                                        <rect key="frame" x="16" y="76" width="121" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Patient Position" id="edp-70-cmM">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <comboBox identifier="PatientPositionComboBox" toolTip="PatientPosition (0018,5100)" verticalHuggingPriority="750" id="TjO-Ns-Hxf">
+                                                        <rect key="frame" x="146" y="70" width="99" height="26"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="Q19-B0-t7L">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </comboBoxCell>
+                                                        <connections>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.seriesPatientPosition" id="RtM-A4-816"/>
+                                                            <outlet property="dataSource" destination="hyz-DH-rQs" id="BPI-aw-Xbw"/>
+                                                            <outlet property="delegate" destination="hyz-DH-rQs" id="2WT-be-nfK"/>
+                                                        </connections>
+                                                    </comboBox>
                                                 </subviews>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -647,8 +671,8 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField verticalHuggingPriority="750" id="lz8-t4-gac">
-                                                        <rect key="frame" x="154" y="196" width="99" height="22"/>
+                                                    <textField toolTip="SpacingBetweenSlices (0018,0088)" verticalHuggingPriority="750" id="lz8-t4-gac">
+                                                        <rect key="frame" x="154" y="196" width="67" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Slice spacing" drawsBackground="YES" id="KtT-60-3Xa">
                                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="gCp-U7-Vvu"/>
@@ -665,13 +689,13 @@ DQ
                                                         </connections>
                                                     </textField>
                                                     <box autoresizesSubviews="NO" title="Patient position (mm)" borderType="line" id="ynb-Mb-CKv">
-                                                        <rect key="frame" x="15" y="110" width="332" height="62"/>
+                                                        <rect key="frame" x="15" y="110" width="372" height="62"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <view key="contentView">
-                                                            <rect key="frame" x="1" y="1" width="330" height="46"/>
+                                                            <rect key="frame" x="1" y="1" width="370" height="46"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" id="EaJ-aq-lX5">
+                                                                <textField toolTip="ImagePositionPatient (0020,0032)" verticalHuggingPriority="750" id="EaJ-aq-lX5">
                                                                     <rect key="frame" x="139" y="14" width="70" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="2Ay-Xa-GDL">
@@ -690,7 +714,7 @@ DQ
                                                                         </binding>
                                                                     </connections>
                                                                 </textField>
-                                                                <textField verticalHuggingPriority="750" id="rcX-eP-wlO">
+                                                                <textField toolTip="ImagePositionPatient (0020,0032)" verticalHuggingPriority="750" id="rcX-eP-wlO">
                                                                     <rect key="frame" x="242" y="14" width="70" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="YdR-bi-3Xa">
@@ -727,7 +751,7 @@ DQ
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <textField verticalHuggingPriority="750" id="EiP-1l-G1N">
+                                                                <textField toolTip="ImagePositionPatient (0020,0032)" verticalHuggingPriority="750" id="EiP-1l-G1N">
                                                                     <rect key="frame" x="35" y="14" width="70" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0.00" drawsBackground="YES" id="j50-1t-RAz">
@@ -760,14 +784,14 @@ DQ
                                                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
-                                                    <box autoresizesSubviews="NO" title="Patient orientation " borderType="line" id="zCZ-LI-1WL">
-                                                        <rect key="frame" x="15" y="10" width="332" height="96"/>
+                                                    <box autoresizesSubviews="NO" title="Patient orientation " borderType="line" id="zCZ-LI-1WL" userLabel="Patient orientation">
+                                                        <rect key="frame" x="15" y="10" width="372" height="96"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView">
-                                                            <rect key="frame" x="1" y="1" width="330" height="80"/>
+                                                            <rect key="frame" x="1" y="1" width="370" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <button verticalHuggingPriority="750" id="Ffq-f5-0Ao">
+                                                                <button toolTip="Set ImageOrientationPatient to axial." verticalHuggingPriority="750" id="Ffq-f5-0Ao">
                                                                     <rect key="frame" x="21" y="7" width="72" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <buttonCell key="cell" type="push" title="Axial" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Or1-eC-KSh">
@@ -778,7 +802,7 @@ DQ
                                                                         <action selector="imageSetIopAxialButtonPressed:" target="hyz-DH-rQs" id="s1n-iA-H2S"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button verticalHuggingPriority="750" id="P5g-fa-Yt5">
+                                                                <button toolTip="Set ImageOrientationPatient to saggital." verticalHuggingPriority="750" id="P5g-fa-Yt5">
                                                                     <rect key="frame" x="116" y="7" width="90" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <buttonCell key="cell" type="push" title="Saggital" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x0x-ob-NKb">
@@ -789,7 +813,7 @@ DQ
                                                                         <action selector="imageSetIopSaggitalButtonPressed:" target="hyz-DH-rQs" id="Qs1-Sd-mo4"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button verticalHuggingPriority="750" id="kNy-Lq-L54">
+                                                                <button toolTip="Set ImageOrientationPatient to coronal." verticalHuggingPriority="750" id="kNy-Lq-L54">
                                                                     <rect key="frame" x="220" y="7" width="90" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <buttonCell key="cell" type="push" title="Coronal" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cl8-xE-Vcq">
@@ -800,7 +824,7 @@ DQ
                                                                         <action selector="imageSetIopCoronalButtonPressed:" target="hyz-DH-rQs" id="ENs-p6-GJj"/>
                                                                     </connections>
                                                                 </button>
-                                                                <textField verticalHuggingPriority="750" id="rJu-UE-9Wu">
+                                                                <textField toolTip="ImageOrientationPatient (0020,0037)" verticalHuggingPriority="750" id="rJu-UE-9Wu">
                                                                     <rect key="frame" x="18" y="48" width="294" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="ImageOrientationPatient" drawsBackground="YES" id="W9x-dB-rHp">
@@ -822,7 +846,7 @@ DQ
                                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JOw-nN-3la">
-                                                        <rect key="frame" x="16" y="229" width="106" height="17"/>
+                                                        <rect key="frame" x="16" y="227" width="106" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slices per image" id="afl-d8-ZHK">
                                                             <font key="font" metaFont="system"/>
@@ -830,8 +854,8 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <comboBox identifier="SlicesPerImageComboBox" verticalHuggingPriority="750" id="s0o-iF-ldO">
-                                                        <rect key="frame" x="153" y="222" width="99" height="26"/>
+                                                    <comboBox identifier="SlicesPerImageComboBox" toolTip="Number of 2D slices in one image." verticalHuggingPriority="750" id="s0o-iF-ldO">
+                                                        <rect key="frame" x="128" y="222" width="69" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="uMx-JD-1Hb">
                                                             <font key="font" metaFont="system"/>
@@ -843,6 +867,27 @@ DQ
                                                             <outlet property="delegate" destination="hyz-DH-rQs" id="EED-Qj-DJr"/>
                                                         </connections>
                                                     </comboBox>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VBd-jE-bT9">
+                                                        <rect key="frame" x="207" y="227" width="120" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of images" id="hIk-Hw-r8e">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField toolTip="Number of images in the series. Calculated value." verticalHuggingPriority="750" id="ekd-YF-3eZ">
+                                                        <rect key="frame" x="333" y="224" width="51" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OnC-GH-syG">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="xNx-Wx-cOr" name="value" keyPath="self.numberOfImages" id="GTD-vb-TIt"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -855,7 +900,7 @@ DQ
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="111" y="527"/>
+            <point key="canvasLocation" x="121" y="405"/>
         </window>
         <customObject id="xNx-Wx-cOr" customClass="SeriesInfo"/>
         <customObject id="hyz-DH-rQs" customClass="WindowController">
@@ -876,6 +921,7 @@ DQ
                 <outlet property="patientsNameTextField" destination="SFJ-uP-Heo" id="iOO-6d-W1e"/>
                 <outlet property="patientsSexComboBox" destination="0hW-8t-U8g" id="kqx-iw-evq"/>
                 <outlet property="seriesInfo" destination="xNx-Wx-cOr" id="2z2-R4-rCg"/>
+                <outlet property="seriesPatientPositionComboBox" destination="TjO-Ns-Hxf" id="bjS-ts-M5u"/>
                 <outlet property="slicesPerImageComboBox" destination="s0o-iF-ldO" id="Dfa-ta-tju"/>
                 <outlet property="studyDateTimeDatePicker" destination="dMV-OM-kaB" id="lhp-1b-nn6"/>
                 <outlet property="studyDescriptionTextField" destination="XBE-zx-Oeu" id="Zls-2c-6Fb"/>

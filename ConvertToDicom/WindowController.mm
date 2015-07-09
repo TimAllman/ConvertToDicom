@@ -70,7 +70,7 @@
     itk::VTKImageIOFactory::RegisterOneFactory();
     itk::GDCMImageIOFactory::RegisterOneFactory();
 
-    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_NOT_SET);
+    SetupLogger(LOGGER_NAME, LOG4M_LEVEL_TRACE);
 }
 
 /**
@@ -85,7 +85,12 @@
                       @"CR", @"CT", @"DX", @"ES", @"MG", @"MR", @"NM",
                       @"OT", @"PT", @"RF", @"SC", @"US", @"XA", nil];
         sexes = [NSArray arrayWithObjects:@"Male", @"Female", @"Unspecified", nil];
-        //        sliceCounts = [NSMutableArray array];
+
+        patientPositions = [NSArray arrayWithObjects: @"HFP", @"HFS", @"HFDR", @"HFDL", @"FFDR",
+                            @"FFDL", @"FFP", @"FFS", nil];
+
+        // We need to put some objects in the array to prevent initial display of
+        // an empty combobox.
         sliceCounts = [NSMutableArray arrayWithObjects:@0, @1, @2, nil];
 
         NSString* loggerName = [[NSString stringWithUTF8String:LOGGER_NAME]
@@ -471,6 +476,10 @@
     {
         return [sliceCounts objectAtIndex:index];
     }
+    else if ([ident isEqualToString:@"PatientPositionComboBox"])
+    {
+        return [patientPositions objectAtIndex:index];
+    }
     else
     {
         NSException* ex =
@@ -497,6 +506,10 @@
     {
         return [sliceCounts count];
     }
+    else if ([ident isEqualToString:@"PatientPositionComboBox"])
+    {
+        return [patientPositions count];
+    }
     else
     {
         NSException* ex =
@@ -505,6 +518,24 @@
                               userInfo:nil];
         @throw ex;
     }
+}
+
+#pragma mark - ComboboxDelegate
+
+- (void)comboBoxSelectionDidChange:(NSNotification *)notification
+{
+    NSComboBox* cb = notification.object;
+
+    if ([cb.identifier isEqualToString:@"SlicesPerImageComboBox"])
+    {
+        NSInteger idx = [cb indexOfSelectedItem];
+        self.seriesInfo.slicesPerImage = [sliceCounts objectAtIndex:idx];
+        self.seriesInfo.numberOfImages = [NSNumber numberWithUnsignedInt:
+                                          [self.seriesInfo.numberOfSlices unsignedIntValue] /
+                                          [self.seriesInfo.slicesPerImage unsignedIntValue]];
+    }
+
+    return;
 }
 
 #pragma mark - Utilities

@@ -33,6 +33,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 DicomSeriesWriter::DicomSeriesWriter(const SeriesInfoITK& dicomParams,
                                      std::vector<Image2DType::Pointer>& images,
@@ -131,127 +132,97 @@ void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
     dictArray.clear();
 
     itk::MetaDataDictionary seriesDict = seriesInfo.dictionary();
+    LOG4CPLUS_TRACE(logger_, "********** seriesDict - 1 ************");
     LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(seriesDict));
 
-    //
-    // To keep the new series in the same study as the original we need
-    // to keep the same study UID. But we need new series and frame of
-    // reference UID's.
-    gdcm::UIDGenerator uidGen;
-    std::string seriesUID = uidGen.Generate();
-    itk::EncapsulateMetaData<std::string>(seriesDict, "0020|000e", seriesUID);
-    itk::EncapsulateMetaData<std::string>(seriesDict, "0020|000e", seriesUID);
-
-    std::string frameOfReferenceUID = uidGen.Generate();
-    itk::EncapsulateMetaData<std::string>(seriesDict,"0020|0052", frameOfReferenceUID);
-
-    std::string sopInstanceUID = uidGen.Generate();
-    //itk::EncapsulateMetaData<std::string>(seriesDict, "0008|0018", sopInstanceUID);
-    itk::EncapsulateMetaData<std::string>(seriesDict, "0002|0003", sopInstanceUID);
-
-    std::stringstream sstr;
-    unsigned numTimes = seriesInfo.numberOfImages();
-    if (numTimes > 1)
+    bool isTimeSeries = (seriesInfo.timeIncrement() > 0.0);
+    if (isTimeSeries)
     {
-        sstr.str("");
-        sstr << numTimes;
-        std::string numTemporalPositions = sstr.str();
-        itk::EncapsulateMetaData<std::string>(seriesDict, "0020|0105", numTemporalPositions);
+        std::stringstream sstr;
+        unsigned numTimes = seriesInfo.numberOfImages();
+        if (numTimes > 1)
+        {
+            sstr.str("");
+            sstr << numTimes;
+            std::string numTemporalPositions = sstr.str();
+            itk::EncapsulateMetaData<std::string>(seriesDict, "0020|0105", numTemporalPositions);
+//            sstr.str("");
+//            sstr << std::fixed << std::setprecision(2) << seriesInfo.timeIncrement();
+//            std::string temporalResolution = sstr.str();
+//            itk::EncapsulateMetaData<std::string>(seriesDict, "0020|0110", temporalResolution);
+        }
     }
 
     // These are converted images so we show that.
     itk::EncapsulateMetaData<std::string>(seriesDict, "0008|0008", "ORIGINAL");
     itk::EncapsulateMetaData<std::string>(seriesDict, "0008|0064", "WSD");
 
-//    // Derivation Description - How this image was derived
-//    std::ostringstream value;
-//    value.str("");
-//    value << "Converted to DICOM using " << ITK_SOURCE_VERSION;
-//    // Deal with a 1024 character max length.
-//    unsigned lengthOfDesc = static_cast<unsigned>(value.str().length());
-//    std::string derivationDesc(value.str(), 0, lengthOfDesc > 1024 ? 1024 : lengthOfDesc);
-//    itk::EncapsulateMetaData<std::string>(seriesDict, "0008|2111", derivationDesc);
+    LOG4CPLUS_TRACE(logger_, "********** seriesDict - 2 ************");
+    LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(seriesDict));
 
-    // loop through the images, then the slices
-    for (unsigned imageIdx = 0; imageIdx < numTimes; ++imageIdx)
+    // Derivation Description - How this image was derived
+    std::ostringstream value;
+    value.str("");
+    value << "Converted to DICOM using " << ITK_SOURCE_VERSION;
+    // Deal with a 1024 character max length.
+    unsigned lengthOfDesc = static_cast<unsigned>(value.str().length());
+    std::string derivationDesc(value.str(), 0, lengthOfDesc > 1024 ? 1024 : lengthOfDesc);
+    itk::EncapsulateMetaData<std::string>(seriesDict, "0008|2111", derivationDesc);
+
+    // loop through the images, and the slices in each image
+    unsigned instanceNumber = 1;
+    for (unsigned imageIdx = 0; imageIdx < seriesInfo.numberOfImages(); ++imageIdx)
     {
         itk::MetaDataDictionary imageDict;
         CopyDictionary(seriesDict, imageDict);
 
-        if (numTimes > 1)
+        if (isTimeSeries)
         {
             // Temporal Position
+            std::stringstream sstr;
             sstr.str("");
             sstr << imageIdx+1;
             std::string temporalPosition = sstr.str();
             itk::EncapsulateMetaData<std::string>(imageDict, "0020|0100", temporalPosition);
-
-            // Instance Number (same as temporal position)
-            itk::EncapsulateMetaData<std::string>(imageDict, "0020|0013", temporalPosition);
         }
 
         std::string acqTime = seriesInfo.acqTimes()[imageIdx];
         itk::EncapsulateMetaData<std::string>(imageDict, "0008|0032", acqTime);
 
-        // Now go through the slices
-        itk::MetaDataDictionary* sliceDict = new itk::MetaDataDictionary;
-        CopyDictionary(imageDict, *sliceDict);
-
+        float sliceLocation = 0.0;
         for (unsigned sliceIdx = 0; sliceIdx < seriesInfo.slicesPerImage(); ++sliceIdx)
         {
-            std::string imagePositionPatient = seriesInfo.imagePatientPosition();
+            // Make a new dictionary for the slice and copy over the information already set
+            // We need a pointer because the dictionary array is an array of pointers.
+            itk::MetaDataDictionary *sliceDict = new itk::MetaDataDictionary();
+            CopyDictionary(imageDict, *sliceDict);
+            
+            gdcm::UIDGenerator sopuidGen;
+            std::string sopInstanceUID = sopuidGen.Generate();
+            //itk::EncapsulateMetaData<std::string>(*sliceDict, "0008|0018", sopInstanceUID);
+            itk::EncapsulateMetaData<std::string>(*sliceDict, "0002|0003", sopInstanceUID);
+            
+            // Set the IPP for this slice
+            std::string imagePositionPatient = seriesInfo.imagePositionPatientString(sliceIdx);
             itk::EncapsulateMetaData<std::string>(*sliceDict, "0020|0032", imagePositionPatient);
-            imagePositionPatient = IncrementImagePositionPatient();
 
-//            std::string sopInstanceUID = uidGen.Generate();
-//            itk::EncapsulateMetaData<std::string>(*sliceDict, "0008|0018", sopInstanceUID);
-            //itk::EncapsulateMetaData<std::string>(seriesDict, "0002|0003", sopInstanceUID);
+            // The relative location of this slice from the first one.
+            std::stringstream sstr;
+            sstr.str("");
+            sstr << std::fixed << std::setprecision(1) << sliceLocation;
+            itk::EncapsulateMetaData<std::string>(*sliceDict, "0020|1041",  sstr.str());
+            sliceLocation += seriesInfo.imageSliceSpacing();
+
+            sstr.str("");
+            sstr << instanceNumber;
+            itk::EncapsulateMetaData<std::string>(*sliceDict, "0020|0013", sstr.str());
+            ++instanceNumber;
+
+            LOG4CPLUS_TRACE(logger_, "*** Image " << imageIdx << " slice " << sliceIdx << " ***");
+            LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(*sliceDict));
+            dictArray.push_back(sliceDict);
         }
-
-        LOG4CPLUS_TRACE(logger_, DumpDicomMetaDataDictionary(*sliceDict));
-
-        dictArray.push_back(sliceDict);
     }
-}
-
-std::string DicomSeriesWriter::IncrementImagePositionPatient()
-{
-    LOG4CPLUS_TRACE(logger_, "Enter");
-
-    vnl_matrix_fixed<float, 3, 3> rot;   // the rotation matrix
-    vnl_vector_fixed<float, 3> ipp;      // the IPP (column) vector
-
-    // Create the rotation matrix from IOP
-    sscanf(seriesInfo.imagePatientOrientation().c_str(), "%f\\%f\\%f\\%f\\%f\\%f",
-           &rot(0, 0), &rot(0, 1), &rot(0, 2), &rot(1, 0), &rot(1, 1), &rot(1, 2));
-
-    // Compute the remaining orthogonal vector to complete the matrix
-    rot(2,0) = rot(0, 1) * rot(1, 2) - rot(0, 2) * rot(1, 1);
-    rot(2,1) = rot(0, 2) * rot(1, 0) - rot(0, 0) * rot(1, 2);
-    rot(2,2) = rot(0, 0) * rot(1, 1) - rot(0, 1) * rot(1, 0);
-
-    // IPP as a vector
-    ipp[0] = seriesInfo.imagePatientPositionX();
-    ipp[1] = seriesInfo.imagePatientPositionY();
-    ipp[2] = seriesInfo.imagePatientPositionZ();
-
-    ipp = rot * ipp;                            // rotate ipp into image coordinates
-    ipp[2] += seriesInfo.imageSliceSpacing();   // increment Z component
-    ipp = rot.inplace_transpose() * ipp;        // rotate back into patient coordinates
-
-    char ippStr[32];
-    sprintf(ippStr, "%.2f\\%.2f\\%.2f", ipp(0), ipp(1), ipp(2));
-
-    LOG4CPLUS_DEBUG(logger_, "Incremented IPP = " << ippStr);
-
-    return ippStr;
-
-    /* extracted from osirix, reflected in above code
-    float vec[3];
-    vec[0] = iop[1]*iop[5] - iop[2]*iop[4];
-    vec[1] = iop[2]*iop[3] - iop[0]*iop[5];
-    vec[2] = iop[0]*iop[4] - iop[1]*iop[3];
-     */
 }
 
 Image3DType::Pointer DicomSeriesWriter::MergeSlices()

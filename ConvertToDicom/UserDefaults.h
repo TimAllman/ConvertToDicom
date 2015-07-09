@@ -19,13 +19,16 @@ extern NSString* PatientsNameKey;
 extern NSString* PatientsIDKey;
 extern NSString* PatientsDOBKey;
 extern NSString* PatientsSexKey;
+
 extern NSString* StudyDescriptionKey;
 extern NSString* StudyIDKey;
-extern NSString* SeriesDescriptionKey;
-extern NSString* SeriesNumberKey;
 extern NSString* StudyModalityKey;
 extern NSString* StudyDateTimeKey;
 extern NSString* StudyStudyUIDKey;
+
+extern NSString* SeriesDescriptionKey;
+extern NSString* SeriesNumberKey;
+extern NSString* SeriesPatientPositionKey;
 
 @class SeriesInfo;
 

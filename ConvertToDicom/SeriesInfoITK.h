@@ -12,6 +12,7 @@
 #include <string>
 
 #include <itkMetaDataDictionary.h>
+#include <vnl/vnl_vector_fixed.h>
 
 #include <log4cplus/logger.h>
 
@@ -43,12 +44,13 @@ public:
     std::string studyStudyUID() const;
     std::string seriesNumber() const;
     std::string seriesDescription() const;
+    std::string seriesPatientPosition() const;
     float imageSliceSpacing() const;
-    float imagePatientPositionX() const;
-    float imagePatientPositionY() const;
-    float imagePatientPositionZ() const;
-    std::string imagePatientPosition() const;
-    std::string imagePatientOrientation() const;
+    vnl_vector_fixed<float, 3> imagePositionPatient() const;
+    std::string imagePositionPatientString() const;
+    std::string imagePositionPatientString(unsigned sliceIdx) const;
+
+    std::string imageOrientationPatient() const;
 
     std::string inputDir() const;
     std::string outputDir() const;
@@ -81,31 +83,32 @@ private:
      */
     itk::MetaDataDictionary makeDictionary() const;
 
-    std::string patientsName_;
-    std::string patientsID_;
-    std::string patientsDOB_;
-    std::string patientsSex_;
-    std::string studyDescription_;
-    std::string studyID_;
-    std::string studyModality_;
-    std::string studyDate_;
-    std::string studyTime_;
-    std::string studyStudyUID_;
-    std::string seriesNumber_;
-    std::string seriesDescription_;
-    float imageSliceSpacing_;
-    float imagePatientPositionX_;
-    float imagePatientPositionY_;
-    float imagePatientPositionZ_;
-    std::string imagePatientPosition_;
-    std::string imagePatientOrientation_;
-
     std::string inputDir_;
     std::string outputDir_;
     unsigned numberOfImages_;
     unsigned slicesPerImage_;
     float timeIncrement_;
     std::vector<std::string> acqTimes_;
+
+    std::string patientsName_;
+    std::string patientsID_;
+    std::string patientsDOB_;
+    std::string patientsSex_;
+
+    std::string studyDescription_;
+    std::string studyID_;
+    std::string studyModality_;
+    std::string studyDate_;
+    std::string studyTime_;
+    std::string studyStudyUID_;
+
+    std::string seriesNumber_;
+    std::string seriesDescription_;
+    std::string seriesPatientPosition_;
+
+    float imageSliceSpacing_;
+    vnl_vector_fixed<float, 3> imagePositionPatient_;
+    std::string imageOrientationPatient_;
 
     mutable itk::MetaDataDictionary dict;
 

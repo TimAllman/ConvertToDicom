@@ -67,9 +67,6 @@
     else if ([self.seriesInfo.acqTimes count] != 0)
         [self.seriesInfo.acqTimes removeAllObjects];
     
-    if ([fileNames count] == 0)
-        [self loadFileNames];
-
     // Get the starting time (NSTimeinterval is a typedef for double)
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"HHmmss.SSS"];
@@ -77,19 +74,15 @@
     NSDate* acqTime = self.seriesInfo.studyDateTime;
     double timeIncr = [self.seriesInfo.timeIncrement doubleValue];
 
-    unsigned numFiles = (unsigned)[fileNames count];
-    unsigned slicesPerFile = [self.seriesInfo.slicesPerImage unsignedIntValue];
-    unsigned numSlices = numFiles * slicesPerFile;
+    // We create a list of incremented times. We may need fewer than the number of slices of these
+    // times but we will never need more. This saves modifying the list if we change the number
+    // of slices per image later.
+    unsigned numSlices = [self.seriesInfo.numberOfSlices unsignedIntValue];
     for (unsigned sliceIdx = 0; sliceIdx < numSlices; ++sliceIdx)
     {
         NSString* timeStr = [df stringFromDate:acqTime];
         [self.seriesInfo.acqTimes addObject:timeStr];
-
-        // if the next slice needs to be incremented do it here
-        if (sliceIdx % slicesPerFile == slicesPerFile - 1)
-        {
-            acqTime = [acqTime dateByAddingTimeInterval:timeIncr];
-        }
+        acqTime = [acqTime dateByAddingTimeInterval:timeIncr];
     }
 
     LOG4M_DEBUG(logger_, @"acqTimes = %@", self.seriesInfo.acqTimes);
@@ -254,8 +247,6 @@
                 self.seriesInfo.imagePatientPositionX, self.seriesInfo.imagePatientPositionY,
                 self.seriesInfo.imagePatientPositionZ);
 
-    [self createTimesArray];
-
     return SUCCESS;
 }
 
@@ -309,7 +300,7 @@
         return SUCCESS;
 }
 
-- (ErrorCode) convertFiles
+- (ErrorCode)convertFiles
 {
     self.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     self.outputDir = [NSURL fileURLWithPath:self.seriesInfo.outputDir isDirectory:YES];
@@ -347,18 +338,46 @@
     // Read in all of the slices
     imageStack.clear();
     ImageReader reader;
-    for (std::vector<std::string>::iterator iter = paths.begin(); iter != paths.end(); ++iter)
+    unsigned numberOfImages = (unsigned)fileNames.count;
+    unsigned slicesPerImage = 0;
+    unsigned numberOfSlices = 0;
+    for (auto iter = paths.begin(); iter != paths.end(); ++iter)
     {
+        slicesPerImage = 0;
         ImageReader::ImageVector imageVec = reader.ReadImage(*iter);
         for (ImageReader::ImageVector::const_iterator iter = imageVec.begin(); iter != imageVec.end(); ++iter)
         {
             Image2DType::Pointer image = *iter;
             imageStack.push_back(*iter);
+            ++slicesPerImage;
+            ++numberOfSlices;
         }
     }
 
+    // Fix up some series information that may not be set yet. If it hasn't been we use some defaults.
+    if (seriesInfo.numberOfImages == nil)
+    {
+        seriesInfo.numberOfImages = [NSNumber numberWithUnsignedInt:numberOfImages];
+        seriesInfo.slicesPerImage = [NSNumber numberWithUnsignedInt:slicesPerImage];
+        seriesInfo.numberOfSlices = [NSNumber numberWithUnsignedInt:numberOfSlices];
+    }
+
+    if (seriesInfo.imageSliceSpacing == nil)
+        seriesInfo.imageSliceSpacing = [NSNumber numberWithDouble:1.0];
+
+    if (seriesInfo.imagePatientPositionX == nil)
+    {
+        seriesInfo.imagePatientPositionX = [NSNumber numberWithDouble:0.0];
+        seriesInfo.imagePatientPositionY = [NSNumber numberWithDouble:0.0];
+        seriesInfo.imagePatientPositionZ = [NSNumber numberWithDouble:0.0];
+    }
+
+    if (seriesInfo.imagePatientOrientation == nil)
+        seriesInfo.imagePatientOrientation = @"1\\0\\0\\0\\1\\0";
+
     LOG4M_DEBUG(logger_, @"Read %@ slices into image stack.",
                 [NSNumber numberWithUnsignedLong:imageStack.size()]);
+    
     if (imageStack.size() != (std::vector<std::string>::size_type)[fileNames count])
         return ERROR_READING_FILE;
     else
@@ -373,6 +392,8 @@
 - (ErrorCode)writeFiles
 {
     LOG4M_TRACE(logger_, @"Enter");
+
+    [self createTimesArray];
 
     // Convert the needed Dicom values to C++
     SeriesInfoITK info(self.seriesInfo);

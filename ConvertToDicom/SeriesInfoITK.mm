@@ -13,6 +13,7 @@
 #import "SeriesInfo.h"
 
 #include <itkMetaDataObject.h>
+#include <gdcmUIDGenerator.h>
 
 #include <log4cplus/loggingmacros.h>
 
@@ -35,12 +36,12 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
 
     patientsName_ = [info.patientsName UTF8String];
     patientsID_ = [[info.patientsID stringValue] UTF8String];
-
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyyMMdd"];
     NSString* dob = [dateFormatter stringFromDate:info.patientsDOB];
     patientsDOB_ = [dob UTF8String];
     patientsSex_ = [info.patientsSex UTF8String];
+
     studyDescription_ = [info.studyDescription UTF8String];
     studyID_ = [[info.studyID stringValue] UTF8String];
     studyModality_ = [info.studyModality UTF8String];
@@ -51,15 +52,13 @@ SeriesInfoITK::SeriesInfoITK(const SeriesInfo* info)
 
     seriesDescription_ = [info.seriesDescription UTF8String];
     seriesNumber_ = [[info.seriesNumber stringValue] UTF8String];
+    seriesPatientPosition_ = [info.seriesPatientPosition UTF8String];
 
     imageSliceSpacing_ = [info.imageSliceSpacing floatValue];
-    imagePatientPositionX_ = [info.imagePatientPositionX floatValue];
-    imagePatientPositionY_ = [info.imagePatientPositionY floatValue];
-    imagePatientPositionZ_ = [info.imagePatientPositionZ floatValue];
-    NSString* ipp = [NSString stringWithFormat:@"%.2f\\%.2f\\%.2f",
-                     imagePatientPositionX_, imagePatientPositionY_, imagePatientPositionZ_];
-    imagePatientPosition_ = [ipp UTF8String];
-    imagePatientOrientation_ = [info.imagePatientOrientation UTF8String];
+    imagePositionPatient_[0] = [info.imagePatientPositionX floatValue];
+    imagePositionPatient_[1] = [info.imagePatientPositionY floatValue];
+    imagePositionPatient_[2] = [info.imagePatientPositionZ floatValue];
+    imageOrientationPatient_ = [info.imagePatientOrientation UTF8String];
 
     dict = makeDictionary();
 }
@@ -76,26 +75,34 @@ itk::MetaDataDictionary SeriesInfoITK::makeDictionary() const
         itk::EncapsulateMetaData<std::string>(dict, "0010|0030", patientsDOB_);
         itk::EncapsulateMetaData<std::string>(dict, "0010|0040", patientsSex_);
         
+        gdcm::UIDGenerator studyUidGen;
+        std::string studyUID = studyUidGen.Generate();
+        itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyUID);
         itk::EncapsulateMetaData<std::string>(dict, "0008|1030", studyDescription_);
         itk::EncapsulateMetaData<std::string>(dict, "0020|0010", studyID_);
-        itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyStudyUID_);
         itk::EncapsulateMetaData<std::string>(dict, "0008|0060", studyModality_);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0020", studyDate_);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0031", studyTime_);
+        //itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyStudyUID_);
+
+        gdcm::UIDGenerator suidGen;
+        std::string seriesUID = suidGen.Generate();
+        gdcm::UIDGenerator fuidGen;
+        std::string frameOfReferenceUID = fuidGen.Generate();
+        itk::EncapsulateMetaData<std::string>(dict, "0020|000e", seriesUID);
+        itk::EncapsulateMetaData<std::string>(dict, "0020|0052", frameOfReferenceUID);
         itk::EncapsulateMetaData<std::string>(dict, "0020|0011", seriesNumber_);
         itk::EncapsulateMetaData<std::string>(dict, "0008|103e", seriesDescription_);
-
-        // although the date is called studyDate, save as study and series dates.
-        itk::EncapsulateMetaData<std::string>(dict, "0008|0020", studyDate_);
-        itk::EncapsulateMetaData<std::string>(dict, "0008|0021", studyDate_);
-
-        // same for times
-        itk::EncapsulateMetaData<std::string>(dict, "0008|0030", studyTime_);
-        itk::EncapsulateMetaData<std::string>(dict, "0008|0031", studyTime_);
+        itk::EncapsulateMetaData<std::string>(dict, "0018|5100", seriesPatientPosition_);
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0021", studyDate_); // just use study date
+        itk::EncapsulateMetaData<std::string>(dict, "0008|0030", studyTime_); // just use study time
 
         std::stringstream sstr;
         sstr << std::setprecision(2) << imageSliceSpacing_;
         std::string spacing = sstr.str();
-        itk::EncapsulateMetaData<std::string>(dict, "0018|0050", spacing);
-        itk::EncapsulateMetaData<std::string>(dict, "0020|0037", imagePatientOrientation_);
+        //itk::EncapsulateMetaData<std::string>(dict, "0018|0050", spacing);
+        itk::EncapsulateMetaData<std::string>(dict, "0020|0037", imageOrientationPatient_);
+        itk::EncapsulateMetaData<std::string>(dict, "0020|0032", imagePositionPatientString());
     }
 
     LOG4CPLUS_TRACE(logger_, "Initial MetaDataDictionary:\n" << DumpDicomMetaDataDictionary(dict));
@@ -168,34 +175,72 @@ std::string SeriesInfoITK::seriesDescription() const
     return seriesDescription_;
 }
 
+std::string SeriesInfoITK::seriesPatientPosition() const
+{
+    return seriesPatientPosition_;
+}
+
 float SeriesInfoITK::imageSliceSpacing() const
 {
     return imageSliceSpacing_;
 }
 
-float SeriesInfoITK::imagePatientPositionX() const
+vnl_vector_fixed<float, 3> SeriesInfoITK::imagePositionPatient() const
 {
-    return imagePatientPositionX_;
+    return imagePositionPatient_;
 }
 
-float SeriesInfoITK::imagePatientPositionY() const
+std::string SeriesInfoITK::imagePositionPatientString() const
 {
-    return imagePatientPositionY_;
+    std::stringstream sstr;
+    sstr << std::fixed << std::setprecision(2) << imagePositionPatient_[0] << "\\"
+    << imagePositionPatient_[1] << "\\" << imagePositionPatient_[2] << "\\";
+    return sstr.str();
 }
 
-float SeriesInfoITK::imagePatientPositionZ() const
+std::string SeriesInfoITK::imagePositionPatientString(unsigned int sliceIdx) const
 {
-    return imagePatientPositionZ_;
+    LOG4CPLUS_TRACE(logger_, "Enter");
+
+    vnl_matrix_fixed<float, 3, 3> rot;   // the rotation matrix
+    vnl_vector_fixed<float, 3> ipp;      // the IPP (column) vector
+
+    // Create the rotation matrix from IOP
+    sscanf(imageOrientationPatient_.c_str(), "%f\\%f\\%f\\%f\\%f\\%f",
+           &rot(0, 0), &rot(0, 1), &rot(0, 2), &rot(1, 0), &rot(1, 1), &rot(1, 2));
+
+    // Compute the remaining orthogonal vector to complete the matrix
+    rot(2,0) = rot(0, 1) * rot(1, 2) - rot(0, 2) * rot(1, 1);
+    rot(2,1) = rot(0, 2) * rot(1, 0) - rot(0, 0) * rot(1, 2);
+    rot(2,2) = rot(0, 0) * rot(1, 1) - rot(0, 1) * rot(1, 0);
+
+    // IPP as a vector
+    ipp = imagePositionPatient_;
+
+    LOG4CPLUS_DEBUG(logger_, "Initial IPP = " << imagePositionPatientString());
+
+    ipp = rot * ipp;                            // rotate ipp into image coordinates
+    ipp[2] += imageSliceSpacing_ * sliceIdx;    // increment Z component
+    ipp = rot.inplace_transpose() * ipp;        // rotate back into patient coordinates
+
+    char  ippStr[30];
+    sprintf(ippStr, "%.2f\\%.2f\\%.2f", ipp(0), ipp(1), ipp(2));
+    LOG4CPLUS_DEBUG(logger_, "Incremented IPP = " << ippStr);
+
+    return ippStr;
+
+    /* extracted from osirix, reflected in above code
+     float vec[3];
+     vec[0] = iop[1]*iop[5] - iop[2]*iop[4];
+     vec[1] = iop[2]*iop[3] - iop[0]*iop[5];
+     vec[2] = iop[0]*iop[4] - iop[1]*iop[3];
+     */
+
 }
 
-std::string SeriesInfoITK::imagePatientPosition() const
+std::string SeriesInfoITK::imageOrientationPatient() const
 {
-    return imagePatientPosition_;
-}
-
-std::string SeriesInfoITK::imagePatientOrientation() const
-{
-    return imagePatientOrientation_;
+    return imageOrientationPatient_;
 }
 
 std::string SeriesInfoITK::inputDir() const

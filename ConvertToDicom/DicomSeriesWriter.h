@@ -43,7 +43,7 @@ public:
 private:
     void CopyDictionary(const itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
     void PrepareMetaDataDictionaryArray();
-    std::string IncrementImagePositionPatient();
+    std::string IncrementImagePositionPatient(const std::string& imagePositionPatient);
     Image3DType::Pointer MergeSlices();
 
     const SeriesInfoITK& seriesInfo;
