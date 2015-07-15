@@ -36,6 +36,8 @@
 	<string>0620</string>
 	<key>DTXcodeBuild</key>
 	<string>6C131e</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.medical</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.7</string>
 	<key>NSHumanReadableCopyright</key>

@@ -36,7 +36,7 @@ public:
 
     /**
      * Do the file writing.
-     * @return Suitable value in ErorCode enum.
+     * @return Suitable value in ErrorCode enum.
      */
     ErrorCode WriteFileSeries();
 

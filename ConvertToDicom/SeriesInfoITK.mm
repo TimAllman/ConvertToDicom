@@ -75,15 +75,12 @@ itk::MetaDataDictionary SeriesInfoITK::makeDictionary() const
         itk::EncapsulateMetaData<std::string>(dict, "0010|0030", patientsDOB_);
         itk::EncapsulateMetaData<std::string>(dict, "0010|0040", patientsSex_);
         
-        gdcm::UIDGenerator studyUidGen;
-        std::string studyUID = studyUidGen.Generate();
-        itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyUID);
         itk::EncapsulateMetaData<std::string>(dict, "0008|1030", studyDescription_);
         itk::EncapsulateMetaData<std::string>(dict, "0020|0010", studyID_);
         itk::EncapsulateMetaData<std::string>(dict, "0008|0060", studyModality_);
         itk::EncapsulateMetaData<std::string>(dict, "0008|0020", studyDate_);
         itk::EncapsulateMetaData<std::string>(dict, "0008|0031", studyTime_);
-        //itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyStudyUID_);
+        itk::EncapsulateMetaData<std::string>(dict, "0020|000d", studyStudyUID_);
 
         gdcm::UIDGenerator suidGen;
         std::string seriesUID = suidGen.Generate();
