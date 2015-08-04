@@ -41,6 +41,7 @@ public:
     ErrorCode WriteFileSeries();
 
 private:
+    
     void CopyDictionary(const itk::MetaDataDictionary& fromDict, itk::MetaDataDictionary& toDict);
     void PrepareMetaDataDictionaryArray();
     std::string IncrementImagePositionPatient(const std::string& imagePositionPatient);
