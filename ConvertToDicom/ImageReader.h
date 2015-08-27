@@ -16,12 +16,12 @@
 #include <vector>
 
 /**
- * Reads an image on disk, creating a std::vector of slices
+ * Reads an image on disk, creating a std::vector of slices.
  */
 class ImageReader
 {
 public:
-    /// Return type for ReadImage
+    /** Used as a return type for ReadImage */
     typedef std::vector<Image2DType::Pointer> ImageVector;
 
     /**

@@ -146,10 +146,6 @@ void DicomSeriesWriter::PrepareMetaDataDictionaryArray()
             sstr << numTimes;
             std::string numTemporalPositions = sstr.str();
             itk::EncapsulateMetaData<std::string>(seriesDict, "0020|0105", numTemporalPositions);
-//            sstr.str("");
-//            sstr << std::fixed << std::setprecision(2) << seriesInfo.timeIncrement();
-//            std::string temporalResolution = sstr.str();
-//            itk::EncapsulateMetaData<std::string>(seriesDict, "0020|0110", temporalResolution);
         }
     }
 

@@ -92,24 +92,3 @@ std::string DumpMetaDataDictionary(const itk::MetaDataDictionary& dict)
     return stream.str();
 }
 
-/*
- std::string DumpDicomMetaDataDictionaryArray(const itk::MetaDataDictionary::MetaDataDictionaryMapType& dict)
-{
-    std::string retVal;
-
-    for (unsigned idx = 0; idx < dict.size(); idx++)
-    {
-        std::ostringstream stream;
-
-        stream << std::endl << "****** MetaDataDictionary " << idx << " *******" << std::endl;
-        retVal += stream.str();
-
-        const itk::ImageSeriesReader<Image2DType>::DictionaryRawPointer pDict = (*dict)[idx];
-
-        retVal += DumpDicomMetaDataDictionary(pDict);
-        std::cout << retVal;
-    }
-
-    return retVal;
-}
-*/

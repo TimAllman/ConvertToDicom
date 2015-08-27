@@ -75,7 +75,7 @@
 - (IBAction)dicomCloseButtonPressed:(NSButton *)sender;
 
 - (id)init;
-//- (void)makeOutputDirectoryName:(NSString*)dirName;
+
 - (ErrorCode)makeOutputDirectory:(NSString*)dirName Error:(NSError**)errp;
 
 @end

@@ -663,9 +663,9 @@ DQ
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wOK-lt-cnW">
-                                                        <rect key="frame" x="16" y="199" width="122" height="17"/>
+                                                        <rect key="frame" x="16" y="199" width="123" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slice spacing (mm)" id="rai-r8-GKB">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slice Spacing (mm)" id="rai-r8-GKB">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -688,7 +688,7 @@ DQ
                                                             </binding>
                                                         </connections>
                                                     </textField>
-                                                    <box autoresizesSubviews="NO" title="Patient position (mm)" borderType="line" id="ynb-Mb-CKv">
+                                                    <box autoresizesSubviews="NO" title="Patient Position (mm)" borderType="line" id="ynb-Mb-CKv">
                                                         <rect key="frame" x="15" y="110" width="372" height="62"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <view key="contentView">
@@ -784,7 +784,7 @@ DQ
                                                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
-                                                    <box autoresizesSubviews="NO" title="Patient orientation " borderType="line" id="zCZ-LI-1WL" userLabel="Patient orientation">
+                                                    <box autoresizesSubviews="NO" title="Patient Orientation " borderType="line" id="zCZ-LI-1WL" userLabel="Patient orientation">
                                                         <rect key="frame" x="15" y="10" width="372" height="96"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView">
@@ -846,9 +846,9 @@ DQ
                                                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JOw-nN-3la">
-                                                        <rect key="frame" x="16" y="227" width="106" height="17"/>
+                                                        <rect key="frame" x="16" y="227" width="105" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slices per image" id="afl-d8-ZHK">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slices Per Image" id="afl-d8-ZHK">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -868,9 +868,9 @@ DQ
                                                         </connections>
                                                     </comboBox>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VBd-jE-bT9">
-                                                        <rect key="frame" x="207" y="227" width="120" height="17"/>
+                                                        <rect key="frame" x="207" y="227" width="123" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of images" id="hIk-Hw-r8e">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number Of Images" id="hIk-Hw-r8e">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

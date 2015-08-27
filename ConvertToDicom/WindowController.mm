@@ -266,7 +266,6 @@
 {
     seriesConverter.inputDir = [NSURL fileURLWithPath:self.seriesInfo.inputDir isDirectory:YES];
     seriesConverter.seriesInfo = self.seriesInfo;
-    //[self.slicesPerImageTextField setEnabled:YES];
 
     if ([seriesConverter extractSeriesAttributes] != SUCCESS)
     {

@@ -200,7 +200,7 @@
     LOG4M_DEBUG(logger_, @"dimensions = %@", [NSNumber numberWithUnsignedInt:numDims]);
 
     unsigned numFiles = (unsigned)[fileNames count];
-    //unsigned slicesPerImage = [self.seriesInfo.slicesPerImage unsignedIntValue];
+
     if (numDims == 3)
     {
         self.seriesInfo.slicesPerImage = [NSNumber numberWithUnsignedLong:imageIO->GetDimensions(2)];
