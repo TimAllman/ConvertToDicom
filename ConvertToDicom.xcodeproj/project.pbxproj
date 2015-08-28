@@ -102,6 +102,8 @@
 		223D3F971B8CDB02009749D3 /* libITKznz-4.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 223D3F471B8CDB02009749D3 /* libITKznz-4.8.a */; };
 		226D69AC1952274B009D447B /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 226D69AB1952274B009D447B /* Readme.rtf */; };
 		22805FDD1B73A72300F47240 /* doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 22805FDC1B73A72300F47240 /* doxyfile */; };
+		22CB4C2B1B90861D001DAD92 /* Copyright in Resources */ = {isa = PBXBuildFile; fileRef = 22CB4C2A1B90861D001DAD92 /* Copyright */; };
+		22CB4C2D1B908BF0001DAD92 /* Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22CB4C2C1B908BF0001DAD92 /* Manual.pdf */; };
 		22CF91121B5D2ECC0049ED66 /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CF91101B5D2ECC0049ED66 /* liblog4cplusS.a */; };
 		22CF91131B5D2ECC0049ED66 /* liblog4m.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CF91111B5D2ECC0049ED66 /* liblog4m.a */; };
 		22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D3A18E078EE007EAF0A /* Cocoa.framework */; };
@@ -139,9 +141,6 @@
 		221AC2891B8F689200A8A722 /* Manual.odt */ = {isa = PBXFileReference; lastKnownFileType = file; path = Manual.odt; sourceTree = "<group>"; };
 		221AC28B1B8F68AA00A8A722 /* ConvertToDicom-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ConvertToDicom-Info.plist"; sourceTree = "<group>"; };
 		221AC28C1B8F68AA00A8A722 /* ConvertToDicom-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConvertToDicom-Prefix.pch"; sourceTree = "<group>"; };
-		221AC28F1B8F68E200A8A722 /* 01converttodicom-contents.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "01converttodicom-contents.xml"; sourceTree = "<group>"; };
-		221AC2901B8F68E200A8A722 /* 01converttodicom.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 01converttodicom.xml; sourceTree = "<group>"; };
-		221AC2911B8F68E200A8A722 /* index.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = index.xml; sourceTree = "<group>"; };
 		223D3EF81B8CDB02009749D3 /* libITKBiasCorrection-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBiasCorrection-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKBiasCorrection-4.8.a"; sourceTree = "<group>"; };
 		223D3EF91B8CDB02009749D3 /* libITKBioCell-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBioCell-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKBioCell-4.8.a"; sourceTree = "<group>"; };
 		223D3EFA1B8CDB02009749D3 /* libITKCommon-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKCommon-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKCommon-4.8.a"; sourceTree = "<group>"; };
@@ -225,6 +224,8 @@
 		2258CBC81AFCE56A00200E92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		226D69AB1952274B009D447B /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		22805FDC1B73A72300F47240 /* doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doxyfile; sourceTree = SOURCE_ROOT; };
+		22CB4C2A1B90861D001DAD92 /* Copyright */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Copyright; sourceTree = "<group>"; };
+		22CB4C2C1B908BF0001DAD92 /* Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Manual.pdf; sourceTree = "<group>"; };
 		22CF91101B5D2ECC0049ED66 /* liblog4cplusS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4cplusS.a; path = ../../usr/local/lib/liblog4cplusS.a; sourceTree = "<group>"; };
 		22CF91111B5D2ECC0049ED66 /* liblog4m.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4m.a; path = ../../usr/local/lib/liblog4m.a; sourceTree = "<group>"; };
 		22F99D3718E078EE007EAF0A /* ConvertToDicom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToDicom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,16 +332,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		221AC28E1B8F68E200A8A722 /* PackageMaker.pmdoc */ = {
-			isa = PBXGroup;
-			children = (
-				221AC28F1B8F68E200A8A722 /* 01converttodicom-contents.xml */,
-				221AC2901B8F68E200A8A722 /* 01converttodicom.xml */,
-				221AC2911B8F68E200A8A722 /* index.xml */,
-			);
-			path = PackageMaker.pmdoc;
-			sourceTree = "<group>";
-		};
 		226C4C4018F6D43600B10693 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,8 +387,8 @@
 				221AC2691B8F687600A8A722 /* DicomSeriesWriter.mm */,
 				221AC26A1B8F687600A8A722 /* DumpMetaDataDictionary.cpp */,
 				221AC26B1B8F687600A8A722 /* DumpMetaDataDictionary.h */,
-				221AC26C1B8F687600A8A722 /* ErrorCodes.c */,
 				221AC26D1B8F687600A8A722 /* ErrorCodes.h */,
+				221AC26C1B8F687600A8A722 /* ErrorCodes.c */,
 				221AC26E1B8F687600A8A722 /* ImageReader.h */,
 				221AC26F1B8F687600A8A722 /* ImageReader.mm */,
 				221AC2701B8F687600A8A722 /* LoggerName.h */,
@@ -425,12 +416,13 @@
 				221AC28B1B8F68AA00A8A722 /* ConvertToDicom-Info.plist */,
 				221AC28C1B8F68AA00A8A722 /* ConvertToDicom-Prefix.pch */,
 				221AC2891B8F689200A8A722 /* Manual.odt */,
+				22CB4C2C1B908BF0001DAD92 /* Manual.pdf */,
 				22F99D4618E078EE007EAF0A /* main.m */,
 				22805FDC1B73A72300F47240 /* doxyfile */,
 				22F99D5218E078EE007EAF0A /* Images.xcassets */,
 				22F99D4318E078EE007EAF0A /* InfoPlist.strings */,
 				226D69AB1952274B009D447B /* Readme.rtf */,
-				221AC28E1B8F68E200A8A722 /* PackageMaker.pmdoc */,
+				22CB4C2A1B90861D001DAD92 /* Copyright */,
 			);
 			name = "Supporting Files";
 			path = ConvertToDicom;
@@ -588,11 +580,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F99D4518E078EE007EAF0A /* InfoPlist.strings in Resources */,
+				22CB4C2D1B908BF0001DAD92 /* Manual.pdf in Resources */,
 				22F99D5318E078EE007EAF0A /* Images.xcassets in Resources */,
 				226D69AC1952274B009D447B /* Readme.rtf in Resources */,
 				221AC28D1B8F68AA00A8A722 /* ConvertToDicom-Info.plist in Resources */,
 				221AC28A1B8F689200A8A722 /* Manual.odt in Resources */,
 				22F99D5118E078EE007EAF0A /* MainWindow.xib in Resources */,
+				22CB4C2B1B90861D001DAD92 /* Copyright in Resources */,
 				22805FDD1B73A72300F47240 /* doxyfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,12 +768,12 @@
 					"/Users/tim/usr/local/ITK-4.8/x86_64/Release/lib",
 					"/Users/tim/usr/local/ITK-4.8/Universal/Release/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.9;
 				VALID_ARCHS = x86_64;
-				VERSIONING_SYSTEM = "";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -812,12 +806,12 @@
 					"/Users/tim/usr/local/ITK-4.8/x86_64/Release/lib",
 					"/Users/tim/usr/local/ITK-4.8/Universal/Release/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.9;
 				VALID_ARCHS = x86_64;
-				VERSIONING_SYSTEM = "";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
