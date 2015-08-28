@@ -1,4 +1,4 @@
 ConvertToDicom
 ==============
 
-Program to convert image series in formats recognised by ITK to DICOM.
+This program converts a series of images to DICOM format from any format recognized by ITK (http://www.itk.org).
