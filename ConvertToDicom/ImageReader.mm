@@ -43,13 +43,12 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
     itk::ImageIOBase::Pointer imageIO =
         itk::ImageIOFactory::CreateImageIO(fileName.c_str(), itk::ImageIOFactory::ReadMode);
 
-    // If
+    // If there s no suitable ITK IO type then quit
     if (imageIO.IsNull())
     {
         LOG4CPLUS_ERROR(logger_, "Image not created from file: " << fileName);
         return ImageVector();
     };
-
 
     imageIO->SetFileName(fileName);
     imageIO->ReadImageInformation();
@@ -112,7 +111,7 @@ ImageReader::ImageVector ImageReader::ReadImage(const std::string& fileName)
 
         for (unsigned sliceIdx = 0; sliceIdx < numSlices; ++sliceIdx)
         {
-            // Generate the regiion that we want
+            // Generate the region that we want
             Image3DType::SizeType sliceSize = size;
             sliceSize[2] = 0;
             Image3DType::IndexType sliceStart = inputRegion.GetIndex();
