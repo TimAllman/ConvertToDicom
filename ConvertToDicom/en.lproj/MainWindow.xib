@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WindowController"/>
@@ -22,136 +24,21 @@
         <window title="ConvertToDicom" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="873" y="731" width="521" height="194"/>
+            <rect key="contentRect" x="873" y="731" width="677" height="311"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="521" height="194"/>
+            <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="677" height="311"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" title="DirectoryBox" borderType="line" titlePosition="noTitle" id="3nP-rE-Vv9">
-                        <rect key="frame" x="17" y="67" width="485" height="109"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="483" height="107"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9GD-Ee-Dho">
-                                    <rect key="frame" x="16" y="80" width="104" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input directory" id="po9-pQ-2Wa">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField identifier="Directory containing images to convert." horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
-                                    <rect key="frame" x="139" y="75" width="236" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="46N-MB-mad">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.inputDir" id="Wkv-CW-RuG">
-                                            <dictionary key="options">
-                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DeU-vq-0cz">
-                                    <rect key="frame" x="16" y="48" width="109" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output directory" id="XGJ-rd-qAQ">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField toolTip="Directory to receive DICOM images." verticalHuggingPriority="750" id="L91-bg-t9y">
-                                    <rect key="frame" x="139" y="43" width="236" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jpd-wE-WBy">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.outputDir" id="vWW-I7-JF0">
-                                            <dictionary key="options">
-                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textField>
-                                <button toolTip="Select input directory." verticalHuggingPriority="750" id="RrQ-yJ-JbC">
-                                    <rect key="frame" x="384" y="70" width="87" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CYY-vL-L7l">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="inputDirButtonPressed:" target="hyz-DH-rQs" id="Z12-bu-ETi"/>
-                                    </connections>
-                                </button>
-                                <button toolTip="Select output directory." verticalHuggingPriority="750" id="6TU-RY-VsK">
-                                    <rect key="frame" x="384" y="37" width="87" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LOk-bI-Fvb">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="outputDirButtonPressed:" target="hyz-DH-rQs" id="AK1-1q-oN8"/>
-                                    </connections>
-                                </button>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PHJ-Sd-Q2a">
-                                    <rect key="frame" x="16" y="16" width="109" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="DICOM attributes" id="Gs0-3X-1js">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <button toolTip="Open DICOM attributes editor." verticalHuggingPriority="750" id="nz9-h0-FJj">
-                                    <rect key="frame" x="133" y="7" width="82" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                    <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hF4-vp-H6h">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="setDicomTagsButtonPushed:" target="hyz-DH-rQs" id="Gv6-ae-fUO"/>
-                                    </connections>
-                                </button>
-                                <button toolTip="Check to overwrite existing files." id="iem-5U-Lmo">
-                                    <rect key="frame" x="284" y="12" width="83" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Overwrite" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GJI-Q8-pKZ">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="xNx-Wx-cOr" name="value" keyPath="self.overwriteFiles" id="KSQ-TP-NCC"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </box>
-                    <box autoresizesSubviews="NO" title="ButtonBox" borderType="line" titlePosition="noTitle" id="CHT-bQ-iUr">
-                        <rect key="frame" x="17" y="16" width="485" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="483" height="47"/>
+                    <box autoresizesSubviews="NO" borderType="line" title="ButtonBox" titlePosition="noTitle" id="CHT-bQ-iUr">
+                        <rect key="frame" x="17" y="16" width="643" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" id="7NF-4f-FA5">
+                            <rect key="frame" x="1" y="1" width="641" height="47"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" id="BNI-VC-fDF">
-                                    <rect key="frame" x="307" y="7" width="90" height="32"/>
+                                    <rect key="frame" x="465" y="7" width="90" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Convert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qAF-cP-2lo">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -165,7 +52,7 @@ DQ
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="FDN-am-ZKJ">
-                                    <rect key="frame" x="397" y="7" width="74" height="32"/>
+                                    <rect key="frame" x="555" y="7" width="74" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ee9-J9-sDe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -180,11 +67,135 @@ Gw
                                 </button>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <box autoresizesSubviews="NO" borderType="line" title="DirectoryBox" titlePosition="noTitle" id="3nP-rE-Vv9">
+                        <rect key="frame" x="17" y="67" width="643" height="226"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                        <view key="contentView" id="8He-pB-3JM">
+                            <rect key="frame" x="1" y="1" width="641" height="224"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <box autoresizesSubviews="NO" borderType="line" title="Destination directory" id="U5i-xr-sIg">
+                                    <rect key="frame" x="15" y="61" width="611" height="84"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <view key="contentView" id="9Ot-2A-7gs">
+                                        <rect key="frame" x="1" y="1" width="609" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField toolTip="Directory to receive DICOM images." verticalHuggingPriority="750" id="L91-bg-t9y">
+                                                <rect key="frame" x="18" y="36" width="486" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jpd-wE-WBy">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="xNx-Wx-cOr" name="value" keyPath="self.outputDir" id="vWW-I7-JF0">
+                                                        <dictionary key="options">
+                                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </textField>
+                                            <button toolTip="Select output directory." verticalHuggingPriority="750" id="6TU-RY-VsK">
+                                                <rect key="frame" x="506" y="30" width="87" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LOk-bI-Fvb">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="outputDirButtonPressed:" target="hyz-DH-rQs" id="AK1-1q-oN8"/>
+                                                </connections>
+                                            </button>
+                                            <button toolTip="Check to overwrite existing files." id="iem-5U-Lmo">
+                                                <rect key="frame" x="16" y="12" width="83" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="check" title="Overwrite" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GJI-Q8-pKZ">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <binding destination="xNx-Wx-cOr" name="value" keyPath="self.overwriteFiles" id="KSQ-TP-NCC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                </box>
+                                <box autoresizesSubviews="NO" borderType="line" title="AttributesBox" titlePosition="noTitle" id="Bpx-aC-QrC">
+                                    <rect key="frame" x="15" y="10" width="611" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <view key="contentView" id="nLK-VK-gGX">
+                                        <rect key="frame" x="1" y="1" width="609" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PHJ-Sd-Q2a">
+                                                <rect key="frame" x="16" y="20" width="130" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="DICOM attributes" id="Gs0-3X-1js">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button toolTip="Open DICOM attributes editor." verticalHuggingPriority="750" id="nz9-h0-FJj">
+                                                <rect key="frame" x="170" y="9" width="82" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hF4-vp-H6h">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="setDicomTagsButtonPushed:" target="hyz-DH-rQs" id="Gv6-ae-fUO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                </box>
+                                <box autoresizesSubviews="NO" borderType="line" title="Source directory" id="d1H-72-zK6">
+                                    <rect key="frame" x="15" y="149" width="611" height="63"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <view key="contentView" id="Vj5-0a-66R">
+                                        <rect key="frame" x="1" y="1" width="609" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField identifier="Directory containing images to convert." horizontalHuggingPriority="249" verticalHuggingPriority="750" id="tVs-Ck-xqv">
+                                                <rect key="frame" x="18" y="14" width="490" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="46N-MB-mad">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="xNx-Wx-cOr" name="value" keyPath="self.inputDir" id="Wkv-CW-RuG">
+                                                        <dictionary key="options">
+                                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </textField>
+                                            <button toolTip="Select input directory." verticalHuggingPriority="750" id="RrQ-yJ-JbC">
+                                                <rect key="frame" x="510" y="9" width="87" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CYY-vL-L7l">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="inputDirButtonPressed:" target="hyz-DH-rQs" id="Z12-bu-ETi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                </box>
+                            </subviews>
+                        </view>
                     </box>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="43.5" y="-153.5"/>
         </window>
         <window title="DICOM Attributes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="de6-tp-fjS" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" utility="YES"/>
@@ -195,10 +206,10 @@ Gw
                 <rect key="frame" x="0.0" y="0.0" width="462" height="384"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" title="Box" borderType="line" titlePosition="noTitle" id="QZY-0X-gYk">
+                    <box autoresizesSubviews="NO" borderType="line" title="Box" titlePosition="noTitle" id="QZY-0X-gYk">
                         <rect key="frame" x="17" y="16" width="428" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <view key="contentView">
+                        <view key="contentView" id="iK4-P0-naQ">
                             <rect key="frame" x="1" y="1" width="426" height="47"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -218,8 +229,6 @@ DQ
                                 </button>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <tabView id="jeK-xP-YUk">
                         <rect key="frame" x="13" y="61" width="436" height="309"/>
@@ -231,10 +240,10 @@ DQ
                                     <rect key="frame" x="10" y="33" width="416" height="263"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <box autoresizesSubviews="NO" title="Patient" borderType="line" titlePosition="noTitle" id="DUF-PO-YDg">
-                                            <rect key="frame" x="6" y="113" width="404" height="152"/>
+                                        <box autoresizesSubviews="NO" misplaced="YES" borderType="line" title="Patient" titlePosition="noTitle" id="DUF-PO-YDg">
+                                            <rect key="frame" x="6" y="118" width="404" height="152"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView">
+                                            <view key="contentView" id="Ekq-lJ-zJa">
                                                 <rect key="frame" x="1" y="1" width="402" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -300,10 +309,10 @@ DQ
                                                             </binding>
                                                         </connections>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Pmx-6P-veI">
-                                                        <rect key="frame" x="16" y="32" width="26" height="17"/>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Pmx-6P-veI">
+                                                        <rect key="frame" x="16" y="32" width="41" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Sex" id="5mI-SF-9FZ">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Sex    " id="5mI-SF-9FZ">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -315,7 +324,7 @@ DQ
                                                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="IId-d4-EpJ">
                                                             <font key="font" metaFont="system"/>
                                                             <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                                                <!--1982-02-12 16:00:00 +0000-->
+                                                                <!--1982-02-12 08:00:00 -0800-->
                                                                 <timeZone key="timeZone" name="US/Pacific"/>
                                                             </calendarDate>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -345,8 +354,6 @@ DQ
                                                     </comboBox>
                                                 </subviews>
                                             </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
                                 </view>
@@ -356,10 +363,10 @@ DQ
                                     <rect key="frame" x="10" y="33" width="416" height="263"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <box autoresizesSubviews="NO" title="Study" borderType="line" titlePosition="noTitle" id="W0B-tn-rmI">
+                                        <box autoresizesSubviews="NO" borderType="line" title="Study" titlePosition="noTitle" id="W0B-tn-rmI">
                                             <rect key="frame" x="6" y="53" width="404" height="212"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView">
+                                            <view key="contentView" id="wAp-DD-DQV">
                                                 <rect key="frame" x="1" y="1" width="402" height="210"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -450,7 +457,7 @@ DQ
                                                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="8SG-mz-d7K">
                                                             <font key="font" metaFont="system"/>
                                                             <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                                                <!--1982-02-12 16:00:00 +0000-->
+                                                                <!--1982-02-12 08:00:00 -0800-->
                                                                 <timeZone key="timeZone" name="US/Pacific"/>
                                                             </calendarDate>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -519,8 +526,6 @@ DQ
                                                     </comboBox>
                                                 </subviews>
                                             </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
                                 </view>
@@ -530,10 +535,10 @@ DQ
                                     <rect key="frame" x="10" y="33" width="416" height="263"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <box autoresizesSubviews="NO" title="Series" borderType="line" titlePosition="noTitle" id="r3Q-oj-qB5">
+                                        <box autoresizesSubviews="NO" borderType="line" title="Series" titlePosition="noTitle" id="r3Q-oj-qB5">
                                             <rect key="frame" x="6" y="99" width="404" height="166"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView">
+                                            <view key="contentView" id="UM4-yl-8ur">
                                                 <rect key="frame" x="1" y="1" width="402" height="164"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -644,8 +649,6 @@ DQ
                                                     </comboBox>
                                                 </subviews>
                                             </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
                                 </view>
@@ -655,10 +658,10 @@ DQ
                                     <rect key="frame" x="10" y="33" width="416" height="263"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <box autoresizesSubviews="NO" title="Image" borderType="line" titlePosition="noTitle" id="nwn-KT-amg">
+                                        <box autoresizesSubviews="NO" borderType="line" title="Image" titlePosition="noTitle" id="nwn-KT-amg">
                                             <rect key="frame" x="6" y="5" width="404" height="260"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView">
+                                            <view key="contentView" id="SQg-9G-Nac">
                                                 <rect key="frame" x="1" y="1" width="402" height="258"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -671,10 +674,10 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField toolTip="SpacingBetweenSlices (0018,0088)" verticalHuggingPriority="750" id="lz8-t4-gac">
-                                                        <rect key="frame" x="154" y="196" width="67" height="22"/>
+                                                    <textField toolTip="SpacingBetweenSlices (0018,0088)" verticalHuggingPriority="750" misplaced="YES" id="lz8-t4-gac">
+                                                        <rect key="frame" x="154" y="196" width="64" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Slice spacing" drawsBackground="YES" id="KtT-60-3Xa">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="KtT-60-3Xa">
                                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="gCp-U7-Vvu"/>
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -688,10 +691,10 @@ DQ
                                                             </binding>
                                                         </connections>
                                                     </textField>
-                                                    <box autoresizesSubviews="NO" title="Patient Position (mm)" borderType="line" id="ynb-Mb-CKv">
+                                                    <box autoresizesSubviews="NO" borderType="line" title="Patient Position (mm)" id="ynb-Mb-CKv">
                                                         <rect key="frame" x="15" y="110" width="372" height="62"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <view key="contentView">
+                                                        <view key="contentView" id="O8H-2l-Dnc">
                                                             <rect key="frame" x="1" y="1" width="370" height="46"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -781,13 +784,11 @@ DQ
                                                                 </textField>
                                                             </subviews>
                                                         </view>
-                                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
-                                                    <box autoresizesSubviews="NO" title="Patient Orientation " borderType="line" id="zCZ-LI-1WL" userLabel="Patient orientation">
+                                                    <box autoresizesSubviews="NO" borderType="line" title="Patient Orientation " id="zCZ-LI-1WL" userLabel="Patient orientation">
                                                         <rect key="frame" x="15" y="10" width="372" height="96"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView">
+                                                        <view key="contentView" id="mtK-nN-NHo">
                                                             <rect key="frame" x="1" y="1" width="370" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -842,8 +843,6 @@ DQ
                                                                 </textField>
                                                             </subviews>
                                                         </view>
-                                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </box>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JOw-nN-3la">
                                                         <rect key="frame" x="16" y="227" width="105" height="17"/>
@@ -890,8 +889,6 @@ DQ
                                                     </textField>
                                                 </subviews>
                                             </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
                                 </view>
@@ -900,7 +897,7 @@ DQ
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="121" y="405"/>
+            <point key="canvasLocation" x="87" y="293"/>
         </window>
         <customObject id="xNx-Wx-cOr" customClass="SeriesInfo"/>
         <customObject id="hyz-DH-rQs" customClass="WindowController">
@@ -933,5 +930,6 @@ DQ
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="90R-Ga-Smw"/>
+        <collectionViewItem id="s7k-0R-15R"/>
     </objects>
 </document>
