@@ -198,10 +198,10 @@
         NSAlert* alert = [[NSAlert alloc] init];
         alert.alertStyle = NSWarningAlertStyle;
         alert.messageText = @"Output directory is not empty.";
-        alert.informativeText = @"Check the \'Overwrite files\' box to overwrite the"
+        alert.informativeText = @"Check the \'Overwrite\' box to overwrite the"
                                  " contents of the output directory.";
         [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
-        LOG4M_WARN(logger_, @"Output directory not empty. Check the \'Overwrite files\' box if you"
+        LOG4M_WARN(logger_, @"Output directory not empty. Check the \'Overwrite\' box if you"
                              " wish to overwrite the contents of the output directory.");
         return;
     }
@@ -210,14 +210,11 @@
     
     if (errCode == SUCCESS)
     {
-        NSAlert* alert = [NSAlert alertWithMessageText:@"Converted files successfully."
-                                         defaultButton:@"Close" alternateButton:nil otherButton:nil
-                             informativeTextWithFormat:@""];
-        [alert setAlertStyle:NSInformationalAlertStyle];
-
-        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
-         {
-         }];
+        NSAlert* alert = [[NSAlert alloc] init];
+        alert.alertStyle = NSInformationalAlertStyle;
+        alert.messageText = @"Converted files successfully.";
+        alert.informativeText = @" "; // needed to prevent runtime layout warning
+        [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 
         LOG4M_INFO(logger_, @"Converted files successfully.");
         return;
@@ -227,8 +224,8 @@
         NSAlert* alert = [NSAlert alertWithMessageText:@"Could not read files."
                                          defaultButton:@"Close" alternateButton:nil otherButton:nil
                              informativeTextWithFormat:@"Directory: %@", seriesConverter.inputDir];
-        [alert setAlertStyle:NSCriticalAlertStyle];
-
+        alert.alertStyle = NSCriticalAlertStyle;
+        alert.informativeText = @" "; // needed to prevent runtime layout warning
         [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
          {
          }];
@@ -241,8 +238,8 @@
         NSAlert* alert = [NSAlert alertWithMessageText:@"Could not write files."
                                          defaultButton:@"Close" alternateButton:nil otherButton:nil
                              informativeTextWithFormat:@"Directory: %@", seriesConverter.outputDir];
-        [alert setAlertStyle:NSCriticalAlertStyle];
-
+        alert.alertStyle = NSCriticalAlertStyle;
+        alert.informativeText = @" "; // needed to prevent runtime layout warning
         [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode)
          {
          }];
@@ -252,7 +249,6 @@
     }
     else
     {
-        
     }
 
 }

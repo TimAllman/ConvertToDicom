@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		220C8A721E2BE6CD006FAD51 /* libLog4m.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 220C8A711E2BE6CD006FAD51 /* libLog4m.a */; };
 		221AC27E1B8F687600A8A722 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 221AC2671B8F687600A8A722 /* AppDelegate.mm */; };
 		221AC27F1B8F687600A8A722 /* DicomSeriesWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 221AC2691B8F687600A8A722 /* DicomSeriesWriter.mm */; };
 		221AC2801B8F687600A8A722 /* DumpMetaDataDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 221AC26A1B8F687600A8A722 /* DumpMetaDataDictionary.cpp */; };
@@ -22,92 +21,93 @@
 		221AC28A1B8F689200A8A722 /* Manual.odt in Resources */ = {isa = PBXBuildFile; fileRef = 221AC2891B8F689200A8A722 /* Manual.odt */; };
 		226D69AC1952274B009D447B /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 226D69AB1952274B009D447B /* Readme.rtf */; };
 		22805FDD1B73A72300F47240 /* doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 22805FDC1B73A72300F47240 /* doxyfile */; };
+		22B397EC1E9D5F7B005847DF /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B397EB1E9D5F7B005847DF /* liblog4cplusS.a */; };
+		22B397EE1E9D5FE9005847DF /* liblog4m.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B397ED1E9D5FE9005847DF /* liblog4m.a */; };
+		22B399961E9D714F005847DF /* libITKBiasCorrection-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399431E9D714F005847DF /* libITKBiasCorrection-4.11.a */; };
+		22B399971E9D714F005847DF /* libITKBioCell-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399441E9D714F005847DF /* libITKBioCell-4.11.a */; };
+		22B399981E9D714F005847DF /* libITKCommon-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399451E9D714F005847DF /* libITKCommon-4.11.a */; };
+		22B399991E9D714F005847DF /* libITKDICOMParser-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399461E9D714F005847DF /* libITKDICOMParser-4.11.a */; };
+		22B3999A1E9D714F005847DF /* libitkdouble-conversion-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399471E9D714F005847DF /* libitkdouble-conversion-4.11.a */; };
+		22B3999B1E9D714F005847DF /* libITKEXPAT-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399481E9D714F005847DF /* libITKEXPAT-4.11.a */; };
+		22B3999C1E9D714F005847DF /* libITKFEM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399491E9D714F005847DF /* libITKFEM-4.11.a */; };
+		22B3999D1E9D714F005847DF /* libitkgdcmcharls-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994A1E9D714F005847DF /* libitkgdcmcharls-4.11.a */; };
+		22B3999E1E9D714F005847DF /* libitkgdcmCommon-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994B1E9D714F005847DF /* libitkgdcmCommon-4.11.a */; };
+		22B3999F1E9D714F005847DF /* libitkgdcmDICT-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994C1E9D714F005847DF /* libitkgdcmDICT-4.11.a */; };
+		22B399A01E9D714F005847DF /* libitkgdcmDSED-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994D1E9D714F005847DF /* libitkgdcmDSED-4.11.a */; };
+		22B399A11E9D714F005847DF /* libitkgdcmIOD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994E1E9D714F005847DF /* libitkgdcmIOD-4.11.a */; };
+		22B399A21E9D714F005847DF /* libitkgdcmjpeg8-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3994F1E9D714F005847DF /* libitkgdcmjpeg8-4.11.a */; };
+		22B399A31E9D714F005847DF /* libitkgdcmjpeg12-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399501E9D714F005847DF /* libitkgdcmjpeg12-4.11.a */; };
+		22B399A41E9D714F005847DF /* libitkgdcmjpeg16-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399511E9D714F005847DF /* libitkgdcmjpeg16-4.11.a */; };
+		22B399A51E9D714F005847DF /* libitkgdcmMEXD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399521E9D714F005847DF /* libitkgdcmMEXD-4.11.a */; };
+		22B399A61E9D714F005847DF /* libitkgdcmMSFF-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399531E9D714F005847DF /* libitkgdcmMSFF-4.11.a */; };
+		22B399A71E9D714F005847DF /* libitkgdcmopenjpeg-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399541E9D714F005847DF /* libitkgdcmopenjpeg-4.11.a */; };
+		22B399A81E9D714F005847DF /* libitkgdcmsocketxx-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399551E9D714F005847DF /* libitkgdcmsocketxx-4.11.a */; };
+		22B399A91E9D714F005847DF /* libitkgdcmuuid-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399561E9D714F005847DF /* libitkgdcmuuid-4.11.a */; };
+		22B399AA1E9D714F005847DF /* libITKgiftiio-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399571E9D714F005847DF /* libITKgiftiio-4.11.a */; };
+		22B399AB1E9D714F005847DF /* libitkhdf5_cpp_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399581E9D714F005847DF /* libitkhdf5_cpp_debug.a */; };
+		22B399AD1E9D714F005847DF /* libITKIOBioRad-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995A1E9D714F005847DF /* libITKIOBioRad-4.11.a */; };
+		22B399AE1E9D714F005847DF /* libITKIOBMP-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995B1E9D714F005847DF /* libITKIOBMP-4.11.a */; };
+		22B399AF1E9D714F005847DF /* libITKIOCSV-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995C1E9D714F005847DF /* libITKIOCSV-4.11.a */; };
+		22B399B01E9D714F005847DF /* libITKIOGDCM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995D1E9D714F005847DF /* libITKIOGDCM-4.11.a */; };
+		22B399B11E9D714F005847DF /* libITKIOGE-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995E1E9D714F005847DF /* libITKIOGE-4.11.a */; };
+		22B399B21E9D714F005847DF /* libITKIOGIPL-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3995F1E9D714F005847DF /* libITKIOGIPL-4.11.a */; };
+		22B399B31E9D714F005847DF /* libITKIOHDF5-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399601E9D714F005847DF /* libITKIOHDF5-4.11.a */; };
+		22B399B41E9D714F005847DF /* libITKIOImageBase-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399611E9D714F005847DF /* libITKIOImageBase-4.11.a */; };
+		22B399B51E9D714F005847DF /* libITKIOIPL-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399621E9D714F005847DF /* libITKIOIPL-4.11.a */; };
+		22B399B61E9D714F005847DF /* libITKIOJPEG-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399631E9D714F005847DF /* libITKIOJPEG-4.11.a */; };
+		22B399B71E9D714F005847DF /* libITKIOLSM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399641E9D714F005847DF /* libITKIOLSM-4.11.a */; };
+		22B399B81E9D714F005847DF /* libITKIOMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399651E9D714F005847DF /* libITKIOMesh-4.11.a */; };
+		22B399B91E9D714F005847DF /* libITKIOMeta-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399661E9D714F005847DF /* libITKIOMeta-4.11.a */; };
+		22B399BA1E9D714F005847DF /* libITKIOMRC-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399671E9D714F005847DF /* libITKIOMRC-4.11.a */; };
+		22B399BB1E9D714F005847DF /* libITKIONIFTI-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399681E9D714F005847DF /* libITKIONIFTI-4.11.a */; };
+		22B399BC1E9D714F005847DF /* libITKIONRRD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399691E9D714F005847DF /* libITKIONRRD-4.11.a */; };
+		22B399BD1E9D714F005847DF /* libITKIOPNG-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996A1E9D714F005847DF /* libITKIOPNG-4.11.a */; };
+		22B399BE1E9D714F005847DF /* libITKIOSiemens-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996B1E9D714F005847DF /* libITKIOSiemens-4.11.a */; };
+		22B399BF1E9D714F005847DF /* libITKIOSpatialObjects-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996C1E9D714F005847DF /* libITKIOSpatialObjects-4.11.a */; };
+		22B399C01E9D714F005847DF /* libITKIOStimulate-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996D1E9D714F005847DF /* libITKIOStimulate-4.11.a */; };
+		22B399C11E9D714F005847DF /* libITKIOTIFF-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996E1E9D714F005847DF /* libITKIOTIFF-4.11.a */; };
+		22B399C21E9D714F005847DF /* libITKIOTransformBase-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3996F1E9D714F005847DF /* libITKIOTransformBase-4.11.a */; };
+		22B399C31E9D714F005847DF /* libITKIOTransformHDF5-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399701E9D714F005847DF /* libITKIOTransformHDF5-4.11.a */; };
+		22B399C41E9D714F005847DF /* libITKIOTransformInsightLegacy-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399711E9D714F005847DF /* libITKIOTransformInsightLegacy-4.11.a */; };
+		22B399C51E9D714F005847DF /* libITKIOTransformMatlab-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399721E9D714F005847DF /* libITKIOTransformMatlab-4.11.a */; };
+		22B399C61E9D714F005847DF /* libITKIOVTK-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399731E9D714F005847DF /* libITKIOVTK-4.11.a */; };
+		22B399C71E9D714F005847DF /* libITKIOXML-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399741E9D714F005847DF /* libITKIOXML-4.11.a */; };
+		22B399C81E9D714F005847DF /* libitkjpeg-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399751E9D714F005847DF /* libitkjpeg-4.11.a */; };
+		22B399C91E9D714F005847DF /* libITKKLMRegionGrowing-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399761E9D714F005847DF /* libITKKLMRegionGrowing-4.11.a */; };
+		22B399CA1E9D714F005847DF /* libITKLabelMap-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399771E9D714F005847DF /* libITKLabelMap-4.11.a */; };
+		22B399CB1E9D714F005847DF /* libITKMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399781E9D714F005847DF /* libITKMesh-4.11.a */; };
+		22B399CC1E9D714F005847DF /* libITKMetaIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399791E9D714F005847DF /* libITKMetaIO-4.11.a */; };
+		22B399CD1E9D714F005847DF /* libitknetlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997A1E9D714F005847DF /* libitknetlib-4.11.a */; };
+		22B399CE1E9D714F005847DF /* libitkNetlibSlatec-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997B1E9D714F005847DF /* libitkNetlibSlatec-4.11.a */; };
+		22B399CF1E9D714F005847DF /* libITKniftiio-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997C1E9D714F005847DF /* libITKniftiio-4.11.a */; };
+		22B399D01E9D714F005847DF /* libITKNrrdIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997D1E9D714F005847DF /* libITKNrrdIO-4.11.a */; };
+		22B399D11E9D714F005847DF /* libITKOptimizers-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997E1E9D714F005847DF /* libITKOptimizers-4.11.a */; };
+		22B399D21E9D714F005847DF /* libITKOptimizersv4-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3997F1E9D714F005847DF /* libITKOptimizersv4-4.11.a */; };
+		22B399D31E9D714F005847DF /* libITKPath-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399801E9D714F005847DF /* libITKPath-4.11.a */; };
+		22B399D41E9D714F005847DF /* libitkpng-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399811E9D714F005847DF /* libitkpng-4.11.a */; };
+		22B399D51E9D714F005847DF /* libITKPolynomials-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399821E9D714F005847DF /* libITKPolynomials-4.11.a */; };
+		22B399D61E9D714F005847DF /* libITKQuadEdgeMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399831E9D714F005847DF /* libITKQuadEdgeMesh-4.11.a */; };
+		22B399D71E9D714F005847DF /* libITKSpatialObjects-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399841E9D714F005847DF /* libITKSpatialObjects-4.11.a */; };
+		22B399D81E9D714F005847DF /* libITKStatistics-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399851E9D714F005847DF /* libITKStatistics-4.11.a */; };
+		22B399D91E9D714F005847DF /* libitksys-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399861E9D714F005847DF /* libitksys-4.11.a */; };
+		22B399DA1E9D714F005847DF /* libitktestlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399871E9D714F005847DF /* libitktestlib-4.11.a */; };
+		22B399DB1E9D714F005847DF /* libitktiff-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399881E9D714F005847DF /* libitktiff-4.11.a */; };
+		22B399DC1E9D714F005847DF /* libITKTransform-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399891E9D714F005847DF /* libITKTransform-4.11.a */; };
+		22B399DD1E9D714F005847DF /* libITKTransformFactory-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998A1E9D714F005847DF /* libITKTransformFactory-4.11.a */; };
+		22B399DE1E9D714F005847DF /* libitkv3p_netlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998B1E9D714F005847DF /* libitkv3p_netlib-4.11.a */; };
+		22B399DF1E9D714F005847DF /* libitkvcl-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998C1E9D714F005847DF /* libitkvcl-4.11.a */; };
+		22B399E01E9D714F005847DF /* libITKVideoCore-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998D1E9D714F005847DF /* libITKVideoCore-4.11.a */; };
+		22B399E11E9D714F005847DF /* libITKVideoIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998E1E9D714F005847DF /* libITKVideoIO-4.11.a */; };
+		22B399E21E9D714F005847DF /* libitkvnl_algo-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B3998F1E9D714F005847DF /* libitkvnl_algo-4.11.a */; };
+		22B399E31E9D714F005847DF /* libitkvnl-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399901E9D714F005847DF /* libitkvnl-4.11.a */; };
+		22B399E41E9D714F005847DF /* libITKVNLInstantiation-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399911E9D714F005847DF /* libITKVNLInstantiation-4.11.a */; };
+		22B399E51E9D714F005847DF /* libITKVTK-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399921E9D714F005847DF /* libITKVTK-4.11.a */; };
+		22B399E61E9D714F005847DF /* libITKWatersheds-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399931E9D714F005847DF /* libITKWatersheds-4.11.a */; };
+		22B399E71E9D714F005847DF /* libitkzlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399941E9D714F005847DF /* libitkzlib-4.11.a */; };
+		22B399E81E9D714F005847DF /* libITKznz-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399951E9D714F005847DF /* libITKznz-4.11.a */; };
+		22B399EC1E9D7223005847DF /* libitkhdf5_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B399EB1E9D7223005847DF /* libitkhdf5_debug.a */; };
 		22CB4C2B1B90861D001DAD92 /* Copyright in Resources */ = {isa = PBXBuildFile; fileRef = 22CB4C2A1B90861D001DAD92 /* Copyright */; };
 		22CB4C2D1B908BF0001DAD92 /* Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22CB4C2C1B908BF0001DAD92 /* Manual.pdf */; };
-		22CF91121B5D2ECC0049ED66 /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CF91101B5D2ECC0049ED66 /* liblog4cplusS.a */; };
-		22F523131E29481B000C4147 /* libITKBiasCorrection-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C01E29481B000C4147 /* libITKBiasCorrection-4.11.a */; };
-		22F523141E29481B000C4147 /* libITKBioCell-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C11E29481B000C4147 /* libITKBioCell-4.11.a */; };
-		22F523151E29481B000C4147 /* libITKCommon-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C21E29481B000C4147 /* libITKCommon-4.11.a */; };
-		22F523161E29481B000C4147 /* libITKDICOMParser-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C31E29481B000C4147 /* libITKDICOMParser-4.11.a */; };
-		22F523171E29481B000C4147 /* libitkdouble-conversion-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C41E29481B000C4147 /* libitkdouble-conversion-4.11.a */; };
-		22F523181E29481B000C4147 /* libITKEXPAT-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C51E29481B000C4147 /* libITKEXPAT-4.11.a */; };
-		22F523191E29481B000C4147 /* libITKFEM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C61E29481B000C4147 /* libITKFEM-4.11.a */; };
-		22F5231A1E29481B000C4147 /* libitkgdcmcharls-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C71E29481B000C4147 /* libitkgdcmcharls-4.11.a */; };
-		22F5231B1E29481B000C4147 /* libitkgdcmCommon-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C81E29481B000C4147 /* libitkgdcmCommon-4.11.a */; };
-		22F5231C1E29481B000C4147 /* libitkgdcmDICT-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522C91E29481B000C4147 /* libitkgdcmDICT-4.11.a */; };
-		22F5231D1E29481B000C4147 /* libitkgdcmDSED-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CA1E29481B000C4147 /* libitkgdcmDSED-4.11.a */; };
-		22F5231E1E29481B000C4147 /* libitkgdcmIOD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CB1E29481B000C4147 /* libitkgdcmIOD-4.11.a */; };
-		22F5231F1E29481B000C4147 /* libitkgdcmjpeg8-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CC1E29481B000C4147 /* libitkgdcmjpeg8-4.11.a */; };
-		22F523201E29481B000C4147 /* libitkgdcmjpeg12-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CD1E29481B000C4147 /* libitkgdcmjpeg12-4.11.a */; };
-		22F523211E29481B000C4147 /* libitkgdcmjpeg16-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CE1E29481B000C4147 /* libitkgdcmjpeg16-4.11.a */; };
-		22F523221E29481B000C4147 /* libitkgdcmMEXD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522CF1E29481B000C4147 /* libitkgdcmMEXD-4.11.a */; };
-		22F523231E29481B000C4147 /* libitkgdcmMSFF-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D01E29481B000C4147 /* libitkgdcmMSFF-4.11.a */; };
-		22F523241E29481B000C4147 /* libitkgdcmopenjpeg-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D11E29481B000C4147 /* libitkgdcmopenjpeg-4.11.a */; };
-		22F523251E29481B000C4147 /* libitkgdcmsocketxx-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D21E29481B000C4147 /* libitkgdcmsocketxx-4.11.a */; };
-		22F523261E29481B000C4147 /* libitkgdcmuuid-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D31E29481B000C4147 /* libitkgdcmuuid-4.11.a */; };
-		22F523271E29481B000C4147 /* libITKgiftiio-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D41E29481B000C4147 /* libITKgiftiio-4.11.a */; };
-		22F523281E29481B000C4147 /* libitkhdf5_cpp_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D51E29481B000C4147 /* libitkhdf5_cpp_debug.a */; };
-		22F523291E29481B000C4147 /* libitkhdf5_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D61E29481B000C4147 /* libitkhdf5_debug.a */; };
-		22F5232A1E29481B000C4147 /* libITKIOBioRad-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D71E29481B000C4147 /* libITKIOBioRad-4.11.a */; };
-		22F5232B1E29481B000C4147 /* libITKIOBMP-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D81E29481B000C4147 /* libITKIOBMP-4.11.a */; };
-		22F5232C1E29481B000C4147 /* libITKIOCSV-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522D91E29481B000C4147 /* libITKIOCSV-4.11.a */; };
-		22F5232D1E29481B000C4147 /* libITKIOGDCM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DA1E29481B000C4147 /* libITKIOGDCM-4.11.a */; };
-		22F5232E1E29481B000C4147 /* libITKIOGE-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DB1E29481B000C4147 /* libITKIOGE-4.11.a */; };
-		22F5232F1E29481B000C4147 /* libITKIOGIPL-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DC1E29481B000C4147 /* libITKIOGIPL-4.11.a */; };
-		22F523301E29481B000C4147 /* libITKIOHDF5-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DD1E29481B000C4147 /* libITKIOHDF5-4.11.a */; };
-		22F523311E29481B000C4147 /* libITKIOImageBase-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DE1E29481B000C4147 /* libITKIOImageBase-4.11.a */; };
-		22F523321E29481B000C4147 /* libITKIOIPL-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522DF1E29481B000C4147 /* libITKIOIPL-4.11.a */; };
-		22F523331E29481B000C4147 /* libITKIOJPEG-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E01E29481B000C4147 /* libITKIOJPEG-4.11.a */; };
-		22F523341E29481B000C4147 /* libITKIOLSM-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E11E29481B000C4147 /* libITKIOLSM-4.11.a */; };
-		22F523351E29481B000C4147 /* libITKIOMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E21E29481B000C4147 /* libITKIOMesh-4.11.a */; };
-		22F523361E29481B000C4147 /* libITKIOMeta-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E31E29481B000C4147 /* libITKIOMeta-4.11.a */; };
-		22F523371E29481B000C4147 /* libITKIOMRC-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E41E29481B000C4147 /* libITKIOMRC-4.11.a */; };
-		22F523381E29481B000C4147 /* libITKIONIFTI-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E51E29481B000C4147 /* libITKIONIFTI-4.11.a */; };
-		22F523391E29481B000C4147 /* libITKIONRRD-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E61E29481B000C4147 /* libITKIONRRD-4.11.a */; };
-		22F5233A1E29481B000C4147 /* libITKIOPNG-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E71E29481B000C4147 /* libITKIOPNG-4.11.a */; };
-		22F5233B1E29481B000C4147 /* libITKIOSiemens-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E81E29481B000C4147 /* libITKIOSiemens-4.11.a */; };
-		22F5233C1E29481B000C4147 /* libITKIOSpatialObjects-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522E91E29481B000C4147 /* libITKIOSpatialObjects-4.11.a */; };
-		22F5233D1E29481B000C4147 /* libITKIOStimulate-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522EA1E29481B000C4147 /* libITKIOStimulate-4.11.a */; };
-		22F5233E1E29481B000C4147 /* libITKIOTIFF-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522EB1E29481B000C4147 /* libITKIOTIFF-4.11.a */; };
-		22F5233F1E29481B000C4147 /* libITKIOTransformBase-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522EC1E29481B000C4147 /* libITKIOTransformBase-4.11.a */; };
-		22F523401E29481B000C4147 /* libITKIOTransformHDF5-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522ED1E29481B000C4147 /* libITKIOTransformHDF5-4.11.a */; };
-		22F523411E29481B000C4147 /* libITKIOTransformInsightLegacy-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522EE1E29481B000C4147 /* libITKIOTransformInsightLegacy-4.11.a */; };
-		22F523421E29481B000C4147 /* libITKIOTransformMatlab-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522EF1E29481B000C4147 /* libITKIOTransformMatlab-4.11.a */; };
-		22F523431E29481B000C4147 /* libITKIOVTK-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F01E29481B000C4147 /* libITKIOVTK-4.11.a */; };
-		22F523441E29481B000C4147 /* libITKIOXML-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F11E29481B000C4147 /* libITKIOXML-4.11.a */; };
-		22F523451E29481B000C4147 /* libitkjpeg-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F21E29481B000C4147 /* libitkjpeg-4.11.a */; };
-		22F523461E29481B000C4147 /* libITKKLMRegionGrowing-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F31E29481B000C4147 /* libITKKLMRegionGrowing-4.11.a */; };
-		22F523471E29481B000C4147 /* libITKLabelMap-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F41E29481B000C4147 /* libITKLabelMap-4.11.a */; };
-		22F523481E29481B000C4147 /* libITKMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F51E29481B000C4147 /* libITKMesh-4.11.a */; };
-		22F523491E29481B000C4147 /* libITKMetaIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F61E29481B000C4147 /* libITKMetaIO-4.11.a */; };
-		22F5234A1E29481B000C4147 /* libitknetlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F71E29481B000C4147 /* libitknetlib-4.11.a */; };
-		22F5234B1E29481B000C4147 /* libitkNetlibSlatec-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F81E29481B000C4147 /* libitkNetlibSlatec-4.11.a */; };
-		22F5234C1E29481B000C4147 /* libITKniftiio-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522F91E29481B000C4147 /* libITKniftiio-4.11.a */; };
-		22F5234D1E29481B000C4147 /* libITKNrrdIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FA1E29481B000C4147 /* libITKNrrdIO-4.11.a */; };
-		22F5234E1E29481B000C4147 /* libITKOptimizers-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FB1E29481B000C4147 /* libITKOptimizers-4.11.a */; };
-		22F5234F1E29481B000C4147 /* libITKOptimizersv4-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FC1E29481B000C4147 /* libITKOptimizersv4-4.11.a */; };
-		22F523501E29481B000C4147 /* libITKPath-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FD1E29481B000C4147 /* libITKPath-4.11.a */; };
-		22F523511E29481B000C4147 /* libitkpng-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FE1E29481B000C4147 /* libitkpng-4.11.a */; };
-		22F523521E29481B000C4147 /* libITKPolynomials-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F522FF1E29481B000C4147 /* libITKPolynomials-4.11.a */; };
-		22F523531E29481B000C4147 /* libITKQuadEdgeMesh-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523001E29481B000C4147 /* libITKQuadEdgeMesh-4.11.a */; };
-		22F523541E29481B000C4147 /* libITKSpatialObjects-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523011E29481B000C4147 /* libITKSpatialObjects-4.11.a */; };
-		22F523551E29481B000C4147 /* libITKStatistics-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523021E29481B000C4147 /* libITKStatistics-4.11.a */; };
-		22F523561E29481B000C4147 /* libitksys-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523031E29481B000C4147 /* libitksys-4.11.a */; };
-		22F523571E29481B000C4147 /* libitktestlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523041E29481B000C4147 /* libitktestlib-4.11.a */; };
-		22F523581E29481B000C4147 /* libitktiff-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523051E29481B000C4147 /* libitktiff-4.11.a */; };
-		22F523591E29481B000C4147 /* libITKTransform-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523061E29481B000C4147 /* libITKTransform-4.11.a */; };
-		22F5235A1E29481B000C4147 /* libITKTransformFactory-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523071E29481B000C4147 /* libITKTransformFactory-4.11.a */; };
-		22F5235B1E29481B000C4147 /* libitkv3p_netlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523081E29481B000C4147 /* libitkv3p_netlib-4.11.a */; };
-		22F5235C1E29481B000C4147 /* libitkvcl-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523091E29481B000C4147 /* libitkvcl-4.11.a */; };
-		22F5235D1E29481B000C4147 /* libITKVideoCore-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230A1E29481B000C4147 /* libITKVideoCore-4.11.a */; };
-		22F5235E1E29481B000C4147 /* libITKVideoIO-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230B1E29481B000C4147 /* libITKVideoIO-4.11.a */; };
-		22F5235F1E29481B000C4147 /* libitkvnl_algo-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230C1E29481B000C4147 /* libitkvnl_algo-4.11.a */; };
-		22F523601E29481B000C4147 /* libitkvnl-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230D1E29481B000C4147 /* libitkvnl-4.11.a */; };
-		22F523611E29481B000C4147 /* libITKVNLInstantiation-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230E1E29481B000C4147 /* libITKVNLInstantiation-4.11.a */; };
-		22F523621E29481B000C4147 /* libITKVTK-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F5230F1E29481B000C4147 /* libITKVTK-4.11.a */; };
-		22F523631E29481B000C4147 /* libITKWatersheds-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523101E29481B000C4147 /* libITKWatersheds-4.11.a */; };
-		22F523641E29481B000C4147 /* libitkzlib-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523111E29481B000C4147 /* libitkzlib-4.11.a */; };
-		22F523651E29481B000C4147 /* libITKznz-4.11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F523121E29481B000C4147 /* libITKznz-4.11.a */; };
 		22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99D3A18E078EE007EAF0A /* Cocoa.framework */; };
 		22F99D4718E078EE007EAF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F99D4618E078EE007EAF0A /* main.m */; };
 		22F99D5118E078EE007EAF0A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F99D4F18E078EE007EAF0A /* MainWindow.xib */; };
@@ -115,7 +115,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		220C8A711E2BE6CD006FAD51 /* libLog4m.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLog4m.a; path = ../../usr/local/lib/libLog4m.a; sourceTree = "<group>"; };
 		221AC2661B8F687600A8A722 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		221AC2671B8F687600A8A722 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		221AC2681B8F687600A8A722 /* DicomSeriesWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicomSeriesWriter.h; sourceTree = "<group>"; };
@@ -143,176 +142,96 @@
 		221AC2891B8F689200A8A722 /* Manual.odt */ = {isa = PBXFileReference; lastKnownFileType = file; path = Manual.odt; sourceTree = "<group>"; };
 		221AC28B1B8F68AA00A8A722 /* ConvertToDicom-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ConvertToDicom-Info.plist"; sourceTree = "<group>"; };
 		221AC28C1B8F68AA00A8A722 /* ConvertToDicom-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConvertToDicom-Prefix.pch"; sourceTree = "<group>"; };
-		223D3EF81B8CDB02009749D3 /* libITKBiasCorrection-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBiasCorrection-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKBiasCorrection-4.8.a"; sourceTree = "<group>"; };
-		223D3EF91B8CDB02009749D3 /* libITKBioCell-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBioCell-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKBioCell-4.8.a"; sourceTree = "<group>"; };
-		223D3EFA1B8CDB02009749D3 /* libITKCommon-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKCommon-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKCommon-4.8.a"; sourceTree = "<group>"; };
-		223D3EFB1B8CDB02009749D3 /* libITKDICOMParser-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKDICOMParser-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKDICOMParser-4.8.a"; sourceTree = "<group>"; };
-		223D3EFC1B8CDB02009749D3 /* libitkdouble-conversion-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkdouble-conversion-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkdouble-conversion-4.8.a"; sourceTree = "<group>"; };
-		223D3EFD1B8CDB02009749D3 /* libITKEXPAT-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKEXPAT-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKEXPAT-4.8.a"; sourceTree = "<group>"; };
-		223D3EFE1B8CDB02009749D3 /* libITKFEM-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKFEM-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKFEM-4.8.a"; sourceTree = "<group>"; };
-		223D3EFF1B8CDB02009749D3 /* libitkgdcmcharls-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmcharls-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmcharls-4.8.a"; sourceTree = "<group>"; };
-		223D3F001B8CDB02009749D3 /* libitkgdcmCommon-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmCommon-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmCommon-4.8.a"; sourceTree = "<group>"; };
-		223D3F011B8CDB02009749D3 /* libitkgdcmDICT-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDICT-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmDICT-4.8.a"; sourceTree = "<group>"; };
-		223D3F021B8CDB02009749D3 /* libitkgdcmDSED-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDSED-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmDSED-4.8.a"; sourceTree = "<group>"; };
-		223D3F031B8CDB02009749D3 /* libitkgdcmIOD-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmIOD-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmIOD-4.8.a"; sourceTree = "<group>"; };
-		223D3F041B8CDB02009749D3 /* libitkgdcmjpeg8-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg8-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmjpeg8-4.8.a"; sourceTree = "<group>"; };
-		223D3F051B8CDB02009749D3 /* libitkgdcmjpeg12-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg12-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmjpeg12-4.8.a"; sourceTree = "<group>"; };
-		223D3F061B8CDB02009749D3 /* libitkgdcmjpeg16-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg16-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmjpeg16-4.8.a"; sourceTree = "<group>"; };
-		223D3F071B8CDB02009749D3 /* libitkgdcmMEXD-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMEXD-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmMEXD-4.8.a"; sourceTree = "<group>"; };
-		223D3F081B8CDB02009749D3 /* libitkgdcmMSFF-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMSFF-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmMSFF-4.8.a"; sourceTree = "<group>"; };
-		223D3F091B8CDB02009749D3 /* libitkgdcmopenjpeg-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmopenjpeg-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmopenjpeg-4.8.a"; sourceTree = "<group>"; };
-		223D3F0A1B8CDB02009749D3 /* libitkgdcmsocketxx-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmsocketxx-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmsocketxx-4.8.a"; sourceTree = "<group>"; };
-		223D3F0B1B8CDB02009749D3 /* libitkgdcmuuid-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmuuid-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkgdcmuuid-4.8.a"; sourceTree = "<group>"; };
-		223D3F0C1B8CDB02009749D3 /* libITKgiftiio-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKgiftiio-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKgiftiio-4.8.a"; sourceTree = "<group>"; };
-		223D3F0D1B8CDB02009749D3 /* libitkhdf5_cpp-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkhdf5_cpp-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkhdf5_cpp-4.8.a"; sourceTree = "<group>"; };
-		223D3F0E1B8CDB02009749D3 /* libitkhdf5-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkhdf5-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkhdf5-4.8.a"; sourceTree = "<group>"; };
-		223D3F0F1B8CDB02009749D3 /* libITKIOBioRad-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBioRad-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOBioRad-4.8.a"; sourceTree = "<group>"; };
-		223D3F101B8CDB02009749D3 /* libITKIOBMP-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBMP-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOBMP-4.8.a"; sourceTree = "<group>"; };
-		223D3F111B8CDB02009749D3 /* libITKIOCSV-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOCSV-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOCSV-4.8.a"; sourceTree = "<group>"; };
-		223D3F121B8CDB02009749D3 /* libITKIOGDCM-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGDCM-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOGDCM-4.8.a"; sourceTree = "<group>"; };
-		223D3F131B8CDB02009749D3 /* libITKIOGE-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGE-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOGE-4.8.a"; sourceTree = "<group>"; };
-		223D3F141B8CDB02009749D3 /* libITKIOGIPL-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGIPL-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOGIPL-4.8.a"; sourceTree = "<group>"; };
-		223D3F151B8CDB02009749D3 /* libITKIOHDF5-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOHDF5-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOHDF5-4.8.a"; sourceTree = "<group>"; };
-		223D3F161B8CDB02009749D3 /* libITKIOImageBase-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOImageBase-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOImageBase-4.8.a"; sourceTree = "<group>"; };
-		223D3F171B8CDB02009749D3 /* libITKIOIPL-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOIPL-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOIPL-4.8.a"; sourceTree = "<group>"; };
-		223D3F181B8CDB02009749D3 /* libITKIOJPEG-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOJPEG-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOJPEG-4.8.a"; sourceTree = "<group>"; };
-		223D3F191B8CDB02009749D3 /* libITKIOLSM-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOLSM-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOLSM-4.8.a"; sourceTree = "<group>"; };
-		223D3F1A1B8CDB02009749D3 /* libITKIOMesh-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMesh-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOMesh-4.8.a"; sourceTree = "<group>"; };
-		223D3F1B1B8CDB02009749D3 /* libITKIOMeta-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMeta-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOMeta-4.8.a"; sourceTree = "<group>"; };
-		223D3F1C1B8CDB02009749D3 /* libITKIOMRC-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMRC-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOMRC-4.8.a"; sourceTree = "<group>"; };
-		223D3F1D1B8CDB02009749D3 /* libITKIONIFTI-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONIFTI-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIONIFTI-4.8.a"; sourceTree = "<group>"; };
-		223D3F1E1B8CDB02009749D3 /* libITKIONRRD-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONRRD-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIONRRD-4.8.a"; sourceTree = "<group>"; };
-		223D3F1F1B8CDB02009749D3 /* libITKIOPNG-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOPNG-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOPNG-4.8.a"; sourceTree = "<group>"; };
-		223D3F201B8CDB02009749D3 /* libITKIOSiemens-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSiemens-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOSiemens-4.8.a"; sourceTree = "<group>"; };
-		223D3F211B8CDB02009749D3 /* libITKIOSpatialObjects-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSpatialObjects-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOSpatialObjects-4.8.a"; sourceTree = "<group>"; };
-		223D3F221B8CDB02009749D3 /* libITKIOStimulate-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOStimulate-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOStimulate-4.8.a"; sourceTree = "<group>"; };
-		223D3F231B8CDB02009749D3 /* libITKIOTIFF-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTIFF-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOTIFF-4.8.a"; sourceTree = "<group>"; };
-		223D3F241B8CDB02009749D3 /* libITKIOTransformBase-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformBase-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOTransformBase-4.8.a"; sourceTree = "<group>"; };
-		223D3F251B8CDB02009749D3 /* libITKIOTransformHDF5-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformHDF5-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOTransformHDF5-4.8.a"; sourceTree = "<group>"; };
-		223D3F261B8CDB02009749D3 /* libITKIOTransformInsightLegacy-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformInsightLegacy-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOTransformInsightLegacy-4.8.a"; sourceTree = "<group>"; };
-		223D3F271B8CDB02009749D3 /* libITKIOTransformMatlab-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformMatlab-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOTransformMatlab-4.8.a"; sourceTree = "<group>"; };
-		223D3F281B8CDB02009749D3 /* libITKIOVTK-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOVTK-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOVTK-4.8.a"; sourceTree = "<group>"; };
-		223D3F291B8CDB02009749D3 /* libITKIOXML-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOXML-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKIOXML-4.8.a"; sourceTree = "<group>"; };
-		223D3F2A1B8CDB02009749D3 /* libitkjpeg-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkjpeg-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkjpeg-4.8.a"; sourceTree = "<group>"; };
-		223D3F2B1B8CDB02009749D3 /* libITKKLMRegionGrowing-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKKLMRegionGrowing-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKKLMRegionGrowing-4.8.a"; sourceTree = "<group>"; };
-		223D3F2C1B8CDB02009749D3 /* libITKLabelMap-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKLabelMap-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKLabelMap-4.8.a"; sourceTree = "<group>"; };
-		223D3F2D1B8CDB02009749D3 /* libITKMesh-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMesh-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKMesh-4.8.a"; sourceTree = "<group>"; };
-		223D3F2E1B8CDB02009749D3 /* libITKMetaIO-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMetaIO-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKMetaIO-4.8.a"; sourceTree = "<group>"; };
-		223D3F2F1B8CDB02009749D3 /* libitkNetlibSlatec-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkNetlibSlatec-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkNetlibSlatec-4.8.a"; sourceTree = "<group>"; };
-		223D3F301B8CDB02009749D3 /* libITKniftiio-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKniftiio-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKniftiio-4.8.a"; sourceTree = "<group>"; };
-		223D3F311B8CDB02009749D3 /* libITKNrrdIO-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKNrrdIO-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKNrrdIO-4.8.a"; sourceTree = "<group>"; };
-		223D3F321B8CDB02009749D3 /* libITKOptimizers-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizers-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKOptimizers-4.8.a"; sourceTree = "<group>"; };
-		223D3F331B8CDB02009749D3 /* libITKOptimizersv4-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizersv4-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKOptimizersv4-4.8.a"; sourceTree = "<group>"; };
-		223D3F341B8CDB02009749D3 /* libITKPath-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPath-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKPath-4.8.a"; sourceTree = "<group>"; };
-		223D3F351B8CDB02009749D3 /* libitkpng-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkpng-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkpng-4.8.a"; sourceTree = "<group>"; };
-		223D3F361B8CDB02009749D3 /* libITKPolynomials-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPolynomials-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKPolynomials-4.8.a"; sourceTree = "<group>"; };
-		223D3F371B8CDB02009749D3 /* libITKQuadEdgeMesh-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKQuadEdgeMesh-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKQuadEdgeMesh-4.8.a"; sourceTree = "<group>"; };
-		223D3F381B8CDB02009749D3 /* libITKSpatialObjects-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKSpatialObjects-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKSpatialObjects-4.8.a"; sourceTree = "<group>"; };
-		223D3F391B8CDB02009749D3 /* libITKStatistics-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKStatistics-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKStatistics-4.8.a"; sourceTree = "<group>"; };
-		223D3F3A1B8CDB02009749D3 /* libitksys-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitksys-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitksys-4.8.a"; sourceTree = "<group>"; };
-		223D3F3B1B8CDB02009749D3 /* libitktiff-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitktiff-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitktiff-4.8.a"; sourceTree = "<group>"; };
-		223D3F3C1B8CDB02009749D3 /* libitkv3p_lsqr-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkv3p_lsqr-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkv3p_lsqr-4.8.a"; sourceTree = "<group>"; };
-		223D3F3D1B8CDB02009749D3 /* libitkv3p_netlib-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkv3p_netlib-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkv3p_netlib-4.8.a"; sourceTree = "<group>"; };
-		223D3F3E1B8CDB02009749D3 /* libitkvcl-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvcl-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkvcl-4.8.a"; sourceTree = "<group>"; };
-		223D3F3F1B8CDB02009749D3 /* libITKVideoCore-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoCore-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKVideoCore-4.8.a"; sourceTree = "<group>"; };
-		223D3F401B8CDB02009749D3 /* libITKVideoIO-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoIO-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKVideoIO-4.8.a"; sourceTree = "<group>"; };
-		223D3F411B8CDB02009749D3 /* libitkvnl_algo-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl_algo-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkvnl_algo-4.8.a"; sourceTree = "<group>"; };
-		223D3F421B8CDB02009749D3 /* libitkvnl-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkvnl-4.8.a"; sourceTree = "<group>"; };
-		223D3F431B8CDB02009749D3 /* libITKVNLInstantiation-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVNLInstantiation-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKVNLInstantiation-4.8.a"; sourceTree = "<group>"; };
-		223D3F441B8CDB02009749D3 /* libITKVTK-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVTK-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKVTK-4.8.a"; sourceTree = "<group>"; };
-		223D3F451B8CDB02009749D3 /* libITKWatersheds-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKWatersheds-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKWatersheds-4.8.a"; sourceTree = "<group>"; };
-		223D3F461B8CDB02009749D3 /* libitkzlib-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkzlib-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libitkzlib-4.8.a"; sourceTree = "<group>"; };
-		223D3F471B8CDB02009749D3 /* libITKznz-4.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKznz-4.8.a"; path = "../../../../ITK-4.8/x86_64/Release/lib/libITKznz-4.8.a"; sourceTree = "<group>"; };
 		2258CBC81AFCE56A00200E92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		226D69AB1952274B009D447B /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		22805FDC1B73A72300F47240 /* doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doxyfile; sourceTree = SOURCE_ROOT; };
+		22B397EB1E9D5F7B005847DF /* liblog4cplusS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4cplusS.a; path = ../log4cplus/build/src/liblog4cplusS.a; sourceTree = "<group>"; };
+		22B397ED1E9D5FE9005847DF /* liblog4m.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4m.a; path = "../Log4m/build/Log4m.build/Release/log4m.build/Objects-normal/x86_64/liblog4m.a"; sourceTree = "<group>"; };
+		22B399431E9D714F005847DF /* libITKBiasCorrection-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBiasCorrection-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKBiasCorrection-4.11.a"; sourceTree = "<group>"; };
+		22B399441E9D714F005847DF /* libITKBioCell-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBioCell-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKBioCell-4.11.a"; sourceTree = "<group>"; };
+		22B399451E9D714F005847DF /* libITKCommon-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKCommon-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKCommon-4.11.a"; sourceTree = "<group>"; };
+		22B399461E9D714F005847DF /* libITKDICOMParser-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKDICOMParser-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKDICOMParser-4.11.a"; sourceTree = "<group>"; };
+		22B399471E9D714F005847DF /* libitkdouble-conversion-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkdouble-conversion-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkdouble-conversion-4.11.a"; sourceTree = "<group>"; };
+		22B399481E9D714F005847DF /* libITKEXPAT-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKEXPAT-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKEXPAT-4.11.a"; sourceTree = "<group>"; };
+		22B399491E9D714F005847DF /* libITKFEM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKFEM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKFEM-4.11.a"; sourceTree = "<group>"; };
+		22B3994A1E9D714F005847DF /* libitkgdcmcharls-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmcharls-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmcharls-4.11.a"; sourceTree = "<group>"; };
+		22B3994B1E9D714F005847DF /* libitkgdcmCommon-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmCommon-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmCommon-4.11.a"; sourceTree = "<group>"; };
+		22B3994C1E9D714F005847DF /* libitkgdcmDICT-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDICT-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmDICT-4.11.a"; sourceTree = "<group>"; };
+		22B3994D1E9D714F005847DF /* libitkgdcmDSED-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDSED-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmDSED-4.11.a"; sourceTree = "<group>"; };
+		22B3994E1E9D714F005847DF /* libitkgdcmIOD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmIOD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmIOD-4.11.a"; sourceTree = "<group>"; };
+		22B3994F1E9D714F005847DF /* libitkgdcmjpeg8-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg8-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg8-4.11.a"; sourceTree = "<group>"; };
+		22B399501E9D714F005847DF /* libitkgdcmjpeg12-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg12-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg12-4.11.a"; sourceTree = "<group>"; };
+		22B399511E9D714F005847DF /* libitkgdcmjpeg16-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg16-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg16-4.11.a"; sourceTree = "<group>"; };
+		22B399521E9D714F005847DF /* libitkgdcmMEXD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMEXD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmMEXD-4.11.a"; sourceTree = "<group>"; };
+		22B399531E9D714F005847DF /* libitkgdcmMSFF-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMSFF-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmMSFF-4.11.a"; sourceTree = "<group>"; };
+		22B399541E9D714F005847DF /* libitkgdcmopenjpeg-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmopenjpeg-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmopenjpeg-4.11.a"; sourceTree = "<group>"; };
+		22B399551E9D714F005847DF /* libitkgdcmsocketxx-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmsocketxx-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmsocketxx-4.11.a"; sourceTree = "<group>"; };
+		22B399561E9D714F005847DF /* libitkgdcmuuid-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmuuid-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmuuid-4.11.a"; sourceTree = "<group>"; };
+		22B399571E9D714F005847DF /* libITKgiftiio-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKgiftiio-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKgiftiio-4.11.a"; sourceTree = "<group>"; };
+		22B399581E9D714F005847DF /* libitkhdf5_cpp_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkhdf5_cpp_debug.a; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkhdf5_cpp_debug.a"; sourceTree = "<group>"; };
+		22B3995A1E9D714F005847DF /* libITKIOBioRad-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBioRad-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOBioRad-4.11.a"; sourceTree = "<group>"; };
+		22B3995B1E9D714F005847DF /* libITKIOBMP-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBMP-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOBMP-4.11.a"; sourceTree = "<group>"; };
+		22B3995C1E9D714F005847DF /* libITKIOCSV-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOCSV-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOCSV-4.11.a"; sourceTree = "<group>"; };
+		22B3995D1E9D714F005847DF /* libITKIOGDCM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGDCM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGDCM-4.11.a"; sourceTree = "<group>"; };
+		22B3995E1E9D714F005847DF /* libITKIOGE-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGE-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGE-4.11.a"; sourceTree = "<group>"; };
+		22B3995F1E9D714F005847DF /* libITKIOGIPL-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGIPL-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGIPL-4.11.a"; sourceTree = "<group>"; };
+		22B399601E9D714F005847DF /* libITKIOHDF5-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOHDF5-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOHDF5-4.11.a"; sourceTree = "<group>"; };
+		22B399611E9D714F005847DF /* libITKIOImageBase-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOImageBase-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOImageBase-4.11.a"; sourceTree = "<group>"; };
+		22B399621E9D714F005847DF /* libITKIOIPL-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOIPL-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOIPL-4.11.a"; sourceTree = "<group>"; };
+		22B399631E9D714F005847DF /* libITKIOJPEG-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOJPEG-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOJPEG-4.11.a"; sourceTree = "<group>"; };
+		22B399641E9D714F005847DF /* libITKIOLSM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOLSM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOLSM-4.11.a"; sourceTree = "<group>"; };
+		22B399651E9D714F005847DF /* libITKIOMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMesh-4.11.a"; sourceTree = "<group>"; };
+		22B399661E9D714F005847DF /* libITKIOMeta-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMeta-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMeta-4.11.a"; sourceTree = "<group>"; };
+		22B399671E9D714F005847DF /* libITKIOMRC-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMRC-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMRC-4.11.a"; sourceTree = "<group>"; };
+		22B399681E9D714F005847DF /* libITKIONIFTI-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONIFTI-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIONIFTI-4.11.a"; sourceTree = "<group>"; };
+		22B399691E9D714F005847DF /* libITKIONRRD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONRRD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIONRRD-4.11.a"; sourceTree = "<group>"; };
+		22B3996A1E9D714F005847DF /* libITKIOPNG-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOPNG-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOPNG-4.11.a"; sourceTree = "<group>"; };
+		22B3996B1E9D714F005847DF /* libITKIOSiemens-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSiemens-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOSiemens-4.11.a"; sourceTree = "<group>"; };
+		22B3996C1E9D714F005847DF /* libITKIOSpatialObjects-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSpatialObjects-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOSpatialObjects-4.11.a"; sourceTree = "<group>"; };
+		22B3996D1E9D714F005847DF /* libITKIOStimulate-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOStimulate-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOStimulate-4.11.a"; sourceTree = "<group>"; };
+		22B3996E1E9D714F005847DF /* libITKIOTIFF-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTIFF-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTIFF-4.11.a"; sourceTree = "<group>"; };
+		22B3996F1E9D714F005847DF /* libITKIOTransformBase-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformBase-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformBase-4.11.a"; sourceTree = "<group>"; };
+		22B399701E9D714F005847DF /* libITKIOTransformHDF5-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformHDF5-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformHDF5-4.11.a"; sourceTree = "<group>"; };
+		22B399711E9D714F005847DF /* libITKIOTransformInsightLegacy-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformInsightLegacy-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformInsightLegacy-4.11.a"; sourceTree = "<group>"; };
+		22B399721E9D714F005847DF /* libITKIOTransformMatlab-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformMatlab-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformMatlab-4.11.a"; sourceTree = "<group>"; };
+		22B399731E9D714F005847DF /* libITKIOVTK-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOVTK-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOVTK-4.11.a"; sourceTree = "<group>"; };
+		22B399741E9D714F005847DF /* libITKIOXML-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOXML-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOXML-4.11.a"; sourceTree = "<group>"; };
+		22B399751E9D714F005847DF /* libitkjpeg-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkjpeg-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkjpeg-4.11.a"; sourceTree = "<group>"; };
+		22B399761E9D714F005847DF /* libITKKLMRegionGrowing-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKKLMRegionGrowing-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKKLMRegionGrowing-4.11.a"; sourceTree = "<group>"; };
+		22B399771E9D714F005847DF /* libITKLabelMap-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKLabelMap-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKLabelMap-4.11.a"; sourceTree = "<group>"; };
+		22B399781E9D714F005847DF /* libITKMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKMesh-4.11.a"; sourceTree = "<group>"; };
+		22B399791E9D714F005847DF /* libITKMetaIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMetaIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKMetaIO-4.11.a"; sourceTree = "<group>"; };
+		22B3997A1E9D714F005847DF /* libitknetlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitknetlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitknetlib-4.11.a"; sourceTree = "<group>"; };
+		22B3997B1E9D714F005847DF /* libitkNetlibSlatec-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkNetlibSlatec-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkNetlibSlatec-4.11.a"; sourceTree = "<group>"; };
+		22B3997C1E9D714F005847DF /* libITKniftiio-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKniftiio-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKniftiio-4.11.a"; sourceTree = "<group>"; };
+		22B3997D1E9D714F005847DF /* libITKNrrdIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKNrrdIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKNrrdIO-4.11.a"; sourceTree = "<group>"; };
+		22B3997E1E9D714F005847DF /* libITKOptimizers-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizers-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKOptimizers-4.11.a"; sourceTree = "<group>"; };
+		22B3997F1E9D714F005847DF /* libITKOptimizersv4-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizersv4-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKOptimizersv4-4.11.a"; sourceTree = "<group>"; };
+		22B399801E9D714F005847DF /* libITKPath-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPath-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKPath-4.11.a"; sourceTree = "<group>"; };
+		22B399811E9D714F005847DF /* libitkpng-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkpng-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkpng-4.11.a"; sourceTree = "<group>"; };
+		22B399821E9D714F005847DF /* libITKPolynomials-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPolynomials-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKPolynomials-4.11.a"; sourceTree = "<group>"; };
+		22B399831E9D714F005847DF /* libITKQuadEdgeMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKQuadEdgeMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKQuadEdgeMesh-4.11.a"; sourceTree = "<group>"; };
+		22B399841E9D714F005847DF /* libITKSpatialObjects-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKSpatialObjects-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKSpatialObjects-4.11.a"; sourceTree = "<group>"; };
+		22B399851E9D714F005847DF /* libITKStatistics-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKStatistics-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKStatistics-4.11.a"; sourceTree = "<group>"; };
+		22B399861E9D714F005847DF /* libitksys-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitksys-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitksys-4.11.a"; sourceTree = "<group>"; };
+		22B399871E9D714F005847DF /* libitktestlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitktestlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitktestlib-4.11.a"; sourceTree = "<group>"; };
+		22B399881E9D714F005847DF /* libitktiff-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitktiff-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitktiff-4.11.a"; sourceTree = "<group>"; };
+		22B399891E9D714F005847DF /* libITKTransform-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKTransform-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKTransform-4.11.a"; sourceTree = "<group>"; };
+		22B3998A1E9D714F005847DF /* libITKTransformFactory-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKTransformFactory-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKTransformFactory-4.11.a"; sourceTree = "<group>"; };
+		22B3998B1E9D714F005847DF /* libitkv3p_netlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkv3p_netlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkv3p_netlib-4.11.a"; sourceTree = "<group>"; };
+		22B3998C1E9D714F005847DF /* libitkvcl-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvcl-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvcl-4.11.a"; sourceTree = "<group>"; };
+		22B3998D1E9D714F005847DF /* libITKVideoCore-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoCore-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVideoCore-4.11.a"; sourceTree = "<group>"; };
+		22B3998E1E9D714F005847DF /* libITKVideoIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVideoIO-4.11.a"; sourceTree = "<group>"; };
+		22B3998F1E9D714F005847DF /* libitkvnl_algo-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl_algo-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvnl_algo-4.11.a"; sourceTree = "<group>"; };
+		22B399901E9D714F005847DF /* libitkvnl-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvnl-4.11.a"; sourceTree = "<group>"; };
+		22B399911E9D714F005847DF /* libITKVNLInstantiation-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVNLInstantiation-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVNLInstantiation-4.11.a"; sourceTree = "<group>"; };
+		22B399921E9D714F005847DF /* libITKVTK-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVTK-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVTK-4.11.a"; sourceTree = "<group>"; };
+		22B399931E9D714F005847DF /* libITKWatersheds-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKWatersheds-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKWatersheds-4.11.a"; sourceTree = "<group>"; };
+		22B399941E9D714F005847DF /* libitkzlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkzlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkzlib-4.11.a"; sourceTree = "<group>"; };
+		22B399951E9D714F005847DF /* libITKznz-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKznz-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKznz-4.11.a"; sourceTree = "<group>"; };
+		22B399EB1E9D7223005847DF /* libitkhdf5_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkhdf5_debug.a; path = "../../usr/local/ITK-4.11/x86_64/Release/lib/libitkhdf5_debug.a"; sourceTree = "<group>"; };
 		22CB4C2A1B90861D001DAD92 /* Copyright */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Copyright; sourceTree = "<group>"; };
 		22CB4C2C1B908BF0001DAD92 /* Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Manual.pdf; sourceTree = "<group>"; };
-		22CF91101B5D2ECC0049ED66 /* liblog4cplusS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4cplusS.a; path = ../../usr/local/lib/liblog4cplusS.a; sourceTree = "<group>"; };
-		22CF91111B5D2ECC0049ED66 /* liblog4m.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4m.a; path = ../../usr/local/lib/liblog4m.a; sourceTree = "<group>"; };
-		22F522C01E29481B000C4147 /* libITKBiasCorrection-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBiasCorrection-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKBiasCorrection-4.11.a"; sourceTree = "<group>"; };
-		22F522C11E29481B000C4147 /* libITKBioCell-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKBioCell-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKBioCell-4.11.a"; sourceTree = "<group>"; };
-		22F522C21E29481B000C4147 /* libITKCommon-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKCommon-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKCommon-4.11.a"; sourceTree = "<group>"; };
-		22F522C31E29481B000C4147 /* libITKDICOMParser-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKDICOMParser-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKDICOMParser-4.11.a"; sourceTree = "<group>"; };
-		22F522C41E29481B000C4147 /* libitkdouble-conversion-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkdouble-conversion-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkdouble-conversion-4.11.a"; sourceTree = "<group>"; };
-		22F522C51E29481B000C4147 /* libITKEXPAT-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKEXPAT-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKEXPAT-4.11.a"; sourceTree = "<group>"; };
-		22F522C61E29481B000C4147 /* libITKFEM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKFEM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKFEM-4.11.a"; sourceTree = "<group>"; };
-		22F522C71E29481B000C4147 /* libitkgdcmcharls-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmcharls-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmcharls-4.11.a"; sourceTree = "<group>"; };
-		22F522C81E29481B000C4147 /* libitkgdcmCommon-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmCommon-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmCommon-4.11.a"; sourceTree = "<group>"; };
-		22F522C91E29481B000C4147 /* libitkgdcmDICT-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDICT-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmDICT-4.11.a"; sourceTree = "<group>"; };
-		22F522CA1E29481B000C4147 /* libitkgdcmDSED-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmDSED-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmDSED-4.11.a"; sourceTree = "<group>"; };
-		22F522CB1E29481B000C4147 /* libitkgdcmIOD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmIOD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmIOD-4.11.a"; sourceTree = "<group>"; };
-		22F522CC1E29481B000C4147 /* libitkgdcmjpeg8-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg8-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg8-4.11.a"; sourceTree = "<group>"; };
-		22F522CD1E29481B000C4147 /* libitkgdcmjpeg12-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg12-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg12-4.11.a"; sourceTree = "<group>"; };
-		22F522CE1E29481B000C4147 /* libitkgdcmjpeg16-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmjpeg16-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmjpeg16-4.11.a"; sourceTree = "<group>"; };
-		22F522CF1E29481B000C4147 /* libitkgdcmMEXD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMEXD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmMEXD-4.11.a"; sourceTree = "<group>"; };
-		22F522D01E29481B000C4147 /* libitkgdcmMSFF-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmMSFF-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmMSFF-4.11.a"; sourceTree = "<group>"; };
-		22F522D11E29481B000C4147 /* libitkgdcmopenjpeg-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmopenjpeg-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmopenjpeg-4.11.a"; sourceTree = "<group>"; };
-		22F522D21E29481B000C4147 /* libitkgdcmsocketxx-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmsocketxx-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmsocketxx-4.11.a"; sourceTree = "<group>"; };
-		22F522D31E29481B000C4147 /* libitkgdcmuuid-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkgdcmuuid-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkgdcmuuid-4.11.a"; sourceTree = "<group>"; };
-		22F522D41E29481B000C4147 /* libITKgiftiio-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKgiftiio-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKgiftiio-4.11.a"; sourceTree = "<group>"; };
-		22F522D51E29481B000C4147 /* libitkhdf5_cpp_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkhdf5_cpp_debug.a; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkhdf5_cpp_debug.a"; sourceTree = "<group>"; };
-		22F522D61E29481B000C4147 /* libitkhdf5_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkhdf5_debug.a; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkhdf5_debug.a"; sourceTree = "<group>"; };
-		22F522D71E29481B000C4147 /* libITKIOBioRad-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBioRad-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOBioRad-4.11.a"; sourceTree = "<group>"; };
-		22F522D81E29481B000C4147 /* libITKIOBMP-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOBMP-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOBMP-4.11.a"; sourceTree = "<group>"; };
-		22F522D91E29481B000C4147 /* libITKIOCSV-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOCSV-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOCSV-4.11.a"; sourceTree = "<group>"; };
-		22F522DA1E29481B000C4147 /* libITKIOGDCM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGDCM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGDCM-4.11.a"; sourceTree = "<group>"; };
-		22F522DB1E29481B000C4147 /* libITKIOGE-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGE-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGE-4.11.a"; sourceTree = "<group>"; };
-		22F522DC1E29481B000C4147 /* libITKIOGIPL-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOGIPL-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOGIPL-4.11.a"; sourceTree = "<group>"; };
-		22F522DD1E29481B000C4147 /* libITKIOHDF5-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOHDF5-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOHDF5-4.11.a"; sourceTree = "<group>"; };
-		22F522DE1E29481B000C4147 /* libITKIOImageBase-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOImageBase-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOImageBase-4.11.a"; sourceTree = "<group>"; };
-		22F522DF1E29481B000C4147 /* libITKIOIPL-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOIPL-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOIPL-4.11.a"; sourceTree = "<group>"; };
-		22F522E01E29481B000C4147 /* libITKIOJPEG-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOJPEG-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOJPEG-4.11.a"; sourceTree = "<group>"; };
-		22F522E11E29481B000C4147 /* libITKIOLSM-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOLSM-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOLSM-4.11.a"; sourceTree = "<group>"; };
-		22F522E21E29481B000C4147 /* libITKIOMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMesh-4.11.a"; sourceTree = "<group>"; };
-		22F522E31E29481B000C4147 /* libITKIOMeta-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMeta-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMeta-4.11.a"; sourceTree = "<group>"; };
-		22F522E41E29481B000C4147 /* libITKIOMRC-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOMRC-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOMRC-4.11.a"; sourceTree = "<group>"; };
-		22F522E51E29481B000C4147 /* libITKIONIFTI-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONIFTI-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIONIFTI-4.11.a"; sourceTree = "<group>"; };
-		22F522E61E29481B000C4147 /* libITKIONRRD-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIONRRD-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIONRRD-4.11.a"; sourceTree = "<group>"; };
-		22F522E71E29481B000C4147 /* libITKIOPNG-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOPNG-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOPNG-4.11.a"; sourceTree = "<group>"; };
-		22F522E81E29481B000C4147 /* libITKIOSiemens-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSiemens-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOSiemens-4.11.a"; sourceTree = "<group>"; };
-		22F522E91E29481B000C4147 /* libITKIOSpatialObjects-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOSpatialObjects-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOSpatialObjects-4.11.a"; sourceTree = "<group>"; };
-		22F522EA1E29481B000C4147 /* libITKIOStimulate-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOStimulate-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOStimulate-4.11.a"; sourceTree = "<group>"; };
-		22F522EB1E29481B000C4147 /* libITKIOTIFF-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTIFF-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTIFF-4.11.a"; sourceTree = "<group>"; };
-		22F522EC1E29481B000C4147 /* libITKIOTransformBase-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformBase-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformBase-4.11.a"; sourceTree = "<group>"; };
-		22F522ED1E29481B000C4147 /* libITKIOTransformHDF5-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformHDF5-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformHDF5-4.11.a"; sourceTree = "<group>"; };
-		22F522EE1E29481B000C4147 /* libITKIOTransformInsightLegacy-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformInsightLegacy-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformInsightLegacy-4.11.a"; sourceTree = "<group>"; };
-		22F522EF1E29481B000C4147 /* libITKIOTransformMatlab-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOTransformMatlab-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOTransformMatlab-4.11.a"; sourceTree = "<group>"; };
-		22F522F01E29481B000C4147 /* libITKIOVTK-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOVTK-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOVTK-4.11.a"; sourceTree = "<group>"; };
-		22F522F11E29481B000C4147 /* libITKIOXML-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKIOXML-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKIOXML-4.11.a"; sourceTree = "<group>"; };
-		22F522F21E29481B000C4147 /* libitkjpeg-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkjpeg-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkjpeg-4.11.a"; sourceTree = "<group>"; };
-		22F522F31E29481B000C4147 /* libITKKLMRegionGrowing-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKKLMRegionGrowing-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKKLMRegionGrowing-4.11.a"; sourceTree = "<group>"; };
-		22F522F41E29481B000C4147 /* libITKLabelMap-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKLabelMap-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKLabelMap-4.11.a"; sourceTree = "<group>"; };
-		22F522F51E29481B000C4147 /* libITKMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKMesh-4.11.a"; sourceTree = "<group>"; };
-		22F522F61E29481B000C4147 /* libITKMetaIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKMetaIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKMetaIO-4.11.a"; sourceTree = "<group>"; };
-		22F522F71E29481B000C4147 /* libitknetlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitknetlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitknetlib-4.11.a"; sourceTree = "<group>"; };
-		22F522F81E29481B000C4147 /* libitkNetlibSlatec-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkNetlibSlatec-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkNetlibSlatec-4.11.a"; sourceTree = "<group>"; };
-		22F522F91E29481B000C4147 /* libITKniftiio-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKniftiio-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKniftiio-4.11.a"; sourceTree = "<group>"; };
-		22F522FA1E29481B000C4147 /* libITKNrrdIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKNrrdIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKNrrdIO-4.11.a"; sourceTree = "<group>"; };
-		22F522FB1E29481B000C4147 /* libITKOptimizers-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizers-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKOptimizers-4.11.a"; sourceTree = "<group>"; };
-		22F522FC1E29481B000C4147 /* libITKOptimizersv4-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKOptimizersv4-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKOptimizersv4-4.11.a"; sourceTree = "<group>"; };
-		22F522FD1E29481B000C4147 /* libITKPath-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPath-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKPath-4.11.a"; sourceTree = "<group>"; };
-		22F522FE1E29481B000C4147 /* libitkpng-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkpng-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkpng-4.11.a"; sourceTree = "<group>"; };
-		22F522FF1E29481B000C4147 /* libITKPolynomials-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKPolynomials-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKPolynomials-4.11.a"; sourceTree = "<group>"; };
-		22F523001E29481B000C4147 /* libITKQuadEdgeMesh-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKQuadEdgeMesh-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKQuadEdgeMesh-4.11.a"; sourceTree = "<group>"; };
-		22F523011E29481B000C4147 /* libITKSpatialObjects-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKSpatialObjects-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKSpatialObjects-4.11.a"; sourceTree = "<group>"; };
-		22F523021E29481B000C4147 /* libITKStatistics-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKStatistics-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKStatistics-4.11.a"; sourceTree = "<group>"; };
-		22F523031E29481B000C4147 /* libitksys-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitksys-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitksys-4.11.a"; sourceTree = "<group>"; };
-		22F523041E29481B000C4147 /* libitktestlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitktestlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitktestlib-4.11.a"; sourceTree = "<group>"; };
-		22F523051E29481B000C4147 /* libitktiff-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitktiff-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitktiff-4.11.a"; sourceTree = "<group>"; };
-		22F523061E29481B000C4147 /* libITKTransform-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKTransform-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKTransform-4.11.a"; sourceTree = "<group>"; };
-		22F523071E29481B000C4147 /* libITKTransformFactory-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKTransformFactory-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKTransformFactory-4.11.a"; sourceTree = "<group>"; };
-		22F523081E29481B000C4147 /* libitkv3p_netlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkv3p_netlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkv3p_netlib-4.11.a"; sourceTree = "<group>"; };
-		22F523091E29481B000C4147 /* libitkvcl-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvcl-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvcl-4.11.a"; sourceTree = "<group>"; };
-		22F5230A1E29481B000C4147 /* libITKVideoCore-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoCore-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVideoCore-4.11.a"; sourceTree = "<group>"; };
-		22F5230B1E29481B000C4147 /* libITKVideoIO-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVideoIO-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVideoIO-4.11.a"; sourceTree = "<group>"; };
-		22F5230C1E29481B000C4147 /* libitkvnl_algo-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl_algo-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvnl_algo-4.11.a"; sourceTree = "<group>"; };
-		22F5230D1E29481B000C4147 /* libitkvnl-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkvnl-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkvnl-4.11.a"; sourceTree = "<group>"; };
-		22F5230E1E29481B000C4147 /* libITKVNLInstantiation-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVNLInstantiation-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVNLInstantiation-4.11.a"; sourceTree = "<group>"; };
-		22F5230F1E29481B000C4147 /* libITKVTK-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKVTK-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKVTK-4.11.a"; sourceTree = "<group>"; };
-		22F523101E29481B000C4147 /* libITKWatersheds-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKWatersheds-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKWatersheds-4.11.a"; sourceTree = "<group>"; };
-		22F523111E29481B000C4147 /* libitkzlib-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libitkzlib-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libitkzlib-4.11.a"; sourceTree = "<group>"; };
-		22F523121E29481B000C4147 /* libITKznz-4.11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libITKznz-4.11.a"; path = "../../usr/local/ITK-4.11/x86_64/Debug/lib/libITKznz-4.11.a"; sourceTree = "<group>"; };
 		22F99D3718E078EE007EAF0A /* ConvertToDicom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToDicom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F99D3A18E078EE007EAF0A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		22F99D3D18E078EE007EAF0A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -328,92 +247,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F523131E29481B000C4147 /* libITKBiasCorrection-4.11.a in Frameworks */,
-				22F523141E29481B000C4147 /* libITKBioCell-4.11.a in Frameworks */,
-				22F523151E29481B000C4147 /* libITKCommon-4.11.a in Frameworks */,
-				22F523161E29481B000C4147 /* libITKDICOMParser-4.11.a in Frameworks */,
-				22F523171E29481B000C4147 /* libitkdouble-conversion-4.11.a in Frameworks */,
-				22F523181E29481B000C4147 /* libITKEXPAT-4.11.a in Frameworks */,
-				22F523191E29481B000C4147 /* libITKFEM-4.11.a in Frameworks */,
-				22F5231A1E29481B000C4147 /* libitkgdcmcharls-4.11.a in Frameworks */,
-				22F5231B1E29481B000C4147 /* libitkgdcmCommon-4.11.a in Frameworks */,
-				22F5231C1E29481B000C4147 /* libitkgdcmDICT-4.11.a in Frameworks */,
-				22F5231D1E29481B000C4147 /* libitkgdcmDSED-4.11.a in Frameworks */,
-				22F5231E1E29481B000C4147 /* libitkgdcmIOD-4.11.a in Frameworks */,
-				22F5231F1E29481B000C4147 /* libitkgdcmjpeg8-4.11.a in Frameworks */,
-				22F523201E29481B000C4147 /* libitkgdcmjpeg12-4.11.a in Frameworks */,
-				22F523211E29481B000C4147 /* libitkgdcmjpeg16-4.11.a in Frameworks */,
-				22F523221E29481B000C4147 /* libitkgdcmMEXD-4.11.a in Frameworks */,
-				22F523231E29481B000C4147 /* libitkgdcmMSFF-4.11.a in Frameworks */,
-				22F523241E29481B000C4147 /* libitkgdcmopenjpeg-4.11.a in Frameworks */,
-				22F523251E29481B000C4147 /* libitkgdcmsocketxx-4.11.a in Frameworks */,
-				22F523261E29481B000C4147 /* libitkgdcmuuid-4.11.a in Frameworks */,
-				22F523271E29481B000C4147 /* libITKgiftiio-4.11.a in Frameworks */,
-				22F523281E29481B000C4147 /* libitkhdf5_cpp_debug.a in Frameworks */,
-				22F523291E29481B000C4147 /* libitkhdf5_debug.a in Frameworks */,
-				22F5232A1E29481B000C4147 /* libITKIOBioRad-4.11.a in Frameworks */,
-				22F5232B1E29481B000C4147 /* libITKIOBMP-4.11.a in Frameworks */,
-				22F5232C1E29481B000C4147 /* libITKIOCSV-4.11.a in Frameworks */,
-				22F5232D1E29481B000C4147 /* libITKIOGDCM-4.11.a in Frameworks */,
-				22F5232E1E29481B000C4147 /* libITKIOGE-4.11.a in Frameworks */,
-				22F5232F1E29481B000C4147 /* libITKIOGIPL-4.11.a in Frameworks */,
-				22F523301E29481B000C4147 /* libITKIOHDF5-4.11.a in Frameworks */,
-				22F523311E29481B000C4147 /* libITKIOImageBase-4.11.a in Frameworks */,
-				22F523321E29481B000C4147 /* libITKIOIPL-4.11.a in Frameworks */,
-				22F523331E29481B000C4147 /* libITKIOJPEG-4.11.a in Frameworks */,
-				22F523341E29481B000C4147 /* libITKIOLSM-4.11.a in Frameworks */,
-				22F523351E29481B000C4147 /* libITKIOMesh-4.11.a in Frameworks */,
-				22F523361E29481B000C4147 /* libITKIOMeta-4.11.a in Frameworks */,
-				22F523371E29481B000C4147 /* libITKIOMRC-4.11.a in Frameworks */,
-				22F523381E29481B000C4147 /* libITKIONIFTI-4.11.a in Frameworks */,
-				22F523391E29481B000C4147 /* libITKIONRRD-4.11.a in Frameworks */,
-				22F5233A1E29481B000C4147 /* libITKIOPNG-4.11.a in Frameworks */,
-				22F5233B1E29481B000C4147 /* libITKIOSiemens-4.11.a in Frameworks */,
-				22F5233C1E29481B000C4147 /* libITKIOSpatialObjects-4.11.a in Frameworks */,
-				22F5233D1E29481B000C4147 /* libITKIOStimulate-4.11.a in Frameworks */,
-				22F5233E1E29481B000C4147 /* libITKIOTIFF-4.11.a in Frameworks */,
-				22F5233F1E29481B000C4147 /* libITKIOTransformBase-4.11.a in Frameworks */,
-				22F523401E29481B000C4147 /* libITKIOTransformHDF5-4.11.a in Frameworks */,
-				22F523411E29481B000C4147 /* libITKIOTransformInsightLegacy-4.11.a in Frameworks */,
-				22F523421E29481B000C4147 /* libITKIOTransformMatlab-4.11.a in Frameworks */,
-				22F523431E29481B000C4147 /* libITKIOVTK-4.11.a in Frameworks */,
-				22F523441E29481B000C4147 /* libITKIOXML-4.11.a in Frameworks */,
-				22F523451E29481B000C4147 /* libitkjpeg-4.11.a in Frameworks */,
-				22F523461E29481B000C4147 /* libITKKLMRegionGrowing-4.11.a in Frameworks */,
-				22F523471E29481B000C4147 /* libITKLabelMap-4.11.a in Frameworks */,
-				22F523481E29481B000C4147 /* libITKMesh-4.11.a in Frameworks */,
-				22F523491E29481B000C4147 /* libITKMetaIO-4.11.a in Frameworks */,
-				22F5234A1E29481B000C4147 /* libitknetlib-4.11.a in Frameworks */,
-				22F5234B1E29481B000C4147 /* libitkNetlibSlatec-4.11.a in Frameworks */,
-				22F5234C1E29481B000C4147 /* libITKniftiio-4.11.a in Frameworks */,
-				22F5234D1E29481B000C4147 /* libITKNrrdIO-4.11.a in Frameworks */,
-				22F5234E1E29481B000C4147 /* libITKOptimizers-4.11.a in Frameworks */,
-				22F5234F1E29481B000C4147 /* libITKOptimizersv4-4.11.a in Frameworks */,
-				22F523501E29481B000C4147 /* libITKPath-4.11.a in Frameworks */,
-				22F523511E29481B000C4147 /* libitkpng-4.11.a in Frameworks */,
-				22F523521E29481B000C4147 /* libITKPolynomials-4.11.a in Frameworks */,
-				22F523531E29481B000C4147 /* libITKQuadEdgeMesh-4.11.a in Frameworks */,
-				22F523541E29481B000C4147 /* libITKSpatialObjects-4.11.a in Frameworks */,
-				22F523551E29481B000C4147 /* libITKStatistics-4.11.a in Frameworks */,
-				22F523561E29481B000C4147 /* libitksys-4.11.a in Frameworks */,
-				22F523571E29481B000C4147 /* libitktestlib-4.11.a in Frameworks */,
-				22F523581E29481B000C4147 /* libitktiff-4.11.a in Frameworks */,
-				22F523591E29481B000C4147 /* libITKTransform-4.11.a in Frameworks */,
-				22F5235A1E29481B000C4147 /* libITKTransformFactory-4.11.a in Frameworks */,
-				22F5235B1E29481B000C4147 /* libitkv3p_netlib-4.11.a in Frameworks */,
-				22F5235C1E29481B000C4147 /* libitkvcl-4.11.a in Frameworks */,
-				22F5235D1E29481B000C4147 /* libITKVideoCore-4.11.a in Frameworks */,
-				22F5235E1E29481B000C4147 /* libITKVideoIO-4.11.a in Frameworks */,
-				22F5235F1E29481B000C4147 /* libitkvnl_algo-4.11.a in Frameworks */,
-				22F523601E29481B000C4147 /* libitkvnl-4.11.a in Frameworks */,
-				22F523611E29481B000C4147 /* libITKVNLInstantiation-4.11.a in Frameworks */,
-				22F523621E29481B000C4147 /* libITKVTK-4.11.a in Frameworks */,
-				22F523631E29481B000C4147 /* libITKWatersheds-4.11.a in Frameworks */,
-				22F523641E29481B000C4147 /* libitkzlib-4.11.a in Frameworks */,
-				22F523651E29481B000C4147 /* libITKznz-4.11.a in Frameworks */,
+				22B399AE1E9D714F005847DF /* libITKIOBMP-4.11.a in Frameworks */,
+				22B399DC1E9D714F005847DF /* libITKTransform-4.11.a in Frameworks */,
+				22B3999D1E9D714F005847DF /* libitkgdcmcharls-4.11.a in Frameworks */,
+				22B397EC1E9D5F7B005847DF /* liblog4cplusS.a in Frameworks */,
+				22B399BA1E9D714F005847DF /* libITKIOMRC-4.11.a in Frameworks */,
+				22B399961E9D714F005847DF /* libITKBiasCorrection-4.11.a in Frameworks */,
+				22B399D61E9D714F005847DF /* libITKQuadEdgeMesh-4.11.a in Frameworks */,
 				22F99D3B18E078EE007EAF0A /* Cocoa.framework in Frameworks */,
-				22CF91121B5D2ECC0049ED66 /* liblog4cplusS.a in Frameworks */,
-				220C8A721E2BE6CD006FAD51 /* libLog4m.a in Frameworks */,
+				22B3999A1E9D714F005847DF /* libitkdouble-conversion-4.11.a in Frameworks */,
+				22B399BD1E9D714F005847DF /* libITKIOPNG-4.11.a in Frameworks */,
+				22B399A11E9D714F005847DF /* libitkgdcmIOD-4.11.a in Frameworks */,
+				22B399DD1E9D714F005847DF /* libITKTransformFactory-4.11.a in Frameworks */,
+				22B399A91E9D714F005847DF /* libitkgdcmuuid-4.11.a in Frameworks */,
+				22B399D41E9D714F005847DF /* libitkpng-4.11.a in Frameworks */,
+				22B399A01E9D714F005847DF /* libitkgdcmDSED-4.11.a in Frameworks */,
+				22B399991E9D714F005847DF /* libITKDICOMParser-4.11.a in Frameworks */,
+				22B397EE1E9D5FE9005847DF /* liblog4m.a in Frameworks */,
+				22B399971E9D714F005847DF /* libITKBioCell-4.11.a in Frameworks */,
+				22B399D01E9D714F005847DF /* libITKNrrdIO-4.11.a in Frameworks */,
+				22B399C31E9D714F005847DF /* libITKIOTransformHDF5-4.11.a in Frameworks */,
+				22B399A51E9D714F005847DF /* libitkgdcmMEXD-4.11.a in Frameworks */,
+				22B399B81E9D714F005847DF /* libITKIOMesh-4.11.a in Frameworks */,
+				22B399C71E9D714F005847DF /* libITKIOXML-4.11.a in Frameworks */,
+				22B399C51E9D714F005847DF /* libITKIOTransformMatlab-4.11.a in Frameworks */,
+				22B399AD1E9D714F005847DF /* libITKIOBioRad-4.11.a in Frameworks */,
+				22B399B51E9D714F005847DF /* libITKIOIPL-4.11.a in Frameworks */,
+				22B3999F1E9D714F005847DF /* libitkgdcmDICT-4.11.a in Frameworks */,
+				22B399D11E9D714F005847DF /* libITKOptimizers-4.11.a in Frameworks */,
+				22B399D21E9D714F005847DF /* libITKOptimizersv4-4.11.a in Frameworks */,
+				22B399B61E9D714F005847DF /* libITKIOJPEG-4.11.a in Frameworks */,
+				22B399E01E9D714F005847DF /* libITKVideoCore-4.11.a in Frameworks */,
+				22B399CF1E9D714F005847DF /* libITKniftiio-4.11.a in Frameworks */,
+				22B399BE1E9D714F005847DF /* libITKIOSiemens-4.11.a in Frameworks */,
+				22B399B91E9D714F005847DF /* libITKIOMeta-4.11.a in Frameworks */,
+				22B399AB1E9D714F005847DF /* libitkhdf5_cpp_debug.a in Frameworks */,
+				22B399C11E9D714F005847DF /* libITKIOTIFF-4.11.a in Frameworks */,
+				22B399B01E9D714F005847DF /* libITKIOGDCM-4.11.a in Frameworks */,
+				22B399C21E9D714F005847DF /* libITKIOTransformBase-4.11.a in Frameworks */,
+				22B3999C1E9D714F005847DF /* libITKFEM-4.11.a in Frameworks */,
+				22B399D51E9D714F005847DF /* libITKPolynomials-4.11.a in Frameworks */,
+				22B399BC1E9D714F005847DF /* libITKIONRRD-4.11.a in Frameworks */,
+				22B399D81E9D714F005847DF /* libITKStatistics-4.11.a in Frameworks */,
+				22B399DF1E9D714F005847DF /* libitkvcl-4.11.a in Frameworks */,
+				22B399A31E9D714F005847DF /* libitkgdcmjpeg12-4.11.a in Frameworks */,
+				22B399E41E9D714F005847DF /* libITKVNLInstantiation-4.11.a in Frameworks */,
+				22B399E11E9D714F005847DF /* libITKVideoIO-4.11.a in Frameworks */,
+				22B399A71E9D714F005847DF /* libitkgdcmopenjpeg-4.11.a in Frameworks */,
+				22B399EC1E9D7223005847DF /* libitkhdf5_debug.a in Frameworks */,
+				22B399DA1E9D714F005847DF /* libitktestlib-4.11.a in Frameworks */,
+				22B399B41E9D714F005847DF /* libITKIOImageBase-4.11.a in Frameworks */,
+				22B399BB1E9D714F005847DF /* libITKIONIFTI-4.11.a in Frameworks */,
+				22B3999B1E9D714F005847DF /* libITKEXPAT-4.11.a in Frameworks */,
+				22B399B21E9D714F005847DF /* libITKIOGIPL-4.11.a in Frameworks */,
+				22B399C01E9D714F005847DF /* libITKIOStimulate-4.11.a in Frameworks */,
+				22B399CD1E9D714F005847DF /* libitknetlib-4.11.a in Frameworks */,
+				22B399D91E9D714F005847DF /* libitksys-4.11.a in Frameworks */,
+				22B399E61E9D714F005847DF /* libITKWatersheds-4.11.a in Frameworks */,
+				22B399A81E9D714F005847DF /* libitkgdcmsocketxx-4.11.a in Frameworks */,
+				22B399C91E9D714F005847DF /* libITKKLMRegionGrowing-4.11.a in Frameworks */,
+				22B399C81E9D714F005847DF /* libitkjpeg-4.11.a in Frameworks */,
+				22B399CA1E9D714F005847DF /* libITKLabelMap-4.11.a in Frameworks */,
+				22B399CC1E9D714F005847DF /* libITKMetaIO-4.11.a in Frameworks */,
+				22B399A61E9D714F005847DF /* libitkgdcmMSFF-4.11.a in Frameworks */,
+				22B399CE1E9D714F005847DF /* libitkNetlibSlatec-4.11.a in Frameworks */,
+				22B399D31E9D714F005847DF /* libITKPath-4.11.a in Frameworks */,
+				22B399BF1E9D714F005847DF /* libITKIOSpatialObjects-4.11.a in Frameworks */,
+				22B399AF1E9D714F005847DF /* libITKIOCSV-4.11.a in Frameworks */,
+				22B399C61E9D714F005847DF /* libITKIOVTK-4.11.a in Frameworks */,
+				22B399CB1E9D714F005847DF /* libITKMesh-4.11.a in Frameworks */,
+				22B399DB1E9D714F005847DF /* libitktiff-4.11.a in Frameworks */,
+				22B3999E1E9D714F005847DF /* libitkgdcmCommon-4.11.a in Frameworks */,
+				22B399B11E9D714F005847DF /* libITKIOGE-4.11.a in Frameworks */,
+				22B399E21E9D714F005847DF /* libitkvnl_algo-4.11.a in Frameworks */,
+				22B399B31E9D714F005847DF /* libITKIOHDF5-4.11.a in Frameworks */,
+				22B399A21E9D714F005847DF /* libitkgdcmjpeg8-4.11.a in Frameworks */,
+				22B399A41E9D714F005847DF /* libitkgdcmjpeg16-4.11.a in Frameworks */,
+				22B399E31E9D714F005847DF /* libitkvnl-4.11.a in Frameworks */,
+				22B399D71E9D714F005847DF /* libITKSpatialObjects-4.11.a in Frameworks */,
+				22B399B71E9D714F005847DF /* libITKIOLSM-4.11.a in Frameworks */,
+				22B399E51E9D714F005847DF /* libITKVTK-4.11.a in Frameworks */,
+				22B399DE1E9D714F005847DF /* libitkv3p_netlib-4.11.a in Frameworks */,
+				22B399C41E9D714F005847DF /* libITKIOTransformInsightLegacy-4.11.a in Frameworks */,
+				22B399AA1E9D714F005847DF /* libITKgiftiio-4.11.a in Frameworks */,
+				22B399981E9D714F005847DF /* libITKCommon-4.11.a in Frameworks */,
+				22B399E71E9D714F005847DF /* libitkzlib-4.11.a in Frameworks */,
+				22B399E81E9D714F005847DF /* libITKznz-4.11.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,90 +369,6 @@
 		22F99D3918E078EE007EAF0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				220C8A711E2BE6CD006FAD51 /* libLog4m.a */,
-				22F522C01E29481B000C4147 /* libITKBiasCorrection-4.11.a */,
-				22F522C11E29481B000C4147 /* libITKBioCell-4.11.a */,
-				22F522C21E29481B000C4147 /* libITKCommon-4.11.a */,
-				22F522C31E29481B000C4147 /* libITKDICOMParser-4.11.a */,
-				22F522C41E29481B000C4147 /* libitkdouble-conversion-4.11.a */,
-				22F522C51E29481B000C4147 /* libITKEXPAT-4.11.a */,
-				22F522C61E29481B000C4147 /* libITKFEM-4.11.a */,
-				22F522C71E29481B000C4147 /* libitkgdcmcharls-4.11.a */,
-				22F522C81E29481B000C4147 /* libitkgdcmCommon-4.11.a */,
-				22F522C91E29481B000C4147 /* libitkgdcmDICT-4.11.a */,
-				22F522CA1E29481B000C4147 /* libitkgdcmDSED-4.11.a */,
-				22F522CB1E29481B000C4147 /* libitkgdcmIOD-4.11.a */,
-				22F522CC1E29481B000C4147 /* libitkgdcmjpeg8-4.11.a */,
-				22F522CD1E29481B000C4147 /* libitkgdcmjpeg12-4.11.a */,
-				22F522CE1E29481B000C4147 /* libitkgdcmjpeg16-4.11.a */,
-				22F522CF1E29481B000C4147 /* libitkgdcmMEXD-4.11.a */,
-				22F522D01E29481B000C4147 /* libitkgdcmMSFF-4.11.a */,
-				22F522D11E29481B000C4147 /* libitkgdcmopenjpeg-4.11.a */,
-				22F522D21E29481B000C4147 /* libitkgdcmsocketxx-4.11.a */,
-				22F522D31E29481B000C4147 /* libitkgdcmuuid-4.11.a */,
-				22F522D41E29481B000C4147 /* libITKgiftiio-4.11.a */,
-				22F522D51E29481B000C4147 /* libitkhdf5_cpp_debug.a */,
-				22F522D61E29481B000C4147 /* libitkhdf5_debug.a */,
-				22F522D71E29481B000C4147 /* libITKIOBioRad-4.11.a */,
-				22F522D81E29481B000C4147 /* libITKIOBMP-4.11.a */,
-				22F522D91E29481B000C4147 /* libITKIOCSV-4.11.a */,
-				22F522DA1E29481B000C4147 /* libITKIOGDCM-4.11.a */,
-				22F522DB1E29481B000C4147 /* libITKIOGE-4.11.a */,
-				22F522DC1E29481B000C4147 /* libITKIOGIPL-4.11.a */,
-				22F522DD1E29481B000C4147 /* libITKIOHDF5-4.11.a */,
-				22F522DE1E29481B000C4147 /* libITKIOImageBase-4.11.a */,
-				22F522DF1E29481B000C4147 /* libITKIOIPL-4.11.a */,
-				22F522E01E29481B000C4147 /* libITKIOJPEG-4.11.a */,
-				22F522E11E29481B000C4147 /* libITKIOLSM-4.11.a */,
-				22F522E21E29481B000C4147 /* libITKIOMesh-4.11.a */,
-				22F522E31E29481B000C4147 /* libITKIOMeta-4.11.a */,
-				22F522E41E29481B000C4147 /* libITKIOMRC-4.11.a */,
-				22F522E51E29481B000C4147 /* libITKIONIFTI-4.11.a */,
-				22F522E61E29481B000C4147 /* libITKIONRRD-4.11.a */,
-				22F522E71E29481B000C4147 /* libITKIOPNG-4.11.a */,
-				22F522E81E29481B000C4147 /* libITKIOSiemens-4.11.a */,
-				22F522E91E29481B000C4147 /* libITKIOSpatialObjects-4.11.a */,
-				22F522EA1E29481B000C4147 /* libITKIOStimulate-4.11.a */,
-				22F522EB1E29481B000C4147 /* libITKIOTIFF-4.11.a */,
-				22F522EC1E29481B000C4147 /* libITKIOTransformBase-4.11.a */,
-				22F522ED1E29481B000C4147 /* libITKIOTransformHDF5-4.11.a */,
-				22F522EE1E29481B000C4147 /* libITKIOTransformInsightLegacy-4.11.a */,
-				22F522EF1E29481B000C4147 /* libITKIOTransformMatlab-4.11.a */,
-				22F522F01E29481B000C4147 /* libITKIOVTK-4.11.a */,
-				22F522F11E29481B000C4147 /* libITKIOXML-4.11.a */,
-				22F522F21E29481B000C4147 /* libitkjpeg-4.11.a */,
-				22F522F31E29481B000C4147 /* libITKKLMRegionGrowing-4.11.a */,
-				22F522F41E29481B000C4147 /* libITKLabelMap-4.11.a */,
-				22F522F51E29481B000C4147 /* libITKMesh-4.11.a */,
-				22F522F61E29481B000C4147 /* libITKMetaIO-4.11.a */,
-				22F522F71E29481B000C4147 /* libitknetlib-4.11.a */,
-				22F522F81E29481B000C4147 /* libitkNetlibSlatec-4.11.a */,
-				22F522F91E29481B000C4147 /* libITKniftiio-4.11.a */,
-				22F522FA1E29481B000C4147 /* libITKNrrdIO-4.11.a */,
-				22F522FB1E29481B000C4147 /* libITKOptimizers-4.11.a */,
-				22F522FC1E29481B000C4147 /* libITKOptimizersv4-4.11.a */,
-				22F522FD1E29481B000C4147 /* libITKPath-4.11.a */,
-				22F522FE1E29481B000C4147 /* libitkpng-4.11.a */,
-				22F522FF1E29481B000C4147 /* libITKPolynomials-4.11.a */,
-				22F523001E29481B000C4147 /* libITKQuadEdgeMesh-4.11.a */,
-				22F523011E29481B000C4147 /* libITKSpatialObjects-4.11.a */,
-				22F523021E29481B000C4147 /* libITKStatistics-4.11.a */,
-				22F523031E29481B000C4147 /* libitksys-4.11.a */,
-				22F523041E29481B000C4147 /* libitktestlib-4.11.a */,
-				22F523051E29481B000C4147 /* libitktiff-4.11.a */,
-				22F523061E29481B000C4147 /* libITKTransform-4.11.a */,
-				22F523071E29481B000C4147 /* libITKTransformFactory-4.11.a */,
-				22F523081E29481B000C4147 /* libitkv3p_netlib-4.11.a */,
-				22F523091E29481B000C4147 /* libitkvcl-4.11.a */,
-				22F5230A1E29481B000C4147 /* libITKVideoCore-4.11.a */,
-				22F5230B1E29481B000C4147 /* libITKVideoIO-4.11.a */,
-				22F5230C1E29481B000C4147 /* libitkvnl_algo-4.11.a */,
-				22F5230D1E29481B000C4147 /* libitkvnl-4.11.a */,
-				22F5230E1E29481B000C4147 /* libITKVNLInstantiation-4.11.a */,
-				22F5230F1E29481B000C4147 /* libITKVTK-4.11.a */,
-				22F523101E29481B000C4147 /* libITKWatersheds-4.11.a */,
-				22F523111E29481B000C4147 /* libitkzlib-4.11.a */,
-				22F523121E29481B000C4147 /* libITKznz-4.11.a */,
 				22F99D3A18E078EE007EAF0A /* Cocoa.framework */,
 				22F99D3C18E078EE007EAF0A /* Other Frameworks */,
 			);
@@ -603,8 +438,91 @@
 		22F99D7218E07A85007EAF0A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				22CF91101B5D2ECC0049ED66 /* liblog4cplusS.a */,
-				22CF91111B5D2ECC0049ED66 /* liblog4m.a */,
+				22B399431E9D714F005847DF /* libITKBiasCorrection-4.11.a */,
+				22B399441E9D714F005847DF /* libITKBioCell-4.11.a */,
+				22B399451E9D714F005847DF /* libITKCommon-4.11.a */,
+				22B399461E9D714F005847DF /* libITKDICOMParser-4.11.a */,
+				22B399471E9D714F005847DF /* libitkdouble-conversion-4.11.a */,
+				22B399481E9D714F005847DF /* libITKEXPAT-4.11.a */,
+				22B399491E9D714F005847DF /* libITKFEM-4.11.a */,
+				22B3994A1E9D714F005847DF /* libitkgdcmcharls-4.11.a */,
+				22B3994B1E9D714F005847DF /* libitkgdcmCommon-4.11.a */,
+				22B3994C1E9D714F005847DF /* libitkgdcmDICT-4.11.a */,
+				22B3994D1E9D714F005847DF /* libitkgdcmDSED-4.11.a */,
+				22B3994E1E9D714F005847DF /* libitkgdcmIOD-4.11.a */,
+				22B3994F1E9D714F005847DF /* libitkgdcmjpeg8-4.11.a */,
+				22B399501E9D714F005847DF /* libitkgdcmjpeg12-4.11.a */,
+				22B399511E9D714F005847DF /* libitkgdcmjpeg16-4.11.a */,
+				22B399521E9D714F005847DF /* libitkgdcmMEXD-4.11.a */,
+				22B399531E9D714F005847DF /* libitkgdcmMSFF-4.11.a */,
+				22B399541E9D714F005847DF /* libitkgdcmopenjpeg-4.11.a */,
+				22B399551E9D714F005847DF /* libitkgdcmsocketxx-4.11.a */,
+				22B399561E9D714F005847DF /* libitkgdcmuuid-4.11.a */,
+				22B399571E9D714F005847DF /* libITKgiftiio-4.11.a */,
+				22B399581E9D714F005847DF /* libitkhdf5_cpp_debug.a */,
+				22B399EB1E9D7223005847DF /* libitkhdf5_debug.a */,
+				22B3995A1E9D714F005847DF /* libITKIOBioRad-4.11.a */,
+				22B3995B1E9D714F005847DF /* libITKIOBMP-4.11.a */,
+				22B3995C1E9D714F005847DF /* libITKIOCSV-4.11.a */,
+				22B3995D1E9D714F005847DF /* libITKIOGDCM-4.11.a */,
+				22B3995E1E9D714F005847DF /* libITKIOGE-4.11.a */,
+				22B3995F1E9D714F005847DF /* libITKIOGIPL-4.11.a */,
+				22B399601E9D714F005847DF /* libITKIOHDF5-4.11.a */,
+				22B399611E9D714F005847DF /* libITKIOImageBase-4.11.a */,
+				22B399621E9D714F005847DF /* libITKIOIPL-4.11.a */,
+				22B399631E9D714F005847DF /* libITKIOJPEG-4.11.a */,
+				22B399641E9D714F005847DF /* libITKIOLSM-4.11.a */,
+				22B399651E9D714F005847DF /* libITKIOMesh-4.11.a */,
+				22B399661E9D714F005847DF /* libITKIOMeta-4.11.a */,
+				22B399671E9D714F005847DF /* libITKIOMRC-4.11.a */,
+				22B399681E9D714F005847DF /* libITKIONIFTI-4.11.a */,
+				22B399691E9D714F005847DF /* libITKIONRRD-4.11.a */,
+				22B3996A1E9D714F005847DF /* libITKIOPNG-4.11.a */,
+				22B3996B1E9D714F005847DF /* libITKIOSiemens-4.11.a */,
+				22B3996C1E9D714F005847DF /* libITKIOSpatialObjects-4.11.a */,
+				22B3996D1E9D714F005847DF /* libITKIOStimulate-4.11.a */,
+				22B3996E1E9D714F005847DF /* libITKIOTIFF-4.11.a */,
+				22B3996F1E9D714F005847DF /* libITKIOTransformBase-4.11.a */,
+				22B399701E9D714F005847DF /* libITKIOTransformHDF5-4.11.a */,
+				22B399711E9D714F005847DF /* libITKIOTransformInsightLegacy-4.11.a */,
+				22B399721E9D714F005847DF /* libITKIOTransformMatlab-4.11.a */,
+				22B399731E9D714F005847DF /* libITKIOVTK-4.11.a */,
+				22B399741E9D714F005847DF /* libITKIOXML-4.11.a */,
+				22B399751E9D714F005847DF /* libitkjpeg-4.11.a */,
+				22B399761E9D714F005847DF /* libITKKLMRegionGrowing-4.11.a */,
+				22B399771E9D714F005847DF /* libITKLabelMap-4.11.a */,
+				22B399781E9D714F005847DF /* libITKMesh-4.11.a */,
+				22B399791E9D714F005847DF /* libITKMetaIO-4.11.a */,
+				22B3997A1E9D714F005847DF /* libitknetlib-4.11.a */,
+				22B3997B1E9D714F005847DF /* libitkNetlibSlatec-4.11.a */,
+				22B3997C1E9D714F005847DF /* libITKniftiio-4.11.a */,
+				22B3997D1E9D714F005847DF /* libITKNrrdIO-4.11.a */,
+				22B3997E1E9D714F005847DF /* libITKOptimizers-4.11.a */,
+				22B3997F1E9D714F005847DF /* libITKOptimizersv4-4.11.a */,
+				22B399801E9D714F005847DF /* libITKPath-4.11.a */,
+				22B399811E9D714F005847DF /* libitkpng-4.11.a */,
+				22B399821E9D714F005847DF /* libITKPolynomials-4.11.a */,
+				22B399831E9D714F005847DF /* libITKQuadEdgeMesh-4.11.a */,
+				22B399841E9D714F005847DF /* libITKSpatialObjects-4.11.a */,
+				22B399851E9D714F005847DF /* libITKStatistics-4.11.a */,
+				22B399861E9D714F005847DF /* libitksys-4.11.a */,
+				22B399871E9D714F005847DF /* libitktestlib-4.11.a */,
+				22B399881E9D714F005847DF /* libitktiff-4.11.a */,
+				22B399891E9D714F005847DF /* libITKTransform-4.11.a */,
+				22B3998A1E9D714F005847DF /* libITKTransformFactory-4.11.a */,
+				22B3998B1E9D714F005847DF /* libitkv3p_netlib-4.11.a */,
+				22B3998C1E9D714F005847DF /* libitkvcl-4.11.a */,
+				22B3998D1E9D714F005847DF /* libITKVideoCore-4.11.a */,
+				22B3998E1E9D714F005847DF /* libITKVideoIO-4.11.a */,
+				22B3998F1E9D714F005847DF /* libitkvnl_algo-4.11.a */,
+				22B399901E9D714F005847DF /* libitkvnl-4.11.a */,
+				22B399911E9D714F005847DF /* libITKVNLInstantiation-4.11.a */,
+				22B399921E9D714F005847DF /* libITKVTK-4.11.a */,
+				22B399931E9D714F005847DF /* libITKWatersheds-4.11.a */,
+				22B399941E9D714F005847DF /* libitkzlib-4.11.a */,
+				22B399951E9D714F005847DF /* libITKznz-4.11.a */,
+				22B397ED1E9D5FE9005847DF /* liblog4m.a */,
+				22B397EB1E9D5F7B005847DF /* liblog4cplusS.a */,
 				22F99D7318E07AA4007EAF0A /* ITK */,
 			);
 			name = Libraries;
@@ -613,86 +531,6 @@
 		22F99D7318E07AA4007EAF0A /* ITK */ = {
 			isa = PBXGroup;
 			children = (
-				223D3EF81B8CDB02009749D3 /* libITKBiasCorrection-4.8.a */,
-				223D3EF91B8CDB02009749D3 /* libITKBioCell-4.8.a */,
-				223D3EFA1B8CDB02009749D3 /* libITKCommon-4.8.a */,
-				223D3EFB1B8CDB02009749D3 /* libITKDICOMParser-4.8.a */,
-				223D3EFC1B8CDB02009749D3 /* libitkdouble-conversion-4.8.a */,
-				223D3EFD1B8CDB02009749D3 /* libITKEXPAT-4.8.a */,
-				223D3EFE1B8CDB02009749D3 /* libITKFEM-4.8.a */,
-				223D3EFF1B8CDB02009749D3 /* libitkgdcmcharls-4.8.a */,
-				223D3F001B8CDB02009749D3 /* libitkgdcmCommon-4.8.a */,
-				223D3F011B8CDB02009749D3 /* libitkgdcmDICT-4.8.a */,
-				223D3F021B8CDB02009749D3 /* libitkgdcmDSED-4.8.a */,
-				223D3F031B8CDB02009749D3 /* libitkgdcmIOD-4.8.a */,
-				223D3F041B8CDB02009749D3 /* libitkgdcmjpeg8-4.8.a */,
-				223D3F051B8CDB02009749D3 /* libitkgdcmjpeg12-4.8.a */,
-				223D3F061B8CDB02009749D3 /* libitkgdcmjpeg16-4.8.a */,
-				223D3F071B8CDB02009749D3 /* libitkgdcmMEXD-4.8.a */,
-				223D3F081B8CDB02009749D3 /* libitkgdcmMSFF-4.8.a */,
-				223D3F091B8CDB02009749D3 /* libitkgdcmopenjpeg-4.8.a */,
-				223D3F0A1B8CDB02009749D3 /* libitkgdcmsocketxx-4.8.a */,
-				223D3F0B1B8CDB02009749D3 /* libitkgdcmuuid-4.8.a */,
-				223D3F0C1B8CDB02009749D3 /* libITKgiftiio-4.8.a */,
-				223D3F0D1B8CDB02009749D3 /* libitkhdf5_cpp-4.8.a */,
-				223D3F0E1B8CDB02009749D3 /* libitkhdf5-4.8.a */,
-				223D3F0F1B8CDB02009749D3 /* libITKIOBioRad-4.8.a */,
-				223D3F101B8CDB02009749D3 /* libITKIOBMP-4.8.a */,
-				223D3F111B8CDB02009749D3 /* libITKIOCSV-4.8.a */,
-				223D3F121B8CDB02009749D3 /* libITKIOGDCM-4.8.a */,
-				223D3F131B8CDB02009749D3 /* libITKIOGE-4.8.a */,
-				223D3F141B8CDB02009749D3 /* libITKIOGIPL-4.8.a */,
-				223D3F151B8CDB02009749D3 /* libITKIOHDF5-4.8.a */,
-				223D3F161B8CDB02009749D3 /* libITKIOImageBase-4.8.a */,
-				223D3F171B8CDB02009749D3 /* libITKIOIPL-4.8.a */,
-				223D3F181B8CDB02009749D3 /* libITKIOJPEG-4.8.a */,
-				223D3F191B8CDB02009749D3 /* libITKIOLSM-4.8.a */,
-				223D3F1A1B8CDB02009749D3 /* libITKIOMesh-4.8.a */,
-				223D3F1B1B8CDB02009749D3 /* libITKIOMeta-4.8.a */,
-				223D3F1C1B8CDB02009749D3 /* libITKIOMRC-4.8.a */,
-				223D3F1D1B8CDB02009749D3 /* libITKIONIFTI-4.8.a */,
-				223D3F1E1B8CDB02009749D3 /* libITKIONRRD-4.8.a */,
-				223D3F1F1B8CDB02009749D3 /* libITKIOPNG-4.8.a */,
-				223D3F201B8CDB02009749D3 /* libITKIOSiemens-4.8.a */,
-				223D3F211B8CDB02009749D3 /* libITKIOSpatialObjects-4.8.a */,
-				223D3F221B8CDB02009749D3 /* libITKIOStimulate-4.8.a */,
-				223D3F231B8CDB02009749D3 /* libITKIOTIFF-4.8.a */,
-				223D3F241B8CDB02009749D3 /* libITKIOTransformBase-4.8.a */,
-				223D3F251B8CDB02009749D3 /* libITKIOTransformHDF5-4.8.a */,
-				223D3F261B8CDB02009749D3 /* libITKIOTransformInsightLegacy-4.8.a */,
-				223D3F271B8CDB02009749D3 /* libITKIOTransformMatlab-4.8.a */,
-				223D3F281B8CDB02009749D3 /* libITKIOVTK-4.8.a */,
-				223D3F291B8CDB02009749D3 /* libITKIOXML-4.8.a */,
-				223D3F2A1B8CDB02009749D3 /* libitkjpeg-4.8.a */,
-				223D3F2B1B8CDB02009749D3 /* libITKKLMRegionGrowing-4.8.a */,
-				223D3F2C1B8CDB02009749D3 /* libITKLabelMap-4.8.a */,
-				223D3F2D1B8CDB02009749D3 /* libITKMesh-4.8.a */,
-				223D3F2E1B8CDB02009749D3 /* libITKMetaIO-4.8.a */,
-				223D3F2F1B8CDB02009749D3 /* libitkNetlibSlatec-4.8.a */,
-				223D3F301B8CDB02009749D3 /* libITKniftiio-4.8.a */,
-				223D3F311B8CDB02009749D3 /* libITKNrrdIO-4.8.a */,
-				223D3F321B8CDB02009749D3 /* libITKOptimizers-4.8.a */,
-				223D3F331B8CDB02009749D3 /* libITKOptimizersv4-4.8.a */,
-				223D3F341B8CDB02009749D3 /* libITKPath-4.8.a */,
-				223D3F351B8CDB02009749D3 /* libitkpng-4.8.a */,
-				223D3F361B8CDB02009749D3 /* libITKPolynomials-4.8.a */,
-				223D3F371B8CDB02009749D3 /* libITKQuadEdgeMesh-4.8.a */,
-				223D3F381B8CDB02009749D3 /* libITKSpatialObjects-4.8.a */,
-				223D3F391B8CDB02009749D3 /* libITKStatistics-4.8.a */,
-				223D3F3A1B8CDB02009749D3 /* libitksys-4.8.a */,
-				223D3F3B1B8CDB02009749D3 /* libitktiff-4.8.a */,
-				223D3F3C1B8CDB02009749D3 /* libitkv3p_lsqr-4.8.a */,
-				223D3F3D1B8CDB02009749D3 /* libitkv3p_netlib-4.8.a */,
-				223D3F3E1B8CDB02009749D3 /* libitkvcl-4.8.a */,
-				223D3F3F1B8CDB02009749D3 /* libITKVideoCore-4.8.a */,
-				223D3F401B8CDB02009749D3 /* libITKVideoIO-4.8.a */,
-				223D3F411B8CDB02009749D3 /* libitkvnl_algo-4.8.a */,
-				223D3F421B8CDB02009749D3 /* libitkvnl-4.8.a */,
-				223D3F431B8CDB02009749D3 /* libITKVNLInstantiation-4.8.a */,
-				223D3F441B8CDB02009749D3 /* libITKVTK-4.8.a */,
-				223D3F451B8CDB02009749D3 /* libITKWatersheds-4.8.a */,
-				223D3F461B8CDB02009749D3 /* libitkzlib-4.8.a */,
-				223D3F471B8CDB02009749D3 /* libITKznz-4.8.a */,
 			);
 			name = ITK;
 			path = ../../usr/local/ITK/Universal/Debug/lib;
@@ -825,7 +663,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -838,12 +678,13 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 0.2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -864,10 +705,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"~/usr/local/ITK-4.11/x86_64/Debug/include/ITK-4.11",
+					"/Users/tim/usr/local/ITK-4.11/x86_64/Debug/include/ITK-4.11",
 					"~/usr/local/include",
 				);
-				LIBRARY_SEARCH_PATHS = "/Users/tim/usr/local/ITK-4.11/x86_64/Debug/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/tim/usr/local/ITK-4.11/x86_64/Debug/lib",
+					/Users/tim/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -879,7 +723,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -892,10 +738,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 0.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -912,10 +758,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"~/usr/local/ITK-4.11/x86_64/Debug/include/ITK-4.11",
+					"/Users/tim/usr/local/ITK-4.11/x86_64/Debug/include/ITK-4.11",
 					"~/usr/local/include",
 				);
-				LIBRARY_SEARCH_PATHS = "/Users/tim/usr/local/ITK-4.11/x86_64/Release/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/tim/usr/local/ITK-4.11/x86_64/Release/lib",
+					/Users/tim/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -929,11 +778,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
-				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -963,11 +813,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
-				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

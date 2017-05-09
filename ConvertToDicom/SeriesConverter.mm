@@ -337,7 +337,7 @@
  * Read in all of the image files in the input directory. Must be called after loadFileNames
  * @return Suitable code in ErrorCode enum.
  */
-- (ErrorCode) readFiles
+- (ErrorCode)readFiles
 {
     LOG4M_TRACE(logger_, @"Enter");
 
