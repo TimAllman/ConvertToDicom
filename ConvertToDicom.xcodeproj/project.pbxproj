@@ -129,7 +129,7 @@
 		221AC2711B8F687600A8A722 /* LoggerUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerUtils.h; sourceTree = "<group>"; };
 		221AC2721B8F687600A8A722 /* LoggerUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoggerUtils.mm; sourceTree = "<group>"; };
 		221AC2731B8F687600A8A722 /* SeriesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesConverter.h; sourceTree = "<group>"; };
-		221AC2741B8F687600A8A722 /* SeriesConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SeriesConverter.mm; sourceTree = "<group>"; };
+		221AC2741B8F687600A8A722 /* SeriesConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = SeriesConverter.mm; sourceTree = "<group>"; };
 		221AC2751B8F687600A8A722 /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
 		221AC2761B8F687600A8A722 /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
 		221AC2771B8F687600A8A722 /* SeriesInfoITK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfoITK.h; sourceTree = "<group>"; };
